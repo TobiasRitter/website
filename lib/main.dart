@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+final ThemeData darkTheme = ThemeData(
+  brightness: Brightness.dark,
+  canvasColor: Colors.black,
+  accentColor: Colors.white,
+);
+final ThemeData lightTheme = ThemeData(
+  accentColor: Colors.black,
+);
+
 void main() {
   runApp(MyApp());
 }
@@ -10,9 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        accentColor: Colors.black,
-      ),
+      darkTheme: darkTheme,
+      theme: lightTheme,
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -61,53 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     Container(
                       height: 64,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(32),
-                          child: TextButton.icon(
-                            label: Text(
-                              "Resume",
-                              style: TextStyle(fontSize: 24),
-                            ),
-                            icon: Icon(
-                              Icons.school,
-                              size: 32,
-                            ),
-                            onPressed: null,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(32),
-                          child: TextButton.icon(
-                            label: Text(
-                              "Projects",
-                              style: TextStyle(fontSize: 24),
-                            ),
-                            icon: Icon(
-                              Icons.code,
-                              size: 32,
-                            ),
-                            onPressed: null,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(32),
-                          child: TextButton.icon(
-                            label: Text(
-                              "Contact",
-                              style: TextStyle(fontSize: 24),
-                            ),
-                            icon: Icon(
-                              Icons.alternate_email,
-                              size: 32,
-                            ),
-                            onPressed: null,
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               ),
@@ -115,9 +76,32 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         Page(
+          dark: true,
           child: Padding(
             padding: const EdgeInsets.all(64),
             child: Scaffold(
+              body: Column(
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.school,
+                        size: 128,
+                      ),
+                      Container(
+                        width: 32,
+                      ),
+                      Text(
+                        "Resume",
+                        style: TextStyle(
+                          fontSize: 96,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
               floatingActionButton: FloatingActionButton.extended(
                 onPressed: null,
                 label: Text("Download"),
@@ -127,13 +111,62 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         Page(
-          child: Container(
-            color: Colors.blue,
+          child: Padding(
+            padding: const EdgeInsets.all(64),
+            child: Scaffold(
+              body: Column(
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.code,
+                        size: 96,
+                      ),
+                      Container(
+                        width: 32,
+                      ),
+                      Text(
+                        "Projects",
+                        style: TextStyle(
+                          fontSize: 96,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
         Page(
-          child: Container(
-            color: Colors.yellow,
+          dark: true,
+          child: Padding(
+            padding: const EdgeInsets.all(64),
+            child: Scaffold(
+              body: Column(
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.alternate_email,
+                        size: 96,
+                      ),
+                      Container(
+                        width: 32,
+                      ),
+                      Text(
+                        "Contact",
+                        style: TextStyle(
+                          fontSize: 96,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ],
@@ -143,18 +176,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class Page extends StatelessWidget {
   final Widget child;
+  final bool dark;
 
   const Page({
     Key? key,
     required this.child,
+    this.dark = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    return Container(
-      height: height,
-      child: child,
+    return Theme(
+      data: dark ? darkTheme : lightTheme,
+      child: Container(
+        height: height,
+        child: Scaffold(
+          body: child,
+        ),
+      ),
     );
   }
 }
