@@ -9,8 +9,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tobias Ritter',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        accentColor: Colors.black,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -29,12 +30,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
         body: ListView(
       children: [
-        Container(
-          height: height,
+        Page(
           child: Row(
             children: [
               Image.asset("res/ProfilePicture.png"),
@@ -49,12 +48,65 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    Container(
+                      height: 64,
+                    ),
                     Text(
-                      "Computer Science Student",
+                      "I am a Computer Science student currently working on my master degree",
                       style: TextStyle(
-                        fontSize: 48,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 28,
+                        fontWeight: FontWeight.w100,
                       ),
+                    ),
+                    Container(
+                      height: 64,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(32),
+                          child: TextButton.icon(
+                            label: Text(
+                              "Resume",
+                              style: TextStyle(fontSize: 24),
+                            ),
+                            icon: Icon(
+                              Icons.school,
+                              size: 32,
+                            ),
+                            onPressed: null,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(32),
+                          child: TextButton.icon(
+                            label: Text(
+                              "Projects",
+                              style: TextStyle(fontSize: 24),
+                            ),
+                            icon: Icon(
+                              Icons.code,
+                              size: 32,
+                            ),
+                            onPressed: null,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(32),
+                          child: TextButton.icon(
+                            label: Text(
+                              "Contact",
+                              style: TextStyle(fontSize: 24),
+                            ),
+                            icon: Icon(
+                              Icons.alternate_email,
+                              size: 32,
+                            ),
+                            onPressed: null,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -62,15 +114,47 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-        Container(
-          height: height,
-          color: Colors.blue,
+        Page(
+          child: Padding(
+            padding: const EdgeInsets.all(64),
+            child: Scaffold(
+              floatingActionButton: FloatingActionButton.extended(
+                onPressed: null,
+                label: Text("Download"),
+                icon: Icon(Icons.download_sharp),
+              ),
+            ),
+          ),
         ),
-        Container(
-          height: height,
-          color: Colors.yellow,
+        Page(
+          child: Container(
+            color: Colors.blue,
+          ),
+        ),
+        Page(
+          child: Container(
+            color: Colors.yellow,
+          ),
         ),
       ],
     ));
+  }
+}
+
+class Page extends StatelessWidget {
+  final Widget child;
+
+  const Page({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    return Container(
+      height: height,
+      child: child,
+    );
   }
 }
