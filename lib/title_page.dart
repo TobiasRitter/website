@@ -1,10 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:website/page.dart' as p;
 
-class TitlePage extends StatelessWidget {
+class TitlePage extends StatefulWidget {
   const TitlePage({
     Key? key,
   }) : super(key: key);
+
+  @override
+  _TitlePageState createState() => _TitlePageState();
+}
+
+class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
+  late AnimationController controller;
+
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 1),
+      lowerBound: 0,
+      upperBound: 64,
+    );
+
+    controller.addListener(() {
+      setState(() {});
+    });
+
+    controller.repeat(reverse: true);
+  }
+
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +50,9 @@ class TitlePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Container(
+                    height: 192,
+                  ),
                   Text(
                     "Tobias Ritter",
                     style: TextStyle(
@@ -116,6 +147,23 @@ class TitlePage extends StatelessWidget {
                   ),
                   Container(
                     height: 64,
+                  ),
+                  Container(
+                    height: 192,
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: controller.value),
+                          child: Opacity(
+                            opacity: 0.15,
+                            child: Icon(
+                              Icons.keyboard_arrow_down_rounded,
+                              size: 128,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
