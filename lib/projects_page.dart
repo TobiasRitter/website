@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/page.dart' as p;
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({
@@ -8,7 +7,9 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return p.Page(
+    var screenHeight = MediaQuery.of(context).size.height;
+    return Container(
+      constraints: BoxConstraints(minHeight: screenHeight),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(32, 64, 32, 0),
         child: Column(
@@ -37,24 +38,21 @@ class ProjectsPage extends StatelessWidget {
             Container(
               height: 32,
             ),
-            Expanded(
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  ProjectSection(
-                    image: 'res/RGBLed.png',
-                  ),
-                  ProjectSection(
-                    image: 'res/Cardgame.png',
-                  ),
-                  ProjectSection(
-                    image: 'res/CleverConvert.png',
-                  ),
-                  ProjectSection(
-                    image: 'res/ClojureAlgos.png',
-                  ),
-                ],
-              ),
+            Wrap(
+              children: [
+                ProjectSection(
+                  image: 'res/RGBLed.png',
+                ),
+                ProjectSection(
+                  image: 'res/Cardgame.png',
+                ),
+                ProjectSection(
+                  image: 'res/CleverConvert.png',
+                ),
+                ProjectSection(
+                  image: 'res/ClojureAlgos.png',
+                ),
+              ],
             ),
           ],
         ),
@@ -77,7 +75,7 @@ class ProjectSection extends StatelessWidget {
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
       width: (screenWidth - 64) / 2,
-      height: screenHeight / 2,
+      height: screenHeight / 1.5,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(32, 32, 32, 64),
         child: Material(
