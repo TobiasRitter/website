@@ -45,9 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         body: ListView(
       children: [
-        ProjectsPage(),
         TitlePage(),
         ResumePage(),
+        ProjectsPage(),
         ContactPage(),
       ],
     ));
