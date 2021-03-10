@@ -33,77 +33,90 @@ class ResumePage extends StatelessWidget {
                   ),
                 ],
               ),
-              Container(
-                height: 64,
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(64),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Education",
+                                  style: TextStyle(
+                                    fontSize: 42,
+                                  ),
+                                ),
+                                Container(
+                                  height: 64,
+                                ),
+                                ResumeSection(
+                                  title: "M. Sc. Informatics",
+                                  date: "2020-2023",
+                                  location: "Munich",
+                                  institution: "Technical University of Munich",
+                                  description:
+                                      "Master studies in Computer Science with a focus on the area \"Machine Learning and Analytics\"",
+                                ),
+                                ResumeSection(
+                                  title: "B. Sc. Computer Science",
+                                  date: "2017-2020",
+                                  location: "Stuttgart",
+                                  institution: "DHBW Stuttgart",
+                                  description:
+                                      "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG",
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(64),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Work experience",
+                                  style: TextStyle(
+                                    fontSize: 42,
+                                  ),
+                                ),
+                                Container(
+                                  height: 64,
+                                ),
+                                ResumeSection(
+                                  title: "Coorporate Student",
+                                  date: "2017-2020",
+                                  location: "Ditzingen",
+                                  institution: "TRUMPF GmbH + Co. KG",
+                                  description:
+                                      "18 months of internships in various software development departments.",
+                                ),
+                                ResumeSection(
+                                  title: "Summer Intern",
+                                  date: "05/2019-08/2019",
+                                  location: "Farmington, CT, USA",
+                                  institution: "TRUMPF Inc.",
+                                  description:
+                                      "4 month internship at TRUMPF North America within the software development department.",
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Education",
-                          style: TextStyle(
-                            fontSize: 42,
-                          ),
-                        ),
-                        Container(
-                          height: 64,
-                        ),
-                        ResumeSection(
-                          title: "M. Sc. Informatics",
-                          date: "2020-2023",
-                          location: "Munich",
-                          institution: "Technical University of Munich",
-                          description:
-                              "Master studies in Computer Science with a focus on the area \"Machine Learning and Analytics\"",
-                        ),
-                        ResumeSection(
-                          title: "B. Sc. Computer Science",
-                          date: "2017-2020",
-                          location: "Stuttgart",
-                          institution: "DHBW Stuttgart",
-                          description:
-                              "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG",
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Work experience",
-                          style: TextStyle(
-                            fontSize: 42,
-                          ),
-                        ),
-                        Container(
-                          height: 64,
-                        ),
-                        ResumeSection(
-                          title: "Coorporate Student",
-                          date: "2017-2020",
-                          location: "Ditzingen",
-                          institution: "TRUMPF GmbH + Co. KG",
-                          description:
-                              "18 months of internships in various software development departments.",
-                        ),
-                        ResumeSection(
-                          title: "Summer Intern",
-                          date: "05/2019-08/2019",
-                          location: "Farmington, CT, USA",
-                          institution: "TRUMPF Inc.",
-                          description:
-                              "4 month internship at TRUMPF North America within the software development department.",
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              Container(
+                height: 128,
               ),
             ],
           ),
@@ -170,16 +183,25 @@ class _ResumeSectionState extends State<ResumeSection> {
           ),
           expandedCrossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Icon(Icons.location_pin),
-                Text(
-                  widget.location,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  Icon(Icons.location_pin),
+                  Container(
+                    width: 28,
+                  ),
+                  Text(
+                    widget.location,
+                  ),
+                ],
+              ),
             ),
-            Text(
-              widget.description,
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                widget.description,
+              ),
             ),
           ],
         ),
