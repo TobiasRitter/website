@@ -18,9 +18,7 @@ class Page extends StatelessWidget {
       data: dark ? darkTheme : lightTheme,
       child: Container(
         height: height,
-        child: Scaffold(
-          body: child,
-        ),
+        child: child,
       ),
     );
   }
