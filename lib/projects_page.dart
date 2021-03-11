@@ -128,7 +128,7 @@ class _ProjectSectionState extends State<ProjectSection> {
                       ),
                       IconButton(
                         iconSize: 64,
-                        icon: Icon(expanded ? Icons.close : Icons.info_outline),
+                        icon: Icon(Icons.info_outline),
                         onPressed: () => setState(() => expanded = !expanded),
                       ),
                     ],
