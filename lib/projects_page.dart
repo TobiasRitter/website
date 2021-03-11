@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:website/flipper.dart';
 import 'package:website/main.dart';
 
 class ProjectsPage extends StatelessWidget {
@@ -42,16 +45,24 @@ class ProjectsPage extends StatelessWidget {
             crossAxisCount: 2,
             children: [
               ProjectSection(
+                title: 'RGB LED',
                 image: 'res/RGBLed.png',
               ),
               ProjectSection(
+                title: 'Cardgame',
                 image: 'res/Cardgame.png',
               ),
               ProjectSection(
+                title: 'CleverConvert',
                 image: 'res/CleverConvert.png',
                 dark: false,
               ),
               ProjectSection(
+                title: 'Data Mining Algorithms',
+                image: 'res/ClojureAlgos.png',
+              ),
+              ProjectSection(
+                title: 'PyNN',
                 image: 'res/ClojureAlgos.png',
               ),
             ],
@@ -67,10 +78,12 @@ class ProjectsPage extends StatelessWidget {
 
 class ProjectSection extends StatefulWidget {
   final String image;
+  final String title;
   final bool dark;
 
   const ProjectSection({
     Key? key,
+    required this.title,
     required this.image,
     this.dark = true,
   }) : super(key: key);
@@ -86,98 +99,104 @@ class _ProjectSectionState extends State<ProjectSection> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(32),
-      child: Material(
-        elevation: 32,
-        child: Theme(
-          data: widget.dark ? darkTheme : lightTheme,
-          child: Scaffold(
-            body: AnimatedSwitcher(
-              duration: Duration(milliseconds: 500),
-              child: expanded
-                  ? Padding(
-                      padding: const EdgeInsets.all(64),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 80,
-                              ),
-                              Text(
-                                "Title",
-                                style: TextStyle(
-                                  fontSize: 64,
-                                ),
-                              ),
-                              IconButton(
-                                  iconSize: 64,
-                                  icon: Icon(Icons.close),
-                                  onPressed: () =>
-                                      setState(() => expanded = false))
-                            ],
-                          ),
-                          Text(
-                            "Description",
-                            style: textStyle1,
-                          ),
-                          FloatingActionButton.extended(
-                            onPressed: null,
-                            label: Text("Show on GitHub"),
-                            icon: Icon(Icons.open_in_browser),
-                          )
-                        ],
-                      ),
-                    )
-                  : Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(
-                            widget.image,
+      child: Theme(
+        data: widget.dark ? darkTheme : lightTheme,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Flipper(
+            backWidget: Material(
+              elevation: 32,
+              child: Padding(
+                padding: const EdgeInsets.all(64),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 80,
+                        ),
+                        Expanded(
+                          child: Text(
+                            widget.title,
+                            textAlign: TextAlign.center,
+                            softWrap: true,
+                            style: TextStyle(
+                              fontSize: 64,
+                            ),
                           ),
                         ),
-                      ),
-                      child: Stack(
-                        children: [
-                          Opacity(
-                            opacity: 0.5,
-                            child: Container(
-                              color: widget.dark
-                                  ? darkTheme.canvasColor
-                                  : lightTheme.canvasColor,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(64),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Title",
-                                    style: TextStyle(
-                                      fontSize: 64,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 32,
-                                  ),
-                                  FloatingActionButton.extended(
-                                    onPressed: () =>
-                                        setState(() => expanded = true),
-                                    icon: Icon(Icons.info_outline),
-                                    label: Text("Learn more"),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                        IconButton(
+                            iconSize: 64,
+                            icon: Icon(Icons.close),
+                            onPressed: () => setState(() => expanded = false))
+                      ],
+                    ),
+                    Text(
+                      "Description",
+                      style: textStyle1,
+                    ),
+                    FloatingActionButton.extended(
+                      onPressed: null,
+                      label: Text("Show on GitHub"),
+                      icon: Icon(Icons.open_in_browser),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            frontWidget: Material(
+              elevation: 32,
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                      widget.image,
+                    ),
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    Opacity(
+                      opacity: 0.5,
+                      child: Container(
+                        color: widget.dark
+                            ? darkTheme.canvasColor
+                            : lightTheme.canvasColor,
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.all(64),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              widget.title,
+                              textAlign: TextAlign.center,
+                              softWrap: true,
+                              style: TextStyle(
+                                fontSize: 64,
+                              ),
+                            ),
+                            Container(
+                              height: 32,
+                            ),
+                            FloatingActionButton.extended(
+                              onPressed: () => setState(() => expanded = true),
+                              icon: Icon(Icons.info_outline),
+                              label: Text("Tap to learn more"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
