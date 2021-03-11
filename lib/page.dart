@@ -13,11 +13,11 @@ class Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Theme(
       data: dark ? darkTheme : lightTheme,
       child: Container(
-        height: height,
+        height: screenHeight,
         child: Scaffold(body: child),
       ),
     );

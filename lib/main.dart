@@ -43,13 +43,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView(
-      children: [
-        // TitlePage(),
-        // ResumePage(),
-        ProjectsPage(),
-        // ContactPage(),
-      ],
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          // TitlePage(),
+          ProjectsPage(),
+          ResumePage(),
+          ContactPage(),
+        ],
+      ),
     ));
   }
 }

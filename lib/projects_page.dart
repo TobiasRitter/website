@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:website/main.dart';
-import 'package:website/page.dart' as p;
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({
@@ -9,61 +8,57 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height;
-    return p.Page(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(32, 64, 32, 0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.code,
-                    size: 96,
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(32, 64, 32, 0),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.code,
+                  size: 96,
+                ),
+                Container(
+                  width: 32,
+                ),
+                Text(
+                  "Projects",
+                  style: TextStyle(
+                    fontSize: 96,
+                    fontWeight: FontWeight.bold,
                   ),
-                  Container(
-                    width: 32,
-                  ),
-                  Text(
-                    "Projects",
-                    style: TextStyle(
-                      fontSize: 96,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 32,
+          ),
+          GridView.count(
+            shrinkWrap: true,
+            childAspectRatio: 1.5,
+            mainAxisSpacing: 32,
+            crossAxisSpacing: 32,
+            crossAxisCount: 2,
+            children: [
+              ProjectSection(
+                image: 'res/RGBLed.png',
               ),
-            ),
-            Container(
-              height: 32,
-            ),
-            Expanded(
-              child: GridView.count(
-                childAspectRatio: 1.5,
-                mainAxisSpacing: 32,
-                crossAxisSpacing: 32,
-                crossAxisCount: 2,
-                children: [
-                  ProjectSection(
-                    image: 'res/RGBLed.png',
-                  ),
-                  ProjectSection(
-                    image: 'res/Cardgame.png',
-                  ),
-                  ProjectSection(
-                    image: 'res/CleverConvert.png',
-                    dark: false,
-                  ),
-                  ProjectSection(
-                    image: 'res/ClojureAlgos.png',
-                  ),
-                ],
+              ProjectSection(
+                image: 'res/Cardgame.png',
               ),
-            ),
-          ],
-        ),
+              ProjectSection(
+                image: 'res/CleverConvert.png',
+                dark: false,
+              ),
+              ProjectSection(
+                image: 'res/ClojureAlgos.png',
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
