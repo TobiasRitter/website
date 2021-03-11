@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 
 class TitlePage extends StatefulWidget {
@@ -36,10 +37,6 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    var textStyle1 = TextStyle(
-      fontSize: 24,
-      fontWeight: FontWeight.w100,
-    );
     return p.Page(
       child: Row(
         children: [

@@ -39,8 +39,6 @@ class ProjectsPage extends StatelessWidget {
           GridView.count(
             shrinkWrap: true,
             childAspectRatio: 1.5,
-            mainAxisSpacing: 32,
-            crossAxisSpacing: 32,
             crossAxisCount: 2,
             children: [
               ProjectSection(
@@ -57,6 +55,9 @@ class ProjectsPage extends StatelessWidget {
                 image: 'res/ClojureAlgos.png',
               ),
             ],
+          ),
+          Container(
+            height: 32,
           ),
         ],
       ),
@@ -83,53 +84,100 @@ class _ProjectSectionState extends State<ProjectSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 32,
-      child: Theme(
-        data: widget.dark ? darkTheme : lightTheme,
-        child: Scaffold(
-          body: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(
-                  widget.image,
-                ),
-              ),
-            ),
-            child: Stack(
-              children: [
-                Opacity(
-                  opacity: 0.5,
-                  child: Container(
-                    color: widget.dark
-                        ? darkTheme.canvasColor
-                        : lightTheme.canvasColor,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(64),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: 64,
+    return Padding(
+      padding: const EdgeInsets.all(32),
+      child: Material(
+        elevation: 32,
+        child: Theme(
+          data: widget.dark ? darkTheme : lightTheme,
+          child: Scaffold(
+            body: AnimatedSwitcher(
+              duration: Duration(milliseconds: 500),
+              child: expanded
+                  ? Padding(
+                      padding: const EdgeInsets.all(64),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 80,
+                              ),
+                              Text(
+                                "Title",
+                                style: TextStyle(
+                                  fontSize: 64,
+                                ),
+                              ),
+                              IconButton(
+                                  iconSize: 64,
+                                  icon: Icon(Icons.close),
+                                  onPressed: () =>
+                                      setState(() => expanded = false))
+                            ],
+                          ),
+                          Text(
+                            "Description",
+                            style: textStyle1,
+                          ),
+                          FloatingActionButton.extended(
+                            onPressed: null,
+                            label: Text("Show on GitHub"),
+                            icon: Icon(Icons.open_in_browser),
+                          )
+                        ],
                       ),
-                      Text(
-                        "Title",
-                        style: TextStyle(
-                          fontSize: 64,
+                    )
+                  : Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                            widget.image,
+                          ),
                         ),
                       ),
-                      IconButton(
-                        iconSize: 64,
-                        icon: Icon(Icons.info_outline),
-                        onPressed: () => setState(() => expanded = !expanded),
+                      child: Stack(
+                        children: [
+                          Opacity(
+                            opacity: 0.5,
+                            child: Container(
+                              color: widget.dark
+                                  ? darkTheme.canvasColor
+                                  : lightTheme.canvasColor,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(64),
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Title",
+                                    style: TextStyle(
+                                      fontSize: 64,
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 32,
+                                  ),
+                                  FloatingActionButton.extended(
+                                    onPressed: () =>
+                                        setState(() => expanded = true),
+                                    icon: Icon(Icons.info_outline),
+                                    label: Text("Learn more"),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-              ],
+                    ),
             ),
           ),
         ),

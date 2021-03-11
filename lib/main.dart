@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:website/contact_page.dart';
 import 'package:website/projects_page.dart';
 import 'package:website/resume_page.dart';
-import 'package:website/title_page.dart';
 
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
@@ -11,6 +10,11 @@ final ThemeData darkTheme = ThemeData(
 );
 final ThemeData lightTheme = ThemeData(
   accentColor: Colors.black,
+);
+
+final textStyle1 = TextStyle(
+  fontSize: 24,
+  fontWeight: FontWeight.w100,
 );
 
 void main() {
