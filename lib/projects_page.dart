@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:website/flipper.dart';
 import 'package:website/main.dart';
@@ -11,6 +9,7 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.fromLTRB(32, 64, 32, 0),
       child: Column(
@@ -42,7 +41,7 @@ class ProjectsPage extends StatelessWidget {
           GridView.count(
             shrinkWrap: true,
             childAspectRatio: 1.5,
-            crossAxisCount: 2,
+            crossAxisCount: screenWidth > 800 ? 2 : 1,
             children: [
               ProjectSection(
                 title: 'RGB LED',

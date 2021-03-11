@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:website/contact_page.dart';
 import 'package:website/projects_page.dart';
 import 'package:website/resume_page.dart';
+import 'package:website/title_page.dart';
 
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
@@ -51,9 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Column(
         children: [
           // TitlePage(),
-          ProjectsPage(),
           ResumePage(),
-          ContactPage(),
+          ProjectsPage(),
+          // ContactPage(),
         ],
       ),
     ));
