@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 
 class ContactPage extends StatelessWidget {
@@ -51,7 +50,7 @@ class ContactPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Let's get in contact:",
+                              "Want to know more about me?",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 48,
@@ -92,7 +91,7 @@ class ContactPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Or take a look at my code:",
+                              "Interested in some actual code?",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 48,
