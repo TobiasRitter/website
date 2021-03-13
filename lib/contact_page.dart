@@ -12,6 +12,7 @@ class ContactPage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     return p.Page(
       dark: true,
+      coverScreenHeight: false,
       builder: Builder(
         builder: (context) {
           return Padding(
@@ -42,19 +43,19 @@ class ContactPage extends StatelessWidget {
                     Wrap(
                       children: [
                         Container(
-                          width: screenWidth > 800
+                          width: screenWidth > SWIDTH
                               ? (screenWidth - 128) / 2
                               : screenWidth - 128,
-                          child: Column(
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Want to know more about me?",
+                                "Let's get to know each other:",
                                 textAlign: TextAlign.center,
                                 style: getText1Style(context),
                               ),
                               Container(
-                                height: 64,
+                                width: 64,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -74,26 +75,23 @@ class ContactPage extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              Container(
-                                height: 64,
-                              ),
                             ],
                           ),
                         ),
                         Container(
-                          width: screenWidth > 800
+                          width: screenWidth > SWIDTH
                               ? (screenWidth - 128) / 2
                               : screenWidth - 128,
-                          child: Column(
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Interested in some actual code?",
+                                "Take a look at my code here:",
                                 textAlign: TextAlign.center,
                                 style: getText1Style(context),
                               ),
                               Container(
-                                height: 64,
+                                width: 64,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -110,9 +108,6 @@ class ContactPage extends StatelessWidget {
                                     label: Text("Docker Hub"),
                                   ),
                                 ],
-                              ),
-                              Container(
-                                height: 64,
                               ),
                             ],
                           ),

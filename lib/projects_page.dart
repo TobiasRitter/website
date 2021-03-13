@@ -13,6 +13,7 @@ class ProjectsPage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     return p.Page(
       dark: false,
+      coverScreenHeight: true,
       builder: Builder(
         builder: (context) {
           return Padding(
@@ -43,7 +44,7 @@ class ProjectsPage extends StatelessWidget {
                 GridView.count(
                   shrinkWrap: true,
                   childAspectRatio: 1.5,
-                  crossAxisCount: screenWidth > 800 ? 2 : 1,
+                  crossAxisCount: screenWidth > SWIDTH ? 2 : 1,
                   children: [
                     ProjectSection(
                       title: 'RGB LED',

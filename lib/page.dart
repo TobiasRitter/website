@@ -10,7 +10,7 @@ class Page extends StatelessWidget {
     Key? key,
     required this.builder,
     required this.dark,
-    this.coverScreenHeight = false,
+    required this.coverScreenHeight,
   }) : super(key: key);
 
   @override

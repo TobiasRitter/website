@@ -12,6 +12,7 @@ class ResumePage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     return p.Page(
       dark: true,
+      coverScreenHeight: true,
       builder: Builder(
         builder: (context) {
           return Padding(
@@ -37,7 +38,7 @@ class ResumePage extends StatelessWidget {
                 Wrap(
                   children: [
                     Container(
-                      width: screenWidth > 800
+                      width: screenWidth > SWIDTH
                           ? (screenWidth - 128) / 2
                           : screenWidth - 128,
                       child: Padding(
@@ -73,7 +74,7 @@ class ResumePage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      width: screenWidth > 800
+                      width: screenWidth > SWIDTH
                           ? (screenWidth - 128) / 2
                           : screenWidth - 128,
                       child: Padding(

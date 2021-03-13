@@ -38,18 +38,27 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
     return p.Page(
       dark: false,
+      coverScreenHeight: true,
       builder: Builder(
         builder: (context) {
-          return Wrap(
+          return GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: screenWidth > SWIDTH ? 2 : 1,
             children: [
               Container(
-                width: screenWidth > 800 ? screenWidth / 3 : screenWidth,
-                child: Image.asset("res/ProfilePicture.png"),
+                // width: screenWidth > SWIDTH ? screenWidth / 3 : screenWidth,
+                child: Image.asset(
+                  "res/ProfilePicture.png",
+                  height: screenWidth > SWIDTH ? screenHeight : null,
+                  fit: BoxFit.fitHeight,
+                  alignment: Alignment.centerLeft,
+                ),
               ),
               Container(
-                width: screenWidth > 800 ? screenWidth * 2 / 3 : screenWidth,
+                // width: screenWidth > SWIDTH ? screenWidth * 2 / 3 : screenWidth,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 64),
                   child: Column(
@@ -66,17 +75,16 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                         height: 64,
                       ),
                       Container(
-                        width: 840,
                         child: Text(
                           "I am a Computer Science student currently working on a master's degree and especially interested in Data Analytics and Machine Learning.",
                           style: getSubtitle1Style(context),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                       Container(
                         height: 64,
                       ),
                       Container(
-                        width: 840,
                         child: Wrap(
                           spacing: 8,
                           runSpacing: 4,
@@ -95,7 +103,10 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                                   ),
                                   child: TextButton.icon(
                                     onPressed: null,
-                                    icon: Icon(Icons.school),
+                                    icon: Icon(
+                                      Icons.school,
+                                      size: getButton1size(context),
+                                    ),
                                     label: Text(
                                       "resume",
                                       style: getButton1Style(context),
@@ -118,7 +129,10 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                                   ),
                                   child: TextButton.icon(
                                     onPressed: null,
-                                    icon: Icon(Icons.code),
+                                    icon: Icon(
+                                      Icons.code,
+                                      size: getButton1size(context),
+                                    ),
                                     label: Text(
                                       "projects",
                                       style: getButton1Style(context),
@@ -142,7 +156,10 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                                   ),
                                   child: TextButton.icon(
                                     onPressed: null,
-                                    icon: Icon(Icons.alternate_email),
+                                    icon: Icon(
+                                      Icons.alternate_email,
+                                      size: getButton1size(context),
+                                    ),
                                     label: Text(
                                       "contact",
                                       style: getButton1Style(context),

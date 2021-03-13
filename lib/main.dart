@@ -13,6 +13,8 @@ final ThemeData lightTheme = ThemeData(
   accentColor: Colors.black,
 );
 
+const SWIDTH = 1080;
+
 TextStyle getTitle1Style(BuildContext context) {
   return TextStyle(
     fontSize: getTitle1size(context),
@@ -70,7 +72,7 @@ TextStyle getButton1Style(BuildContext context) {
 
 double getTitle1size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > 800) {
+  if (screenWidth > SWIDTH) {
     return 156;
   } else {
     return 78;
@@ -79,7 +81,7 @@ double getTitle1size(BuildContext context) {
 
 double getSubtitle1size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > 800) {
+  if (screenWidth > SWIDTH) {
     return 32;
   } else {
     return 16;
@@ -88,7 +90,7 @@ double getSubtitle1size(BuildContext context) {
 
 double getH1size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > 800) {
+  if (screenWidth > SWIDTH) {
     return 96;
   } else {
     return 32;
@@ -97,7 +99,7 @@ double getH1size(BuildContext context) {
 
 double getH2size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > 800) {
+  if (screenWidth > SWIDTH) {
     return 48;
   } else {
     return 24;
@@ -106,7 +108,7 @@ double getH2size(BuildContext context) {
 
 double getText1size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > 800) {
+  if (screenWidth > SWIDTH) {
     return 24;
   } else {
     return 12;
@@ -115,7 +117,7 @@ double getText1size(BuildContext context) {
 
 double getText2size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > 800) {
+  if (screenWidth > SWIDTH) {
     return 20;
   } else {
     return 10;
@@ -124,7 +126,7 @@ double getText2size(BuildContext context) {
 
 double getButton1size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > 800) {
+  if (screenWidth > SWIDTH) {
     return 24;
   } else {
     return 12;
