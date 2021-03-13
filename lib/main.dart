@@ -75,7 +75,7 @@ double getTitle1size(BuildContext context) {
   if (screenWidth > SWIDTH) {
     return 156;
   } else {
-    return 78;
+    return 52;
   }
 }
 
@@ -85,6 +85,15 @@ double getSubtitle1size(BuildContext context) {
     return 32;
   } else {
     return 16;
+  }
+}
+
+double getArrow1size(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 128;
+  } else {
+    return 64;
   }
 }
 
@@ -133,6 +142,15 @@ double getButton1size(BuildContext context) {
   }
 }
 
+double getMargin1size(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 64;
+  } else {
+    return 32;
+  }
+}
+
 void main() {
   runApp(MyApp());
 }
@@ -140,6 +158,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage("res/ProfilePicture.png"), context);
     return MaterialApp(
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,

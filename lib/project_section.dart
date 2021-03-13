@@ -68,114 +68,111 @@ class _ProjectSectionState extends State<ProjectSection>
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(32),
-      child: Theme(
-        data: widget.dark ? darkTheme : lightTheme,
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: Stack(
-            fit: StackFit.expand,
-            children: [
-              AnimatedCard(
-                animation: _backRotation,
-                child: Material(
-                  elevation: 32,
-                  child: Padding(
-                    padding: const EdgeInsets.all(64),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 80,
+    return Theme(
+      data: widget.dark ? darkTheme : lightTheme,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            AnimatedCard(
+              animation: _backRotation,
+              child: Material(
+                elevation: 32,
+                child: Padding(
+                  padding: const EdgeInsets.all(64),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 80,
+                          ),
+                          Expanded(
+                            child: Text(
+                              widget.title,
+                              textAlign: TextAlign.center,
+                              softWrap: true,
+                              style: getH2Style(context),
                             ),
-                            Expanded(
-                              child: Text(
+                          ),
+                          IconButton(
+                            iconSize: getH2size(context),
+                            icon: Icon(Icons.close),
+                            onPressed: _toggleSide,
+                          ),
+                        ],
+                      ),
+                      Text(
+                        "Description",
+                        style: getText1Style(context),
+                      ),
+                      FloatingActionButton.extended(
+                        onPressed: null,
+                        label: Text("Show on GitHub"),
+                        icon: Icon(Icons.open_in_browser),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            AnimatedCard(
+              animation: _frontRotation,
+              child: Material(
+                elevation: 32,
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        widget.image,
+                      ),
+                    ),
+                  ),
+                  child: Stack(
+                    children: [
+                      Opacity(
+                        opacity: 0.5,
+                        child: Container(
+                          color: widget.dark
+                              ? darkTheme.canvasColor
+                              : lightTheme.canvasColor,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(64),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
                                 widget.title,
                                 textAlign: TextAlign.center,
                                 softWrap: true,
                                 style: getH2Style(context),
                               ),
-                            ),
-                            IconButton(
-                              iconSize: getH2size(context),
-                              icon: Icon(Icons.close),
-                              onPressed: _toggleSide,
-                            ),
-                          ],
-                        ),
-                        Text(
-                          "Description",
-                          style: getText1Style(context),
-                        ),
-                        FloatingActionButton.extended(
-                          onPressed: null,
-                          label: Text("Show on GitHub"),
-                          icon: Icon(Icons.open_in_browser),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              AnimatedCard(
-                animation: _frontRotation,
-                child: Material(
-                  elevation: 32,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage(
-                          widget.image,
+                              Container(
+                                height: 32,
+                              ),
+                              FloatingActionButton.extended(
+                                onPressed: _toggleSide,
+                                icon: Icon(Icons.info_outline),
+                                label: Text("Learn more"),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    child: Stack(
-                      children: [
-                        Opacity(
-                          opacity: 0.5,
-                          child: Container(
-                            color: widget.dark
-                                ? darkTheme.canvasColor
-                                : lightTheme.canvasColor,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(64),
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  widget.title,
-                                  textAlign: TextAlign.center,
-                                  softWrap: true,
-                                  style: getH2Style(context),
-                                ),
-                                Container(
-                                  height: 32,
-                                ),
-                                FloatingActionButton.extended(
-                                  onPressed: _toggleSide,
-                                  icon: Icon(Icons.info_outline),
-                                  label: Text("Learn more"),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    ],
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

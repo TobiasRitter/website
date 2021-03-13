@@ -10,13 +10,14 @@ class ResumePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
+    var margin1size = getMargin1size(context);
     return p.Page(
       dark: true,
       coverScreenHeight: true,
       builder: Builder(
         builder: (context) {
           return Padding(
-            padding: const EdgeInsets.all(64),
+            padding: EdgeInsets.all(margin1size),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -42,7 +43,7 @@ class ResumePage extends StatelessWidget {
                           ? (screenWidth - 128) / 2
                           : screenWidth - 128,
                       child: Padding(
-                        padding: const EdgeInsets.all(64),
+                        padding: EdgeInsets.all(margin1size),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -51,7 +52,7 @@ class ResumePage extends StatelessWidget {
                               style: getH2Style(context),
                             ),
                             Container(
-                              height: 64,
+                              height: margin1size,
                             ),
                             ResumeSection(
                               title: "M. Sc. Informatics",
@@ -78,7 +79,7 @@ class ResumePage extends StatelessWidget {
                           ? (screenWidth - 128) / 2
                           : screenWidth - 128,
                       child: Padding(
-                        padding: const EdgeInsets.all(64),
+                        padding: EdgeInsets.all(margin1size),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -87,7 +88,7 @@ class ResumePage extends StatelessWidget {
                               style: getH2Style(context),
                             ),
                             Container(
-                              height: 64,
+                              height: margin1size,
                             ),
                             ResumeSection(
                               title: "Coorporate Student",
@@ -155,6 +156,7 @@ class _ResumeSectionState extends State<ResumeSection> {
 
   @override
   Widget build(BuildContext context) {
+    var margin1size = getMargin1size(context);
     return ExpansionTile(
       leading: Icon(Icons.fiber_manual_record),
       title: Row(
@@ -164,7 +166,7 @@ class _ResumeSectionState extends State<ResumeSection> {
             style: getText2Style(context),
           ),
           Container(
-            width: 64,
+            width: margin1size,
           ),
           Expanded(
             child: Text(
@@ -173,7 +175,7 @@ class _ResumeSectionState extends State<ResumeSection> {
             ),
           ),
           Container(
-            width: 64,
+            width: margin1size,
           ),
           Expanded(
             child: Text(

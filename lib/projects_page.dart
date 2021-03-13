@@ -11,37 +11,37 @@ class ProjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
+    var margin1size = getMargin1size(context);
     return p.Page(
       dark: false,
       coverScreenHeight: true,
       builder: Builder(
         builder: (context) {
           return Padding(
-            padding: const EdgeInsets.fromLTRB(32, 64, 32, 0),
+            padding: EdgeInsets.all(margin1size),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.code,
-                        size: getH1size(context),
-                      ),
-                      Container(
-                        width: 32,
-                      ),
-                      Text(
-                        "Projects",
-                        style: getH1Style(context),
-                      ),
-                    ],
-                  ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.code,
+                      size: getH1size(context),
+                    ),
+                    Container(
+                      width: 32,
+                    ),
+                    Text(
+                      "Projects",
+                      style: getH1Style(context),
+                    ),
+                  ],
                 ),
                 Container(
                   height: 32,
                 ),
                 GridView.count(
+                  mainAxisSpacing: margin1size,
+                  crossAxisSpacing: margin1size,
                   shrinkWrap: true,
                   childAspectRatio: 1.5,
                   crossAxisCount: screenWidth > SWIDTH ? 2 : 1,
@@ -68,9 +68,6 @@ class ProjectsPage extends StatelessWidget {
                       image: 'res/ClojureAlgos.png',
                     ),
                   ],
-                ),
-                Container(
-                  height: 32,
                 ),
               ],
             ),

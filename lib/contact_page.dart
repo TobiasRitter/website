@@ -10,13 +10,14 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
+    var margin1size = getMargin1size(context);
     return p.Page(
       dark: true,
       coverScreenHeight: false,
       builder: Builder(
         builder: (context) {
           return Padding(
-            padding: const EdgeInsets.all(64),
+            padding: EdgeInsets.all(margin1size),
             child: Column(
               children: [
                 Row(
@@ -35,7 +36,7 @@ class ContactPage extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  height: 64,
+                  height: margin1size,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -55,7 +56,7 @@ class ContactPage extends StatelessWidget {
                                 style: getText1Style(context),
                               ),
                               Container(
-                                width: 64,
+                                width: margin1size,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +92,7 @@ class ContactPage extends StatelessWidget {
                                 style: getText1Style(context),
                               ),
                               Container(
-                                width: 64,
+                                width: margin1size,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
