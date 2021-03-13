@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 
 class Page extends StatelessWidget {
-  final Widget child;
+  final Builder builder;
   final bool dark;
+  final bool coverScreenHeight;
 
   const Page({
     Key? key,
-    required this.child,
+    required this.builder,
     this.dark = false,
+    this.coverScreenHeight = false,
   }) : super(key: key);
 
   @override
@@ -17,8 +19,11 @@ class Page extends StatelessWidget {
     return Theme(
       data: dark ? darkTheme : lightTheme,
       child: Container(
-        height: screenHeight,
-        child: Scaffold(body: child),
+        constraints: BoxConstraints(
+          minHeight: coverScreenHeight ? screenHeight : 0.0,
+        ),
+        color: dark ? darkTheme.canvasColor : lightTheme.canvasColor,
+        child: builder,
       ),
     );
   }

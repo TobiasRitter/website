@@ -98,9 +98,7 @@ class _ProjectSectionState extends State<ProjectSection>
                                 widget.title,
                                 textAlign: TextAlign.center,
                                 softWrap: true,
-                                style: TextStyle(
-                                  fontSize: getH2size(context),
-                                ),
+                                style: getH2Style(context),
                               ),
                             ),
                             IconButton(
@@ -112,7 +110,7 @@ class _ProjectSectionState extends State<ProjectSection>
                         ),
                         Text(
                           "Description",
-                          style: textStyle1,
+                          style: getText1Style(context),
                         ),
                         FloatingActionButton.extended(
                           onPressed: null,
@@ -157,9 +155,7 @@ class _ProjectSectionState extends State<ProjectSection>
                                   widget.title,
                                   textAlign: TextAlign.center,
                                   softWrap: true,
-                                  style: TextStyle(
-                                    fontSize: getH2size(context),
-                                  ),
+                                  style: getH2Style(context),
                                 ),
                                 Container(
                                   height: 32,
