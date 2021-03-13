@@ -42,6 +42,7 @@ class ContactPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Wrap(
+                      runSpacing: margin1size,
                       children: [
                         Container(
                           width: screenWidth > SWIDTH

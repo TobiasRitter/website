@@ -42,7 +42,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     var margin1size = getMargin1size(context);
 
     var text = Padding(
-      padding: EdgeInsets.all(margin1size),
+      padding: EdgeInsets.symmetric(horizontal: margin1size),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -208,8 +208,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
               : Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(
-                          margin1size, margin1size, margin1size, 0),
+                      padding: EdgeInsets.all(margin1size),
                       child: Image.asset(
                         "res/ProfilePictureSquared.png",
                         height: screenHeight / 2,

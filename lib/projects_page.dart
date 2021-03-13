@@ -37,7 +37,7 @@ class ProjectsPage extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  height: 32,
+                  height: margin1size,
                 ),
                 GridView.count(
                   mainAxisSpacing: margin1size,
