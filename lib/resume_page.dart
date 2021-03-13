@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/page.dart' as p;
 import 'package:website/main.dart';
 
 class ResumePage extends StatelessWidget {
@@ -10,123 +9,139 @@ class ResumePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
-    return p.Page(
-      dark: true,
-      child: Padding(
-        padding: const EdgeInsets.all(64),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.school,
-                  size: getH1size(context),
-                ),
-                Container(
-                  width: 32,
-                ),
-                Text(
-                  "Resume",
-                  style: TextStyle(
-                    fontSize: getH1size(context),
-                    fontWeight: FontWeight.bold,
+    return Theme(
+      data: darkTheme,
+      child: Builder(
+        builder: (context) {
+          return Container(
+            color: Theme.of(context).canvasColor,
+            child: Padding(
+              padding: const EdgeInsets.all(64),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.school,
+                        size: getH1size(context),
+                      ),
+                      Container(
+                        width: 32,
+                      ),
+                      Text(
+                        "Resume",
+                        style: TextStyle(
+                          fontSize: getH1size(context),
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).textTheme.bodyText1!.color,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-            Wrap(
-              children: [
-                Container(
-                  width: screenWidth > 800
-                      ? (screenWidth - 128) / 2
-                      : screenWidth - 128,
-                  child: Padding(
-                    padding: const EdgeInsets.all(64),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Education",
-                          style: TextStyle(
-                            fontSize: getH2size(context),
+                  Wrap(
+                    children: [
+                      Container(
+                        width: screenWidth > 800
+                            ? (screenWidth - 128) / 2
+                            : screenWidth - 128,
+                        child: Padding(
+                          padding: const EdgeInsets.all(64),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Education",
+                                style: TextStyle(
+                                  fontSize: getH2size(context),
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .color,
+                                ),
+                              ),
+                              Container(
+                                height: 64,
+                              ),
+                              ResumeSection(
+                                title: "M. Sc. Informatics",
+                                date: "2020-2023",
+                                location: "Munich",
+                                institution: "Technical University of Munich",
+                                description:
+                                    "Master studies in Computer Science with a focus on the area \"Machine Learning and Analytics\"",
+                              ),
+                              ResumeSection(
+                                title: "B. Sc. Computer Science",
+                                date: "2017-2020",
+                                location: "Stuttgart",
+                                institution: "DHBW Stuttgart",
+                                description:
+                                    "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG",
+                              ),
+                            ],
                           ),
                         ),
-                        Container(
-                          height: 64,
-                        ),
-                        ResumeSection(
-                          title: "M. Sc. Informatics",
-                          date: "2020-2023",
-                          location: "Munich",
-                          institution: "Technical University of Munich",
-                          description:
-                              "Master studies in Computer Science with a focus on the area \"Machine Learning and Analytics\"",
-                        ),
-                        ResumeSection(
-                          title: "B. Sc. Computer Science",
-                          date: "2017-2020",
-                          location: "Stuttgart",
-                          institution: "DHBW Stuttgart",
-                          description:
-                              "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG",
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  width: screenWidth > 800
-                      ? (screenWidth - 128) / 2
-                      : screenWidth - 128,
-                  child: Padding(
-                    padding: const EdgeInsets.all(64),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Work experience",
-                          style: TextStyle(
-                            fontSize: getH2size(context),
+                      ),
+                      Container(
+                        width: screenWidth > 800
+                            ? (screenWidth - 128) / 2
+                            : screenWidth - 128,
+                        child: Padding(
+                          padding: const EdgeInsets.all(64),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Work experience",
+                                style: TextStyle(
+                                  fontSize: getH2size(context),
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .color,
+                                ),
+                              ),
+                              Container(
+                                height: 64,
+                              ),
+                              ResumeSection(
+                                title: "Coorporate Student",
+                                date: "2017-2020",
+                                location: "Ditzingen",
+                                institution: "TRUMPF GmbH + Co. KG",
+                                description:
+                                    "18 months of internships in various software development departments.",
+                              ),
+                              ResumeSection(
+                                title: "Summer Intern",
+                                date: "05/2019-08/2019",
+                                location: "Farmington, CT, USA",
+                                institution: "TRUMPF Inc.",
+                                description:
+                                    "4 month internship at TRUMPF North America within the software development department.",
+                              ),
+                            ],
                           ),
                         ),
-                        Container(
-                          height: 64,
-                        ),
-                        ResumeSection(
-                          title: "Coorporate Student",
-                          date: "2017-2020",
-                          location: "Ditzingen",
-                          institution: "TRUMPF GmbH + Co. KG",
-                          description:
-                              "18 months of internships in various software development departments.",
-                        ),
-                        ResumeSection(
-                          title: "Summer Intern",
-                          date: "05/2019-08/2019",
-                          location: "Farmington, CT, USA",
-                          institution: "TRUMPF Inc.",
-                          description:
-                              "4 month internship at TRUMPF North America within the software development department.",
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      FloatingActionButton.extended(
+                        onPressed: null,
+                        label: Text("PDF"),
+                        icon: Icon(Icons.download_sharp),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                FloatingActionButton.extended(
-                  onPressed: null,
-                  label: Text("PDF"),
-                  icon: Icon(Icons.download_sharp),
-                ),
-              ],
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
