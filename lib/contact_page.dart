@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/page.dart' as p;
+import 'package:website/main.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({
@@ -19,7 +20,7 @@ class ContactPage extends StatelessWidget {
               children: [
                 Icon(
                   Icons.alternate_email,
-                  size: 96,
+                  size: getH1size(context),
                 ),
                 Container(
                   width: 32,
@@ -27,7 +28,7 @@ class ContactPage extends StatelessWidget {
                 Text(
                   "Contact",
                   style: TextStyle(
-                    fontSize: 96,
+                    fontSize: getH1size(context),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -53,7 +54,7 @@ class ContactPage extends StatelessWidget {
                               "Want to know more about me?",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 48,
+                                fontSize: getH2size(context),
                               ),
                             ),
                             Container(
@@ -94,7 +95,7 @@ class ContactPage extends StatelessWidget {
                               "Interested in some actual code?",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 48,
+                                fontSize: getH2size(context),
                               ),
                             ),
                             Container(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/page.dart' as p;
+import 'package:website/main.dart';
 
 class ResumePage extends StatelessWidget {
   const ResumePage({
@@ -20,7 +21,7 @@ class ResumePage extends StatelessWidget {
               children: [
                 Icon(
                   Icons.school,
-                  size: 128,
+                  size: getH1size(context),
                 ),
                 Container(
                   width: 32,
@@ -28,7 +29,7 @@ class ResumePage extends StatelessWidget {
                 Text(
                   "Resume",
                   style: TextStyle(
-                    fontSize: 96,
+                    fontSize: getH1size(context),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -48,7 +49,7 @@ class ResumePage extends StatelessWidget {
                         Text(
                           "Education",
                           style: TextStyle(
-                            fontSize: 42,
+                            fontSize: getH2size(context),
                           ),
                         ),
                         Container(
@@ -86,7 +87,7 @@ class ResumePage extends StatelessWidget {
                         Text(
                           "Work experience",
                           style: TextStyle(
-                            fontSize: 42,
+                            fontSize: getH2size(context),
                           ),
                         ),
                         Container(

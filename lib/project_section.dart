@@ -99,12 +99,12 @@ class _ProjectSectionState extends State<ProjectSection>
                                 textAlign: TextAlign.center,
                                 softWrap: true,
                                 style: TextStyle(
-                                  fontSize: 64,
+                                  fontSize: getH2size(context),
                                 ),
                               ),
                             ),
                             IconButton(
-                              iconSize: 64,
+                              iconSize: getH2size(context),
                               icon: Icon(Icons.close),
                               onPressed: _toggleSide,
                             ),
@@ -158,7 +158,7 @@ class _ProjectSectionState extends State<ProjectSection>
                                   textAlign: TextAlign.center,
                                   softWrap: true,
                                   style: TextStyle(
-                                    fontSize: 64,
+                                    fontSize: getH2size(context),
                                   ),
                                 ),
                                 Container(
@@ -167,7 +167,7 @@ class _ProjectSectionState extends State<ProjectSection>
                                 FloatingActionButton.extended(
                                   onPressed: _toggleSide,
                                   icon: Icon(Icons.info_outline),
-                                  label: Text("Tap to learn more"),
+                                  label: Text("Learn more"),
                                 ),
                               ],
                             ),

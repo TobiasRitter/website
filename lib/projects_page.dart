@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/project_section.dart';
+import 'package:website/main.dart';
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({
@@ -19,7 +20,7 @@ class ProjectsPage extends StatelessWidget {
               children: [
                 Icon(
                   Icons.code,
-                  size: 96,
+                  size: getH1size(context),
                 ),
                 Container(
                   width: 32,
@@ -27,7 +28,7 @@ class ProjectsPage extends StatelessWidget {
                 Text(
                   "Projects",
                   style: TextStyle(
-                    fontSize: 96,
+                    fontSize: getH1size(context),
                     fontWeight: FontWeight.bold,
                   ),
                 ),

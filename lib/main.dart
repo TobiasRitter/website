@@ -18,6 +18,24 @@ final textStyle1 = TextStyle(
   fontWeight: FontWeight.w100,
 );
 
+double getH1size(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > 800) {
+    return 96;
+  } else {
+    return 32;
+  }
+}
+
+double getH2size(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > 800) {
+    return 48;
+  } else {
+    return 24;
+  }
+}
+
 void main() {
   runApp(MyApp());
 }
@@ -51,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: SingleChildScrollView(
       child: Column(
         children: [
-          TitlePage(),
+          // TitlePage(),
           ResumePage(),
           ProjectsPage(),
           ContactPage(),
