@@ -9,7 +9,7 @@ class Page extends StatelessWidget {
   const Page({
     Key? key,
     required this.builder,
-    this.dark = false,
+    required this.dark,
     this.coverScreenHeight = false,
   }) : super(key: key);
 

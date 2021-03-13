@@ -51,7 +51,7 @@ class ContactPage extends StatelessWidget {
                               Text(
                                 "Want to know more about me?",
                                 textAlign: TextAlign.center,
-                                style: getH2Style(context),
+                                style: getText1Style(context),
                               ),
                               Container(
                                 height: 64,
@@ -90,7 +90,7 @@ class ContactPage extends StatelessWidget {
                               Text(
                                 "Interested in some actual code?",
                                 textAlign: TextAlign.center,
-                                style: getH2Style(context),
+                                style: getText1Style(context),
                               ),
                               Container(
                                 height: 64,

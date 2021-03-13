@@ -12,7 +12,7 @@ class ProjectsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     return p.Page(
-      dark: true,
+      dark: false,
       builder: Builder(
         builder: (context) {
           return Padding(
