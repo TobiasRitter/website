@@ -37,77 +37,73 @@ class ResumePage extends StatelessWidget {
                   ],
                 ),
                 Wrap(
+                  spacing: margin1size,
+                  runSpacing: margin1size,
                   children: [
                     Container(
                       width: screenWidth > SWIDTH
-                          ? (screenWidth - 128) / 2
-                          : screenWidth - 128,
-                      child: Padding(
-                        padding: EdgeInsets.all(margin1size),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Education",
-                              style: getH2Style(context),
-                            ),
-                            Container(
-                              height: margin1size,
-                            ),
-                            ResumeSection(
-                              title: "M. Sc. Informatics",
-                              date: "2020-2023",
-                              location: "Munich",
-                              institution: "Technical University of Munich",
-                              description:
-                                  "Master studies in Computer Science with a focus on the area \"Machine Learning and Analytics\"",
-                            ),
-                            ResumeSection(
-                              title: "B. Sc. Computer Science",
-                              date: "2017-2020",
-                              location: "Stuttgart",
-                              institution: "DHBW Stuttgart",
-                              description:
-                                  "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG",
-                            ),
-                          ],
-                        ),
+                          ? (screenWidth - 3 * margin1size) / 2
+                          : screenWidth - 3 * margin1size,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Education",
+                            style: getH2Style(context),
+                          ),
+                          Container(
+                            height: margin1size,
+                          ),
+                          ResumeSection(
+                            title: "M. Sc. Informatics",
+                            date: "2020-2023",
+                            location: "Munich",
+                            institution: "Technical University of Munich",
+                            description:
+                                "Master studies in Computer Science with a focus on the area \"Machine Learning and Analytics\"",
+                          ),
+                          ResumeSection(
+                            title: "B. Sc. Computer Science",
+                            date: "2017-2020",
+                            location: "Stuttgart",
+                            institution: "DHBW Stuttgart",
+                            description:
+                                "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG",
+                          ),
+                        ],
                       ),
                     ),
                     Container(
                       width: screenWidth > SWIDTH
-                          ? (screenWidth - 128) / 2
-                          : screenWidth - 128,
-                      child: Padding(
-                        padding: EdgeInsets.all(margin1size),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Work experience",
-                              style: getH2Style(context),
-                            ),
-                            Container(
-                              height: margin1size,
-                            ),
-                            ResumeSection(
-                              title: "Coorporate Student",
-                              date: "2017-2020",
-                              location: "Ditzingen",
-                              institution: "TRUMPF GmbH + Co. KG",
-                              description:
-                                  "18 months of internships in various software development departments.",
-                            ),
-                            ResumeSection(
-                              title: "Summer Intern",
-                              date: "05/2019-08/2019",
-                              location: "Farmington, CT, USA",
-                              institution: "TRUMPF Inc.",
-                              description:
-                                  "4 month internship at TRUMPF North America within the software development department.",
-                            ),
-                          ],
-                        ),
+                          ? (screenWidth - 3 * margin1size) / 2
+                          : screenWidth - 3 * margin1size,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Work experience",
+                            style: getH2Style(context),
+                          ),
+                          Container(
+                            height: margin1size,
+                          ),
+                          ResumeSection(
+                            title: "Coorporate Student",
+                            date: "2017-2020",
+                            location: "Ditzingen",
+                            institution: "TRUMPF GmbH + Co. KG",
+                            description:
+                                "18 months of internships in various software development departments.",
+                          ),
+                          ResumeSection(
+                            title: "Summer Intern",
+                            date: "05/2019-08/2019",
+                            location: "Farmington, CT, USA",
+                            institution: "TRUMPF Inc.",
+                            description:
+                                "4 month internship at TRUMPF North America within the software development department.",
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -157,58 +153,87 @@ class _ResumeSectionState extends State<ResumeSection> {
   @override
   Widget build(BuildContext context) {
     var margin1size = getMargin1size(context);
-    return ExpansionTile(
-      leading: Icon(Icons.fiber_manual_record),
-      title: Row(
+    var text2size = getText2size(context);
+    return Padding(
+      padding: EdgeInsets.only(bottom: margin1size / 2),
+      child: Column(
         children: [
-          Text(
-            widget.date,
-            style: getText2Style(context),
+          Row(
+            children: [
+              Icon(Icons.fiber_manual_record),
+              Container(
+                width: margin1size / 2,
+              ),
+              Container(
+                width: text2size * 8,
+                child: Text(
+                  widget.date,
+                  style: getText2Style(context),
+                ),
+              ),
+              Container(
+                width: margin1size / 2,
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      widget.title,
+                      style: getText2Style(context),
+                    ),
+                    Container(
+                      width: margin1size / 2,
+                    ),
+                    Text(
+                      widget.institution,
+                      style: getText2Style(context),
+                    ),
+                  ],
+                ),
+              ),
+              IconButton(
+                icon: Icon(expanded
+                    ? Icons.keyboard_arrow_up
+                    : Icons.keyboard_arrow_down),
+                onPressed: () => setState(() => expanded = !expanded),
+              )
+            ],
           ),
-          Container(
-            width: margin1size,
-          ),
-          Expanded(
-            child: Text(
-              widget.title,
-              style: getText2Style(context),
-            ),
-          ),
-          Container(
-            width: margin1size,
-          ),
-          Expanded(
-            child: Text(
-              widget.institution,
-              style: getText2Style(context),
-            ),
+          AnimatedSwitcher(
+            duration: Duration(milliseconds: 500),
+            child: expanded
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: margin1size / 2,
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.location_pin),
+                          Container(
+                            width: 28,
+                          ),
+                          Text(
+                            widget.location,
+                            style: getText2Style(context),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        height: margin1size / 2,
+                      ),
+                      Text(
+                        widget.description,
+                        style: getText2Style(context),
+                      ),
+                    ],
+                  )
+                : Container(),
           ),
         ],
       ),
-      expandedCrossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              Icon(Icons.location_pin),
-              Container(
-                width: 28,
-              ),
-              Text(
-                widget.location,
-                style: getText2Style(context),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: Text(
-            widget.description,
-          ),
-        ),
-      ],
     );
   }
 }

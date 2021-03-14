@@ -34,7 +34,7 @@ TextStyle getSubtitle1Style(BuildContext context) {
 TextStyle getText1Style(BuildContext context) {
   return TextStyle(
     fontSize: getText1size(context),
-    fontWeight: FontWeight.w100,
+    fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
@@ -42,7 +42,7 @@ TextStyle getText1Style(BuildContext context) {
 TextStyle getText2Style(BuildContext context) {
   return TextStyle(
     fontSize: getText2size(context),
-    fontWeight: FontWeight.w100,
+    fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
@@ -50,7 +50,7 @@ TextStyle getText2Style(BuildContext context) {
 TextStyle getH1Style(BuildContext context) {
   return TextStyle(
     fontSize: getH1size(context),
-    fontWeight: FontWeight.w100,
+    fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
@@ -58,7 +58,7 @@ TextStyle getH1Style(BuildContext context) {
 TextStyle getH2Style(BuildContext context) {
   return TextStyle(
     fontSize: getH2size(context),
-    fontWeight: FontWeight.w100,
+    fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
@@ -66,7 +66,7 @@ TextStyle getH2Style(BuildContext context) {
 TextStyle getButton1Style(BuildContext context) {
   return TextStyle(
     fontSize: getButton1size(context),
-    fontWeight: FontWeight.w100,
+    fontWeight: FontWeight.normal,
   );
 }
 
