@@ -184,9 +184,9 @@ class _MyHomePageState extends State<MyHomePage> {
         body: SingleChildScrollView(
       child: Column(
         children: [
-          // TitlePage(),
-          // ResumePage(),
-          // ProjectsPage(),
+          TitlePage(),
+          ResumePage(),
+          ProjectsPage(),
           ContactPage(),
         ],
       ),

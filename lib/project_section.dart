@@ -68,6 +68,7 @@ class _ProjectSectionState extends State<ProjectSection>
 
   @override
   Widget build(BuildContext context) {
+    var margin1size = getMargin1size(context);
     return Theme(
       data: widget.dark ? darkTheme : lightTheme,
       child: Builder(
@@ -80,7 +81,7 @@ class _ProjectSectionState extends State<ProjectSection>
                 child: Material(
                   elevation: 32,
                   child: Padding(
-                    padding: const EdgeInsets.all(64),
+                    padding: EdgeInsets.all(margin1size),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -89,7 +90,7 @@ class _ProjectSectionState extends State<ProjectSection>
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              width: 80,
+                              width: getH2size(context) + 16,
                             ),
                             Expanded(
                               child: Text(
@@ -144,7 +145,7 @@ class _ProjectSectionState extends State<ProjectSection>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(64),
+                          padding: EdgeInsets.all(margin1size),
                           child: Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
