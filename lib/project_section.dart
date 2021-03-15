@@ -96,7 +96,6 @@ class _ProjectSectionState extends State<ProjectSection>
                               child: Text(
                                 widget.title,
                                 textAlign: TextAlign.center,
-                                softWrap: true,
                                 style: getH2Style(context),
                               ),
                             ),
@@ -148,16 +147,12 @@ class _ProjectSectionState extends State<ProjectSection>
                           padding: EdgeInsets.all(margin1size),
                           child: Center(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
                                   widget.title,
                                   textAlign: TextAlign.center,
-                                  softWrap: true,
                                   style: getH2Style(context),
-                                ),
-                                Container(
-                                  height: 32,
                                 ),
                                 FloatingActionButton.extended(
                                   onPressed: _toggleSide,

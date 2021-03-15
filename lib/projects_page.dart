@@ -40,6 +40,7 @@ class ProjectsPage extends StatelessWidget {
                   height: margin1size,
                 ),
                 GridView.count(
+                  physics: NeverScrollableScrollPhysics(),
                   mainAxisSpacing: margin1size,
                   crossAxisSpacing: margin1size,
                   shrinkWrap: true,
