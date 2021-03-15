@@ -17,7 +17,6 @@ const SWIDTH = 1500;
 
 TextStyle getTitle1Style(BuildContext context) {
   return TextStyle(
-    fontSize: getTitle1size(context),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
@@ -70,15 +69,6 @@ TextStyle getButton1Style(BuildContext context) {
   );
 }
 
-double getTitle1size(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 156;
-  } else {
-    return 78;
-  }
-}
-
 double getSubtitle1size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth > SWIDTH) {
@@ -94,6 +84,15 @@ double getArrow1size(BuildContext context) {
     return 128;
   } else {
     return 64;
+  }
+}
+
+double getArrow1offset(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 2;
+  } else {
+    return 1;
   }
 }
 
@@ -185,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: SingleChildScrollView(
       child: Column(
         children: [
-          // TitlePage(),
+          TitlePage(),
           ResumePage(),
           // ProjectsPage(),
           // ContactPage(),

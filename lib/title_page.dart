@@ -20,7 +20,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
       vsync: this,
       duration: Duration(seconds: 1),
       lowerBound: 0,
-      upperBound: 64,
+      upperBound: 32,
     );
 
     controller.addListener(() {
@@ -44,14 +44,16 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     var text = Padding(
       padding: EdgeInsets.symmetric(horizontal: margin1size),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            "Tobias Ritter",
-            style: getTitle1Style(context),
-          ),
           Container(
-            height: margin1size,
+            width: screenWidth > SWIDTH ? screenWidth * 2 / 3 : screenWidth,
+            child: FittedBox(
+              child: Text(
+                "Tobias Ritter",
+                style: getTitle1Style(context),
+              ),
+            ),
           ),
           Container(
             child: Text(
@@ -158,17 +160,12 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                 )
               : Container(),
           Container(
-            height: margin1size,
-          ),
-          Container(
-            height: 192,
+            height: getArrow1size(context) + 32 * getArrow1offset(context),
             child: Column(
               children: [
                 Container(
                   margin: EdgeInsets.only(
-                      top: screenWidth > SWIDTH
-                          ? controller.value
-                          : controller.value / 2),
+                      top: controller.value * getArrow1offset(context)),
                   child: Opacity(
                     opacity: 0.15,
                     child: Icon(
@@ -207,12 +204,14 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                 )
               : Column(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.all(margin1size),
-                      child: Image.asset(
-                        "res/ProfilePictureSquared.png",
-                        height: screenHeight / 2,
-                        fit: BoxFit.cover,
+                    Container(
+                      height: screenHeight / 2,
+                      child: Padding(
+                        padding: EdgeInsets.all(margin1size),
+                        child: Image.asset(
+                          "res/ProfilePictureSquared.png",
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     Container(

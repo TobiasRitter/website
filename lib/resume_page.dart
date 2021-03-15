@@ -169,7 +169,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                 child: Column(
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           width: text2size * 8,
@@ -181,9 +181,12 @@ class _ResumeSectionState extends State<ResumeSection> {
                         Container(
                           width: margin1size / 2,
                         ),
-                        Text(
-                          widget.title,
-                          style: getText2Style(context),
+                        Expanded(
+                          child: Text(
+                            widget.title,
+                            textAlign: TextAlign.end,
+                            style: getText2Style(context),
+                          ),
                         ),
                       ],
                     ),
@@ -191,6 +194,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                       height: getText2size(context) / 2,
                     ),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Icon(
                           Icons.location_pin,
@@ -203,10 +207,15 @@ class _ResumeSectionState extends State<ResumeSection> {
                           widget.location,
                           style: getText2Style(context),
                         ),
-                        Spacer(),
-                        Text(
-                          widget.institution,
-                          style: getText2Style(context),
+                        Container(
+                          width: getText2size(context),
+                        ),
+                        Expanded(
+                          child: Text(
+                            widget.institution,
+                            textAlign: TextAlign.end,
+                            style: getText2Style(context),
+                          ),
                         ),
                       ],
                     ),
