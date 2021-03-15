@@ -6,11 +6,11 @@ import 'package:website/title_page.dart';
 
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
-  canvasColor: Colors.black,
-  accentColor: Colors.white,
+  canvasColor: Color.fromARGB(255, 0, 0, 50),
+  accentColor: Colors.tealAccent,
 );
 final ThemeData lightTheme = ThemeData(
-  accentColor: Colors.black,
+  accentColor: Colors.tealAccent,
 );
 
 const SWIDTH = 1500;
@@ -65,7 +65,8 @@ TextStyle getH2Style(BuildContext context) {
 TextStyle getButton1Style(BuildContext context) {
   return TextStyle(
     fontSize: getButton1size(context),
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.bold,
+    color: Theme.of(context).accentColor,
   );
 }
 

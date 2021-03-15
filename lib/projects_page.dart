@@ -44,7 +44,7 @@ class ProjectsPage extends StatelessWidget {
                   mainAxisSpacing: margin1size,
                   crossAxisSpacing: margin1size,
                   shrinkWrap: true,
-                  childAspectRatio: 1.5,
+                  childAspectRatio: screenWidth > SWIDTH ? 1.5 : 1,
                   crossAxisCount: screenWidth > SWIDTH ? 2 : 1,
                   children: [
                     ProjectSection(

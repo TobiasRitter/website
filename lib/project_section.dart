@@ -136,7 +136,7 @@ class _ProjectSectionState extends State<ProjectSection>
                     child: Stack(
                       children: [
                         Opacity(
-                          opacity: 0.5,
+                          opacity: 0.7,
                           child: Container(
                             color: widget.dark
                                 ? darkTheme.canvasColor

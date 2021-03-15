@@ -85,6 +85,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                                 icon: Icon(
                                   Icons.school,
                                   size: getButton1size(context),
+                                  color: Theme.of(context).accentColor,
                                 ),
                                 label: Text(
                                   "resume",
@@ -98,21 +99,17 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                           Text("through", style: getText1Style(context)),
                           Text("my", style: getText1Style(context)),
                           Text("side", style: getText1Style(context)),
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              TextButton.icon(
-                                onPressed: null,
-                                icon: Icon(
-                                  Icons.code,
-                                  size: getButton1size(context),
-                                ),
-                                label: Text(
-                                  "projects",
-                                  style: getButton1Style(context),
-                                ),
-                              ),
-                            ],
+                          TextButton.icon(
+                            onPressed: null,
+                            icon: Icon(
+                              Icons.code,
+                              size: getButton1size(context),
+                              color: Theme.of(context).accentColor,
+                            ),
+                            label: Text(
+                              "projects",
+                              style: getButton1Style(context),
+                            ),
                           ),
                           Text("or", style: getText1Style(context)),
                           Text("learn", style: getText1Style(context)),
@@ -128,6 +125,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                                 icon: Icon(
                                   Icons.alternate_email,
                                   size: getButton1size(context),
+                                  color: Theme.of(context).accentColor,
                                 ),
                                 label: Text(
                                   "contact",
@@ -150,12 +148,10 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                 Container(
                   margin: EdgeInsets.only(
                       top: controller.value * getArrow1offset(context)),
-                  child: Opacity(
-                    opacity: 0.15,
-                    child: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      size: getArrow1size(context),
-                    ),
+                  child: Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    size: getArrow1size(context),
+                    color: Theme.of(context).accentColor,
                   ),
                 ),
               ],

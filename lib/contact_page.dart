@@ -51,15 +51,19 @@ class ContactPage extends StatelessWidget {
                           child: ContactSection(
                             text: "Let's get to know each other:",
                             buttons: [
-                              FloatingActionButton.extended(
+                              TextButton(
                                 onPressed: null,
-                                label: Text(
+                                child: Text(
                                   "LinkedIn",
+                                  style: getButton1Style(context),
                                 ),
                               ),
-                              FloatingActionButton.extended(
+                              TextButton(
                                 onPressed: null,
-                                label: Text("XING"),
+                                child: Text(
+                                  "XING",
+                                  style: getButton1Style(context),
+                                ),
                               ),
                             ],
                           ),
@@ -71,15 +75,19 @@ class ContactPage extends StatelessWidget {
                           child: ContactSection(
                             text: "Take a look at my code here:",
                             buttons: [
-                              FloatingActionButton.extended(
+                              TextButton(
                                 onPressed: null,
-                                label: Text(
+                                child: Text(
                                   "GitHub",
+                                  style: getButton1Style(context),
                                 ),
                               ),
-                              FloatingActionButton.extended(
+                              TextButton(
                                 onPressed: null,
-                                label: Text("Docker Hub"),
+                                child: Text(
+                                  "Docker Hub",
+                                  style: getButton1Style(context),
+                                ),
                               ),
                             ],
                           ),
@@ -99,7 +107,7 @@ class ContactPage extends StatelessWidget {
 
 class ContactSection extends StatelessWidget {
   final String text;
-  final List<FloatingActionButton> buttons;
+  final List<TextButton> buttons;
 
   const ContactSection({
     Key? key,
