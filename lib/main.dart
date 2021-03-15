@@ -13,7 +13,7 @@ final ThemeData lightTheme = ThemeData(
   accentColor: Colors.black,
 );
 
-const SWIDTH = 1080;
+const SWIDTH = 1500;
 
 TextStyle getTitle1Style(BuildContext context) {
   return TextStyle(
@@ -75,7 +75,7 @@ double getTitle1size(BuildContext context) {
   if (screenWidth > SWIDTH) {
     return 156;
   } else {
-    return 52;
+    return 78;
   }
 }
 
@@ -102,7 +102,7 @@ double getH1size(BuildContext context) {
   if (screenWidth > SWIDTH) {
     return 96;
   } else {
-    return 32;
+    return 48;
   }
 }
 
@@ -185,10 +185,10 @@ class _MyHomePageState extends State<MyHomePage> {
         body: SingleChildScrollView(
       child: Column(
         children: [
-          TitlePage(),
+          // TitlePage(),
           ResumePage(),
-          ProjectsPage(),
-          ContactPage(),
+          // ProjectsPage(),
+          // ContactPage(),
         ],
       ),
     ));

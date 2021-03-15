@@ -159,38 +159,79 @@ class _ResumeSectionState extends State<ResumeSection> {
       child: Column(
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Icon(Icons.fiber_manual_record),
               Container(
                 width: margin1size / 2,
               ),
-              Container(
-                width: text2size * 8,
-                child: Text(
-                  widget.date,
-                  style: getText2Style(context),
+              Expanded(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: text2size * 8,
+                          child: Text(
+                            widget.date,
+                            style: getText2Style(context),
+                          ),
+                        ),
+                        Container(
+                          width: margin1size / 2,
+                        ),
+                        Text(
+                          widget.title,
+                          style: getText2Style(context),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      height: getText2size(context) / 2,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.location_pin,
+                          size: getText2size(context),
+                        ),
+                        Container(
+                          width: getText2size(context),
+                        ),
+                        Text(
+                          widget.location,
+                          style: getText2Style(context),
+                        ),
+                        Spacer(),
+                        Text(
+                          widget.institution,
+                          style: getText2Style(context),
+                        ),
+                      ],
+                    ),
+                    AnimatedSwitcher(
+                      duration: Duration(milliseconds: 500),
+                      child: expanded
+                          ? Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: margin1size / 2,
+                                ),
+                                Text(
+                                  widget.description,
+                                  style: getText2Style(context),
+                                ),
+                              ],
+                            )
+                          : Container(),
+                    ),
+                  ],
                 ),
               ),
               Container(
                 width: margin1size / 2,
-              ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      widget.title,
-                      style: getText2Style(context),
-                    ),
-                    Container(
-                      width: margin1size / 2,
-                    ),
-                    Text(
-                      widget.institution,
-                      style: getText2Style(context),
-                    ),
-                  ],
-                ),
               ),
               IconButton(
                 icon: Icon(expanded
@@ -199,38 +240,6 @@ class _ResumeSectionState extends State<ResumeSection> {
                 onPressed: () => setState(() => expanded = !expanded),
               )
             ],
-          ),
-          AnimatedSwitcher(
-            duration: Duration(milliseconds: 500),
-            child: expanded
-                ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: margin1size / 2,
-                      ),
-                      Row(
-                        children: [
-                          Icon(Icons.location_pin),
-                          Container(
-                            width: 28,
-                          ),
-                          Text(
-                            widget.location,
-                            style: getText2Style(context),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        height: margin1size / 2,
-                      ),
-                      Text(
-                        widget.description,
-                        style: getText2Style(context),
-                      ),
-                    ],
-                  )
-                : Container(),
           ),
         ],
       ),
