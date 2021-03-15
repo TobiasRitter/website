@@ -11,6 +11,7 @@ final ThemeData darkTheme = ThemeData(
 );
 final ThemeData lightTheme = ThemeData(
   accentColor: Colors.tealAccent,
+  primaryColor: Color.fromARGB(255, 0, 0, 50),
 );
 
 const SWIDTH = 1500;

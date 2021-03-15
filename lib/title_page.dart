@@ -151,7 +151,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                   child: Icon(
                     Icons.keyboard_arrow_down_rounded,
                     size: getArrow1size(context),
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ],
