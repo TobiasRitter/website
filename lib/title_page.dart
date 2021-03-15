@@ -44,7 +44,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     var text = Padding(
       padding: EdgeInsets.symmetric(horizontal: margin1size),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             width: screenWidth > SWIDTH ? screenWidth * 2 / 3 : screenWidth,
@@ -66,12 +66,11 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
               ? Column(
                   children: [
                     Container(
-                      height: margin1size,
-                    ),
-                    Container(
                       child: Wrap(
-                        spacing: 8,
-                        runSpacing: 4,
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: getText1size(context) / 2,
+                        runSpacing: getText1size(context) / 2,
                         children: [
                           Text("Take", style: getText1Style(context)),
                           Text("a", style: getText1Style(context)),
@@ -81,20 +80,15 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                           Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8.0,
+                              TextButton.icon(
+                                onPressed: null,
+                                icon: Icon(
+                                  Icons.school,
+                                  size: getButton1size(context),
                                 ),
-                                child: TextButton.icon(
-                                  onPressed: null,
-                                  icon: Icon(
-                                    Icons.school,
-                                    size: getButton1size(context),
-                                  ),
-                                  label: Text(
-                                    "resume",
-                                    style: getButton1Style(context),
-                                  ),
+                                label: Text(
+                                  "resume",
+                                  style: getButton1Style(context),
                                 ),
                               ),
                               Text(",", style: getText1Style(context)),
@@ -107,20 +101,15 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                           Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8.0,
+                              TextButton.icon(
+                                onPressed: null,
+                                icon: Icon(
+                                  Icons.code,
+                                  size: getButton1size(context),
                                 ),
-                                child: TextButton.icon(
-                                  onPressed: null,
-                                  icon: Icon(
-                                    Icons.code,
-                                    size: getButton1size(context),
-                                  ),
-                                  label: Text(
-                                    "projects",
-                                    style: getButton1Style(context),
-                                  ),
+                                label: Text(
+                                  "projects",
+                                  style: getButton1Style(context),
                                 ),
                               ),
                             ],
@@ -134,20 +123,15 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                           Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8.0,
+                              TextButton.icon(
+                                onPressed: null,
+                                icon: Icon(
+                                  Icons.alternate_email,
+                                  size: getButton1size(context),
                                 ),
-                                child: TextButton.icon(
-                                  onPressed: null,
-                                  icon: Icon(
-                                    Icons.alternate_email,
-                                    size: getButton1size(context),
-                                  ),
-                                  label: Text(
-                                    "contact",
-                                    style: getButton1Style(context),
-                                  ),
+                                label: Text(
+                                  "contact",
+                                  style: getButton1Style(context),
                                 ),
                               ),
                               Text(".", style: getText1Style(context)),
@@ -188,16 +172,18 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           return screenWidth > SWIDTH
               ? Row(
                   children: [
-                    Expanded(
-                      flex: 1,
+                    Container(
+                      height: screenHeight,
+                      width: screenWidth / 3,
                       child: Image.asset(
                         "res/ProfilePicture.png",
                         fit: BoxFit.fitHeight,
                         alignment: Alignment.bottomLeft,
                       ),
                     ),
-                    Expanded(
-                      flex: 2,
+                    Container(
+                      height: screenHeight,
+                      width: screenWidth * 2 / 3,
                       child: text,
                     ),
                   ],
@@ -207,7 +193,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                     Container(
                       height: screenHeight / 2,
                       child: Padding(
-                        padding: EdgeInsets.all(margin1size),
+                        padding: EdgeInsets.symmetric(horizontal: margin1size),
                         child: Image.asset(
                           "res/ProfilePictureSquared.png",
                           fit: BoxFit.cover,
