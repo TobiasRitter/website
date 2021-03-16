@@ -171,92 +171,97 @@ class _ResumeSectionState extends State<ResumeSection> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.fiber_manual_record),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(Icons.fiber_manual_record),
+                ),
                 Container(
                   width: margin1size / 2,
                 ),
                 Expanded(
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Wrap(
-                              crossAxisAlignment: WrapCrossAlignment.start,
-                              alignment: WrapAlignment.spaceBetween,
-                              spacing: margin1size / 2,
-                              runSpacing: text2size / 2,
-                              children: [
-                                Text(
-                                  widget.date,
-                                  style: getText2Style(context),
-                                ),
-                                Text(
-                                  widget.title,
-                                  textAlign: TextAlign.end,
-                                  style: getText2Style(context),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        height: text2size / 2,
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Wrap(
-                              crossAxisAlignment: WrapCrossAlignment.start,
-                              alignment: WrapAlignment.spaceBetween,
-                              spacing: margin1size / 2,
-                              runSpacing: text2size / 2,
-                              children: [
-                                Chip(
-                                  label: Text(
-                                    widget.location,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Wrap(
+                                crossAxisAlignment: WrapCrossAlignment.start,
+                                alignment: WrapAlignment.spaceBetween,
+                                spacing: margin1size / 2,
+                                runSpacing: text2size / 2,
+                                children: [
+                                  Text(
+                                    widget.date,
                                     style: getText2Style(context),
                                   ),
-                                  avatar: Icon(
-                                    Icons.location_pin,
-                                    size: text2size,
-                                  ),
-                                ),
-                                Chip(
-                                  label: Text(
-                                    widget.institution,
+                                  Text(
+                                    widget.title,
                                     textAlign: TextAlign.end,
                                     style: getText2Style(context),
                                   ),
-                                  avatar: Icon(
-                                    Icons.house,
-                                    size: text2size,
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      AnimatedSwitcher(
-                        duration: Duration(milliseconds: 500),
-                        child: expanded
-                            ? Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                          ],
+                        ),
+                        Container(
+                          height: text2size,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Wrap(
+                                crossAxisAlignment: WrapCrossAlignment.start,
+                                alignment: WrapAlignment.spaceBetween,
+                                spacing: margin1size / 2,
                                 children: [
-                                  Container(
-                                    height: margin1size / 2,
+                                  Chip(
+                                    label: Text(
+                                      widget.location,
+                                      style: getText2Style(context),
+                                    ),
+                                    avatar: Icon(
+                                      Icons.location_pin,
+                                      size: text2size,
+                                    ),
                                   ),
-                                  Text(
-                                    widget.description,
-                                    style: getText2Style(context),
+                                  Chip(
+                                    label: Text(
+                                      widget.institution,
+                                      textAlign: TextAlign.end,
+                                      style: getText2Style(context),
+                                    ),
+                                    avatar: Icon(
+                                      Icons.house,
+                                      size: text2size,
+                                    ),
                                   ),
                                 ],
-                              )
-                            : Container(),
-                      ),
-                    ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        AnimatedSwitcher(
+                          duration: Duration(milliseconds: 500),
+                          child: expanded
+                              ? Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: margin1size / 2,
+                                    ),
+                                    Text(
+                                      widget.description,
+                                      style: getText2Style(context),
+                                    ),
+                                  ],
+                                )
+                              : Container(),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Container(

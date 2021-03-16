@@ -58,7 +58,7 @@ TextStyle getH1Style(BuildContext context) {
 TextStyle getH2Style(BuildContext context) {
   return TextStyle(
     fontSize: getH2size(context),
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.bold,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
