@@ -20,7 +20,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
       vsync: this,
       duration: Duration(seconds: 1),
       lowerBound: 0,
-      upperBound: 32,
+      upperBound: 1,
     );
 
     controller.addListener(() {
@@ -41,108 +41,72 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     var screenHeight = MediaQuery.of(context).size.height;
     var margin1size = getMargin1size(context);
 
+    var menu = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        TextButton.icon(
+          onPressed: null,
+          icon: Icon(
+            Icons.school,
+            size: getButton1size(context),
+          ),
+          label: Text(
+            "resume",
+            style: getButton1Style(context),
+          ),
+        ),
+        Container(
+          width: margin1size / 2,
+        ),
+        TextButton.icon(
+          onPressed: null,
+          icon: Icon(
+            Icons.code,
+            size: getButton1size(context),
+          ),
+          label: Text(
+            "projects",
+            style: getButton1Style(context),
+          ),
+        ),
+        Container(
+          width: margin1size / 2,
+        ),
+        TextButton.icon(
+          onPressed: null,
+          icon: Icon(
+            Icons.alternate_email,
+            size: getButton1size(context),
+          ),
+          label: Text(
+            "contact",
+            style: getButton1Style(context),
+          ),
+        ),
+      ],
+    );
+
     var text = Padding(
-      padding: EdgeInsets.symmetric(horizontal: margin1size),
+      padding: EdgeInsets.all(margin1size),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: screenWidth > SWIDTH ? screenWidth * 2 / 3 : screenWidth,
-            child: FittedBox(
-              child: Text(
-                "Tobias Ritter",
-                style: getTitle1Style(context),
-              ),
+            child: Text(
+              "Welcome,",
+              style: getTitle1Style(context),
+              textAlign: TextAlign.center,
             ),
           ),
           Container(
             child: Text(
-              "I am a Computer Science student currently working on a master's degree and especially interested in Data Analytics and Machine Learning.",
+              "I am a Computer Science student currently working on my master's degree and especially interested in Data Analytics and Machine Learning.",
               style: getSubtitle1Style(context),
               textAlign: TextAlign.center,
             ),
           ),
-          screenWidth > SWIDTH
-              ? Column(
-                  children: [
-                    Container(
-                      child: Wrap(
-                        alignment: WrapAlignment.center,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        spacing: getText1size(context) / 2,
-                        runSpacing: getText1size(context) / 2,
-                        children: [
-                          Text("Take", style: getText1Style(context)),
-                          Text("a", style: getText1Style(context)),
-                          Text("look", style: getText1Style(context)),
-                          Text("at", style: getText1Style(context)),
-                          Text("my", style: getText1Style(context)),
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              TextButton.icon(
-                                onPressed: null,
-                                icon: Icon(
-                                  Icons.school,
-                                  size: getButton1size(context),
-                                  color: Theme.of(context).accentColor,
-                                ),
-                                label: Text(
-                                  "resume",
-                                  style: getButton1Style(context),
-                                ),
-                              ),
-                              Text(",", style: getText1Style(context)),
-                            ],
-                          ),
-                          Text("go", style: getText1Style(context)),
-                          Text("through", style: getText1Style(context)),
-                          Text("my", style: getText1Style(context)),
-                          Text("side", style: getText1Style(context)),
-                          TextButton.icon(
-                            onPressed: null,
-                            icon: Icon(
-                              Icons.code,
-                              size: getButton1size(context),
-                              color: Theme.of(context).accentColor,
-                            ),
-                            label: Text(
-                              "projects",
-                              style: getButton1Style(context),
-                            ),
-                          ),
-                          Text("or", style: getText1Style(context)),
-                          Text("learn", style: getText1Style(context)),
-                          Text("how", style: getText1Style(context)),
-                          Text("to", style: getText1Style(context)),
-                          Text("get", style: getText1Style(context)),
-                          Text("in", style: getText1Style(context)),
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              TextButton.icon(
-                                onPressed: null,
-                                icon: Icon(
-                                  Icons.alternate_email,
-                                  size: getButton1size(context),
-                                  color: Theme.of(context).accentColor,
-                                ),
-                                label: Text(
-                                  "contact",
-                                  style: getButton1Style(context),
-                                ),
-                              ),
-                              Text(".", style: getText1Style(context)),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )
-              : Container(),
           Container(
-            height: getArrow1size(context) + 32 * getArrow1offset(context),
+            height: getArrow1size(context) + getArrow1offset(context),
             child: Column(
               children: [
                 Container(
@@ -151,7 +115,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                   child: Icon(
                     Icons.keyboard_arrow_down_rounded,
                     size: getArrow1size(context),
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).accentColor,
                   ),
                 ),
               ],
@@ -163,45 +127,61 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     return p.Page(
       dark: false,
       coverScreenHeight: true,
+      restrictScreenHeight: true,
       builder: Builder(
         builder: (context) {
-          return screenWidth > SWIDTH
-              ? Row(
+          return Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(margin1size),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      height: screenHeight,
-                      width: screenWidth / 3,
-                      child: Image.asset(
-                        "res/ProfilePicture.png",
-                        fit: BoxFit.fitHeight,
-                        alignment: Alignment.bottomLeft,
-                      ),
+                    Text(
+                      "Tobias Ritter",
+                      style: getH2Style(context),
                     ),
-                    Container(
-                      height: screenHeight,
-                      width: screenWidth * 2 / 3,
-                      child: text,
-                    ),
+                    screenWidth > SWIDTH ? menu : Container(),
                   ],
-                )
-              : Column(
-                  children: [
-                    Container(
-                      height: screenHeight / 2,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: margin1size),
-                        child: Image.asset(
-                          "res/ProfilePictureSquared.png",
-                          fit: BoxFit.cover,
-                        ),
+                ),
+              ),
+              Expanded(
+                child: screenWidth > SWIDTH
+                    ? Row(
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              "res/ProfilePicture.png",
+                              fit: BoxFit.scaleDown,
+                              alignment: Alignment.bottomLeft,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: text,
+                          ),
+                        ],
+                      )
+                    : Column(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              child: Image.asset(
+                                "res/ProfilePictureSquared.png",
+                                fit: BoxFit.scaleDown,
+                                alignment: Alignment.bottomCenter,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: screenHeight / 2,
+                            child: text,
+                          ),
+                        ],
                       ),
-                    ),
-                    Container(
-                      height: screenHeight / 2,
-                      child: text,
-                    ),
-                  ],
-                );
+              )
+            ],
+          );
         },
       ),
     );

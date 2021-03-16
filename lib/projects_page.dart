@@ -15,6 +15,7 @@ class ProjectsPage extends StatelessWidget {
     return p.Page(
       dark: false,
       coverScreenHeight: true,
+      restrictScreenHeight: false,
       builder: Builder(
         builder: (context) {
           return Padding(

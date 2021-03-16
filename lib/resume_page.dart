@@ -14,6 +14,7 @@ class ResumePage extends StatelessWidget {
     return p.Page(
       dark: true,
       coverScreenHeight: true,
+      restrictScreenHeight: false,
       builder: Builder(
         builder: (context) {
           return Padding(
@@ -162,7 +163,7 @@ class _ResumeSectionState extends State<ResumeSection> {
   @override
   Widget build(BuildContext context) {
     var margin1size = getMargin1size(context);
-    var text2size = getText2size(context);
+    var text2size = getText1size(context);
     return Container(
       child: Padding(
         padding: EdgeInsets.only(bottom: margin1size / 2),
@@ -194,12 +195,12 @@ class _ResumeSectionState extends State<ResumeSection> {
                                 children: [
                                   Text(
                                     widget.date,
-                                    style: getText2Style(context),
+                                    style: getText1Style(context),
                                   ),
                                   Text(
                                     widget.title,
                                     textAlign: TextAlign.end,
-                                    style: getText2Style(context),
+                                    style: getText1Style(context),
                                   ),
                                 ],
                               ),
@@ -220,7 +221,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                   Chip(
                                     label: Text(
                                       widget.location,
-                                      style: getText2Style(context),
+                                      style: getText1Style(context),
                                     ),
                                     avatar: Icon(
                                       Icons.location_pin,
@@ -231,7 +232,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                     label: Text(
                                       widget.institution,
                                       textAlign: TextAlign.end,
-                                      style: getText2Style(context),
+                                      style: getText1Style(context),
                                     ),
                                     avatar: Icon(
                                       Icons.house,
@@ -254,7 +255,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                     ),
                                     Text(
                                       widget.description,
-                                      style: getText2Style(context),
+                                      style: getText1Style(context),
                                     ),
                                   ],
                                 )

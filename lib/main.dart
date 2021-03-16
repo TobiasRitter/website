@@ -6,20 +6,21 @@ import 'package:website/title_page.dart';
 
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
-  canvasColor: Color.fromARGB(255, 0, 0, 50),
+  canvasColor: Colors.black,
   accentColor: Colors.tealAccent,
 );
 final ThemeData lightTheme = ThemeData(
-  accentColor: Colors.tealAccent,
-  primaryColor: Color.fromARGB(255, 0, 0, 50),
+  canvasColor: Colors.white,
+  accentColor: Colors.indigoAccent,
 );
 
-const SWIDTH = 1500;
+const SWIDTH = 1200;
 
 TextStyle getTitle1Style(BuildContext context) {
   return TextStyle(
+    fontSize: getTitle1size(context),
     fontWeight: FontWeight.bold,
-    color: Theme.of(context).textTheme.bodyText1!.color,
+    color: Theme.of(context).accentColor,
   );
 }
 
@@ -34,14 +35,6 @@ TextStyle getSubtitle1Style(BuildContext context) {
 TextStyle getText1Style(BuildContext context) {
   return TextStyle(
     fontSize: getText1size(context),
-    fontWeight: FontWeight.normal,
-    color: Theme.of(context).textTheme.bodyText1!.color,
-  );
-}
-
-TextStyle getText2Style(BuildContext context) {
-  return TextStyle(
-    fontSize: getText2size(context),
     fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
@@ -67,8 +60,24 @@ TextStyle getButton1Style(BuildContext context) {
   return TextStyle(
     fontSize: getButton1size(context),
     fontWeight: FontWeight.bold,
+  );
+}
+
+TextStyle getButton2Style(BuildContext context) {
+  return TextStyle(
+    fontSize: getButton1size(context),
+    fontWeight: FontWeight.bold,
     color: Theme.of(context).accentColor,
   );
+}
+
+double getTitle1size(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 128;
+  } else {
+    return screenWidth * 0.15;
+  }
 }
 
 double getSubtitle1size(BuildContext context) {
@@ -76,7 +85,7 @@ double getSubtitle1size(BuildContext context) {
   if (screenWidth > SWIDTH) {
     return 32;
   } else {
-    return 16;
+    return screenWidth * 0.05;
   }
 }
 
@@ -85,16 +94,16 @@ double getArrow1size(BuildContext context) {
   if (screenWidth > SWIDTH) {
     return 128;
   } else {
-    return 64;
+    return screenWidth * 0.1;
   }
 }
 
 double getArrow1offset(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth > SWIDTH) {
-    return 2;
+    return 64;
   } else {
-    return 1;
+    return screenWidth * 0.1;
   }
 }
 
@@ -103,7 +112,7 @@ double getH1size(BuildContext context) {
   if (screenWidth > SWIDTH) {
     return 96;
   } else {
-    return 48;
+    return screenWidth * 0.1;
   }
 }
 
@@ -112,7 +121,7 @@ double getH2size(BuildContext context) {
   if (screenWidth > SWIDTH) {
     return 48;
   } else {
-    return 24;
+    return screenWidth * 0.07;
   }
 }
 
@@ -121,16 +130,7 @@ double getText1size(BuildContext context) {
   if (screenWidth > SWIDTH) {
     return 24;
   } else {
-    return 12;
-  }
-}
-
-double getText2size(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 20;
-  } else {
-    return 10;
+    return screenWidth * 0.04;
   }
 }
 
@@ -148,7 +148,7 @@ double getMargin1size(BuildContext context) {
   if (screenWidth > SWIDTH) {
     return 64;
   } else {
-    return 32;
+    return screenWidth * 0.1;
   }
 }
 

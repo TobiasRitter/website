@@ -14,6 +14,7 @@ class ContactPage extends StatelessWidget {
     return p.Page(
       dark: true,
       coverScreenHeight: false,
+      restrictScreenHeight: false,
       builder: Builder(
         builder: (context) {
           return Padding(
@@ -55,14 +56,14 @@ class ContactPage extends StatelessWidget {
                                 onPressed: null,
                                 child: Text(
                                   "LinkedIn",
-                                  style: getButton1Style(context),
+                                  style: getButton2Style(context),
                                 ),
                               ),
                               TextButton(
                                 onPressed: null,
                                 child: Text(
                                   "XING",
-                                  style: getButton1Style(context),
+                                  style: getButton2Style(context),
                                 ),
                               ),
                             ],
@@ -79,14 +80,14 @@ class ContactPage extends StatelessWidget {
                                 onPressed: null,
                                 child: Text(
                                   "GitHub",
-                                  style: getButton1Style(context),
+                                  style: getButton2Style(context),
                                 ),
                               ),
                               TextButton(
                                 onPressed: null,
                                 child: Text(
                                   "Docker Hub",
-                                  style: getButton1Style(context),
+                                  style: getButton2Style(context),
                                 ),
                               ),
                             ],
