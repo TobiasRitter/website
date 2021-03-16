@@ -139,7 +139,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                   children: [
                     Text(
                       "Tobias Ritter",
-                      style: getH2Style(context),
+                      style: getLogoStyle(context),
                     ),
                     screenWidth > SWIDTH ? menu : Container(),
                   ],

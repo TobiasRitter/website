@@ -15,6 +15,7 @@ final ThemeData lightTheme = ThemeData(
 );
 
 const SWIDTH = 1200;
+// TODO: layout between 1200 and 500
 
 TextStyle getTitle1Style(BuildContext context) {
   return TextStyle(
@@ -51,6 +52,14 @@ TextStyle getH1Style(BuildContext context) {
 TextStyle getH2Style(BuildContext context) {
   return TextStyle(
     fontSize: getH2size(context),
+    fontWeight: FontWeight.bold,
+    color: Theme.of(context).textTheme.bodyText1!.color,
+  );
+}
+
+TextStyle getLogoStyle(BuildContext context) {
+  return TextStyle(
+    fontSize: getLogosize(context),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
@@ -120,6 +129,15 @@ double getH2size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth > SWIDTH) {
     return 48;
+  } else {
+    return screenWidth * 0.07;
+  }
+}
+
+double getLogosize(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 32;
   } else {
     return screenWidth * 0.07;
   }
