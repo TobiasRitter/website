@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/logo.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 
@@ -14,26 +15,25 @@ class TitlePage extends StatefulWidget {
 }
 
 class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
-  late AnimationController controller;
+  late AnimationController arrowController;
 
   void initState() {
     super.initState();
-    controller = AnimationController(
+    arrowController = AnimationController(
       vsync: this,
       duration: arrowAnimationDuration,
       lowerBound: 0,
       upperBound: 1,
     );
-
-    controller.addListener(() {
+    arrowController.addListener(() {
       setState(() {});
     });
 
-    controller.repeat(reverse: true);
+    arrowController.repeat(reverse: true);
   }
 
   void dispose() {
-    controller.dispose();
+    arrowController.dispose();
     super.dispose();
   }
 
@@ -118,7 +118,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                 children: [
                   Container(
                     margin: EdgeInsets.only(
-                        top: controller.value * getMarginSize(context)),
+                        top: arrowController.value * getMarginSize(context)),
                     child: Icon(
                       Icons.keyboard_arrow_down_rounded,
                       size: getArrowSize(context),
@@ -145,19 +145,15 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      children: [
-                        Text(
-                          "Tobias Ritter",
-                          style: getLogoStyle(context),
-                        ),
-                        Text(
-                          "Computer Science Student & Developer",
-                          style: getSubLogoStyle(context),
-                        ),
-                      ],
-                    ),
-                    screenWidth > SWIDTH ? menu : Container(),
+                    Logo(),
+                    screenWidth > SWIDTH
+                        ? menu
+                        : GestureDetector(
+                            onTap: () {
+                              Scaffold.of(context).openEndDrawer();
+                            },
+                            child: Icon(Icons.menu),
+                          ),
                   ],
                 ),
               ),

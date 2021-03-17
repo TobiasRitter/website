@@ -10,7 +10,6 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
     return p.Page(
       dark: false,

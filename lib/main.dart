@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:website/contact_page.dart';
+import 'package:website/mobile_drawer.dart';
 import 'package:website/projects_page.dart';
 import 'package:website/resume_page.dart';
 import 'package:website/title_page.dart';
@@ -172,6 +173,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawerEnableOpenDragGesture: false,
+      endDrawer: MobileDrawer(),
       body: SingleChildScrollView(
         controller: scrollController,
         child: Column(
