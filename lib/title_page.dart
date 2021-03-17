@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/desktop_menu.dart';
 import 'package:website/logo.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
@@ -42,54 +43,6 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     var marginSize = getMarginSize(context);
-
-    var menu = Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        TextButton.icon(
-          onPressed: () => widget.scrollFunc(1),
-          icon: Icon(
-            Icons.school,
-            size: getButtonStyle(context).fontSize,
-            color: Theme.of(context).primaryColor,
-          ),
-          label: Text(
-            "resume",
-            style: getButtonStyle(context),
-          ),
-        ),
-        Container(
-          width: marginSize,
-        ),
-        TextButton.icon(
-          onPressed: () => widget.scrollFunc(2),
-          icon: Icon(
-            Icons.code,
-            size: getButtonStyle(context).fontSize,
-            color: Theme.of(context).primaryColor,
-          ),
-          label: Text(
-            "projects",
-            style: getButtonStyle(context),
-          ),
-        ),
-        Container(
-          width: marginSize,
-        ),
-        TextButton.icon(
-          onPressed: () => widget.scrollFunc(3),
-          icon: Icon(
-            Icons.alternate_email,
-            size: getButtonStyle(context).fontSize,
-            color: Theme.of(context).primaryColor,
-          ),
-          label: Text(
-            "contact",
-            style: getButtonStyle(context),
-          ),
-        ),
-      ],
-    );
 
     var text = Padding(
       padding: EdgeInsets.all(marginSize),
@@ -147,7 +100,9 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                   children: [
                     Logo(),
                     screenWidth > SWIDTH
-                        ? menu
+                        ? DesktopMenu(
+                            scrollFunc: widget.scrollFunc,
+                          )
                         : GestureDetector(
                             onTap: () {
                               Scaffold.of(context).openEndDrawer();
