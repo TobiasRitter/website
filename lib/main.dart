@@ -22,25 +22,25 @@ final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 const SWIDTH = 1200;
 // TODO: layout between 1200 and 500
 
-TextStyle getTitle1Style(BuildContext context) {
+TextStyle getTitleStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getTitle1size(context),
+    fontSize: getTitleSize(context),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).accentColor,
   );
 }
 
-TextStyle getSubtitle1Style(BuildContext context) {
+TextStyle getSubtitleStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getSubtitle1size(context),
+    fontSize: getSubtitleSize(context),
     fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
 
-TextStyle getText1Style(BuildContext context) {
+TextStyle getTextStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getText1size(context),
+    fontSize: getTextSize(context),
     fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
@@ -48,148 +48,148 @@ TextStyle getText1Style(BuildContext context) {
 
 TextStyle getH1Style(BuildContext context) {
   return TextStyle(
-    fontSize: getH1size(context),
-    fontWeight: FontWeight.normal,
+    fontSize: getH1Size(context),
+    fontWeight: FontWeight.bold,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
 
 TextStyle getH2Style(BuildContext context) {
   return TextStyle(
-    fontSize: getH2size(context),
+    fontSize: getH2Size(context),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
 
-TextStyle getLogo1Style(BuildContext context) {
+TextStyle getLogoStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getLogo1size(context),
+    fontSize: getLogoSize(context),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
 
-TextStyle getLogo2Style(BuildContext context) {
+TextStyle getSubLogoStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getLogo2size(context),
+    fontSize: getSubLogoSize(context),
     fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
 
-TextStyle getButton1Style(BuildContext context) {
+TextStyle getButtonStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getButton1size(context),
+    fontSize: getButtonSize(context),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).primaryColor,
   );
 }
 
-TextStyle getButton2Style(BuildContext context) {
+TextStyle getAccentButtonStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getButton1size(context),
+    fontSize: getButtonSize(context),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).accentColor,
   );
 }
 
-double getTitle1size(BuildContext context) {
+double getTitleSize(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth > SWIDTH) {
     return 128;
   } else {
-    return screenWidth * 0.15;
+    return screenWidth * 0.16;
   }
 }
 
-double getSubtitle1size(BuildContext context) {
+double getSubtitleSize(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth > SWIDTH) {
     return 32;
-  } else {
-    return screenWidth * 0.05;
-  }
-}
-
-double getArrow1size(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 128;
-  } else {
-    return screenWidth * 0.1;
-  }
-}
-
-double getArrow1offset(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 64;
-  } else {
-    return screenWidth * 0.1;
-  }
-}
-
-double getH1size(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 96;
-  } else {
-    return screenWidth * 0.1;
-  }
-}
-
-double getH2size(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 48;
-  } else {
-    return screenWidth * 0.07;
-  }
-}
-
-double getLogo1size(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 48;
-  } else {
-    return screenWidth * 0.075;
-  }
-}
-
-double getLogo2size(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 16;
-  } else {
-    return screenWidth * 0.025;
-  }
-}
-
-double getText1size(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 24;
   } else {
     return screenWidth * 0.04;
   }
 }
 
-double getButton1size(BuildContext context) {
+double getArrowSize(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth > SWIDTH) {
-    return 24;
+    return 128;
   } else {
-    return 12;
+    return screenWidth * 0.16;
   }
 }
 
-double getMargin1size(BuildContext context) {
+double getArrowOffset(BuildContext context) {
+  var screenHeight = MediaQuery.of(context).size.height;
+  if (screenHeight > SWIDTH) {
+    return 64;
+  } else {
+    return screenHeight * 0.08;
+  }
+}
+
+double getH1Size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth > SWIDTH) {
     return 64;
   } else {
-    return screenWidth * 0.1;
+    return screenWidth * 0.08;
+  }
+}
+
+double getH2Size(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 32;
+  } else {
+    return screenWidth * 0.04;
+  }
+}
+
+double getLogoSize(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 48;
+  } else {
+    return screenWidth * 0.06;
+  }
+}
+
+double getSubLogoSize(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 16;
+  } else {
+    return screenWidth * 0.02;
+  }
+}
+
+double getTextSize(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 18;
+  } else {
+    return screenWidth * 0.025;
+  }
+}
+
+double getButtonSize(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 24;
+  } else {
+    return screenWidth * 0.03;
+  }
+}
+
+double getMarginSize(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 64;
+  } else {
+    return screenWidth * 0.08;
   }
 }
 

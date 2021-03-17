@@ -11,7 +11,7 @@ class ProjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
-    var margin1size = getMargin1size(context);
+    var margin1size = getMarginSize(context);
     return p.Page(
       dark: false,
       coverScreenHeight: true,
@@ -26,7 +26,7 @@ class ProjectsPage extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.code,
-                      size: getH1size(context),
+                      size: getH1Size(context),
                     ),
                     Container(
                       width: 32,
@@ -40,34 +40,38 @@ class ProjectsPage extends StatelessWidget {
                 Container(
                   height: margin1size,
                 ),
-                GridView.count(
-                  physics: NeverScrollableScrollPhysics(),
-                  mainAxisSpacing: margin1size,
-                  crossAxisSpacing: margin1size,
-                  shrinkWrap: true,
-                  childAspectRatio: screenWidth > SWIDTH ? 1.5 : 1,
-                  crossAxisCount: screenWidth > SWIDTH ? 2 : 1,
+                Row(
                   children: [
-                    ProjectSection(
-                      title: 'RGB LED',
-                      image: 'res/RGBLed.png',
-                    ),
-                    ProjectSection(
-                      title: 'Cardgame',
-                      image: 'res/Cardgame.png',
-                    ),
-                    ProjectSection(
-                      title: 'CleverConvert',
-                      image: 'res/CleverConvert.png',
-                      dark: false,
-                    ),
-                    ProjectSection(
-                      title: 'Data Mining Algorithms',
-                      image: 'res/ClojureAlgos.png',
-                    ),
-                    ProjectSection(
-                      title: 'PyNN',
-                      image: 'res/ClojureAlgos.png',
+                    Expanded(
+                      child: Wrap(
+                        runSpacing: margin1size,
+                        spacing: margin1size,
+                        children: [
+                          ProjectSection(
+                            title: 'RGB LED',
+                            image: 'res/RGBLed.png',
+                            headerColor: Color.fromARGB(255, 0, 0, 100),
+                          ),
+                          ProjectSection(
+                            title: 'Cardgame',
+                            image: 'res/Cardgame.png',
+                          ),
+                          ProjectSection(
+                            title: 'CleverConvert',
+                            image: 'res/CleverConvert.png',
+                            dark: false,
+                            headerColor: Colors.greenAccent,
+                          ),
+                          ProjectSection(
+                            title: 'Data Mining Algorithms',
+                            image: 'res/ClojureAlgos.png',
+                          ),
+                          ProjectSection(
+                            title: 'PyNN',
+                            image: 'res/ClojureAlgos.png',
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

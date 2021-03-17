@@ -41,7 +41,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
-    var margin1size = getMargin1size(context);
+    var margin1size = getMarginSize(context);
 
     var menu = Row(
       mainAxisSize: MainAxisSize.min,
@@ -50,12 +50,12 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           onPressed: () => widget.scrollFunc(1),
           icon: Icon(
             Icons.school,
-            size: getButton1size(context),
+            size: getButtonSize(context),
             color: Theme.of(context).primaryColor,
           ),
           label: Text(
             "resume",
-            style: getButton1Style(context),
+            style: getButtonStyle(context),
           ),
         ),
         Container(
@@ -65,12 +65,12 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           onPressed: () => widget.scrollFunc(2),
           icon: Icon(
             Icons.code,
-            size: getButton1size(context),
+            size: getButtonSize(context),
             color: Theme.of(context).primaryColor,
           ),
           label: Text(
             "projects",
-            style: getButton1Style(context),
+            style: getButtonStyle(context),
           ),
         ),
         Container(
@@ -80,12 +80,12 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           onPressed: () => widget.scrollFunc(3),
           icon: Icon(
             Icons.alternate_email,
-            size: getButton1size(context),
+            size: getButtonSize(context),
             color: Theme.of(context).primaryColor,
           ),
           label: Text(
             "contact",
-            style: getButton1Style(context),
+            style: getButtonStyle(context),
           ),
         ),
       ],
@@ -99,29 +99,29 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           Container(
             child: Text(
               "Welcome,",
-              style: getTitle1Style(context),
+              style: getTitleStyle(context),
               textAlign: TextAlign.center,
             ),
           ),
           Container(
             child: Text(
               "I am a Computer Science student currently working on my master's degree and especially interested in Data Analytics and Machine Learning.",
-              style: getSubtitle1Style(context),
+              style: getSubtitleStyle(context),
               textAlign: TextAlign.center,
             ),
           ),
           GestureDetector(
             onTap: () => widget.scrollFunc(1),
             child: Container(
-              height: getArrow1size(context) + getArrow1offset(context),
+              height: getArrowSize(context) + getArrowOffset(context),
               child: Column(
                 children: [
                   Container(
                     margin: EdgeInsets.only(
-                        top: controller.value * getArrow1offset(context)),
+                        top: controller.value * getArrowOffset(context)),
                     child: Icon(
                       Icons.keyboard_arrow_down_rounded,
-                      size: getArrow1size(context),
+                      size: getArrowSize(context),
                       color: Theme.of(context).accentColor,
                     ),
                   ),
@@ -149,11 +149,11 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                       children: [
                         Text(
                           "Tobias Ritter",
-                          style: getLogo1Style(context),
+                          style: getLogoStyle(context),
                         ),
                         Text(
                           "Computer Science Student & Developer",
-                          style: getLogo2Style(context),
+                          style: getSubLogoStyle(context),
                         ),
                       ],
                     ),

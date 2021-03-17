@@ -10,7 +10,7 @@ class ResumePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
-    var margin1size = getMargin1size(context);
+    var margin1size = getMarginSize(context);
     return p.Page(
       dark: true,
       coverScreenHeight: true,
@@ -26,7 +26,7 @@ class ResumePage extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.school,
-                      size: getH1size(context),
+                      size: getH1Size(context),
                     ),
                     Container(
                       width: 32,
@@ -123,8 +123,14 @@ class ResumePage extends StatelessWidget {
                   children: [
                     FloatingActionButton.extended(
                       onPressed: null,
-                      label: Text("PDF"),
-                      icon: Icon(Icons.download_sharp),
+                      label: Text(
+                        "PDF",
+                        style: getButtonStyle(context),
+                      ),
+                      icon: Icon(
+                        Icons.download_sharp,
+                        size: getButtonSize(context),
+                      ),
                     ),
                   ],
                 ),
@@ -162,8 +168,8 @@ class _ResumeSectionState extends State<ResumeSection> {
 
   @override
   Widget build(BuildContext context) {
-    var margin1size = getMargin1size(context);
-    var text2size = getText1size(context);
+    var margin1size = getMarginSize(context);
+    var text2size = getTextSize(context);
     return Container(
       child: Padding(
         padding: EdgeInsets.only(bottom: margin1size / 2),
@@ -195,12 +201,11 @@ class _ResumeSectionState extends State<ResumeSection> {
                                 children: [
                                   Text(
                                     widget.date,
-                                    style: getText1Style(context),
+                                    style: getTextStyle(context),
                                   ),
                                   Text(
                                     widget.title,
-                                    textAlign: TextAlign.end,
-                                    style: getText1Style(context),
+                                    style: getTextStyle(context),
                                   ),
                                 ],
                               ),
@@ -221,7 +226,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                   Chip(
                                     label: Text(
                                       widget.location,
-                                      style: getText1Style(context),
+                                      style: getTextStyle(context),
                                     ),
                                     avatar: Icon(
                                       Icons.location_pin,
@@ -232,7 +237,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                     label: Text(
                                       widget.institution,
                                       textAlign: TextAlign.end,
-                                      style: getText1Style(context),
+                                      style: getTextStyle(context),
                                     ),
                                     avatar: Icon(
                                       Icons.house,
@@ -255,7 +260,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                     ),
                                     Text(
                                       widget.description,
-                                      style: getText1Style(context),
+                                      style: getTextStyle(context),
                                     ),
                                   ],
                                 )

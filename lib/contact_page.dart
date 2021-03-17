@@ -10,7 +10,7 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
-    var margin1size = getMargin1size(context);
+    var margin1size = getMarginSize(context);
     return p.Page(
       dark: true,
       coverScreenHeight: false,
@@ -25,7 +25,7 @@ class ContactPage extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.alternate_email,
-                      size: getH1size(context),
+                      size: getH1Size(context),
                     ),
                     Container(
                       width: 32,
@@ -56,14 +56,14 @@ class ContactPage extends StatelessWidget {
                                 onPressed: null,
                                 child: Text(
                                   "LinkedIn",
-                                  style: getButton2Style(context),
+                                  style: getAccentButtonStyle(context),
                                 ),
                               ),
                               TextButton(
                                 onPressed: null,
                                 child: Text(
                                   "XING",
-                                  style: getButton2Style(context),
+                                  style: getAccentButtonStyle(context),
                                 ),
                               ),
                             ],
@@ -80,14 +80,14 @@ class ContactPage extends StatelessWidget {
                                 onPressed: null,
                                 child: Text(
                                   "GitHub",
-                                  style: getButton2Style(context),
+                                  style: getAccentButtonStyle(context),
                                 ),
                               ),
                               TextButton(
                                 onPressed: null,
                                 child: Text(
                                   "Docker Hub",
-                                  style: getButton2Style(context),
+                                  style: getAccentButtonStyle(context),
                                 ),
                               ),
                             ],
@@ -118,7 +118,7 @@ class ContactSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var margin1size = getMargin1size(context);
+    var margin1size = getMarginSize(context);
     return Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       alignment: WrapAlignment.center,
@@ -128,7 +128,7 @@ class ContactSection extends StatelessWidget {
         Text(
           text,
           textAlign: TextAlign.center,
-          style: getText1Style(context),
+          style: getTextStyle(context),
         ),
         Wrap(
           children: buttons,
