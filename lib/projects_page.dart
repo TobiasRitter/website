@@ -11,7 +11,7 @@ class ProjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
-    var margin1size = getMarginSize(context);
+    var marginSize = getMarginSize(context);
     return p.Page(
       dark: false,
       coverScreenHeight: true,
@@ -19,33 +19,33 @@ class ProjectsPage extends StatelessWidget {
       builder: Builder(
         builder: (context) {
           return Padding(
-            padding: EdgeInsets.all(margin1size),
+            padding: EdgeInsets.all(marginSize),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.code,
-                      size: getH1Size(context),
-                    ),
-                    Container(
-                      width: 32,
-                    ),
-                    Text(
-                      "Projects",
-                      style: getH1Style(context),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: margin1size,
+                Padding(
+                  padding: EdgeInsets.only(bottom: marginSize),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.code,
+                        size: getH1Style(context).fontSize,
+                      ),
+                      Container(
+                        width: 32,
+                      ),
+                      Text(
+                        "Projects",
+                        style: getH1Style(context),
+                      ),
+                    ],
+                  ),
                 ),
                 Row(
                   children: [
                     Expanded(
                       child: Wrap(
-                        runSpacing: margin1size,
-                        spacing: margin1size,
+                        runSpacing: marginSize,
+                        spacing: marginSize,
                         children: [
                           ProjectSection(
                             title: 'RGB LED',

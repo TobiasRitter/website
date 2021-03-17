@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:website/contact_page.dart';
 import 'package:website/projects_page.dart';
@@ -19,12 +21,12 @@ final ThemeData lightTheme = ThemeData(
 final Duration animationDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
-const SWIDTH = 1200;
+const SWIDTH = 1500;
 // TODO: layout between 1200 and 500
 
 TextStyle getTitleStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getTitleSize(context),
+    fontSize: getRelativeSize(context, 128),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).accentColor,
   );
@@ -32,7 +34,7 @@ TextStyle getTitleStyle(BuildContext context) {
 
 TextStyle getSubtitleStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getSubtitleSize(context),
+    fontSize: getRelativeSize(context, 32),
     fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
@@ -40,7 +42,7 @@ TextStyle getSubtitleStyle(BuildContext context) {
 
 TextStyle getTextStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getTextSize(context),
+    fontSize: getRelativeSize(context, 18),
     fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
@@ -48,7 +50,7 @@ TextStyle getTextStyle(BuildContext context) {
 
 TextStyle getH1Style(BuildContext context) {
   return TextStyle(
-    fontSize: getH1Size(context),
+    fontSize: getRelativeSize(context, 64),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
@@ -56,7 +58,7 @@ TextStyle getH1Style(BuildContext context) {
 
 TextStyle getH2Style(BuildContext context) {
   return TextStyle(
-    fontSize: getH2Size(context),
+    fontSize: getRelativeSize(context, 32),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
@@ -64,7 +66,7 @@ TextStyle getH2Style(BuildContext context) {
 
 TextStyle getLogoStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getLogoSize(context),
+    fontSize: getRelativeSize(context, 48),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
@@ -72,7 +74,7 @@ TextStyle getLogoStyle(BuildContext context) {
 
 TextStyle getSubLogoStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getSubLogoSize(context),
+    fontSize: getRelativeSize(context, 16),
     fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
@@ -80,35 +82,35 @@ TextStyle getSubLogoStyle(BuildContext context) {
 
 TextStyle getButtonStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getButtonSize(context),
+    fontSize: getRelativeSize(context, 24),
     fontWeight: FontWeight.bold,
+    color: Theme.of(context).primaryColor,
+  );
+}
+
+TextStyle getFabStyle(BuildContext context) {
+  return TextStyle(
+    fontSize: getRelativeSize(context, 16),
+    fontWeight: FontWeight.normal,
     color: Theme.of(context).primaryColor,
   );
 }
 
 TextStyle getAccentButtonStyle(BuildContext context) {
   return TextStyle(
-    fontSize: getButtonSize(context),
+    fontSize: getRelativeSize(context, 24),
     fontWeight: FontWeight.bold,
     color: Theme.of(context).accentColor,
   );
 }
 
-double getTitleSize(BuildContext context) {
+double getRelativeSize(BuildContext context, double referenceSize) {
   var screenWidth = MediaQuery.of(context).size.width;
+  var screenHeight = MediaQuery.of(context).size.height;
   if (screenWidth > SWIDTH) {
-    return 128;
+    return referenceSize;
   } else {
-    return screenWidth * 0.16;
-  }
-}
-
-double getSubtitleSize(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 32;
-  } else {
-    return screenWidth * 0.04;
+    return min(screenWidth, screenHeight) * referenceSize / 800;
   }
 }
 
@@ -121,77 +123,7 @@ double getArrowSize(BuildContext context) {
   }
 }
 
-double getArrowOffset(BuildContext context) {
-  var screenHeight = MediaQuery.of(context).size.height;
-  if (screenHeight > SWIDTH) {
-    return 64;
-  } else {
-    return screenHeight * 0.08;
-  }
-}
-
-double getH1Size(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 64;
-  } else {
-    return screenWidth * 0.08;
-  }
-}
-
-double getH2Size(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 32;
-  } else {
-    return screenWidth * 0.04;
-  }
-}
-
-double getLogoSize(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 48;
-  } else {
-    return screenWidth * 0.06;
-  }
-}
-
-double getSubLogoSize(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 16;
-  } else {
-    return screenWidth * 0.02;
-  }
-}
-
-double getTextSize(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 18;
-  } else {
-    return screenWidth * 0.025;
-  }
-}
-
-double getButtonSize(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 24;
-  } else {
-    return screenWidth * 0.03;
-  }
-}
-
-double getMarginSize(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 64;
-  } else {
-    return screenWidth * 0.08;
-  }
-}
+double getMarginSize(BuildContext context) => getRelativeSize(context, 64);
 
 void main() {
   runApp(MyApp());

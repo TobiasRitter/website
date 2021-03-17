@@ -41,7 +41,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
-    var margin1size = getMarginSize(context);
+    var marginSize = getMarginSize(context);
 
     var menu = Row(
       mainAxisSize: MainAxisSize.min,
@@ -50,7 +50,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           onPressed: () => widget.scrollFunc(1),
           icon: Icon(
             Icons.school,
-            size: getButtonSize(context),
+            size: getButtonStyle(context).fontSize,
             color: Theme.of(context).primaryColor,
           ),
           label: Text(
@@ -59,13 +59,13 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           ),
         ),
         Container(
-          width: margin1size,
+          width: marginSize,
         ),
         TextButton.icon(
           onPressed: () => widget.scrollFunc(2),
           icon: Icon(
             Icons.code,
-            size: getButtonSize(context),
+            size: getButtonStyle(context).fontSize,
             color: Theme.of(context).primaryColor,
           ),
           label: Text(
@@ -74,13 +74,13 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           ),
         ),
         Container(
-          width: margin1size,
+          width: marginSize,
         ),
         TextButton.icon(
           onPressed: () => widget.scrollFunc(3),
           icon: Icon(
             Icons.alternate_email,
-            size: getButtonSize(context),
+            size: getButtonStyle(context).fontSize,
             color: Theme.of(context).primaryColor,
           ),
           label: Text(
@@ -92,7 +92,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     );
 
     var text = Padding(
-      padding: EdgeInsets.all(margin1size),
+      padding: EdgeInsets.all(marginSize),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -113,12 +113,12 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           GestureDetector(
             onTap: () => widget.scrollFunc(1),
             child: Container(
-              height: getArrowSize(context) + getArrowOffset(context),
+              height: getArrowSize(context) + getMarginSize(context),
               child: Column(
                 children: [
                   Container(
                     margin: EdgeInsets.only(
-                        top: controller.value * getArrowOffset(context)),
+                        top: controller.value * getMarginSize(context)),
                     child: Icon(
                       Icons.keyboard_arrow_down_rounded,
                       size: getArrowSize(context),
@@ -141,7 +141,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           return Column(
             children: [
               Padding(
-                padding: EdgeInsets.all(margin1size),
+                padding: EdgeInsets.all(marginSize),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

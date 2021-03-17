@@ -10,7 +10,7 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
-    var margin1size = getMarginSize(context);
+    var marginSize = getMarginSize(context);
     return p.Page(
       dark: true,
       coverScreenHeight: false,
@@ -18,32 +18,32 @@ class ContactPage extends StatelessWidget {
       builder: Builder(
         builder: (context) {
           return Padding(
-            padding: EdgeInsets.all(margin1size),
+            padding: EdgeInsets.all(marginSize),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.alternate_email,
-                      size: getH1Size(context),
-                    ),
-                    Container(
-                      width: 32,
-                    ),
-                    Text(
-                      "Contact",
-                      style: getH1Style(context),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: margin1size,
+                Padding(
+                  padding: EdgeInsets.only(bottom: marginSize),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.alternate_email,
+                        size: getH1Style(context).fontSize,
+                      ),
+                      Container(
+                        width: 32,
+                      ),
+                      Text(
+                        "Contact",
+                        style: getH1Style(context),
+                      ),
+                    ],
+                  ),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Wrap(
-                      runSpacing: margin1size,
+                      runSpacing: marginSize,
                       children: [
                         Container(
                           width: screenWidth > SWIDTH
@@ -118,12 +118,12 @@ class ContactSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var margin1size = getMarginSize(context);
+    var marginSize = getMarginSize(context);
     return Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       alignment: WrapAlignment.center,
-      spacing: margin1size,
-      runSpacing: margin1size / 2,
+      spacing: marginSize,
+      runSpacing: marginSize / 2,
       children: [
         Text(
           text,
@@ -134,8 +134,8 @@ class ContactSection extends StatelessWidget {
           children: buttons,
           crossAxisAlignment: WrapCrossAlignment.center,
           alignment: WrapAlignment.center,
-          spacing: margin1size / 2,
-          runSpacing: margin1size / 2,
+          spacing: marginSize / 2,
+          runSpacing: marginSize / 2,
         ),
       ],
     );

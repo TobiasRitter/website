@@ -10,7 +10,7 @@ class ResumePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
-    var margin1size = getMarginSize(context);
+    var marginSize = getMarginSize(context);
     return p.Page(
       dark: true,
       coverScreenHeight: true,
@@ -18,48 +18,48 @@ class ResumePage extends StatelessWidget {
       builder: Builder(
         builder: (context) {
           return Padding(
-            padding: EdgeInsets.all(margin1size),
+            padding: EdgeInsets.all(marginSize),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.school,
-                      size: getH1Size(context),
-                    ),
-                    Container(
-                      width: 32,
-                    ),
-                    Text(
-                      "Resume",
-                      style: getH1Style(context),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: margin1size,
+                Padding(
+                  padding: EdgeInsets.only(bottom: marginSize),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.school,
+                        size: getH1Style(context).fontSize,
+                      ),
+                      Container(
+                        width: 32,
+                      ),
+                      Text(
+                        "Resume",
+                        style: getH1Style(context),
+                      ),
+                    ],
+                  ),
                 ),
                 Row(
                   children: [
                     Expanded(
                       child: Wrap(
-                        spacing: margin1size,
-                        runSpacing: margin1size,
+                        spacing: marginSize,
+                        runSpacing: marginSize,
                         children: [
                           Container(
                             width: screenWidth > SWIDTH
-                                ? (screenWidth - 3 * margin1size) / 2
-                                : screenWidth - 2 * margin1size,
+                                ? (screenWidth - 3 * marginSize) / 2
+                                : screenWidth - 2 * marginSize,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Education",
-                                  style: getH2Style(context),
-                                ),
-                                Container(
-                                  height: margin1size,
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: marginSize),
+                                  child: Text(
+                                    "Education",
+                                    style: getH2Style(context),
+                                  ),
                                 ),
                                 ResumeSection(
                                   title: "M. Sc. Informatics",
@@ -82,17 +82,17 @@ class ResumePage extends StatelessWidget {
                           ),
                           Container(
                             width: screenWidth > SWIDTH
-                                ? (screenWidth - 3 * margin1size) / 2
-                                : screenWidth - 2 * margin1size,
+                                ? (screenWidth - 3 * marginSize) / 2
+                                : screenWidth - 2 * marginSize,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  "Work experience",
-                                  style: getH2Style(context),
-                                ),
-                                Container(
-                                  height: margin1size,
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: marginSize),
+                                  child: Text(
+                                    "Work experience",
+                                    style: getH2Style(context),
+                                  ),
                                 ),
                                 ResumeSection(
                                   title: "Coorporate Student",
@@ -125,11 +125,11 @@ class ResumePage extends StatelessWidget {
                       onPressed: null,
                       label: Text(
                         "PDF",
-                        style: getButtonStyle(context),
+                        style: getFabStyle(context),
                       ),
                       icon: Icon(
                         Icons.download_sharp,
-                        size: getButtonSize(context),
+                        size: getFabStyle(context).fontSize,
                       ),
                     ),
                   ],
@@ -168,11 +168,11 @@ class _ResumeSectionState extends State<ResumeSection> {
 
   @override
   Widget build(BuildContext context) {
-    var margin1size = getMarginSize(context);
-    var text2size = getTextSize(context);
+    var marginSize = getMarginSize(context);
+    var textSize = getTextStyle(context).fontSize!;
     return Container(
       child: Padding(
-        padding: EdgeInsets.only(bottom: margin1size / 2),
+        padding: EdgeInsets.only(bottom: marginSize / 2),
         child: Column(
           children: [
             Row(
@@ -180,10 +180,13 @@ class _ResumeSectionState extends State<ResumeSection> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.fiber_manual_record),
+                  child: Icon(
+                    Icons.fiber_manual_record,
+                    size: getH2Style(context).fontSize,
+                  ),
                 ),
                 Container(
-                  width: margin1size / 2,
+                  width: marginSize / 2,
                 ),
                 Expanded(
                   child: Padding(
@@ -196,8 +199,8 @@ class _ResumeSectionState extends State<ResumeSection> {
                               child: Wrap(
                                 crossAxisAlignment: WrapCrossAlignment.start,
                                 alignment: WrapAlignment.spaceBetween,
-                                spacing: margin1size / 2,
-                                runSpacing: text2size / 2,
+                                spacing: marginSize / 2,
+                                runSpacing: textSize / 2,
                                 children: [
                                   Text(
                                     widget.date,
@@ -213,7 +216,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                           ],
                         ),
                         Container(
-                          height: text2size,
+                          height: textSize,
                         ),
                         Row(
                           children: [
@@ -221,7 +224,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                               child: Wrap(
                                 crossAxisAlignment: WrapCrossAlignment.start,
                                 alignment: WrapAlignment.spaceBetween,
-                                spacing: margin1size / 2,
+                                spacing: marginSize / 2,
                                 children: [
                                   Chip(
                                     label: Text(
@@ -230,7 +233,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                     ),
                                     avatar: Icon(
                                       Icons.location_pin,
-                                      size: text2size,
+                                      size: textSize,
                                     ),
                                   ),
                                   Chip(
@@ -241,7 +244,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                     ),
                                     avatar: Icon(
                                       Icons.house,
-                                      size: text2size,
+                                      size: textSize,
                                     ),
                                   ),
                                 ],
@@ -256,7 +259,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      height: margin1size / 2,
+                                      height: marginSize / 2,
                                     ),
                                     Text(
                                       widget.description,
@@ -271,13 +274,19 @@ class _ResumeSectionState extends State<ResumeSection> {
                   ),
                 ),
                 Container(
-                  width: margin1size / 2,
+                  width: marginSize / 2,
                 ),
-                IconButton(
-                  icon: Icon(expanded
-                      ? Icons.keyboard_arrow_up
-                      : Icons.keyboard_arrow_down),
-                  onPressed: () => setState(() => expanded = !expanded),
+                GestureDetector(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(
+                      expanded
+                          ? Icons.keyboard_arrow_up
+                          : Icons.keyboard_arrow_down,
+                      size: getH2Style(context).fontSize,
+                    ),
+                  ),
+                  onTap: () => setState(() => expanded = !expanded),
                 )
               ],
             ),

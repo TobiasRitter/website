@@ -24,7 +24,7 @@ class ProjectSection extends StatefulWidget {
 class _ProjectSectionState extends State<ProjectSection> {
   @override
   Widget build(BuildContext context) {
-    var margin1size = getMarginSize(context);
+    var marginSize = getMarginSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
     return Theme(
       data: widget.dark ? darkTheme : lightTheme,
@@ -32,10 +32,10 @@ class _ProjectSectionState extends State<ProjectSection> {
         builder: (context) {
           return Container(
             width: screenWidth > SWIDTH
-                ? (screenWidth - 5 * margin1size) / 4
+                ? (screenWidth - 5 * marginSize) / 4
                 : screenWidth,
             height: screenWidth > SWIDTH
-                ? (screenWidth - 5 * margin1size) / 4 * 1.5
+                ? (screenWidth - 5 * marginSize) / 4 * 1.5
                 : screenWidth * 1.5,
             child: Material(
               elevation: 32,
@@ -59,7 +59,7 @@ class _ProjectSectionState extends State<ProjectSection> {
                   Expanded(
                     flex: 2,
                     child: Padding(
-                      padding: EdgeInsets.all(margin1size),
+                      padding: EdgeInsets.all(marginSize),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
