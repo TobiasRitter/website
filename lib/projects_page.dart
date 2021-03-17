@@ -27,14 +27,16 @@ class ProjectsPage extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.code,
-                        size: getH1Style(context).fontSize,
+                        size: h1Style.fontSize,
                       ),
                       Container(
                         width: 32,
                       ),
                       Text(
                         "Projects",
-                        style: getH1Style(context),
+                        style: h1Style.copyWith(
+                            color:
+                                Theme.of(context).textTheme.bodyText1!.color),
                       ),
                     ],
                   ),

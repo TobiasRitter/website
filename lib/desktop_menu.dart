@@ -19,12 +19,9 @@ class DesktopMenu extends StatelessWidget {
           onPressed: () => scrollFunc(1),
           icon: Icon(
             Icons.school,
-            size: getButtonStyle(context).fontSize,
-            color: Theme.of(context).primaryColor,
           ),
           label: Text(
             "resume",
-            style: getButtonStyle(context),
           ),
         ),
         Container(
@@ -34,12 +31,9 @@ class DesktopMenu extends StatelessWidget {
           onPressed: () => scrollFunc(2),
           icon: Icon(
             Icons.code,
-            size: getButtonStyle(context).fontSize,
-            color: Theme.of(context).primaryColor,
           ),
           label: Text(
             "projects",
-            style: getButtonStyle(context),
           ),
         ),
         Container(
@@ -49,12 +43,9 @@ class DesktopMenu extends StatelessWidget {
           onPressed: () => scrollFunc(3),
           icon: Icon(
             Icons.alternate_email,
-            size: getButtonStyle(context).fontSize,
-            color: Theme.of(context).primaryColor,
           ),
           label: Text(
             "contact",
-            style: getButtonStyle(context),
           ),
         ),
       ],

@@ -25,9 +25,14 @@ final ThemeData lightTheme = ThemeData(
   primaryColor: Colors.black,
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
-      primary: Colors.indigoAccent,
+      primary: Colors.black,
     ),
   ),
+);
+
+final TextStyle h1Style = TextStyle(
+  fontSize: 64,
+  fontWeight: FontWeight.bold,
 );
 
 final TextStyle h2Style = TextStyle(
@@ -68,30 +73,6 @@ TextStyle getSubtitleStyle(BuildContext context) {
   );
 }
 
-TextStyle getTextStyle(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 18),
-    fontWeight: FontWeight.normal,
-    color: Theme.of(context).textTheme.bodyText1!.color,
-  );
-}
-
-TextStyle getH1Style(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 64),
-    fontWeight: FontWeight.bold,
-    color: Theme.of(context).textTheme.bodyText1!.color,
-  );
-}
-
-TextStyle getH2Style(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 32),
-    fontWeight: FontWeight.bold,
-    color: Theme.of(context).textTheme.bodyText1!.color,
-  );
-}
-
 TextStyle getLogoStyle(BuildContext context) {
   return TextStyle(
     fontSize: getRelativeSize(context, 48),
@@ -105,14 +86,6 @@ TextStyle getSubLogoStyle(BuildContext context) {
     fontSize: getRelativeSize(context, 16),
     fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
-  );
-}
-
-TextStyle getButtonStyle(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 24),
-    fontWeight: FontWeight.bold,
-    color: Theme.of(context).primaryColor,
   );
 }
 
@@ -216,13 +189,13 @@ class _MyHomePageState extends State<MyHomePage> {
         controller: scrollController,
         child: Column(
           children: [
-            // TitlePage(
-            //   key: keys[0],
-            //   scrollFunc: scroll,
-            // ),
-            // ResumePage(
-            //   key: keys[1],
-            // ),
+            TitlePage(
+              key: keys[0],
+              scrollFunc: scroll,
+            ),
+            ResumePage(
+              key: keys[1],
+            ),
             ProjectsPage(
               key: keys[2],
             ),

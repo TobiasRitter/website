@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 
@@ -27,7 +28,6 @@ class _ResumeSectionState extends State<ResumeSection> {
   @override
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
-    var textSize = getTextStyle(context).fontSize!;
     return Container(
       child: Padding(
         padding: EdgeInsets.only(bottom: marginSize / 2),
@@ -40,7 +40,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(
                     Icons.fiber_manual_record,
-                    size: getH2Style(context).fontSize,
+                    size: h2Style.fontSize,
                   ),
                 ),
                 Container(
@@ -58,15 +58,25 @@ class _ResumeSectionState extends State<ResumeSection> {
                                 crossAxisAlignment: WrapCrossAlignment.start,
                                 alignment: WrapAlignment.spaceBetween,
                                 spacing: marginSize / 2,
-                                runSpacing: textSize / 2,
+                                runSpacing: textStyle.fontSize! / 2,
                                 children: [
                                   Text(
                                     widget.date,
-                                    style: getTextStyle(context),
+                                    style: textStyle.copyWith(
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1!
+                                          .color,
+                                    ),
                                   ),
                                   Text(
                                     widget.title,
-                                    style: getTextStyle(context),
+                                    style: textStyle.copyWith(
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1!
+                                          .color,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -74,7 +84,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                           ],
                         ),
                         Container(
-                          height: textSize,
+                          height: textStyle.fontSize,
                         ),
                         Row(
                           children: [
@@ -85,24 +95,34 @@ class _ResumeSectionState extends State<ResumeSection> {
                                 spacing: marginSize / 2,
                                 children: [
                                   Chip(
-                                    label: Text(
+                                    label: AutoSizeText(
                                       widget.location,
-                                      style: getTextStyle(context),
+                                      style: textStyle.copyWith(
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1!
+                                            .color,
+                                      ),
                                     ),
                                     avatar: Icon(
                                       Icons.location_pin,
-                                      size: textSize,
+                                      size: textStyle.fontSize,
                                     ),
                                   ),
                                   Chip(
-                                    label: Text(
+                                    label: AutoSizeText(
                                       widget.institution,
                                       textAlign: TextAlign.end,
-                                      style: getTextStyle(context),
+                                      style: textStyle.copyWith(
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1!
+                                            .color,
+                                      ),
                                     ),
                                     avatar: Icon(
                                       Icons.house,
-                                      size: textSize,
+                                      size: textStyle.fontSize,
                                     ),
                                   ),
                                 ],
@@ -119,9 +139,14 @@ class _ResumeSectionState extends State<ResumeSection> {
                                     Container(
                                       height: marginSize / 2,
                                     ),
-                                    Text(
+                                    AutoSizeText(
                                       widget.description,
-                                      style: getTextStyle(context),
+                                      style: textStyle.copyWith(
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1!
+                                            .color,
+                                      ),
                                     ),
                                   ],
                                 )
@@ -141,7 +166,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                       expanded
                           ? Icons.keyboard_arrow_up
                           : Icons.keyboard_arrow_down,
-                      size: getH2Style(context).fontSize,
+                      size: h2Style.fontSize,
                     ),
                   ),
                   onTap: () => setState(() => expanded = !expanded),

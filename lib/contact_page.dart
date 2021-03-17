@@ -28,14 +28,16 @@ class ContactPage extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.alternate_email,
-                        size: getH1Style(context).fontSize,
+                        size: h1Style.fontSize,
                       ),
                       Container(
                         width: 32,
                       ),
                       Text(
                         "Contact",
-                        style: getH1Style(context),
+                        style: h1Style.copyWith(
+                            color:
+                                Theme.of(context).textTheme.bodyText1!.color),
                       ),
                     ],
                   ),

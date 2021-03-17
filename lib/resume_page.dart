@@ -29,14 +29,16 @@ class ResumePage extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.school,
-                        size: getH1Style(context).fontSize,
+                        size: h1Style.fontSize,
                       ),
                       Container(
                         width: 32,
                       ),
                       Text(
                         "Resume",
-                        style: getH1Style(context),
+                        style: h1Style.copyWith(
+                            color:
+                                Theme.of(context).textTheme.bodyText1!.color),
                       ),
                     ],
                   ),
@@ -59,7 +61,11 @@ class ResumePage extends StatelessWidget {
                                   padding: EdgeInsets.only(bottom: marginSize),
                                   child: Text(
                                     "Education",
-                                    style: getH2Style(context),
+                                    style: h2Style.copyWith(
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1!
+                                            .color),
                                   ),
                                 ),
                                 ResumeSection(
@@ -92,7 +98,11 @@ class ResumePage extends StatelessWidget {
                                   padding: EdgeInsets.only(bottom: marginSize),
                                   child: Text(
                                     "Work experience",
-                                    style: getH2Style(context),
+                                    style: h2Style.copyWith(
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1!
+                                            .color),
                                   ),
                                 ),
                                 ResumeSection(
