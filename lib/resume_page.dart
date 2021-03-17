@@ -245,7 +245,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                           ],
                         ),
                         AnimatedSwitcher(
-                          duration: Duration(milliseconds: 500),
+                          duration: animationDuration,
                           child: expanded
                               ? Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,

@@ -30,8 +30,7 @@ class _ProjectSectionState extends State<ProjectSection>
   void initState() {
     super.initState();
 
-    controller =
-        AnimationController(duration: Duration(milliseconds: 500), vsync: this);
+    controller = AnimationController(duration: animationDuration, vsync: this);
     _frontRotation = TweenSequence(
       <TweenSequenceItem<double>>[
         TweenSequenceItem<double>(

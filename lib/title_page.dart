@@ -3,8 +3,10 @@ import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 
 class TitlePage extends StatefulWidget {
+  final Function(int) scrollFunc;
   const TitlePage({
     Key? key,
+    required this.scrollFunc,
   }) : super(key: key);
 
   @override
@@ -18,7 +20,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1),
+      duration: arrowAnimationDuration,
       lowerBound: 0,
       upperBound: 1,
     );
@@ -45,10 +47,11 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
       mainAxisSize: MainAxisSize.min,
       children: [
         TextButton.icon(
-          onPressed: null,
+          onPressed: () => widget.scrollFunc(1),
           icon: Icon(
             Icons.school,
             size: getButton1size(context),
+            color: Theme.of(context).primaryColor,
           ),
           label: Text(
             "resume",
@@ -56,13 +59,14 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           ),
         ),
         Container(
-          width: margin1size / 2,
+          width: margin1size,
         ),
         TextButton.icon(
-          onPressed: null,
+          onPressed: () => widget.scrollFunc(2),
           icon: Icon(
             Icons.code,
             size: getButton1size(context),
+            color: Theme.of(context).primaryColor,
           ),
           label: Text(
             "projects",
@@ -70,13 +74,14 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           ),
         ),
         Container(
-          width: margin1size / 2,
+          width: margin1size,
         ),
         TextButton.icon(
-          onPressed: null,
+          onPressed: () => widget.scrollFunc(3),
           icon: Icon(
             Icons.alternate_email,
             size: getButton1size(context),
+            color: Theme.of(context).primaryColor,
           ),
           label: Text(
             "contact",
@@ -137,9 +142,17 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Tobias Ritter",
-                      style: getLogoStyle(context),
+                    Column(
+                      children: [
+                        Text(
+                          "Tobias Ritter",
+                          style: getLogo1Style(context),
+                        ),
+                        Text(
+                          "Computer Science Student & Developer",
+                          style: getLogo2Style(context),
+                        ),
+                      ],
                     ),
                     screenWidth > SWIDTH ? menu : Container(),
                   ],

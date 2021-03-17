@@ -7,12 +7,17 @@ import 'package:website/title_page.dart';
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   canvasColor: Colors.black,
-  accentColor: Colors.tealAccent,
+  accentColor: Colors.indigoAccent,
+  primaryColor: Colors.white,
 );
 final ThemeData lightTheme = ThemeData(
   canvasColor: Colors.white,
   accentColor: Colors.indigoAccent,
+  primaryColor: Colors.black,
 );
+
+final Duration animationDuration = Duration(milliseconds: 500);
+final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
 const SWIDTH = 1200;
 // TODO: layout between 1200 and 500
@@ -57,10 +62,18 @@ TextStyle getH2Style(BuildContext context) {
   );
 }
 
-TextStyle getLogoStyle(BuildContext context) {
+TextStyle getLogo1Style(BuildContext context) {
   return TextStyle(
-    fontSize: getLogosize(context),
+    fontSize: getLogo1size(context),
     fontWeight: FontWeight.bold,
+    color: Theme.of(context).textTheme.bodyText1!.color,
+  );
+}
+
+TextStyle getLogo2Style(BuildContext context) {
+  return TextStyle(
+    fontSize: getLogo2size(context),
+    fontWeight: FontWeight.normal,
     color: Theme.of(context).textTheme.bodyText1!.color,
   );
 }
@@ -69,6 +82,7 @@ TextStyle getButton1Style(BuildContext context) {
   return TextStyle(
     fontSize: getButton1size(context),
     fontWeight: FontWeight.bold,
+    color: Theme.of(context).primaryColor,
   );
 }
 
@@ -134,12 +148,21 @@ double getH2size(BuildContext context) {
   }
 }
 
-double getLogosize(BuildContext context) {
+double getLogo1size(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth > SWIDTH) {
-    return 32;
+    return 48;
   } else {
-    return screenWidth * 0.07;
+    return screenWidth * 0.075;
+  }
+}
+
+double getLogo2size(BuildContext context) {
+  var screenWidth = MediaQuery.of(context).size.width;
+  if (screenWidth > SWIDTH) {
+    return 16;
+  } else {
+    return screenWidth * 0.025;
   }
 }
 
@@ -198,18 +221,57 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  ScrollController scrollController = ScrollController();
+  late List<Widget> children;
+  GlobalKey titleKey = GlobalKey();
+  GlobalKey resumeKey = GlobalKey();
+  GlobalKey projectsKey = GlobalKey();
+  GlobalKey contactKey = GlobalKey();
+  late List<GlobalKey> keys;
+
+  @override
+  void initState() {
+    super.initState();
+    keys = [titleKey, resumeKey, projectsKey, contactKey];
+    children = [
+      TitlePage(
+        key: titleKey,
+        scrollFunc: scroll,
+      ),
+      ResumePage(
+        key: resumeKey,
+      ),
+      ProjectsPage(
+        key: projectsKey,
+      ),
+      ContactPage(
+        key: contactKey,
+      ),
+    ];
+  }
+
+  void scroll(int index) {
+    double offset = 0.0;
+    for (var i = 0; i < index; i++) {
+      var key = keys[i];
+      RenderObject? renderObject = key.currentContext!.findRenderObject();
+      if (renderObject is RenderBox) {
+        offset += renderObject.size.height;
+      }
+    }
+    scrollController.animateTo(offset,
+        duration: animationDuration, curve: Curves.easeInOut);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Column(
-        children: [
-          TitlePage(),
-          ResumePage(),
-          ProjectsPage(),
-          ContactPage(),
-        ],
+      body: SingleChildScrollView(
+        controller: scrollController,
+        child: Column(
+          children: children,
+        ),
       ),
-    ));
+    );
   }
 }
