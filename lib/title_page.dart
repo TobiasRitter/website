@@ -60,7 +60,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
             child: Text(
               "I am a Computer Science student currently working on my master's degree and especially interested in Data Analytics and Machine Learning.",
               style: getSubtitleStyle(context),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.justify,
             ),
           ),
           GestureDetector(
