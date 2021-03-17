@@ -80,7 +80,7 @@ class ProjectsPage extends StatelessWidget {
                             title: 'Data Mining Algorithms',
                             description:
                                 'This project contains supervised and unsupervised Data Mining algorithms implemented in Clojure.',
-                            image: 'res/ClojureDM.png',
+                            image: 'res/ClojureAlgos.png',
                             headerColor: Colors.black,
                           ),
                         ],
