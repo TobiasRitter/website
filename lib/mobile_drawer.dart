@@ -3,8 +3,10 @@ import 'package:website/logo.dart';
 import 'package:website/main.dart';
 
 class MobileDrawer extends StatelessWidget {
+  final Function(int) scrollFunc;
   const MobileDrawer({
     Key? key,
+    required this.scrollFunc,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,10 @@ class MobileDrawer extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Logo(),
+                      GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: Logo(),
+                      ),
                       GestureDetector(
                         onTap: () => Navigator.pop(context),
                         child: Padding(
@@ -33,51 +38,90 @@ class MobileDrawer extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Column(
-                    children: [
-                      TextButton.icon(
-                        onPressed: () => Navigator.pop(context),
-                        icon: Icon(
-                          Icons.school,
-                          size: getButtonStyle(context).fontSize,
-                          color: Theme.of(context).primaryColor,
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                            scrollFunc(1);
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.all(marginSize),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.school,
+                                  size: getMenuButtonStyle(context).fontSize,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                                Container(
+                                  width: marginSize / 2,
+                                ),
+                                Text(
+                                  "resume",
+                                  style: getMenuButtonStyle(context),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        label: Text(
-                          "resume",
-                          style: getButtonStyle(context),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                            scrollFunc(2);
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.all(marginSize),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.code,
+                                  size: getMenuButtonStyle(context).fontSize,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                                Container(
+                                  width: marginSize / 2,
+                                ),
+                                Text(
+                                  "projects",
+                                  style: getMenuButtonStyle(context),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: marginSize,
-                      ),
-                      TextButton.icon(
-                        onPressed: () => Navigator.pop(context),
-                        icon: Icon(
-                          Icons.code,
-                          size: getButtonStyle(context).fontSize,
-                          color: Theme.of(context).primaryColor,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                            scrollFunc(3);
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.all(marginSize),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.alternate_email,
+                                  size: getMenuButtonStyle(context).fontSize,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                                Container(
+                                  width: marginSize / 2,
+                                ),
+                                Text(
+                                  "contact",
+                                  style: getMenuButtonStyle(context),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        label: Text(
-                          "projects",
-                          style: getButtonStyle(context),
-                        ),
-                      ),
-                      Container(
-                        width: marginSize,
-                      ),
-                      TextButton.icon(
-                        onPressed: () => Navigator.pop(context),
-                        icon: Icon(
-                          Icons.alternate_email,
-                          size: getButtonStyle(context).fontSize,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                        label: Text(
-                          "contact",
-                          style: getButtonStyle(context),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   )
                 ],
               ),

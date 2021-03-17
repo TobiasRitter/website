@@ -89,6 +89,14 @@ TextStyle getButtonStyle(BuildContext context) {
   );
 }
 
+TextStyle getMenuButtonStyle(BuildContext context) {
+  return TextStyle(
+    fontSize: getRelativeSize(context, 48),
+    fontWeight: FontWeight.bold,
+    color: Theme.of(context).primaryColor,
+  );
+}
+
 TextStyle getFabStyle(BuildContext context) {
   return TextStyle(
     fontSize: getRelativeSize(context, 16),
@@ -174,7 +182,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawerEnableOpenDragGesture: false,
-      endDrawer: MobileDrawer(),
+      endDrawer: MobileDrawer(
+        scrollFunc: scroll,
+      ),
       body: SingleChildScrollView(
         controller: scrollController,
         child: Column(
