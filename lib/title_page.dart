@@ -110,20 +110,23 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
               textAlign: TextAlign.center,
             ),
           ),
-          Container(
-            height: getArrow1size(context) + getArrow1offset(context),
-            child: Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(
-                      top: controller.value * getArrow1offset(context)),
-                  child: Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    size: getArrow1size(context),
-                    color: Theme.of(context).accentColor,
+          GestureDetector(
+            onTap: () => widget.scrollFunc(1),
+            child: Container(
+              height: getArrow1size(context) + getArrow1offset(context),
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                        top: controller.value * getArrow1offset(context)),
+                    child: Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      size: getArrow1size(context),
+                      color: Theme.of(context).accentColor,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
