@@ -47,11 +47,19 @@ class ProjectsPage extends StatelessWidget {
                         spacing: marginSize,
                         children: [
                           ProjectSection(
+                            title: 'PyNN',
+                            description:
+                                'This project aims to implement a fully functional Multi-Layer Perceptron in Python. The project points out the fundamental concepts of Artifical Neural Networks, such as forward and backward propagation.',
+                            image: 'res/PyNN.png',
+                            dark: true,
+                            headerColor: Colors.white,
+                          ),
+                          ProjectSection(
                             title: 'RGB LED',
                             description:
                                 'This Flutter application in combination with a Raspberry Pi allows You to control Adafruit RGB LEDs with Your smartphone. This requires your smartphone and the Raspberry Pi to be in the same local network.',
                             image: 'res/RGBLed.png',
-                            headerColor: Colors.black,
+                            headerColor: Colors.redAccent,
                           ),
                           ProjectSection(
                             title: 'Cardgame',
@@ -72,16 +80,8 @@ class ProjectsPage extends StatelessWidget {
                             title: 'Data Mining Algorithms',
                             description:
                                 'This project contains supervised and unsupervised Data Mining algorithms implemented in Clojure.',
-                            image: 'res/ClojureAlgos.png',
+                            image: 'res/ClojureDM.png',
                             headerColor: Colors.black,
-                          ),
-                          ProjectSection(
-                            title: 'PyNN',
-                            description:
-                                'This project aims to implement a fully functional Multi-Layer Perceptron in Python. The project points out the fundamental concepts of Artifical Neural Networks, such as forward and backward propagation.',
-                            image: 'res/PyNN.png',
-                            dark: true,
-                            headerColor: Colors.white,
                           ),
                         ],
                       ),
