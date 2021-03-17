@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
@@ -53,17 +54,15 @@ class ContactPage extends StatelessWidget {
                             text: "Let's get to know each other:",
                             buttons: [
                               TextButton(
-                                onPressed: null,
-                                child: Text(
+                                onPressed: () {},
+                                child: AutoSizeText(
                                   "LinkedIn",
-                                  style: getAccentButtonStyle(context),
                                 ),
                               ),
                               TextButton(
-                                onPressed: null,
-                                child: Text(
+                                onPressed: () {},
+                                child: AutoSizeText(
                                   "XING",
-                                  style: getAccentButtonStyle(context),
                                 ),
                               ),
                             ],
@@ -77,17 +76,15 @@ class ContactPage extends StatelessWidget {
                             text: "Take a look at my code here:",
                             buttons: [
                               TextButton(
-                                onPressed: null,
-                                child: Text(
+                                onPressed: () {},
+                                child: AutoSizeText(
                                   "GitHub",
-                                  style: getAccentButtonStyle(context),
                                 ),
                               ),
                               TextButton(
-                                onPressed: null,
-                                child: Text(
+                                onPressed: () {},
+                                child: AutoSizeText(
                                   "Docker Hub",
-                                  style: getAccentButtonStyle(context),
                                 ),
                               ),
                             ],
@@ -125,10 +122,12 @@ class ContactSection extends StatelessWidget {
       spacing: marginSize,
       runSpacing: marginSize / 2,
       children: [
-        Text(
+        AutoSizeText(
           text,
           textAlign: TextAlign.center,
-          style: getTextStyle(context),
+          style: textStyle.copyWith(
+            color: Theme.of(context).textTheme.bodyText1!.color,
+          ),
         ),
         Wrap(
           children: buttons,

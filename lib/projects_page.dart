@@ -81,7 +81,7 @@ class ProjectsPage extends StatelessWidget {
                             description:
                                 'This project contains supervised and unsupervised Data Mining algorithms implemented in Clojure.',
                             image: 'res/ClojureAlgos.png',
-                            headerColor: Colors.black,
+                            headerColor: Color.fromARGB(255, 30, 30, 30),
                           ),
                         ],
                       ),

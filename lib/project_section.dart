@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 
@@ -66,24 +67,29 @@ class _ProjectSectionState extends State<ProjectSection> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          AutoSizeText(
                             widget.title,
                             textAlign: TextAlign.center,
-                            style: getH2Style(context),
+                            maxLines: 1,
+                            style: h2Style,
                           ),
-                          Text(
-                            widget.description,
-                            style: getTextStyle(context),
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: marginSize / 2),
+                              child: AutoSizeText(
+                                widget.description,
+                                style: textStyle,
+                              ),
+                            ),
                           ),
                           TextButton.icon(
-                            onPressed: null,
-                            label: Text(
+                            onPressed: () {},
+                            label: AutoSizeText(
                               "Show on GitHub",
-                              style: getAccentButtonStyle(context),
                             ),
                             icon: Icon(
                               Icons.open_in_browser,
-                              color: Theme.of(context).accentColor,
                             ),
                           )
                         ],

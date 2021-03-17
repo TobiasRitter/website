@@ -12,11 +12,38 @@ final ThemeData darkTheme = ThemeData(
   canvasColor: Colors.black,
   accentColor: Colors.indigoAccent,
   primaryColor: Colors.white,
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      primary: Colors.indigoAccent,
+    ),
+  ),
 );
 final ThemeData lightTheme = ThemeData(
+  brightness: Brightness.light,
   canvasColor: Colors.white,
   accentColor: Colors.indigoAccent,
   primaryColor: Colors.black,
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      primary: Colors.indigoAccent,
+    ),
+  ),
+);
+
+final TextStyle h2Style = TextStyle(
+  fontSize: 32,
+  fontWeight: FontWeight.bold,
+);
+
+final TextStyle textStyle = TextStyle(
+  fontSize: 18,
+  fontWeight: FontWeight.normal,
+);
+
+final TextStyle accentButtonStyle = TextStyle(
+  fontSize: 24,
+  fontWeight: FontWeight.bold,
+  color: Colors.indigoAccent,
 );
 
 final Duration animationDuration = Duration(milliseconds: 500);
@@ -189,13 +216,13 @@ class _MyHomePageState extends State<MyHomePage> {
         controller: scrollController,
         child: Column(
           children: [
-            TitlePage(
-              key: keys[0],
-              scrollFunc: scroll,
-            ),
-            ResumePage(
-              key: keys[1],
-            ),
+            // TitlePage(
+            //   key: keys[0],
+            //   scrollFunc: scroll,
+            // ),
+            // ResumePage(
+            //   key: keys[1],
+            // ),
             ProjectsPage(
               key: keys[2],
             ),
