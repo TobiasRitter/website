@@ -5,15 +5,17 @@ class ProjectSection extends StatefulWidget {
   ProjectSection({
     Key? key,
     required this.title,
+    required this.description,
     required this.image,
-    this.dark = true,
-    this.headerColor,
+    required this.headerColor,
+    this.dark = false,
   }) : super(key: key);
 
   final String title;
+  final String description;
   final String image;
   final bool dark;
-  final Color? headerColor;
+  final Color headerColor;
 
   @override
   _ProjectSectionState createState() => _ProjectSectionState();
@@ -33,25 +35,28 @@ class _ProjectSectionState extends State<ProjectSection> {
                 ? (screenWidth - 5 * marginSize) / 4
                 : screenWidth,
             height: screenWidth > SWIDTH
-                ? (screenWidth - 5 * marginSize) / 4 * 1.5
-                : screenWidth * 1.5,
+                ? (screenWidth - 5 * marginSize) / 4 * 1.75
+                : screenWidth * 1.75,
             child: Material(
               elevation: 32,
               child: Column(
                 children: [
                   Expanded(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            color: widget.headerColor,
-                            child: Image.asset(
-                              widget.image,
-                              fit: BoxFit.fitHeight,
+                    child: Container(
+                      color: widget.headerColor,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.all(marginSize / 2),
+                              child: Image.asset(
+                                widget.image,
+                                fit: BoxFit.fitHeight,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
@@ -67,7 +72,7 @@ class _ProjectSectionState extends State<ProjectSection> {
                             style: getH2Style(context),
                           ),
                           Text(
-                            "Description",
+                            widget.description,
                             style: getTextStyle(context),
                           ),
                           TextButton.icon(
