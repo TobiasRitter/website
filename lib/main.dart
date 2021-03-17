@@ -222,42 +222,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   ScrollController scrollController = ScrollController();
-  late List<Widget> children;
-  GlobalKey titleKey = GlobalKey();
-  GlobalKey resumeKey = GlobalKey();
-  GlobalKey projectsKey = GlobalKey();
-  GlobalKey contactKey = GlobalKey();
-  late List<GlobalKey> keys;
-
-  @override
-  void initState() {
-    super.initState();
-    keys = [titleKey, resumeKey, projectsKey, contactKey];
-    children = [
-      TitlePage(
-        key: titleKey,
-        scrollFunc: scroll,
-      ),
-      ResumePage(
-        key: resumeKey,
-      ),
-      ProjectsPage(
-        key: projectsKey,
-      ),
-      ContactPage(
-        key: contactKey,
-      ),
-    ];
-  }
+  List<GlobalKey> keys = [GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey()];
 
   void scroll(int index) {
     double offset = 0.0;
-    for (var i = 0; i < index; i++) {
-      var key = keys[i];
+    for (var key in keys.sublist(0, index)) {
       RenderObject? renderObject = key.currentContext!.findRenderObject();
       if (renderObject is RenderBox) {
         offset += renderObject.size.height;
-      }
+      } else
+        return;
     }
     scrollController.animateTo(offset,
         duration: animationDuration, curve: Curves.easeInOut);
@@ -269,7 +243,21 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         controller: scrollController,
         child: Column(
-          children: children,
+          children: [
+            TitlePage(
+              key: keys[0],
+              scrollFunc: scroll,
+            ),
+            ResumePage(
+              key: keys[1],
+            ),
+            ProjectsPage(
+              key: keys[2],
+            ),
+            ContactPage(
+              key: keys[3],
+            ),
+          ],
         ),
       ),
     );
