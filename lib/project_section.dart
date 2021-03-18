@@ -85,7 +85,7 @@ class _ProjectSectionState extends State<ProjectSection> {
                           ),
                           TextButton.icon(
                             onPressed: () {},
-                            label: AutoSizeText(
+                            label: Text(
                               "Show on GitHub",
                             ),
                             icon: Icon(

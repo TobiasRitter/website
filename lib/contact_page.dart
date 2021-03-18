@@ -57,13 +57,13 @@ class ContactPage extends StatelessWidget {
                             buttons: [
                               TextButton(
                                 onPressed: () {},
-                                child: AutoSizeText(
+                                child: Text(
                                   "LinkedIn",
                                 ),
                               ),
                               TextButton(
                                 onPressed: () {},
-                                child: AutoSizeText(
+                                child: Text(
                                   "XING",
                                 ),
                               ),
@@ -79,13 +79,13 @@ class ContactPage extends StatelessWidget {
                             buttons: [
                               TextButton(
                                 onPressed: () {},
-                                child: AutoSizeText(
+                                child: Text(
                                   "GitHub",
                                 ),
                               ),
                               TextButton(
                                 onPressed: () {},
-                                child: AutoSizeText(
+                                child: Text(
                                   "Docker Hub",
                                 ),
                               ),
