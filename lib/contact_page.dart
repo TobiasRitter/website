@@ -31,13 +31,16 @@ class ContactPage extends StatelessWidget {
                         size: h1Style.fontSize,
                       ),
                       Container(
-                        width: 32,
+                        width: marginSize,
                       ),
-                      AutoSizeText(
-                        "Contact",
-                        style: h1Style.copyWith(
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
+                      Expanded(
+                        child: AutoSizeText(
+                          "Contact",
+                          maxLines: 1,
+                          style: h1Style.copyWith(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
+                        ),
                       ),
                     ],
                   ),
@@ -56,13 +59,15 @@ class ContactPage extends StatelessWidget {
                             text: "Let's get to know each other:",
                             buttons: [
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () => launchURL(
+                                    'https://www.linkedin.com/in/tobias-ritter/'),
                                 child: Text(
                                   "LinkedIn",
                                 ),
                               ),
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () => launchURL(
+                                    'https://www.xing.com/profile/Tobias_Ritter52/cv'),
                                 child: Text(
                                   "XING",
                                 ),
@@ -78,13 +83,15 @@ class ContactPage extends StatelessWidget {
                             text: "Take a look at my code here:",
                             buttons: [
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () => launchURL(
+                                    'https://github.com/TobiasRitter?tab=repositories'),
                                 child: Text(
                                   "GitHub",
                                 ),
                               ),
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () => launchURL(
+                                    'https://hub.docker.com/u/tobiasritter'),
                                 child: Text(
                                   "Docker Hub",
                                 ),

@@ -7,6 +7,7 @@ class ProjectSection extends StatefulWidget {
     Key? key,
     required this.title,
     required this.description,
+    required this.url,
     required this.image,
     required this.headerColor,
     this.dark = false,
@@ -14,6 +15,7 @@ class ProjectSection extends StatefulWidget {
 
   final String title;
   final String description;
+  final String url;
   final String image;
   final bool dark;
   final Color headerColor;
@@ -84,7 +86,7 @@ class _ProjectSectionState extends State<ProjectSection> {
                             ),
                           ),
                           TextButton.icon(
-                            onPressed: () {},
+                            onPressed: () => launchURL(widget.url),
                             label: Text(
                               "Show on GitHub",
                             ),

@@ -33,13 +33,16 @@ class ResumePage extends StatelessWidget {
                         size: h1Style.fontSize,
                       ),
                       Container(
-                        width: 32,
+                        width: marginSize,
                       ),
-                      AutoSizeText(
-                        "Resume",
-                        style: h1Style.copyWith(
-                            color:
-                                Theme.of(context).textTheme.bodyText1!.color),
+                      Expanded(
+                        child: AutoSizeText(
+                          "Resume",
+                          maxLines: 1,
+                          style: h1Style.copyWith(
+                              color:
+                                  Theme.of(context).textTheme.bodyText1!.color),
+                        ),
                       ),
                     ],
                   ),
@@ -134,7 +137,7 @@ class ResumePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     FloatingActionButton.extended(
-                      onPressed: null,
+                      onPressed: () {},
                       label: Text(
                         "PDF",
                       ),

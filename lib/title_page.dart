@@ -115,12 +115,13 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
               Expanded(
                 child: screenWidth > SWIDTH
                     ? Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Expanded(
                             child: Image.asset(
                               "res/ProfilePicture.png",
-                              fit: BoxFit.scaleDown,
                               alignment: Alignment.bottomLeft,
+                              fit: BoxFit.scaleDown,
                             ),
                           ),
                           Expanded(
