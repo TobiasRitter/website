@@ -95,7 +95,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                 spacing: marginSize / 2,
                                 children: [
                                   Chip(
-                                    label: AutoSizeText(
+                                    label: Text(
                                       widget.location,
                                       style: textStyle.copyWith(
                                         color: Theme.of(context)
@@ -110,7 +110,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                                     ),
                                   ),
                                   Chip(
-                                    label: AutoSizeText(
+                                    label: Text(
                                       widget.institution,
                                       textAlign: TextAlign.end,
                                       style: textStyle.copyWith(

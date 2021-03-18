@@ -33,7 +33,7 @@ class ContactPage extends StatelessWidget {
                       Container(
                         width: 32,
                       ),
-                      Text(
+                      AutoSizeText(
                         "Contact",
                         style: h1Style.copyWith(
                             color:

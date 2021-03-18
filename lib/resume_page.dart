@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
@@ -34,7 +35,7 @@ class ResumePage extends StatelessWidget {
                       Container(
                         width: 32,
                       ),
-                      Text(
+                      AutoSizeText(
                         "Resume",
                         style: h1Style.copyWith(
                             color:
@@ -136,11 +137,9 @@ class ResumePage extends StatelessWidget {
                       onPressed: null,
                       label: Text(
                         "PDF",
-                        style: getFabStyle(context),
                       ),
                       icon: Icon(
                         Icons.download_sharp,
-                        size: getFabStyle(context).fontSize,
                       ),
                     ),
                   ],

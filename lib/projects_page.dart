@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:website/project_section.dart';
 import 'package:website/main.dart';
@@ -32,7 +33,7 @@ class ProjectsPage extends StatelessWidget {
                       Container(
                         width: 32,
                       ),
-                      Text(
+                      AutoSizeText(
                         "Projects",
                         style: h1Style.copyWith(
                             color:
