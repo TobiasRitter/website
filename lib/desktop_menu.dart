@@ -16,6 +16,7 @@ class DesktopMenu extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         TextButton.icon(
+          style: menuButtonStyle,
           onPressed: () => scrollFunc(1),
           icon: Icon(
             Icons.school,
@@ -28,6 +29,7 @@ class DesktopMenu extends StatelessWidget {
           width: marginSize,
         ),
         TextButton.icon(
+          style: menuButtonStyle,
           onPressed: () => scrollFunc(2),
           icon: Icon(
             Icons.code,
@@ -40,6 +42,7 @@ class DesktopMenu extends StatelessWidget {
           width: marginSize,
         ),
         TextButton.icon(
+          style: menuButtonStyle,
           onPressed: () => scrollFunc(3),
           icon: Icon(
             Icons.alternate_email,

@@ -25,9 +25,13 @@ final ThemeData lightTheme = ThemeData(
   primaryColor: Colors.black,
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
-      primary: Colors.black,
+      primary: Colors.indigoAccent,
     ),
   ),
+);
+
+final menuButtonStyle = TextButton.styleFrom(
+  primary: Colors.black,
 );
 
 final TextStyle h1Style = TextStyle(
