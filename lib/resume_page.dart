@@ -86,7 +86,7 @@ class ResumePage extends StatelessWidget {
                                   location: "Stuttgart",
                                   institution: "DHBW Stuttgart",
                                   description:
-                                      "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG",
+                                      "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG\n\nElective courses: Python, Data Science, Big Data",
                                 ),
                               ],
                             ),
@@ -115,7 +115,7 @@ class ResumePage extends StatelessWidget {
                                   location: "Ditzingen",
                                   institution: "TRUMPF GmbH + Co. KG",
                                   description:
-                                      "18 months of internships in various software development departments.",
+                                      "18 months of internships in various software development departments\n\nBachelor thesis: Developed a regression model for predicting manual labor times in sheet-metal production, evaluated various models from scikit-learn and XGBoost",
                                 ),
                                 ResumeSection(
                                   title: "Summer Intern",
@@ -123,7 +123,7 @@ class ResumePage extends StatelessWidget {
                                   location: "Farmington, CT, USA",
                                   institution: "TRUMPF Inc.",
                                   description:
-                                      "4 month internship at TRUMPF North America within the software development department.",
+                                      "4 month internship at TRUMPF North America within the software development department",
                                 ),
                               ],
                             ),

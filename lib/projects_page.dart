@@ -54,7 +54,7 @@ class ProjectsPage extends StatelessWidget {
                         children: [
                           ProjectSection(
                             title: 'PyNN',
-                            url: '',
+                            url: 'https://github.com/TobiasRitter/PyNN',
                             description:
                                 'This project aims to implement a fully functional Multi-Layer Perceptron in Python. The project points out the fundamental concepts of Artifical Neural Networks, such as forward and backward propagation.',
                             image: 'res/PyNN.png',
