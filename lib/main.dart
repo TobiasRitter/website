@@ -19,6 +19,9 @@ final ThemeData darkTheme = ThemeData(
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
       primary: Colors.indigoAccent,
+      textStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
     ),
   ),
 );
@@ -30,6 +33,9 @@ final ThemeData lightTheme = ThemeData(
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
       primary: Colors.indigoAccent,
+      textStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
     ),
   ),
 );
@@ -63,7 +69,6 @@ final Duration animationDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
 const SWIDTH = 1500;
-// TODO: layout between 1200 and 500
 
 TextStyle getTitleStyle(BuildContext context) {
   return TextStyle(
