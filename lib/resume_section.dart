@@ -28,7 +28,8 @@ class _ResumeSectionState extends State<ResumeSection> {
     var marginSize = getMarginSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: EdgeInsets.only(bottom: marginSize),
+      padding: EdgeInsets.only(
+          bottom: screenWidth > SWIDTH ? marginSize : marginSize * 2),
       child: Wrap(
         spacing: marginSize / 2,
         runSpacing: marginSize,

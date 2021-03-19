@@ -207,10 +207,10 @@ class _MyHomePageState extends State<MyHomePage> {
         controller: scrollController,
         child: Column(
           children: [
-            // TitlePage(
-            //   key: keys[0],
-            //   scrollFunc: scroll,
-            // ),
+            TitlePage(
+              key: keys[0],
+              scrollFunc: scroll,
+            ),
             ResumePage(
               key: keys[1],
             ),

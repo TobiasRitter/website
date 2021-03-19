@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:website/desktop_menu.dart';
 import 'package:website/logo.dart';
@@ -51,16 +52,16 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
         children: [
           Container(
             child: Text(
-              "Welcome,",
+              "Hello!",
+              maxLines: 1,
               style: getTitleStyle(context),
               textAlign: TextAlign.center,
             ),
           ),
           Container(
-            child: Text(
+            child: AutoSizeText(
               "I am a Computer Science student currently working on my master's degree and especially interested in Data Analytics and Machine Learning.",
               style: getSubtitleStyle(context),
-              textAlign: TextAlign.justify,
             ),
           ),
           GestureDetector(

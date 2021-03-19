@@ -52,6 +52,7 @@ class ResumePage extends StatelessWidget {
                     Expanded(
                       child: Wrap(
                         spacing: marginSize,
+                        runSpacing: marginSize,
                         children: [
                           Container(
                             width: screenWidth > SWIDTH
@@ -63,8 +64,10 @@ class ResumePage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding:
-                                        EdgeInsets.only(bottom: marginSize),
+                                    padding: EdgeInsets.only(
+                                        bottom: screenWidth > SWIDTH
+                                            ? marginSize
+                                            : marginSize * 2),
                                     child: Text(
                                       "Education",
                                       style: h2Style.copyWith(
@@ -105,8 +108,10 @@ class ResumePage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding:
-                                        EdgeInsets.only(bottom: marginSize),
+                                    padding: EdgeInsets.only(
+                                        bottom: screenWidth > SWIDTH
+                                            ? marginSize
+                                            : marginSize * 2),
                                     child: Text(
                                       "Work experience",
                                       style: h2Style.copyWith(
