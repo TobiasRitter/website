@@ -23,158 +23,87 @@ class ResumeSection extends StatefulWidget {
 }
 
 class _ResumeSectionState extends State<ResumeSection> {
-  bool expanded = false;
-
   @override
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.only(bottom: marginSize / 2),
-        child: Column(
-          children: [
-            Row(
+    var screenWidth = MediaQuery.of(context).size.width;
+    return Padding(
+      padding: EdgeInsets.only(bottom: marginSize),
+      child: Wrap(
+        spacing: marginSize / 2,
+        runSpacing: marginSize,
+        children: [
+          Container(
+            width: screenWidth > SWIDTH ? 300 : null,
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(
+                  widget.date,
+                  style: textStyle.copyWith(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    Icons.fiber_manual_record,
-                    size: h2Style.fontSize,
-                  ),
-                ),
-                Container(
-                  width: marginSize / 2,
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.start,
-                                alignment: WrapAlignment.spaceBetween,
-                                spacing: marginSize / 2,
-                                runSpacing: textStyle.fontSize! / 2,
-                                children: [
-                                  Text(
-                                    widget.date,
-                                    style: textStyle.copyWith(
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .bodyText1!
-                                          .color,
-                                    ),
-                                  ),
-                                  Text(
-                                    widget.title,
-                                    style: textStyle.copyWith(
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .bodyText1!
-                                          .color,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          height: textStyle.fontSize,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.start,
-                                alignment: WrapAlignment.spaceBetween,
-                                spacing: marginSize / 2,
-                                children: [
-                                  Chip(
-                                    label: Text(
-                                      widget.location,
-                                      style: textStyle.copyWith(
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1!
-                                            .color,
-                                      ),
-                                    ),
-                                    avatar: Icon(
-                                      Icons.location_pin,
-                                      size: textStyle.fontSize,
-                                    ),
-                                  ),
-                                  Chip(
-                                    label: Text(
-                                      widget.institution,
-                                      textAlign: TextAlign.end,
-                                      style: textStyle.copyWith(
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1!
-                                            .color,
-                                      ),
-                                    ),
-                                    avatar: Icon(
-                                      Icons.house,
-                                      size: textStyle.fontSize,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        AnimatedSwitcher(
-                          duration: animationDuration,
-                          child: expanded
-                              ? Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      height: marginSize / 2,
-                                    ),
-                                    AutoSizeText(
-                                      widget.description,
-                                      style: textStyle.copyWith(
-                                        color: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1!
-                                            .color,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              : Container(),
-                        ),
-                      ],
+                  padding: EdgeInsets.only(top: 8),
+                  child: Text(
+                    widget.title,
+                    style: h3Style.copyWith(
+                      color: Theme.of(context).textTheme.bodyText1!.color,
                     ),
                   ),
                 ),
-                Container(
-                  width: marginSize / 2,
-                ),
-                GestureDetector(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      expanded
-                          ? Icons.keyboard_arrow_up
-                          : Icons.keyboard_arrow_down,
-                      size: h2Style.fontSize,
+                Padding(
+                  padding: EdgeInsets.only(top: 32),
+                  child: Chip(
+                    label: Text(
+                      widget.location,
+                      style: textStyle.copyWith(
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
+                    ),
+                    avatar: Icon(
+                      Icons.location_pin,
+                      size: textStyle.fontSize,
                     ),
                   ),
-                  onTap: () => setState(() => expanded = !expanded),
-                )
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 8),
+                  child: Chip(
+                    label: Text(
+                      widget.institution,
+                      textAlign: TextAlign.end,
+                      style: textStyle.copyWith(
+                        color: Theme.of(context).textTheme.bodyText1!.color,
+                      ),
+                    ),
+                    avatar: Icon(
+                      Icons.house,
+                      size: textStyle.fontSize,
+                    ),
+                  ),
+                ),
               ],
             ),
-          ],
-        ),
+          ),
+          Container(
+            width: screenWidth > SWIDTH
+                ? (screenWidth - 7 * marginSize) / 2 - 300 - marginSize / 2
+                : null,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AutoSizeText(
+                  widget.description,
+                  style: textStyle.copyWith(
+                    color: Theme.of(context).textTheme.bodyText1!.color,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

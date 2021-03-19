@@ -54,8 +54,13 @@ final TextStyle h2Style = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+final TextStyle h3Style = TextStyle(
+  fontSize: 22,
+  fontWeight: FontWeight.bold,
+);
+
 final TextStyle textStyle = TextStyle(
-  fontSize: 18,
+  fontSize: 16,
   fontWeight: FontWeight.normal,
 );
 
@@ -202,10 +207,10 @@ class _MyHomePageState extends State<MyHomePage> {
         controller: scrollController,
         child: Column(
           children: [
-            TitlePage(
-              key: keys[0],
-              scrollFunc: scroll,
-            ),
+            // TitlePage(
+            //   key: keys[0],
+            //   scrollFunc: scroll,
+            // ),
             ResumePage(
               key: keys[1],
             ),
