@@ -62,23 +62,26 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: marginSize),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Take a look at my "),
-                      TextButton.icon(
-                        onPressed: () => widget.scrollFunc(2),
-                        icon: Icon(Icons.school),
-                        label: Text("resume"),
-                      ),
-                      Text(" or learn how to get in "),
-                      TextButton.icon(
-                        onPressed: () => widget.scrollFunc(4),
-                        icon: Icon(Icons.alternate_email),
-                        label: Text("contact"),
-                      ),
-                    ],
-                  ),
+                  child: screenWidth > SWIDTH
+                      ? Wrap(
+                          alignment: WrapAlignment.center,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text("Take a look at my "),
+                            TextButton.icon(
+                              onPressed: () => widget.scrollFunc(2),
+                              icon: Icon(Icons.school),
+                              label: Text("resume"),
+                            ),
+                            Text(" or learn how to get in "),
+                            TextButton.icon(
+                              onPressed: () => widget.scrollFunc(4),
+                              icon: Icon(Icons.alternate_email),
+                              label: Text("contact"),
+                            ),
+                          ],
+                        )
+                      : Container(),
                 ),
               ],
             ),
