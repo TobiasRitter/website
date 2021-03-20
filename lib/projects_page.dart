@@ -13,7 +13,7 @@ class ProjectsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     return p.Page(
-      dark: false,
+      themeData: lightTheme,
       coverScreenHeight: true,
       restrictScreenHeight: false,
       builder: Builder(

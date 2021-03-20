@@ -3,29 +3,29 @@ import 'package:website/main.dart';
 
 class Page extends StatelessWidget {
   final Builder builder;
-  final bool dark;
   final bool coverScreenHeight;
   final bool restrictScreenHeight;
+  final ThemeData themeData;
 
-  const Page({
-    Key? key,
-    required this.builder,
-    required this.dark,
-    required this.coverScreenHeight,
-    required this.restrictScreenHeight,
-  }) : super(key: key);
+  const Page(
+      {Key? key,
+      required this.builder,
+      required this.coverScreenHeight,
+      required this.restrictScreenHeight,
+      required this.themeData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     return Theme(
-      data: dark ? darkTheme : lightTheme,
+      data: themeData,
       child: Container(
         constraints: BoxConstraints(
           minHeight: coverScreenHeight ? screenHeight : 0.0,
           maxHeight: restrictScreenHeight ? screenHeight : double.infinity,
         ),
-        color: dark ? darkTheme.canvasColor : lightTheme.canvasColor,
+        color: themeData.canvasColor,
         child: builder,
       ),
     );

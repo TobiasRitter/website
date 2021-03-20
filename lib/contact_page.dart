@@ -13,7 +13,7 @@ class ContactPage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
     return p.Page(
-      dark: true,
+      themeData: darkTheme,
       coverScreenHeight: false,
       restrictScreenHeight: false,
       builder: Builder(

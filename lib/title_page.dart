@@ -84,7 +84,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
       ),
     );
     return p.Page(
-      dark: false,
+      themeData: lightTheme,
       coverScreenHeight: true,
       restrictScreenHeight: true,
       builder: Builder(

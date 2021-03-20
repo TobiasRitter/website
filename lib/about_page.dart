@@ -13,7 +13,7 @@ class AboutPage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
     return p.Page(
-      dark: false,
+      themeData: lightTheme,
       coverScreenHeight: true,
       restrictScreenHeight: false,
       builder: Builder(
