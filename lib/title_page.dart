@@ -45,20 +45,22 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     var text = Padding(
       padding: EdgeInsets.all(marginSize),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            child: Text(
-              "Tobias Ritter",
-              maxLines: 1,
-              style: getTitleStyle(context),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Container(
-            child: Text(
-              "Computer Science Student & Developer",
-              style: getSubtitleStyle(context),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Tobias Ritter",
+                  maxLines: 1,
+                  style: getTitleStyle(context),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  "Computer Science Student & Developer",
+                  style: getSubtitleStyle(context),
+                ),
+              ],
             ),
           ),
           GestureDetector(

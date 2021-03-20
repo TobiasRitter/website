@@ -214,7 +214,6 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: Colors.transparent,
             expandedHeight: screenHeight,
             flexibleSpace: FlexibleSpaceBar(
-              collapseMode: CollapseMode.pin,
               background: TitlePage(
                 key: keys[0],
                 scrollFunc: scroll,

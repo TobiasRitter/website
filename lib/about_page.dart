@@ -12,6 +12,12 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
+    var text = [
+      Text(
+        "Hello and welcome to my website! I am a Computer Science student currently working on my master's degree with a great interest in Data Analytics and Machine learning.",
+        style: textStyle,
+      ),
+    ];
     return p.Page(
       themeData: lightTheme,
       coverScreenHeight: true,
@@ -21,7 +27,6 @@ class AboutPage extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.all(marginSize),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
                   padding: EdgeInsets.only(bottom: marginSize),
@@ -46,6 +51,13 @@ class AboutPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                screenWidth > SWIDTH
+                    ? Row(
+                        children: text,
+                      )
+                    : Column(
+                        children: text,
+                      ),
               ],
             ),
           );
