@@ -53,6 +53,32 @@ class MobileDrawer extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Icon(
+                                  Icons.person,
+                                  size: getMenuButtonStyle(context).fontSize,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                                Container(
+                                  width: marginSize / 2,
+                                ),
+                                Text(
+                                  "about",
+                                  style: getMenuButtonStyle(context),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                            scrollFunc(2);
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.all(marginSize),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
                                   Icons.school,
                                   size: getMenuButtonStyle(context).fontSize,
                                   color: Theme.of(context).primaryColor,
@@ -71,7 +97,7 @@ class MobileDrawer extends StatelessWidget {
                         GestureDetector(
                           onTap: () {
                             Navigator.pop(context);
-                            scrollFunc(2);
+                            scrollFunc(3);
                           },
                           child: Padding(
                             padding: EdgeInsets.all(marginSize),
@@ -97,7 +123,7 @@ class MobileDrawer extends StatelessWidget {
                         GestureDetector(
                           onTap: () {
                             Navigator.pop(context);
-                            scrollFunc(3);
+                            scrollFunc(4);
                           },
                           child: Padding(
                             padding: EdgeInsets.all(marginSize),

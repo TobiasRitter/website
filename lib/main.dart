@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:website/about_page.dart';
 import 'package:website/contact_page.dart';
 import 'package:website/mobile_drawer.dart';
 import 'package:website/projects_page.dart';
@@ -181,7 +182,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   ScrollController scrollController = ScrollController();
-  List<GlobalKey> keys = [GlobalKey(), GlobalKey(), GlobalKey(), GlobalKey()];
+  List<GlobalKey> keys = [
+    GlobalKey(),
+    GlobalKey(),
+    GlobalKey(),
+    GlobalKey(),
+    GlobalKey(),
+  ];
 
   void scroll(int index) {
     double offset = 0.0;
@@ -211,14 +218,17 @@ class _MyHomePageState extends State<MyHomePage> {
               key: keys[0],
               scrollFunc: scroll,
             ),
-            ResumePage(
+            AboutPage(
               key: keys[1],
             ),
-            ProjectsPage(
+            ResumePage(
               key: keys[2],
             ),
-            ContactPage(
+            ProjectsPage(
               key: keys[3],
+            ),
+            ContactPage(
+              key: keys[4],
             ),
           ],
         ),

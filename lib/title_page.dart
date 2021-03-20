@@ -52,7 +52,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
         children: [
           Container(
             child: Text(
-              "Hello!",
+              "Tobias Ritter",
               maxLines: 1,
               style: getTitleStyle(context),
               textAlign: TextAlign.center,
@@ -60,7 +60,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
           ),
           Container(
             child: Text(
-              "I am a Computer Science student currently working on my master's degree and especially interested in Data Analytics and Machine Learning.",
+              "Computer Science Student & Developer",
               style: getSubtitleStyle(context),
             ),
           ),
@@ -97,19 +97,14 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
               Padding(
                 padding: EdgeInsets.all(marginSize),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Logo(),
-                    screenWidth > SWIDTH
-                        ? DesktopMenu(
-                            scrollFunc: widget.scrollFunc,
-                          )
-                        : GestureDetector(
-                            onTap: () {
-                              Scaffold.of(context).openEndDrawer();
-                            },
-                            child: Icon(Icons.menu),
-                          ),
+                    GestureDetector(
+                      onTap: () {
+                        Scaffold.of(context).openEndDrawer();
+                      },
+                      child: Icon(Icons.menu),
+                    ),
                   ],
                 ),
               ),
