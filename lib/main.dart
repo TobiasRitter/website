@@ -81,7 +81,8 @@ final TextStyle accentButtonStyle = TextStyle(
 final Duration animationDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
-const SWIDTH = 1500;
+const SWIDTH = 1500.0;
+const MWIDTH = 1000.0;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
   var screenWidth = MediaQuery.of(context).size.width;

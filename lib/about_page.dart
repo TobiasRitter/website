@@ -29,12 +29,9 @@ class AboutPage extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.all(marginSize),
-                      child: Text(
-                        "My name is Tobias Ritter and I am a Computer Science student currently working on my master's degree. I am highly interested in Data Analytics and Machine learning and love to develop Flutter applications like this website in my free time.",
-                        style: textStyle,
-                      ),
+                    Text(
+                      "My name is Tobias Ritter and I am a Computer Science student currently working on my master's degree. I am highly interested in Data Analytics and Machine learning and love to develop Flutter applications like this website in my free time.",
+                      style: textStyle,
                     ),
                   ],
                 ),

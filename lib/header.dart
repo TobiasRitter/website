@@ -20,7 +20,7 @@ class _HeaderState extends State<Header> {
     var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
     return Padding(
-      padding: EdgeInsets.fromLTRB(marginSize, 0, marginSize, marginSize),
+      padding: EdgeInsets.only(bottom: marginSize),
       child: Container(
         width: screenWidth - 2 * marginSize,
         child: Row(
