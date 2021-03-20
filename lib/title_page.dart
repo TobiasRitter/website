@@ -50,22 +50,33 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Tobias Ritter",
-                  maxLines: 1,
-                  style: getTitleStyle(context),
-                  textAlign: TextAlign.center,
+                Container(
+                  width: screenWidth,
+                  child: FittedBox(
+                    child: Text(
+                      "Tobias Ritter",
+                      style: titleStyle,
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
-                Text(
-                  "Computer Science Student & Developer",
-                  style: getSubtitleStyle(context),
+                Container(
+                  width: screenWidth,
+                  child: FittedBox(
+                    child: Text(
+                      "Computer Science Student & Developer",
+                      style: subtitleStyle,
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: marginSize),
                   child: screenWidth > SWIDTH
-                      ? Wrap(
-                          alignment: WrapAlignment.center,
-                          crossAxisAlignment: WrapCrossAlignment.center,
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text("Take a look at my "),
                             TextButton.icon(
@@ -132,7 +143,11 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                           ),
                           Expanded(
                             flex: 2,
-                            child: text,
+                            child: Padding(
+                              padding:
+                                  EdgeInsets.symmetric(horizontal: marginSize),
+                              child: text,
+                            ),
                           ),
                         ],
                       )

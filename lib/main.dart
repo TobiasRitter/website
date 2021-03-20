@@ -54,6 +54,14 @@ final TextStyle h2Style = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+final TextStyle titleStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+);
+
+final TextStyle subtitleStyle = TextStyle(
+  fontWeight: FontWeight.normal,
+);
+
 final TextStyle h3Style = TextStyle(
   fontSize: 22,
   fontWeight: FontWeight.bold,
@@ -74,22 +82,6 @@ final Duration animationDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
 const SWIDTH = 1500;
-
-TextStyle getTitleStyle(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 128),
-    fontWeight: FontWeight.bold,
-    color: Theme.of(context).accentColor,
-  );
-}
-
-TextStyle getSubtitleStyle(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 32),
-    fontWeight: FontWeight.normal,
-    color: Theme.of(context).textTheme.bodyText1!.color,
-  );
-}
 
 TextStyle getLogoStyle(BuildContext context) {
   return TextStyle(
@@ -222,9 +214,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-              AboutPage(
-                key: keys[1],
-              ),
+              // AboutPage(
+              //   key: keys[1],
+              // ),
               ResumePage(
                 key: keys[2],
               ),

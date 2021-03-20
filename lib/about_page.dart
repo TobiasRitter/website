@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:website/header.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 
@@ -28,28 +29,9 @@ class AboutPage extends StatelessWidget {
             padding: EdgeInsets.all(marginSize),
             child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(bottom: marginSize),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.person,
-                        size: h1Style.fontSize,
-                      ),
-                      Container(
-                        width: marginSize,
-                      ),
-                      Expanded(
-                        child: AutoSizeText(
-                          "About",
-                          maxLines: 1,
-                          style: h1Style.copyWith(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
-                        ),
-                      ),
-                    ],
-                  ),
+                Header(
+                  icon: Icons.person,
+                  text: "About",
                 ),
                 screenWidth > SWIDTH
                     ? Row(

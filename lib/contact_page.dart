@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:website/header.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 
@@ -24,25 +25,9 @@ class ContactPage extends StatelessWidget {
               children: [
                 Padding(
                   padding: EdgeInsets.only(bottom: marginSize),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.alternate_email,
-                        size: h1Style.fontSize,
-                      ),
-                      Container(
-                        width: marginSize,
-                      ),
-                      Expanded(
-                        child: AutoSizeText(
-                          "Contact",
-                          maxLines: 1,
-                          style: h1Style.copyWith(
-                              color:
-                                  Theme.of(context).textTheme.bodyText1!.color),
-                        ),
-                      ),
-                    ],
+                  child: Header(
+                    icon: Icons.alternate_email,
+                    text: "Contact",
                   ),
                 ),
                 Column(
