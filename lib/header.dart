@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 
 class Header extends StatefulWidget {
-  final IconData icon;
   final String text;
 
   const Header({
     Key? key,
-    required this.icon,
     required this.text,
   }) : super(key: key);
 

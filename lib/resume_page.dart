@@ -25,7 +25,6 @@ class ResumePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Header(
-                  icon: Icons.school,
                   text: "Resume",
                 ),
                 Row(

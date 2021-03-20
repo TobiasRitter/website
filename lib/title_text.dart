@@ -65,56 +65,6 @@ class _TitleTextState extends State<TitleText> with TickerProviderStateMixin {
                       maxLines: 1,
                       style: h1Style,
                     ),
-                    screenWidth > SWIDTH
-                        ? Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              TextButton.icon(
-                                onPressed: () => widget.scrollFunc(2),
-                                icon: Icon(Icons.school),
-                                label: Text("resume"),
-                              ),
-                              Container(
-                                width: marginSize / 2,
-                              ),
-                              TextButton.icon(
-                                onPressed: () => widget.scrollFunc(3),
-                                icon: Icon(Icons.code),
-                                label: Text("projects"),
-                              ),
-                              Container(
-                                width: marginSize / 2,
-                              ),
-                              FloatingActionButton.extended(
-                                onPressed: () => widget.scrollFunc(4),
-                                icon: Icon(Icons.alternate_email),
-                                label: Text("contact"),
-                              ),
-                            ],
-                          )
-                        : Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                onPressed: () => widget.scrollFunc(2),
-                                icon: Icon(Icons.school),
-                              ),
-                              Container(
-                                width: marginSize / 2,
-                              ),
-                              IconButton(
-                                onPressed: () => widget.scrollFunc(2),
-                                icon: Icon(Icons.code),
-                              ),
-                              Container(
-                                width: marginSize / 2,
-                              ),
-                              FloatingActionButton(
-                                onPressed: () => widget.scrollFunc(4),
-                                child: Icon(Icons.alternate_email),
-                              ),
-                            ],
-                          ),
                   ],
                 ),
               ),

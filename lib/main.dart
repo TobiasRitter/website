@@ -151,7 +151,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
-    var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: CustomScrollView(
         controller: scrollController,
@@ -159,8 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
         slivers: [
           SliverAppBar(
             backgroundColor: Colors.transparent,
-            expandedHeight:
-                screenWidth > SWIDTH ? screenHeight * 2 / 3 : screenHeight / 2,
+            expandedHeight: screenHeight,
             flexibleSpace: FlexibleSpaceBar(
               background: TitlePage(
                 key: keys[0],

@@ -22,10 +22,6 @@ class ContactPage extends StatelessWidget {
             padding: EdgeInsets.all(marginSize),
             child: Column(
               children: [
-                Header(
-                  icon: Icons.alternate_email,
-                  text: "Contact",
-                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

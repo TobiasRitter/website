@@ -24,7 +24,6 @@ class ProjectsPage extends StatelessWidget {
             child: Column(
               children: [
                 Header(
-                  icon: Icons.code,
                   text: "Projects",
                 ),
                 Padding(
@@ -73,15 +72,15 @@ class ProjectsPage extends StatelessWidget {
                               image: 'res/CleverConvert.png',
                               headerColor: Colors.greenAccent,
                             ),
-                            ProjectSection(
-                              title: 'Data Mining Algorithms',
-                              url:
-                                  'https://github.com/TobiasRitter/Data-Mining-Algorithms',
-                              description:
-                                  'This project contains supervised and unsupervised Data Mining algorithms implemented in Clojure.',
-                              image: 'res/ClojureAlgos.png',
-                              headerColor: Color.fromARGB(255, 30, 30, 30),
-                            ),
+                            // ProjectSection(
+                            //   title: 'Data Mining Algorithms',
+                            //   url:
+                            //       'https://github.com/TobiasRitter/Data-Mining-Algorithms',
+                            //   description:
+                            //       'This project contains supervised and unsupervised Data Mining algorithms implemented in Clojure.',
+                            //   image: 'res/ClojureAlgos.png',
+                            //   headerColor: Color.fromARGB(255, 30, 30, 30),
+                            // ),
                           ],
                         ),
                       ),

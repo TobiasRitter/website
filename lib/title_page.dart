@@ -38,18 +38,68 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+    var marginSize = getMarginSize(context);
     return p.Page(
       themeData: lightTheme,
       coverScreenHeight: false,
-      restrictScreenHeight: true,
+      restrictScreenHeight: false,
       builder: Builder(
         builder: (context) {
           return Container(
             color: Colors.grey.shade100,
-            child: Image.asset(
-              "res/ProfilePictureSquared.png",
-              fit: BoxFit.scaleDown,
-              alignment: Alignment.bottomCenter,
+            child: Column(
+              children: [
+                screenWidth > SWIDTH
+                    ? Padding(
+                        padding: EdgeInsets.all(marginSize),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton.icon(
+                              onPressed: () => widget.scrollFunc(2),
+                              icon: Icon(Icons.school),
+                              label: Text("resume"),
+                            ),
+                            Container(
+                              width: marginSize / 2,
+                            ),
+                            TextButton.icon(
+                              onPressed: () => widget.scrollFunc(3),
+                              icon: Icon(Icons.code),
+                              label: Text("projects"),
+                            ),
+                            Container(
+                              width: marginSize / 2,
+                            ),
+                            FloatingActionButton.extended(
+                              onPressed: () => widget.scrollFunc(4),
+                              icon: Icon(Icons.alternate_email),
+                              label: Text("contact"),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Container(),
+                screenWidth > SWIDTH
+                    ? buildDesktopLayout(context)
+                    : Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(marginSize),
+                              child: Logo(),
+                            ),
+                            Image.asset(
+                              "res/ProfilePicture.png",
+                              fit: BoxFit.scaleDown,
+                              alignment: Alignment.bottomCenter,
+                            ),
+                          ],
+                        ),
+                      ),
+              ],
             ),
           );
         },
@@ -57,90 +107,103 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     );
   }
 
-//   Padding buildText(BuildContext context) {
-//     var screenWidth = MediaQuery.of(context).size.width;
-//     var marginSize = getMarginSize(context);
-//     return Padding(
-//       padding: EdgeInsets.all(marginSize),
-//       child: Column(
-//         children: [
-//           Expanded(
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 Container(
-//                   width: screenWidth,
-//                   child: FittedBox(
-//                     child: Text(
-//                       "Tobias Ritter",
-//                       style: titleStyle.copyWith(
-//                         color: Theme.of(context).primaryColor,
-//                       ),
-//                       maxLines: 1,
-//                       textAlign: TextAlign.center,
-//                     ),
-//                   ),
-//                 ),
-//                 Container(
-//                   width: screenWidth,
-//                   child: FittedBox(
-//                     child: Text(
-//                       "Computer Science Student & Developer",
-//                       style: subtitleStyle.copyWith(
-//                         color: Theme.of(context).primaryColor,
-//                       ),
-//                       maxLines: 1,
-//                       textAlign: TextAlign.center,
-//                     ),
-//                   ),
-//                 ),
-//                 Padding(
-//                   padding: EdgeInsets.only(top: marginSize),
-//                   child: Row(
-//                     children: [
-//                       TextButton.icon(
-//                         onPressed: () => widget.scrollFunc(2),
-//                         icon: Icon(Icons.school),
-//                         label: Text("resume"),
-//                       ),
-//                       Text(
-//                         " or ",
-//                         style: textStyle.copyWith(
-//                           color: Theme.of(context).primaryColor,
-//                         ),
-//                       ),
-//                       TextButton.icon(
-//                         onPressed: () => widget.scrollFunc(4),
-//                         icon: Icon(Icons.alternate_email),
-//                         label: Text("contact"),
-//                       ),
-//                     ],
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//           GestureDetector(
-//             onTap: () => widget.scrollFunc(1),
-//             child: Container(
-//               height: getArrowSize(context) + getMarginSize(context),
-//               child: Column(
-//                 children: [
-//                   Container(
-//                     margin: EdgeInsets.only(
-//                         top: arrowController.value * getMarginSize(context)),
-//                     child: Icon(
-//                       Icons.keyboard_arrow_down_rounded,
-//                       size: getArrowSize(context),
-//                       color: Theme.of(context).primaryColor,
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
+  Expanded buildDesktopLayout(BuildContext context) {
+    var marginSize = getMarginSize(context);
+    return Expanded(
+      child: Row(
+        children: [
+          Image.asset(
+            "res/ProfilePicture.png",
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.bottomCenter,
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(marginSize),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Logo(),
+                  ),
+                  buildArrow(context),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildArrow(BuildContext context) {
+    return GestureDetector(
+      onTap: () => widget.scrollFunc(1),
+      child: Container(
+        height: getArrowSize(context) + getMarginSize(context),
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                  top: arrowController.value * getMarginSize(context)),
+              child: Icon(
+                Icons.keyboard_arrow_down_rounded,
+                size: getArrowSize(context),
+                color: lightTheme.primaryColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Logo extends StatelessWidget {
+  const Logo({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: BoxConstraints(maxWidth: 750),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: FittedBox(
+                  child: Text(
+                    "Tobias Ritter",
+                    style: titleStyle.copyWith(
+                      color: lightTheme.primaryColor,
+                    ),
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: FittedBox(
+                  child: Text(
+                    "Computer Science Student & Developer",
+                    style: subtitleStyle.copyWith(
+                      color: lightTheme.primaryColor,
+                    ),
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
