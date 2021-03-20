@@ -14,7 +14,6 @@ class ContactPage extends StatelessWidget {
     return p.Page(
       themeData: darkTheme,
       coverScreenHeight: false,
-      restrictScreenHeight: false,
       builder: Builder(
         builder: (context) {
           return Padding(
@@ -26,53 +25,34 @@ class ContactPage extends StatelessWidget {
                   children: [
                     Wrap(
                       runSpacing: marginSize,
+                      spacing: marginSize,
                       children: [
-                        Container(
-                          width: screenWidth > SWIDTH
-                              ? (screenWidth - 128) / 2
-                              : screenWidth - 128,
-                          child: ContactSection(
-                            text: "Let's get to know each other:",
-                            buttons: [
-                              TextButton(
-                                onPressed: () => launchURL(
-                                    'https://www.linkedin.com/in/tobias-ritter/'),
-                                child: Text(
-                                  "LinkedIn",
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () => launchURL(
-                                    'https://www.xing.com/profile/Tobias_Ritter52/cv'),
-                                child: Text(
-                                  "XING",
-                                ),
-                              ),
-                            ],
+                        TextButton(
+                          onPressed: () => launchURL(
+                              'https://www.linkedin.com/in/tobias-ritter/'),
+                          child: Text(
+                            "LinkedIn",
                           ),
                         ),
-                        Container(
-                          width: screenWidth > SWIDTH
-                              ? (screenWidth - 128) / 2
-                              : screenWidth - 128,
-                          child: ContactSection(
-                            text: "Take a look at my code here:",
-                            buttons: [
-                              TextButton(
-                                onPressed: () => launchURL(
-                                    'https://github.com/TobiasRitter?tab=repositories'),
-                                child: Text(
-                                  "GitHub",
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () => launchURL(
-                                    'https://hub.docker.com/u/tobiasritter'),
-                                child: Text(
-                                  "Docker Hub",
-                                ),
-                              ),
-                            ],
+                        TextButton(
+                          onPressed: () => launchURL(
+                              'https://www.xing.com/profile/Tobias_Ritter52/cv'),
+                          child: Text(
+                            "XING",
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () => launchURL(
+                              'https://github.com/TobiasRitter?tab=repositories'),
+                          child: Text(
+                            "GitHub",
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () => launchURL(
+                              'https://hub.docker.com/u/tobiasritter'),
+                          child: Text(
+                            "Docker Hub",
                           ),
                         ),
                       ],

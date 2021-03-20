@@ -43,7 +43,6 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     return p.Page(
       themeData: lightTheme,
       coverScreenHeight: false,
-      restrictScreenHeight: false,
       builder: Builder(
         builder: (context) {
           return Container(
@@ -111,19 +110,24 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     var marginSize = getMarginSize(context);
     return Expanded(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image.asset(
             "res/ProfilePicture.png",
             fit: BoxFit.scaleDown,
             alignment: Alignment.bottomCenter,
           ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(marginSize),
+          Padding(
+            padding: EdgeInsets.all(marginSize),
+            child: Container(
+              constraints: BoxConstraints(maxWidth: MWIDTH),
               child: Column(
                 children: [
                   Expanded(
-                    child: Logo(),
+                    child: Padding(
+                      padding: EdgeInsets.all(marginSize),
+                      child: Logo(),
+                    ),
                   ),
                   buildArrow(context),
                 ],
@@ -166,7 +170,6 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 750),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

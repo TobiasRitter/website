@@ -12,19 +12,21 @@ class ResumePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
+    var screenWidth = MediaQuery.of(context).size.width;
     return p.Page(
       themeData: darkTheme,
       coverScreenHeight: true,
-      restrictScreenHeight: false,
       builder: Builder(
         builder: (context) {
-          return Padding(
-            padding: EdgeInsets.all(marginSize),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  constraints: BoxConstraints(maxWidth: MWIDTH),
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                constraints: BoxConstraints(
+                    maxWidth: screenWidth > MWIDTH ? MWIDTH : screenWidth),
+                child: Padding(
+                  padding: EdgeInsets.all(marginSize),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -96,8 +98,8 @@ class ResumePage extends StatelessWidget {
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           );
         },
       ),
