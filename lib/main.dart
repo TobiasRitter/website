@@ -157,25 +157,25 @@ class _MyHomePageState extends State<MyHomePage> {
         controller: scrollController,
         shrinkWrap: true,
         slivers: [
-          SliverAppBar(
-            backgroundColor: Colors.transparent,
-            expandedHeight: screenHeight,
-            flexibleSpace: FlexibleSpaceBar(
-              background: TitlePage(
-                key: keys[0],
-                scrollFunc: scroll,
-              ),
-            ),
-          ),
+          // SliverAppBar(
+          //   backgroundColor: Colors.transparent,
+          //   expandedHeight: screenHeight,
+          //   flexibleSpace: FlexibleSpaceBar(
+          //     background: TitlePage(
+          //       key: keys[0],
+          //       scrollFunc: scroll,
+          //     ),
+          //   ),
+          // ),
           SliverList(
             delegate: SliverChildListDelegate([
-              AboutPage(
-                key: keys[1],
-                scrollFunc: scroll,
-              ),
-              ResumePage(
-                key: keys[2],
-              ),
+              // AboutPage(
+              //   key: keys[1],
+              //   scrollFunc: scroll,
+              // ),
+              // ResumePage(
+              //   key: keys[2],
+              // ),
               ProjectsPage(
                 key: keys[3],
               ),
