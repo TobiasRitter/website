@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:website/about_page.dart';
 import 'package:website/contact_page.dart';
-import 'package:website/mobile_drawer.dart';
 import 'package:website/projects_page.dart';
 import 'package:website/resume_page.dart';
 import 'package:website/title_page.dart';
@@ -207,26 +206,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      endDrawerEnableOpenDragGesture: false,
-      endDrawer: MobileDrawer(
-        scrollFunc: scroll,
-      ),
       body: CustomScrollView(
         controller: scrollController,
         shrinkWrap: true,
         slivers: [
           SliverAppBar(
-            pinned: true,
-            title: Text("Tobias Ritter"),
+            backgroundColor: Colors.transparent,
             expandedHeight: screenHeight,
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
-              background: Container(
-                color: Colors.red,
-                child: TitlePage(
-                  key: keys[0],
-                  scrollFunc: scroll,
-                ),
+              background: TitlePage(
+                key: keys[0],
+                scrollFunc: scroll,
               ),
             ),
           ),
