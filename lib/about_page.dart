@@ -47,7 +47,9 @@ class AboutPage extends StatelessWidget {
                                     child: FittedBox(
                                       child: Text(
                                         "Hello,",
-                                        style: titleStyle,
+                                        style: titleStyle.copyWith(
+                                          color: Theme.of(context).accentColor,
+                                        ),
                                       ),
                                     ),
                                   ),
