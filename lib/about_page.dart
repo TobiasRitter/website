@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/header.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 import 'package:website/title_text.dart';
@@ -13,7 +12,6 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
     return p.Page(
       themeData: lightTheme,

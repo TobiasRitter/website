@@ -7,7 +7,6 @@ import 'package:website/contact_page.dart';
 import 'package:website/projects_page.dart';
 import 'package:website/resume_page.dart';
 import 'package:website/title_page.dart';
-import 'package:website/title_text.dart';
 
 void launchURL(String url) async =>
     await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
