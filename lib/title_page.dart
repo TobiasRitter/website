@@ -60,6 +60,26 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                   "Computer Science Student & Developer",
                   style: getSubtitleStyle(context),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(top: marginSize),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Take a look at my "),
+                      TextButton.icon(
+                        onPressed: () => widget.scrollFunc(2),
+                        icon: Icon(Icons.school),
+                        label: Text("resume"),
+                      ),
+                      Text(" or learn how to get in "),
+                      TextButton.icon(
+                        onPressed: () => widget.scrollFunc(4),
+                        icon: Icon(Icons.alternate_email),
+                        label: Text("contact"),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -72,10 +92,12 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                   Container(
                     margin: EdgeInsets.only(
                         top: arrowController.value * getMarginSize(context)),
-                    child: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      size: getArrowSize(context),
-                      color: Theme.of(context).accentColor,
+                    child: Opacity(
+                      opacity: 0.1,
+                      child: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        size: getArrowSize(context),
+                      ),
                     ),
                   ),
                 ],
