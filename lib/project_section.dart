@@ -80,29 +80,27 @@ class _ProjectSectionState extends State<ProjectSection> {
                 children: [
                   Container(
                     height: screenHeight / 2,
-                    child: Expanded(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              color: widget.headerColor,
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsets.all(marginSize / 2),
-                                      child: Image.asset(
-                                        widget.image,
-                                        fit: BoxFit.contain,
-                                      ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            color: widget.headerColor,
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsets.all(marginSize / 2),
+                                    child: Image.asset(
+                                      widget.image,
+                                      fit: BoxFit.contain,
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   buildInfo(),
