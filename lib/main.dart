@@ -50,7 +50,6 @@ final TextStyle h1Style = TextStyle(
 );
 
 final TextStyle h2Style = TextStyle(
-  fontSize: 32,
   fontWeight: FontWeight.bold,
 );
 
@@ -83,46 +82,6 @@ final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
 const SWIDTH = 1500;
 
-TextStyle getLogoStyle(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 48),
-    fontWeight: FontWeight.bold,
-    color: Theme.of(context).textTheme.bodyText1!.color,
-  );
-}
-
-TextStyle getSubLogoStyle(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 16),
-    fontWeight: FontWeight.normal,
-    color: Theme.of(context).textTheme.bodyText1!.color,
-  );
-}
-
-TextStyle getMenuButtonStyle(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 48),
-    fontWeight: FontWeight.bold,
-    color: Theme.of(context).primaryColor,
-  );
-}
-
-TextStyle getFabStyle(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 16),
-    fontWeight: FontWeight.normal,
-    color: Theme.of(context).primaryColor,
-  );
-}
-
-TextStyle getAccentButtonStyle(BuildContext context) {
-  return TextStyle(
-    fontSize: getRelativeSize(context, 24),
-    fontWeight: FontWeight.bold,
-    color: Theme.of(context).accentColor,
-  );
-}
-
 double getRelativeSize(BuildContext context, double referenceSize) {
   var screenWidth = MediaQuery.of(context).size.width;
   var screenHeight = MediaQuery.of(context).size.height;
@@ -133,14 +92,7 @@ double getRelativeSize(BuildContext context, double referenceSize) {
   }
 }
 
-double getArrowSize(BuildContext context) {
-  var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 128;
-  } else {
-    return screenWidth * 0.16;
-  }
-}
+double getArrowSize(BuildContext context) => getRelativeSize(context, 128);
 
 double getMarginSize(BuildContext context) => getRelativeSize(context, 64);
 
@@ -214,9 +166,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-              // AboutPage(
-              //   key: keys[1],
-              // ),
+              AboutPage(
+                key: keys[1],
+              ),
               ResumePage(
                 key: keys[2],
               ),

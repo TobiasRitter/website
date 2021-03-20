@@ -23,12 +23,9 @@ class ContactPage extends StatelessWidget {
             padding: EdgeInsets.all(marginSize),
             child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(bottom: marginSize),
-                  child: Header(
-                    icon: Icons.alternate_email,
-                    text: "Contact",
-                  ),
+                Header(
+                  icon: Icons.alternate_email,
+                  text: "Contact",
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -116,7 +113,7 @@ class ContactSection extends StatelessWidget {
       spacing: marginSize,
       runSpacing: marginSize / 2,
       children: [
-        AutoSizeText(
+        Text(
           text,
           textAlign: TextAlign.center,
           style: textStyle.copyWith(

@@ -20,31 +20,34 @@ class _HeaderState extends State<Header> {
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
-    return Container(
-      width: screenWidth - 2 * marginSize,
-      child: Row(
-        children: [
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(right: marginSize),
-                  child: Icon(
-                    widget.icon,
-                    size: h1Style.fontSize,
+    return Padding(
+      padding: EdgeInsets.only(bottom: marginSize),
+      child: Container(
+        width: screenWidth - 2 * marginSize,
+        child: Row(
+          children: [
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(right: marginSize),
+                    child: Icon(
+                      widget.icon,
+                      size: h1Style.fontSize,
+                    ),
                   ),
-                ),
-                Text(
-                  widget.text,
-                  maxLines: 1,
-                  style: h1Style.copyWith(
-                      color: Theme.of(context).textTheme.bodyText1!.color),
-                ),
-              ],
+                  Text(
+                    widget.text,
+                    maxLines: 1,
+                    style: h1Style.copyWith(
+                        color: Theme.of(context).textTheme.bodyText1!.color),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
