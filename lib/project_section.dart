@@ -72,15 +72,15 @@ class _ProjectSectionState extends State<ProjectSection> {
               ),
             ),
           )
-        : Container(
-            height: screenHeight,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: marginSize),
-              child: Material(
-                elevation: 32,
-                child: Column(
-                  children: [
-                    Expanded(
+        : Padding(
+            padding: EdgeInsets.only(bottom: marginSize),
+            child: Material(
+              elevation: 32,
+              child: Column(
+                children: [
+                  Container(
+                    height: screenHeight / 2,
+                    child: Expanded(
                       child: Row(
                         children: [
                           Expanded(
@@ -104,11 +104,9 @@ class _ProjectSectionState extends State<ProjectSection> {
                         ],
                       ),
                     ),
-                    Expanded(
-                      child: buildInfo(),
-                    ),
-                  ],
-                ),
+                  ),
+                  buildInfo(),
+                ],
               ),
             ),
           );

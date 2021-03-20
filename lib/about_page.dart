@@ -16,7 +16,7 @@ class AboutPage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     return p.Page(
       themeData: lightTheme,
-      coverScreenHeight: false,
+      coverScreenHeight: true,
       builder: Builder(
         builder: (context) {
           return Row(
