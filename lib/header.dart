@@ -27,6 +27,7 @@ class _HeaderState extends State<Header> {
         child: Row(
           children: [
             FittedBox(
+              // TODO: fix overflow
               fit: BoxFit.scaleDown,
               child: Row(
                 children: [

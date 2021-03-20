@@ -13,12 +13,6 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
-    var text = [
-      Text(
-        "Hello and welcome to my website! I am a Computer Science student currently working on my master's degree with a great interest in Data Analytics and Machine learning.",
-        style: textStyle,
-      ),
-    ];
     return p.Page(
       themeData: lightTheme,
       coverScreenHeight: true,
@@ -33,13 +27,55 @@ class AboutPage extends StatelessWidget {
                   icon: Icons.person,
                   text: "About",
                 ),
-                screenWidth > SWIDTH
-                    ? Row(
-                        children: text,
-                      )
-                    : Column(
-                        children: text,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Wrap(
+                        spacing: marginSize,
+                        runSpacing: marginSize,
+                        children: [
+                          Container(
+                            width: screenWidth > SWIDTH
+                                ? (screenWidth - 3 * marginSize) / 3
+                                : screenWidth - 2 * marginSize,
+                            child: Padding(
+                              padding: EdgeInsets.all(marginSize),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width: screenWidth,
+                                    child: FittedBox(
+                                      child: Text(
+                                        "Hello,",
+                                        style: titleStyle,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: screenWidth > SWIDTH
+                                ? (screenWidth - 3 * marginSize) * 2 / 3
+                                : screenWidth - 2 * marginSize,
+                            child: Padding(
+                              padding: EdgeInsets.all(marginSize),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "my name is Tobias Ritter and I am happy You visit my website! I am a Computer Science student currently working on my master's degree with a great interest in Data Analytics and Machine learning.",
+                                    style: textStyle,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
+                    ),
+                  ],
+                ),
               ],
             ),
           );
