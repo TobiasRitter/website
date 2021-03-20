@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:website/header.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
-import 'package:website/title_text.dart';
 
 class AboutPage extends StatelessWidget {
   final Function(int) scrollFunc;
@@ -19,14 +19,15 @@ class AboutPage extends StatelessWidget {
       restrictScreenHeight: false,
       builder: Builder(
         builder: (context) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TitleText(scrollFunc: scrollFunc),
-              Padding(
-                padding:
-                    EdgeInsets.fromLTRB(marginSize, 0, marginSize, marginSize),
-                child: Column(
+          return Padding(
+            padding: EdgeInsets.all(marginSize),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Header(
+                  text: "About",
+                ),
+                Column(
                   children: [
                     Padding(
                       padding: EdgeInsets.all(marginSize),
@@ -37,8 +38,8 @@ class AboutPage extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),
