@@ -205,33 +205,48 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       endDrawerEnableOpenDragGesture: false,
       endDrawer: MobileDrawer(
         scrollFunc: scroll,
       ),
-      body: SingleChildScrollView(
+      body: CustomScrollView(
         controller: scrollController,
-        child: Column(
-          children: [
-            TitlePage(
-              key: keys[0],
-              scrollFunc: scroll,
+        shrinkWrap: true,
+        slivers: [
+          SliverAppBar(
+            pinned: true,
+            title: Text("Tobias Ritter"),
+            expandedHeight: screenHeight,
+            flexibleSpace: FlexibleSpaceBar(
+              collapseMode: CollapseMode.pin,
+              background: Container(
+                color: Colors.red,
+                child: TitlePage(
+                  key: keys[0],
+                  scrollFunc: scroll,
+                ),
+              ),
             ),
-            AboutPage(
-              key: keys[1],
-            ),
-            ResumePage(
-              key: keys[2],
-            ),
-            ProjectsPage(
-              key: keys[3],
-            ),
-            ContactPage(
-              key: keys[4],
-            ),
-          ],
-        ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              AboutPage(
+                key: keys[1],
+              ),
+              ResumePage(
+                key: keys[2],
+              ),
+              ProjectsPage(
+                key: keys[3],
+              ),
+              ContactPage(
+                key: keys[4],
+              ),
+            ]),
+          ),
+        ],
       ),
     );
   }

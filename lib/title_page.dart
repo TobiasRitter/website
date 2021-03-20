@@ -94,20 +94,6 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
         builder: (context) {
           return Column(
             children: [
-              Padding(
-                padding: EdgeInsets.all(marginSize),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Scaffold.of(context).openEndDrawer();
-                      },
-                      child: Icon(Icons.menu),
-                    ),
-                  ],
-                ),
-              ),
               Expanded(
                 child: screenWidth > SWIDTH
                     ? Row(
