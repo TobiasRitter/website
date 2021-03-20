@@ -35,10 +35,10 @@ class _ProjectSectionState extends State<ProjectSection> {
         builder: (context) {
           return Container(
             width: screenWidth > SWIDTH
-                ? (screenWidth - 5 * marginSize) / 4
+                ? (screenWidth - 7 * marginSize) / 4
                 : screenWidth,
             height: screenWidth > SWIDTH
-                ? (screenWidth - 5 * marginSize) / 4 * 1.75
+                ? (screenWidth - 7 * marginSize) / 4 * 1.75
                 : screenWidth * 1.75,
             child: Material(
               elevation: 32,
@@ -69,7 +69,7 @@ class _ProjectSectionState extends State<ProjectSection> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          AutoSizeText(
+                          Text(
                             widget.title,
                             textAlign: TextAlign.center,
                             maxLines: 1,
@@ -81,6 +81,7 @@ class _ProjectSectionState extends State<ProjectSection> {
                                   vertical: marginSize / 2),
                               child: AutoSizeText(
                                 widget.description,
+                                minFontSize: 1,
                                 style: textStyle,
                               ),
                             ),

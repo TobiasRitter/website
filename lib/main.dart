@@ -7,6 +7,7 @@ import 'package:website/contact_page.dart';
 import 'package:website/projects_page.dart';
 import 'package:website/resume_page.dart';
 import 'package:website/title_page.dart';
+import 'package:website/title_text.dart';
 
 void launchURL(String url) async =>
     await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
@@ -50,6 +51,12 @@ final TextStyle h1Style = TextStyle(
 );
 
 final TextStyle h2Style = TextStyle(
+  fontSize: 32,
+  fontWeight: FontWeight.bold,
+);
+
+final TextStyle h3Style = TextStyle(
+  fontSize: 22,
   fontWeight: FontWeight.bold,
 );
 
@@ -59,11 +66,6 @@ final TextStyle titleStyle = TextStyle(
 
 final TextStyle subtitleStyle = TextStyle(
   fontWeight: FontWeight.normal,
-);
-
-final TextStyle h3Style = TextStyle(
-  fontSize: 22,
-  fontWeight: FontWeight.bold,
 );
 
 final TextStyle textStyle = TextStyle(
@@ -131,6 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
     GlobalKey(),
     GlobalKey(),
     GlobalKey(),
+    GlobalKey(),
   ];
 
   void scroll(int index) {
@@ -149,6 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: CustomScrollView(
         controller: scrollController,
@@ -156,7 +160,8 @@ class _MyHomePageState extends State<MyHomePage> {
         slivers: [
           SliverAppBar(
             backgroundColor: Colors.transparent,
-            expandedHeight: screenHeight,
+            expandedHeight:
+                screenWidth > SWIDTH ? screenHeight * 2 / 3 : screenHeight / 2,
             flexibleSpace: FlexibleSpaceBar(
               background: TitlePage(
                 key: keys[0],
@@ -168,6 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
             delegate: SliverChildListDelegate([
               AboutPage(
                 key: keys[1],
+                scrollFunc: scroll,
               ),
               ResumePage(
                 key: keys[2],

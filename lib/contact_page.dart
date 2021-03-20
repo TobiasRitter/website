@@ -107,27 +107,29 @@ class ContactSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
-    return Wrap(
-      crossAxisAlignment: WrapCrossAlignment.center,
-      alignment: WrapAlignment.center,
-      spacing: marginSize,
-      runSpacing: marginSize / 2,
-      children: [
-        Text(
-          text,
-          textAlign: TextAlign.center,
-          style: textStyle.copyWith(
-            color: Theme.of(context).textTheme.bodyText1!.color,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: marginSize),
+      child: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: marginSize,
+        runSpacing: marginSize / 2,
+        children: [
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: textStyle.copyWith(
+              color: Theme.of(context).textTheme.bodyText1!.color,
+            ),
           ),
-        ),
-        Wrap(
-          children: buttons,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          alignment: WrapAlignment.center,
-          spacing: marginSize / 2,
-          runSpacing: marginSize / 2,
-        ),
-      ],
+          Wrap(
+            children: buttons,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
+            spacing: marginSize / 2,
+            runSpacing: marginSize / 2,
+          ),
+        ],
+      ),
     );
   }
 }

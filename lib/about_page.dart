@@ -1,12 +1,14 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:website/header.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
+import 'package:website/title_text.dart';
 
 class AboutPage extends StatelessWidget {
+  final Function(int) scrollFunc;
   const AboutPage({
     Key? key,
+    required this.scrollFunc,
   }) : super(key: key);
 
   @override
@@ -19,67 +21,26 @@ class AboutPage extends StatelessWidget {
       restrictScreenHeight: false,
       builder: Builder(
         builder: (context) {
-          return Padding(
-            padding: EdgeInsets.all(marginSize),
-            child: Column(
-              children: [
-                Header(
-                  icon: Icons.person,
-                  text: "About",
-                ),
-                Row(
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TitleText(scrollFunc: scrollFunc),
+              Padding(
+                padding:
+                    EdgeInsets.fromLTRB(marginSize, 0, marginSize, marginSize),
+                child: Column(
                   children: [
-                    Expanded(
-                      child: Wrap(
-                        spacing: marginSize,
-                        runSpacing: marginSize,
-                        children: [
-                          Container(
-                            width: screenWidth > SWIDTH
-                                ? (screenWidth - 3 * marginSize) / 3
-                                : screenWidth - 2 * marginSize,
-                            child: Padding(
-                              padding: EdgeInsets.all(marginSize),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: screenWidth,
-                                    child: FittedBox(
-                                      child: Text(
-                                        "Hello,",
-                                        style: titleStyle.copyWith(
-                                          color: Theme.of(context).accentColor,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Container(
-                            width: screenWidth > SWIDTH
-                                ? (screenWidth - 3 * marginSize) * 2 / 3
-                                : screenWidth - 2 * marginSize,
-                            child: Padding(
-                              padding: EdgeInsets.all(marginSize),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "my name is Tobias Ritter and I am happy You visit my website! I am a Computer Science student currently working on my master's degree with a great interest in Data Analytics and Machine learning.",
-                                    style: textStyle,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                    Padding(
+                      padding: EdgeInsets.all(marginSize),
+                      child: Text(
+                        "My name is Tobias Ritter and I am a Computer Science student currently working on my master's degree. I am highly interested in Data Analytics and Machine learning and love to develop Flutter applications like this website in my free time.",
+                        style: textStyle,
                       ),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           );
         },
       ),

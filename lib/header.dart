@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 
@@ -21,30 +22,18 @@ class _HeaderState extends State<Header> {
     var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
     return Padding(
-      padding: EdgeInsets.only(bottom: marginSize),
+      padding: EdgeInsets.fromLTRB(marginSize, 0, marginSize, marginSize),
       child: Container(
         width: screenWidth - 2 * marginSize,
         child: Row(
           children: [
-            FittedBox(
-              // TODO: fix overflow
-              fit: BoxFit.scaleDown,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(right: marginSize),
-                    child: Icon(
-                      widget.icon,
-                      size: h1Style.fontSize,
-                    ),
-                  ),
-                  Text(
-                    widget.text,
-                    maxLines: 1,
-                    style: h1Style.copyWith(
-                        color: Theme.of(context).textTheme.bodyText1!.color),
-                  ),
-                ],
+            Expanded(
+              child: AutoSizeText(
+                widget.text,
+                maxLines: 1,
+                minFontSize: 1,
+                style: h1Style.copyWith(
+                    color: Theme.of(context).textTheme.bodyText1!.color),
               ),
             ),
           ],
