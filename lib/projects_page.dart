@@ -49,7 +49,7 @@ class ProjectsPage extends StatelessWidget {
                               description:
                                   'This Flutter application in combination with a Raspberry Pi allows You to control Adafruit RGB LEDs with Your smartphone. This requires your smartphone and the Raspberry Pi to be in the same local network.',
                               image: 'res/RGBLed.png',
-                              headerColor: Color.fromARGB(255, 40, 40, 40),
+                              headerColor: Color.fromARGB(255, 30, 30, 30),
                               inversed: true,
                             ),
                             ProjectSection(

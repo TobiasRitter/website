@@ -103,27 +103,27 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     var marginSize = getMarginSize(context);
     return Expanded(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image.asset(
             "res/ProfilePicture.png",
             fit: BoxFit.scaleDown,
             alignment: Alignment.bottomCenter,
           ),
-          Padding(
-            padding: EdgeInsets.all(marginSize),
-            child: Container(
-              constraints: BoxConstraints(maxWidth: MWIDTH),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(marginSize),
-                      child: Logo(),
-                    ),
+          Expanded(
+            child: Center(
+              child: Container(
+                constraints: BoxConstraints(maxWidth: MWIDTH2),
+                child: Padding(
+                  padding: EdgeInsets.all(marginSize),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Logo(),
+                      ),
+                      buildArrow(context),
+                    ],
                   ),
-                  buildArrow(context),
-                ],
+                ),
               ),
             ),
           ),
