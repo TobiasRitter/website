@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:website/arrow.dart';
+import 'package:website/logo.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 
@@ -13,29 +15,7 @@ class TitlePage extends StatefulWidget {
   _TitlePageState createState() => _TitlePageState();
 }
 
-class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
-  late AnimationController arrowController;
-
-  void initState() {
-    super.initState();
-    arrowController = AnimationController(
-      vsync: this,
-      duration: arrowAnimationDuration,
-      lowerBound: 0,
-      upperBound: 1,
-    );
-    arrowController.addListener(() {
-      setState(() {});
-    });
-
-    arrowController.repeat(reverse: true);
-  }
-
-  void dispose() {
-    arrowController.dispose();
-    super.dispose();
-  }
-
+class _TitlePageState extends State<TitlePage> {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
@@ -57,7 +37,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                         TextButton.icon(
                           onPressed: () => widget.scrollFunc(2),
                           icon: Icon(Icons.school),
-                          label: Text("resume"),
+                          label: Text("Resume"),
                         ),
                         Container(
                           width: marginSize / 2,
@@ -65,7 +45,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                         TextButton.icon(
                           onPressed: () => widget.scrollFunc(3),
                           icon: Icon(Icons.code),
-                          label: Text("projects"),
+                          label: Text("Projects"),
                         ),
                         Container(
                           width: marginSize / 2,
@@ -73,7 +53,7 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                         FloatingActionButton.extended(
                           onPressed: () => widget.scrollFunc(4),
                           icon: Icon(Icons.alternate_email),
-                          label: Text("contact"),
+                          label: Text("Contact"),
                         ),
                       ],
                     ),
@@ -81,24 +61,29 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                 : Container(),
             screenWidth > SWIDTH
                 ? buildDesktopLayout(context)
-                : Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(marginSize),
-                          child: Logo(),
-                        ),
-                        Image.asset(
-                          "res/ProfilePicture.png",
-                          fit: BoxFit.scaleDown,
-                          alignment: Alignment.bottomCenter,
-                        ),
-                      ],
-                    ),
-                  ),
+                : buildMobileLayout(context),
           ],
         ),
+      ),
+    );
+  }
+
+  Expanded buildMobileLayout(BuildContext context) {
+    var marginSize = getMarginSize(context);
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(marginSize),
+            child: Logo(),
+          ),
+          Image.asset(
+            "res/ProfilePicture.png",
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.bottomCenter,
+          ),
+        ],
       ),
     );
   }
@@ -124,78 +109,14 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
                       Expanded(
                         child: Logo(),
                       ),
-                      buildArrow(context),
+                      Arrow(
+                        scrollFunc: widget.scrollFunc,
+                      ),
                     ],
                   ),
                 ),
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildArrow(BuildContext context) {
-    return GestureDetector(
-      onTap: () => widget.scrollFunc(1),
-      child: Container(
-        height: getArrowSize(context) + getMarginSize(context),
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(
-                  top: arrowController.value * getMarginSize(context)),
-              child: Icon(
-                Icons.keyboard_arrow_down_rounded,
-                size: getArrowSize(context),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Logo extends StatelessWidget {
-  const Logo({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: FittedBox(
-                  child: Text(
-                    "Tobias Ritter",
-                    style: Theme.of(context).textTheme.headline6,
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: FittedBox(
-                  child: Text(
-                    "Computer Science Student & Developer",
-                    style: Theme.of(context).textTheme.subtitle2,
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ],
           ),
         ],
       ),
