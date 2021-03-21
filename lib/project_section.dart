@@ -118,7 +118,7 @@ class _ProjectSectionState extends State<ProjectSection> {
               style: h2Style,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: marginSize / 2),
+              padding: EdgeInsets.symmetric(vertical: marginSize),
               child: Text(
                 widget.description,
                 style: textStyle,
