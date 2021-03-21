@@ -6,7 +6,7 @@ During the winter, I love skiing in the Alps. If you want to learn more about my
 const TRUMPF =
     """18 months of internships in various software development departments
   
-  Bachelor thesis: Developed a regression model for predicting manual labor times in sheet-metal production, evaluated various models from scikit-learn and XGBoost""";
+Bachelor thesis: Developed a regression model for predicting manual labor times in sheet-metal production, evaluated various models from scikit-learn and XGBoost""";
 
 const TRUMPF_US =
     """4 month internship at TRUMPF North America within the software development department""";

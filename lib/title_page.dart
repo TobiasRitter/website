@@ -77,7 +77,7 @@ class _TitlePageState extends State<TitlePage> {
             child: Logo(),
           ),
           Image.asset(
-            "res/ProfilePicture.png",
+            "res/ProfilePictureCompressed.png",
             fit: BoxFit.scaleDown,
             alignment: Alignment.bottomCenter,
           ),
@@ -92,7 +92,7 @@ class _TitlePageState extends State<TitlePage> {
       child: Row(
         children: [
           Image.asset(
-            "res/ProfilePicture.png",
+            "res/ProfilePictureCompressed.png",
             fit: BoxFit.scaleDown,
             alignment: Alignment.bottomCenter,
           ),
