@@ -43,7 +43,7 @@ class ProjectsPage extends StatelessWidget {
                                   description:
                                       'This project aims to implement a fully functional Multi-Layer Perceptron in Python. The project points out the fundamental concepts of Artifical Neural Networks, such as forward and backward propagation.',
                                   image: 'res/PyNN.png',
-                                  headerColor: Colors.black,
+                                  headerColor: Color.fromARGB(255, 30, 30, 30),
                                 ),
                                 ProjectSection(
                                   title: 'RGB LED',
@@ -52,7 +52,7 @@ class ProjectsPage extends StatelessWidget {
                                   description:
                                       'This Flutter application in combination with a Raspberry Pi allows You to control Adafruit RGB LEDs with Your smartphone. This requires your smartphone and the Raspberry Pi to be in the same local network.',
                                   image: 'res/RGBLed.png',
-                                  headerColor: Colors.redAccent,
+                                  headerColor: Color.fromARGB(255, 40, 40, 40),
                                   inversed: true,
                                 ),
                                 ProjectSection(
@@ -62,7 +62,7 @@ class ProjectsPage extends StatelessWidget {
                                   description:
                                       'This project allows you to host a card game running on the web that can be played with 2 or more friends. The goal of the game is to get rid of all your cards by putting cards of higher rank on top of the card stack.',
                                   image: 'res/Cardgame.png',
-                                  headerColor: Colors.blueAccent,
+                                  headerColor: Color.fromARGB(255, 30, 30, 30),
                                 ),
                                 ProjectSection(
                                   title: 'CleverConvert',
@@ -71,7 +71,7 @@ class ProjectsPage extends StatelessWidget {
                                   description:
                                       'This application lets you comfortably convert values into all common units. The project relies on Flutter and Dart.',
                                   image: 'res/CleverConvert.png',
-                                  headerColor: Colors.greenAccent,
+                                  headerColor: Colors.white,
                                   inversed: true,
                                 ),
                                 // ProjectSection(

@@ -33,17 +33,45 @@ class _ProjectSectionState extends State<ProjectSection> {
     return screenWidth > SWIDTH
         ? Container(
             height: 500,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: marginSize),
-              child: Material(
-                elevation: 32,
+            child: Row(
+              children: [
+                !widget.inversed
+                    ? Container()
+                    : Expanded(
+                        child: buildInfo(),
+                      ),
+                Expanded(
+                  child: Container(
+                    color: widget.headerColor,
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.all(marginSize / 2),
+                            child: Image.asset(
+                              widget.image,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                widget.inversed
+                    ? Container()
+                    : Expanded(
+                        child: buildInfo(),
+                      ),
+              ],
+            ),
+          )
+        : Column(
+            children: [
+              Container(
+                height: screenHeight / 3,
                 child: Row(
                   children: [
-                    !widget.inversed
-                        ? Container()
-                        : Expanded(
-                            child: buildInfo(),
-                          ),
                     Expanded(
                       child: Container(
                         color: widget.headerColor,
@@ -62,85 +90,55 @@ class _ProjectSectionState extends State<ProjectSection> {
                         ),
                       ),
                     ),
-                    widget.inversed
-                        ? Container()
-                        : Expanded(
-                            child: buildInfo(),
-                          ),
                   ],
                 ),
               ),
-            ),
-          )
-        : Padding(
-            padding: EdgeInsets.only(bottom: marginSize),
-            child: Material(
-              elevation: 32,
-              child: Column(
-                children: [
-                  Container(
-                    height: screenHeight / 2,
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            color: widget.headerColor,
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(marginSize / 2),
-                                    child: Image.asset(
-                                      widget.image,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  buildInfo(),
-                ],
+              Container(
+                constraints: BoxConstraints(
+                  minHeight: screenHeight / 3,
+                ),
+                child: Expanded(
+                  child: buildInfo(),
+                ),
               ),
-            ),
+            ],
           );
   }
 
-  Padding buildInfo() {
+  Widget buildInfo() {
     var marginSize = getMarginSize(context);
-    return Padding(
-      padding: EdgeInsets.all(marginSize),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            widget.title,
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            style: h2Style,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: marginSize / 2),
-            child: AutoSizeText(
-              widget.description,
-              minFontSize: 1,
-              style: textStyle,
+    return Container(
+      color: Colors.grey.shade100,
+      child: Padding(
+        padding: EdgeInsets.all(marginSize),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              widget.title,
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              style: h2Style,
             ),
-          ),
-          TextButton.icon(
-            onPressed: () => launchURL(widget.url),
-            label: Text(
-              "Show on GitHub",
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: marginSize / 2),
+              child: AutoSizeText(
+                widget.description,
+                minFontSize: 1,
+                style: textStyle,
+              ),
             ),
-            icon: Icon(
-              Icons.open_in_browser,
-            ),
-          )
-        ],
+            TextButton.icon(
+              onPressed: () => launchURL(widget.url),
+              label: Text(
+                "Show on GitHub",
+              ),
+              icon: Icon(
+                Icons.open_in_browser,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
