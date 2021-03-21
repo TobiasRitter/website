@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 
@@ -120,9 +119,8 @@ class _ProjectSectionState extends State<ProjectSection> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: marginSize / 2),
-              child: AutoSizeText(
+              child: Text(
                 widget.description,
-                minFontSize: 1,
                 style: textStyle,
               ),
             ),

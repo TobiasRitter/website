@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 
@@ -21,20 +20,22 @@ class _HeaderState extends State<Header> {
     var marginSize = getMarginSize(context);
     return Padding(
       padding: EdgeInsets.only(bottom: marginSize),
-      child: Container(
-        width: screenWidth - 2 * marginSize,
-        child: Row(
-          children: [
-            Expanded(
-              child: AutoSizeText(
+      child: Row(
+        children: [
+          Container(
+            constraints: BoxConstraints(
+              maxWidth: screenWidth - 2 * marginSize,
+            ),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
                 widget.text,
                 maxLines: 1,
-                minFontSize: 1,
                 style: h1Style,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
