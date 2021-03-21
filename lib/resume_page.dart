@@ -81,20 +81,6 @@ class ResumePage extends StatelessWidget {
                         description:
                             "4 month internship at TRUMPF North America within the software development department",
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          FloatingActionButton.extended(
-                            onPressed: () {},
-                            label: Text(
-                              "PDF",
-                            ),
-                            icon: Icon(
-                              Icons.download_sharp,
-                            ),
-                          ),
-                        ],
-                      ),
                     ],
                   ),
                 ),
