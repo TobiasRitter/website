@@ -39,62 +39,66 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
     var marginSize = getMarginSize(context);
-    return p.Page(
-      dark: true,
-      coverScreenHeight: false,
-      child: Column(
-        children: [
-          screenWidth > SWIDTH
-              ? Padding(
-                  padding: EdgeInsets.all(marginSize),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton.icon(
-                        onPressed: () => widget.scrollFunc(2),
-                        icon: Icon(Icons.school),
-                        label: Text("resume"),
-                      ),
-                      Container(
-                        width: marginSize / 2,
-                      ),
-                      TextButton.icon(
-                        onPressed: () => widget.scrollFunc(3),
-                        icon: Icon(Icons.code),
-                        label: Text("projects"),
-                      ),
-                      Container(
-                        width: marginSize / 2,
-                      ),
-                      FloatingActionButton.extended(
-                        onPressed: () => widget.scrollFunc(4),
-                        icon: Icon(Icons.alternate_email),
-                        label: Text("contact"),
-                      ),
-                    ],
+    return Container(
+      height: screenHeight,
+      child: p.Page(
+        dark: true,
+        coverScreenHeight: true,
+        child: Column(
+          children: [
+            screenWidth > SWIDTH
+                ? Padding(
+                    padding: EdgeInsets.all(marginSize),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton.icon(
+                          onPressed: () => widget.scrollFunc(2),
+                          icon: Icon(Icons.school),
+                          label: Text("resume"),
+                        ),
+                        Container(
+                          width: marginSize / 2,
+                        ),
+                        TextButton.icon(
+                          onPressed: () => widget.scrollFunc(3),
+                          icon: Icon(Icons.code),
+                          label: Text("projects"),
+                        ),
+                        Container(
+                          width: marginSize / 2,
+                        ),
+                        FloatingActionButton.extended(
+                          onPressed: () => widget.scrollFunc(4),
+                          icon: Icon(Icons.alternate_email),
+                          label: Text("contact"),
+                        ),
+                      ],
+                    ),
+                  )
+                : Container(),
+            screenWidth > SWIDTH
+                ? buildDesktopLayout(context)
+                : Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(marginSize),
+                          child: Logo(),
+                        ),
+                        Image.asset(
+                          "res/ProfilePicture.png",
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.bottomCenter,
+                        ),
+                      ],
+                    ),
                   ),
-                )
-              : Container(),
-          screenWidth > SWIDTH
-              ? buildDesktopLayout(context)
-              : Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(marginSize),
-                        child: Logo(),
-                      ),
-                      Image.asset(
-                        "res/ProfilePicture.png",
-                        fit: BoxFit.scaleDown,
-                        alignment: Alignment.bottomCenter,
-                      ),
-                    ],
-                  ),
-                ),
-        ],
+          ],
+        ),
       ),
     );
   }
