@@ -27,12 +27,30 @@ class _ResumeSectionState extends State<ResumeSection> {
     var marginSize = getMarginSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: EdgeInsets.only(bottom: marginSize * 2),
+      padding: EdgeInsets.only(bottom: marginSize),
       child: screenWidth > SWIDTH
           ? Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                buildInfo(context, width: 300),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: marginSize),
+                    child: Text(
+                      widget.description,
+                      softWrap: true,
+                      style: textStyle,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 buildInfo(context),
-                Expanded(
+                Padding(
+                  padding: EdgeInsets.only(top: marginSize / 2),
                   child: Text(
                     widget.description,
                     softWrap: true,
@@ -40,62 +58,63 @@ class _ResumeSectionState extends State<ResumeSection> {
                   ),
                 ),
               ],
-            )
-          : Column(
-              children: [
-                buildInfo(context),
-                Text(
-                  widget.description,
-                  softWrap: true,
-                  style: textStyle,
-                ),
-              ],
             ),
     );
   }
 
-  Widget buildInfo(BuildContext context) {
+  Widget buildInfo(BuildContext context, {double? width}) {
+    var marginSize = getMarginSize(context);
     return Container(
-      width: 300,
+      width: width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.date,
-            style: textStyle,
-          ),
           Padding(
-            padding: EdgeInsets.only(top: 8),
+            padding: const EdgeInsets.all(8.0),
             child: Text(
-              widget.title,
+              widget.date,
               style: textStyle,
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 32),
-            child: Chip(
-              label: Text(
-                widget.location,
-                style: textStyle,
-              ),
-              avatar: Icon(
-                Icons.location_pin,
-                size: textStyle.fontSize,
-              ),
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              widget.title,
+              style: h3Style,
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 8),
-            child: Chip(
-              label: Text(
-                widget.institution,
-                textAlign: TextAlign.end,
-                style: textStyle,
-              ),
-              avatar: Icon(
-                Icons.house,
-                size: textStyle.fontSize,
-              ),
+            padding: EdgeInsets.only(top: marginSize / 2),
+            child: Wrap(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Chip(
+                    label: Text(
+                      widget.location,
+                      style: textStyle,
+                    ),
+                    avatar: Icon(
+                      Icons.location_pin,
+                      size: textStyle.fontSize,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Chip(
+                    label: Text(
+                      widget.institution,
+                      textAlign: TextAlign.end,
+                      style: textStyle,
+                    ),
+                    avatar: Icon(
+                      Icons.house,
+                      size: textStyle.fontSize,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

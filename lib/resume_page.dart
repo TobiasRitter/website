@@ -32,7 +32,7 @@ class ResumePage extends StatelessWidget {
                     text: "Resume",
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: marginSize * 2),
+                    padding: EdgeInsets.symmetric(vertical: marginSize),
                     child: Text(
                       "Education",
                       style: h2Style,
@@ -55,7 +55,7 @@ class ResumePage extends StatelessWidget {
                         "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG\n\nElective courses: Python, Data Science, Big Data",
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: marginSize * 2),
+                    padding: EdgeInsets.symmetric(vertical: marginSize),
                     child: Text(
                       "Work experience",
                       style: h2Style,

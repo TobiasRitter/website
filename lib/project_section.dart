@@ -97,9 +97,7 @@ class _ProjectSectionState extends State<ProjectSection> {
                 constraints: BoxConstraints(
                   minHeight: screenHeight / 3,
                 ),
-                child: Expanded(
-                  child: buildInfo(),
-                ),
+                child: buildInfo(),
               ),
             ],
           );

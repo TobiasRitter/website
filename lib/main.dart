@@ -58,12 +58,6 @@ final TextStyle textStyle = TextStyle(
   fontWeight: FontWeight.normal,
 );
 
-final TextStyle accentButtonStyle = TextStyle(
-  fontSize: 24,
-  fontWeight: FontWeight.bold,
-  color: Colors.indigoAccent,
-);
-
 final Duration animationDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
@@ -147,7 +141,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(
         controller: scrollController,
