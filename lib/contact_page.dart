@@ -9,7 +9,6 @@ class ContactPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
     return p.Page(
       themeData: darkTheme,
@@ -27,33 +26,49 @@ class ContactPage extends StatelessWidget {
                       runSpacing: marginSize,
                       spacing: marginSize,
                       children: [
-                        TextButton(
-                          onPressed: () => launchURL(
-                              'https://www.linkedin.com/in/tobias-ritter/'),
-                          child: Text(
-                            "LinkedIn",
-                          ),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextButton(
+                              onPressed: () => launchURL(
+                                  'https://www.linkedin.com/in/tobias-ritter/'),
+                              child: Text(
+                                "LinkedIn",
+                              ),
+                            ),
+                            Container(
+                              width: marginSize,
+                            ),
+                            TextButton(
+                              onPressed: () => launchURL(
+                                  'https://www.xing.com/profile/Tobias_Ritter52/cv'),
+                              child: Text(
+                                "XING",
+                              ),
+                            ),
+                          ],
                         ),
-                        TextButton(
-                          onPressed: () => launchURL(
-                              'https://www.xing.com/profile/Tobias_Ritter52/cv'),
-                          child: Text(
-                            "XING",
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () => launchURL(
-                              'https://github.com/TobiasRitter?tab=repositories'),
-                          child: Text(
-                            "GitHub",
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () => launchURL(
-                              'https://hub.docker.com/u/tobiasritter'),
-                          child: Text(
-                            "Docker Hub",
-                          ),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextButton(
+                              onPressed: () => launchURL(
+                                  'https://github.com/TobiasRitter?tab=repositories'),
+                              child: Text(
+                                "GitHub",
+                              ),
+                            ),
+                            Container(
+                              width: marginSize,
+                            ),
+                            TextButton(
+                              onPressed: () => launchURL(
+                                  'https://hub.docker.com/u/tobiasritter'),
+                              child: Text(
+                                "Docker Hub",
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -63,46 +78,6 @@ class ContactPage extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-class ContactSection extends StatelessWidget {
-  final String text;
-  final List<TextButton> buttons;
-
-  const ContactSection({
-    Key? key,
-    required this.text,
-    required this.buttons,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    var marginSize = getMarginSize(context);
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: marginSize),
-      child: Wrap(
-        crossAxisAlignment: WrapCrossAlignment.center,
-        spacing: marginSize,
-        runSpacing: marginSize / 2,
-        children: [
-          Text(
-            text,
-            textAlign: TextAlign.center,
-            style: textStyle.copyWith(
-              color: Theme.of(context).textTheme.bodyText1!.color,
-            ),
-          ),
-          Wrap(
-            children: buttons,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            alignment: WrapAlignment.center,
-            spacing: marginSize / 2,
-            runSpacing: marginSize / 2,
-          ),
-        ],
       ),
     );
   }
