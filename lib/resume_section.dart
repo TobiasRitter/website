@@ -7,6 +7,7 @@ class ResumeSection extends StatefulWidget {
   final String institution;
   final String location;
   final String description;
+  final String institutionUrl;
 
   const ResumeSection({
     Key? key,
@@ -15,6 +16,7 @@ class ResumeSection extends StatefulWidget {
     required this.institution,
     required this.location,
     required this.description,
+    required this.institutionUrl,
   }) : super(key: key);
 
   @override
@@ -105,7 +107,8 @@ class _ResumeSectionState extends State<ResumeSection> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Chip(
+                  child: ActionChip(
+                    onPressed: () => launchURL(widget.institutionUrl),
                     label: Text(
                       widget.institution,
                       textAlign: TextAlign.end,
