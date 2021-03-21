@@ -50,7 +50,7 @@ class _ArrowState extends State<Arrow> with TickerProviderStateMixin {
               child: Opacity(
                 opacity: 0.1,
                 child: Icon(
-                  Icons.keyboard_arrow_down_rounded,
+                  Icons.keyboard_arrow_down_sharp,
                   size: getArrowSize(context),
                 ),
               ),
