@@ -8,6 +8,7 @@ class ResumeSection extends StatefulWidget {
   final String location;
   final String description;
   final String institutionUrl;
+  final IconData icon;
 
   const ResumeSection({
     Key? key,
@@ -17,6 +18,7 @@ class ResumeSection extends StatefulWidget {
     required this.location,
     required this.description,
     required this.institutionUrl,
+    required this.icon,
   }) : super(key: key);
 
   @override
@@ -34,7 +36,7 @@ class _ResumeSectionState extends State<ResumeSection> {
           ? Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildInfo(context, width: 300),
+                buildInfo(context, width: RESUME_INFO_WIDTH),
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(left: marginSize),
@@ -114,7 +116,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                       textAlign: TextAlign.end,
                     ),
                     avatar: Icon(
-                      Icons.house,
+                      widget.icon,
                       size: Theme.of(context).chipTheme.labelStyle.fontSize,
                       color: Theme.of(context).chipTheme.labelStyle.color,
                     ),

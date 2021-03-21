@@ -16,7 +16,7 @@ final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
 const SWIDTH = 1500.0;
 const MWIDTH = 1000.0;
-const MWIDTH2 = 800.0;
+const RESUME_INFO_WIDTH = 300.0;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
   var screenWidth = MediaQuery.of(context).size.width;
@@ -78,6 +78,7 @@ class MyApp extends StatelessWidget {
         ),
         chipTheme: ThemeData.light().chipTheme.copyWith(
               labelStyle: TextStyle(
+                color: Colors.black87,
                 fontSize: 16,
               ),
             ),

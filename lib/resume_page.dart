@@ -42,19 +42,21 @@ class ResumePage extends StatelessWidget {
                     ),
                     ResumeSection(
                       title: "M. Sc. Informatics",
-                      date: "2020-2023",
+                      date: "2020 - 2023",
                       location: "Munich",
                       institution: "Technical University of Munich",
                       institutionUrl: "https://www.tum.de/",
+                      icon: Icons.school,
                       description:
                           "Master studies in Computer Science with a focus on the area \"Machine Learning and Analytics\"",
                     ),
                     ResumeSection(
                       title: "B. Sc. Computer Science",
-                      date: "2017-2020",
+                      date: "2017 - 2020",
                       location: "Stuttgart",
                       institution: "DHBW Stuttgart",
                       institutionUrl: "https://www.dhbw-stuttgart.de/",
+                      icon: Icons.school,
                       description:
                           "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG\n\nElective courses: Python, Data Science, Big Data",
                     ),
@@ -67,20 +69,22 @@ class ResumePage extends StatelessWidget {
                     ),
                     ResumeSection(
                       title: "Coorporate Student",
-                      date: "2017-2020",
+                      date: "2017 - 2020",
                       location: "Ditzingen",
                       institution: "TRUMPF GmbH + Co. KG",
                       institutionUrl: "https://www.trumpf.com/en_INT/",
+                      icon: Icons.work,
                       description:
                           "18 months of internships in various software development departments\n\nBachelor thesis: Developed a regression model for predicting manual labor times in sheet-metal production, evaluated various models from scikit-learn and XGBoost",
                     ),
                     ResumeSection(
                       title: "Summer Intern",
-                      date: "05/2019-08/2019",
+                      date: "05/2019 - 08/2019",
                       location: "Farmington, CT, USA",
                       institution: "TRUMPF Inc.",
                       institutionUrl:
                           "https://www.trumpf.com/en_US/local-pages/us/company/about-trumpf-in-the-us/",
+                      icon: Icons.work,
                       description:
                           "4 month internship at TRUMPF North America within the software development department",
                     ),
