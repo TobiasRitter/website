@@ -11,20 +11,6 @@ import 'package:website/title_page.dart';
 void launchURL(String url) async =>
     await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 
-final ThemeData darkTheme = ThemeData(
-  brightness: Brightness.dark,
-  canvasColor: Colors.black,
-  accentColor: Colors.indigoAccent,
-  primaryColor: Colors.white,
-  textButtonTheme: TextButtonThemeData(
-    style: TextButton.styleFrom(
-      primary: Colors.indigoAccent,
-      textStyle: TextStyle(
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  ),
-);
 final ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
   canvasColor: Colors.white,
@@ -109,7 +95,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,
-      darkTheme: darkTheme,
       theme: lightTheme,
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );

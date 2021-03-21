@@ -1,29 +1,26 @@
 import 'package:flutter/material.dart';
 
 class Page extends StatelessWidget {
-  final Builder builder;
+  final Widget child;
   final bool coverScreenHeight;
-  final ThemeData themeData;
+  final bool dark;
 
-  const Page(
-      {Key? key,
-      required this.builder,
-      required this.coverScreenHeight,
-      required this.themeData})
-      : super(key: key);
+  const Page({
+    Key? key,
+    required this.child,
+    required this.coverScreenHeight,
+    this.dark = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    return Theme(
-      data: themeData,
-      child: Container(
-        constraints: BoxConstraints(
-          minHeight: coverScreenHeight ? screenHeight : 0.0,
-        ),
-        color: themeData.canvasColor,
-        child: builder,
+    return Container(
+      constraints: BoxConstraints(
+        minHeight: coverScreenHeight ? screenHeight : 0.0,
       ),
+      color: dark ? Colors.grey.shade100 : Colors.white,
+      child: child,
     );
   }
 }

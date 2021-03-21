@@ -11,64 +11,60 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     return p.Page(
-      themeData: darkTheme,
+      dark: true,
       coverScreenHeight: false,
-      builder: Builder(
-        builder: (context) {
-          return Padding(
-            padding: EdgeInsets.all(marginSize),
-            child: Column(
+      child: Padding(
+        padding: EdgeInsets.all(marginSize),
+        child: Column(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Wrap(
+                  runSpacing: marginSize,
+                  spacing: marginSize,
                   children: [
-                    Wrap(
-                      runSpacing: marginSize,
-                      spacing: marginSize,
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            TextButton(
-                              onPressed: () => launchURL(
-                                  'https://www.linkedin.com/in/tobias-ritter/'),
-                              child: Text(
-                                "LinkedIn",
-                              ),
-                            ),
-                            Container(
-                              width: marginSize,
-                            ),
-                            TextButton(
-                              onPressed: () => launchURL(
-                                  'https://www.xing.com/profile/Tobias_Ritter52/cv'),
-                              child: Text(
-                                "XING",
-                              ),
-                            ),
-                          ],
+                        TextButton(
+                          onPressed: () => launchURL(
+                              'https://www.linkedin.com/in/tobias-ritter/'),
+                          child: Text(
+                            "LinkedIn",
+                          ),
                         ),
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            TextButton(
-                              onPressed: () => launchURL(
-                                  'https://github.com/TobiasRitter?tab=repositories'),
-                              child: Text(
-                                "GitHub",
-                              ),
-                            ),
-                            Container(
-                              width: marginSize,
-                            ),
-                            TextButton(
-                              onPressed: () => launchURL(
-                                  'https://hub.docker.com/u/tobiasritter'),
-                              child: Text(
-                                "Docker Hub",
-                              ),
-                            ),
-                          ],
+                        Container(
+                          width: marginSize,
+                        ),
+                        TextButton(
+                          onPressed: () => launchURL(
+                              'https://www.xing.com/profile/Tobias_Ritter52/cv'),
+                          child: Text(
+                            "XING",
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextButton(
+                          onPressed: () => launchURL(
+                              'https://github.com/TobiasRitter?tab=repositories'),
+                          child: Text(
+                            "GitHub",
+                          ),
+                        ),
+                        Container(
+                          width: marginSize,
+                        ),
+                        TextButton(
+                          onPressed: () => launchURL(
+                              'https://hub.docker.com/u/tobiasritter'),
+                          child: Text(
+                            "Docker Hub",
+                          ),
                         ),
                       ],
                     ),
@@ -76,8 +72,8 @@ class ContactPage extends StatelessWidget {
                 ),
               ],
             ),
-          );
-        },
+          ],
+        ),
       ),
     );
   }

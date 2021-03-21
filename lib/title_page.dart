@@ -41,67 +41,60 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
     var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
     return p.Page(
-      themeData: lightTheme,
+      dark: true,
       coverScreenHeight: false,
-      builder: Builder(
-        builder: (context) {
-          return Container(
-            color: Colors.grey.shade100,
-            child: Column(
-              children: [
-                screenWidth > SWIDTH
-                    ? Padding(
-                        padding: EdgeInsets.all(marginSize),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton.icon(
-                              onPressed: () => widget.scrollFunc(2),
-                              icon: Icon(Icons.school),
-                              label: Text("resume"),
-                            ),
-                            Container(
-                              width: marginSize / 2,
-                            ),
-                            TextButton.icon(
-                              onPressed: () => widget.scrollFunc(3),
-                              icon: Icon(Icons.code),
-                              label: Text("projects"),
-                            ),
-                            Container(
-                              width: marginSize / 2,
-                            ),
-                            FloatingActionButton.extended(
-                              onPressed: () => widget.scrollFunc(4),
-                              icon: Icon(Icons.alternate_email),
-                              label: Text("contact"),
-                            ),
-                          ],
-                        ),
-                      )
-                    : Container(),
-                screenWidth > SWIDTH
-                    ? buildDesktopLayout(context)
-                    : Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(marginSize),
-                              child: Logo(),
-                            ),
-                            Image.asset(
-                              "res/ProfilePicture.png",
-                              fit: BoxFit.scaleDown,
-                              alignment: Alignment.bottomCenter,
-                            ),
-                          ],
-                        ),
+      child: Column(
+        children: [
+          screenWidth > SWIDTH
+              ? Padding(
+                  padding: EdgeInsets.all(marginSize),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton.icon(
+                        onPressed: () => widget.scrollFunc(2),
+                        icon: Icon(Icons.school),
+                        label: Text("resume"),
                       ),
-              ],
-            ),
-          );
-        },
+                      Container(
+                        width: marginSize / 2,
+                      ),
+                      TextButton.icon(
+                        onPressed: () => widget.scrollFunc(3),
+                        icon: Icon(Icons.code),
+                        label: Text("projects"),
+                      ),
+                      Container(
+                        width: marginSize / 2,
+                      ),
+                      FloatingActionButton.extended(
+                        onPressed: () => widget.scrollFunc(4),
+                        icon: Icon(Icons.alternate_email),
+                        label: Text("contact"),
+                      ),
+                    ],
+                  ),
+                )
+              : Container(),
+          screenWidth > SWIDTH
+              ? buildDesktopLayout(context)
+              : Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(marginSize),
+                        child: Logo(),
+                      ),
+                      Image.asset(
+                        "res/ProfilePicture.png",
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.bottomCenter,
+                      ),
+                    ],
+                  ),
+                ),
+        ],
       ),
     );
   }

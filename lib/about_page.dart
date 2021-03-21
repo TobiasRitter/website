@@ -15,43 +15,38 @@ class AboutPage extends StatelessWidget {
     var marginSize = getMarginSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
     return p.Page(
-      themeData: lightTheme,
       coverScreenHeight: true,
-      builder: Builder(
-        builder: (context) {
-          return Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                constraints: BoxConstraints(
-                    maxWidth: screenWidth > MWIDTH ? MWIDTH : screenWidth),
-                child: Padding(
-                  padding: EdgeInsets.all(marginSize),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            constraints: BoxConstraints(
+                maxWidth: screenWidth > MWIDTH ? MWIDTH : screenWidth),
+            child: Padding(
+              padding: EdgeInsets.all(marginSize),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Header(
+                    text: "About",
+                  ),
+                  Row(
                     children: [
-                      Header(
-                        text: "About",
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              "My name is Tobias Ritter and I am a Computer Science student currently working on my master's degree. I am highly interested in Data Analytics and Machine learning and love to develop Flutter applications like this website in my free time.",
-                              style: textStyle,
-                              softWrap: true,
-                            ),
-                          ),
-                        ],
+                      Expanded(
+                        child: Text(
+                          "My name is Tobias Ritter and I am a Computer Science student currently working on my master's degree. I am highly interested in Data Analytics and Machine learning and love to develop Flutter applications like this website in my free time.",
+                          style: textStyle,
+                          softWrap: true,
+                        ),
                       ),
                     ],
                   ),
-                ),
+                ],
               ),
-            ],
-          );
-        },
+            ),
+          ),
+        ],
       ),
     );
   }
