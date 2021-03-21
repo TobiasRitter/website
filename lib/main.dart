@@ -85,7 +85,21 @@ class MyApp extends StatelessWidget {
             ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
+            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
             primary: Colors.black,
+            textStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
+            primary: Colors.black,
+            side: BorderSide(
+              color: Colors.black,
+              width: 3,
+            ),
             textStyle: TextStyle(
               fontWeight: FontWeight.bold,
             ),

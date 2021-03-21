@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/hover_button.dart';
 import 'package:website/main.dart';
 
 class ProjectSection extends StatefulWidget {
@@ -123,13 +124,10 @@ class _ProjectSectionState extends State<ProjectSection> {
                 widget.description,
               ),
             ),
-            TextButton.icon(
+            HoverButton(
               onPressed: () => launchURL(widget.url),
-              label: Text(
+              child: Text(
                 "Show on GitHub",
-              ),
-              icon: Icon(
-                Icons.open_in_browser,
               ),
             )
           ],

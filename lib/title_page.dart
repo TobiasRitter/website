@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/arrow.dart';
+import 'package:website/hover_button.dart';
 import 'package:website/logo.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
@@ -34,26 +35,23 @@ class _TitlePageState extends State<TitlePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        TextButton.icon(
+                        TextButton(
                           onPressed: () => widget.scrollFunc(2),
-                          icon: Icon(Icons.school),
-                          label: Text("Resume"),
+                          child: Text("Resume"),
                         ),
                         Container(
                           width: marginSize / 2,
                         ),
-                        TextButton.icon(
+                        TextButton(
                           onPressed: () => widget.scrollFunc(3),
-                          icon: Icon(Icons.code),
-                          label: Text("Projects"),
+                          child: Text("Projects"),
                         ),
                         Container(
                           width: marginSize / 2,
                         ),
-                        FloatingActionButton.extended(
+                        HoverButton(
                           onPressed: () => widget.scrollFunc(4),
-                          icon: Icon(Icons.alternate_email),
-                          label: Text("Contact"),
+                          child: Text("Contact"),
                         ),
                       ],
                     ),
