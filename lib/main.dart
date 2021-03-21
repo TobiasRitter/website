@@ -97,13 +97,12 @@ class MyApp extends StatelessWidget {
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        brightness: Brightness.light,
         canvasColor: Colors.white,
-        accentColor: Colors.indigoAccent,
+        accentColor: Colors.black,
         primaryColor: Colors.black,
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
-            primary: Colors.indigoAccent,
+            primary: Colors.black,
             textStyle: TextStyle(
               fontWeight: FontWeight.bold,
             ),
