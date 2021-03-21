@@ -16,6 +16,7 @@ final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
 const SWIDTH = 1500.0;
 const MWIDTH = 1000.0;
+const MWIDTH2 = 800.0;
 const RESUME_INFO_WIDTH = 300.0;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
@@ -130,30 +131,41 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        controller: scrollController,
-        child: Column(
-          children: [
-            TitlePage(
-              key: keys[0],
-              scrollFunc: scroll,
-            ),
-            AboutPage(
-              key: keys[1],
-              scrollFunc: scroll,
-            ),
-            ResumePage(
-              key: keys[2],
-            ),
-            ProjectsPage(
-              key: keys[3],
-            ),
-            ContactPage(
-              key: keys[4],
-            ),
-          ],
+      body: ScrollConfiguration(
+        behavior: NoOverscrollBehaviour(),
+        child: SingleChildScrollView(
+          controller: scrollController,
+          child: Column(
+            children: [
+              TitlePage(
+                key: keys[0],
+                scrollFunc: scroll,
+              ),
+              AboutPage(
+                key: keys[1],
+                scrollFunc: scroll,
+              ),
+              ResumePage(
+                key: keys[2],
+              ),
+              ProjectsPage(
+                key: keys[3],
+              ),
+              ContactPage(
+                key: keys[4],
+              ),
+            ],
+          ),
         ),
       ),
     );
+  }
+}
+
+class NoOverscrollBehaviour extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
   }
 }
