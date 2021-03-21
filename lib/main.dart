@@ -120,8 +120,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late ScrollController scrollController;
-  double offset = 0.0;
+  ScrollController scrollController = ScrollController();
   List<GlobalKey> keys = [
     GlobalKey(),
     GlobalKey(),
@@ -130,23 +129,6 @@ class _MyHomePageState extends State<MyHomePage> {
     GlobalKey(),
     GlobalKey(),
   ];
-
-  @override
-  void initState() {
-    super.initState();
-    scrollController = ScrollController();
-    scrollController.addListener(() {
-      setState(() {
-        offset = scrollController.offset;
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    scrollController.dispose();
-    super.dispose();
-  }
 
   void scroll(int index) {
     double offset = 0.0;
@@ -163,64 +145,33 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var marginSize = getMarginSize(context);
-    var screenWidth = MediaQuery.of(context).size.width;
-    var screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Stack(
-        children: [
-          ScrollConfiguration(
-            behavior: NoOverscrollBehaviour(),
-            child: SingleChildScrollView(
-              controller: scrollController,
-              child: Column(
-                children: [
-                  TitlePage(
-                    key: keys[0],
-                    scrollFunc: scroll,
-                  ),
-                  AboutPage(
-                    key: keys[1],
-                    scrollFunc: scroll,
-                  ),
-                  ResumePage(
-                    key: keys[2],
-                  ),
-                  ProjectsPage(
-                    key: keys[3],
-                  ),
-                  ContactPage(
-                    key: keys[4],
-                  ),
-                ],
+      body: ScrollConfiguration(
+        behavior: NoOverscrollBehaviour(),
+        child: SingleChildScrollView(
+          controller: scrollController,
+          child: Column(
+            children: [
+              TitlePage(
+                key: keys[0],
+                scrollFunc: scroll,
               ),
-            ),
+              AboutPage(
+                key: keys[1],
+                scrollFunc: scroll,
+              ),
+              ResumePage(
+                key: keys[2],
+              ),
+              ProjectsPage(
+                key: keys[3],
+              ),
+              ContactPage(
+                key: keys[4],
+              ),
+            ],
           ),
-          screenWidth > SWIDTH && offset >= screenHeight
-              ? Padding(
-                  padding: EdgeInsets.all(marginSize),
-                  child: Center(
-                    child: Container(
-                      // width: MWIDTH3,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              HoverFab(
-                                onPressed: () => scroll(0),
-                                icon: Icons.keyboard_arrow_up_sharp,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              : Container(),
-        ],
+        ),
       ),
     );
   }
