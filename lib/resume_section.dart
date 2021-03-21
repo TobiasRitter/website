@@ -36,10 +36,13 @@ class _ResumeSectionState extends State<ResumeSection> {
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(left: marginSize),
-                    child: Text(
-                      widget.description,
-                      softWrap: true,
-                      style: textStyle,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        widget.description,
+                        softWrap: true,
+                        style: textStyle,
+                      ),
                     ),
                   ),
                 ),
@@ -51,10 +54,13 @@ class _ResumeSectionState extends State<ResumeSection> {
                 buildInfo(context),
                 Padding(
                   padding: EdgeInsets.only(top: marginSize / 2),
-                  child: Text(
-                    widget.description,
-                    softWrap: true,
-                    style: textStyle,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      widget.description,
+                      softWrap: true,
+                      style: textStyle,
+                    ),
                   ),
                 ),
               ],
