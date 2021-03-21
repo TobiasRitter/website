@@ -31,13 +31,13 @@ class AboutPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Header(
-                      text: "About",
+                      text: "Hello,",
                     ),
                     Row(
                       children: [
                         Expanded(
                           child: Text(
-                            "My name is Tobias Ritter and I am a Computer Science student currently working on my master's degree. I am highly interested in Data Analytics and Machine learning and love to develop Flutter applications like this website in my free time.",
+                            "My name is Tobias Ritter and I am a Computer Science student currently working on my master's degree at the Technical University of Munich. I am highly interested in Data Analytics and Machine learning and love to develop Flutter applications like this website in my free time. During my bachelor studies in cooperation with TRUMPF GmbH + Co. KG I had the chance to gather insights into multiple areas of software development. I gained experience with programming languages lik Python, Java, C, and C\# and worked with common Data Analytics frameworks like numpy, pandas and scikit-learn.\n\nDuring the winter, I love skiing in the Alps. If you want to learn more about my resume or are interested into my side projects, just scroll further down the page.",
                             softWrap: true,
                           ),
                         ),
