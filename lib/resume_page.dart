@@ -3,6 +3,7 @@ import 'package:website/header.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 import 'package:website/resume_section.dart';
+import 'package:website/texts.dart';
 
 class ResumePage extends StatelessWidget {
   const ResumePage({
@@ -47,8 +48,7 @@ class ResumePage extends StatelessWidget {
                       institution: "Technical University of Munich",
                       institutionUrl: "https://www.tum.de/",
                       icon: Icons.school,
-                      description:
-                          "Master studies in Computer Science with a focus on the area \"Machine Learning and Analytics\"",
+                      description: TUM,
                     ),
                     ResumeSection(
                       title: "B. Sc. Computer Science",
@@ -57,8 +57,7 @@ class ResumePage extends StatelessWidget {
                       institution: "DHBW Stuttgart",
                       institutionUrl: "https://www.dhbw-stuttgart.de/",
                       icon: Icons.school,
-                      description:
-                          "Bachelor studies in Computer Science in cooperation with TRUMPF GmbH + Co. KG\n\nElective courses: Python, Data Science, Big Data",
+                      description: DHBW,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: marginSize),
@@ -74,8 +73,7 @@ class ResumePage extends StatelessWidget {
                       institution: "TRUMPF GmbH + Co. KG",
                       institutionUrl: "https://www.trumpf.com/en_INT/",
                       icon: Icons.work,
-                      description:
-                          "18 months of internships in various software development departments\n\nBachelor thesis: Developed a regression model for predicting manual labor times in sheet-metal production, evaluated various models from scikit-learn and XGBoost",
+                      description: TRUMPF,
                     ),
                     ResumeSection(
                       title: "Summer Intern",
@@ -85,8 +83,7 @@ class ResumePage extends StatelessWidget {
                       institutionUrl:
                           "https://www.trumpf.com/en_US/local-pages/us/company/about-trumpf-in-the-us/",
                       icon: Icons.work,
-                      description:
-                          "4 month internship at TRUMPF North America within the software development department",
+                      description: TRUMPF_US,
                     ),
                   ],
                 ),

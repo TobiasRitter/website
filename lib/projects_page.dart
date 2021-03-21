@@ -3,6 +3,7 @@ import 'package:website/header.dart';
 import 'package:website/project_section.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
+import 'package:website/texts.dart';
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({
@@ -39,8 +40,7 @@ class ProjectsPage extends StatelessWidget {
                               ProjectSection(
                                 title: 'PyNN',
                                 url: 'https://github.com/TobiasRitter/PyNN',
-                                description:
-                                    'This project aims to implement a fully functional Multi-Layer Perceptron in Python. The project points out the fundamental concepts of Artifical Neural Networks, such as forward and backward propagation.',
+                                description: PYNN,
                                 image: 'res/PyNN.png',
                                 headerColor: Color.fromARGB(255, 30, 30, 30),
                               ),
@@ -48,8 +48,7 @@ class ProjectsPage extends StatelessWidget {
                                 title: 'RGB LED',
                                 url:
                                     'https://github.com/TobiasRitter/flutter_rgb_leds',
-                                description:
-                                    'This Flutter application in combination with a Raspberry Pi allows You to control Adafruit RGB LEDs with Your smartphone. This requires your smartphone and the Raspberry Pi to be in the same local network.',
+                                description: RGB_LED,
                                 image: 'res/RGBLed.png',
                                 headerColor: Color.fromARGB(255, 30, 30, 30),
                                 inversed: true,
@@ -57,8 +56,7 @@ class ProjectsPage extends StatelessWidget {
                               ProjectSection(
                                 title: 'Cardgame',
                                 url: 'https://github.com/TobiasRitter/Cardgame',
-                                description:
-                                    'This project allows you to host a card game running on the web that can be played with 2 or more friends. The goal of the game is to get rid of all your cards by putting cards of higher rank on top of the card stack.',
+                                description: CARDGAME,
                                 image: 'res/Cardgame.png',
                                 headerColor: Color.fromARGB(255, 30, 30, 30),
                               ),
@@ -66,8 +64,7 @@ class ProjectsPage extends StatelessWidget {
                                 title: 'CleverConvert',
                                 url:
                                     'https://github.com/TobiasRitter/cleverconvert',
-                                description:
-                                    'This application lets you comfortably convert values into all common units. The project relies on Flutter and Dart.',
+                                description: CLEVER_CONVERT,
                                 image: 'res/CleverConvert.png',
                                 headerColor: Colors.white,
                                 inversed: true,
