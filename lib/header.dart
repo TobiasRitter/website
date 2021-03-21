@@ -30,8 +30,7 @@ class _HeaderState extends State<Header> {
                 widget.text,
                 maxLines: 1,
                 minFontSize: 1,
-                style: h1Style.copyWith(
-                    color: Theme.of(context).textTheme.bodyText1!.color),
+                style: h1Style,
               ),
             ),
           ],

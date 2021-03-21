@@ -35,7 +35,7 @@ class ResumePage extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: marginSize * 2),
                     child: Text(
                       "Education",
-                      style: h2Style.copyWith(color: lightTheme.primaryColor),
+                      style: h2Style,
                     ),
                   ),
                   ResumeSection(
@@ -58,7 +58,7 @@ class ResumePage extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: marginSize * 2),
                     child: Text(
                       "Work experience",
-                      style: h2Style.copyWith(color: lightTheme.primaryColor),
+                      style: h2Style,
                     ),
                   ),
                   ResumeSection(

@@ -145,7 +145,6 @@ class _TitlePageState extends State<TitlePage> with TickerProviderStateMixin {
               child: Icon(
                 Icons.keyboard_arrow_down_rounded,
                 size: getArrowSize(context),
-                color: lightTheme.primaryColor,
               ),
             ),
           ],
@@ -172,9 +171,7 @@ class Logo extends StatelessWidget {
                 child: FittedBox(
                   child: Text(
                     "Tobias Ritter",
-                    style: titleStyle.copyWith(
-                      color: lightTheme.primaryColor,
-                    ),
+                    style: titleStyle,
                     maxLines: 1,
                     textAlign: TextAlign.center,
                   ),
@@ -188,9 +185,7 @@ class Logo extends StatelessWidget {
                 child: FittedBox(
                   child: Text(
                     "Computer Science Student & Developer",
-                    style: subtitleStyle.copyWith(
-                      color: lightTheme.primaryColor,
-                    ),
+                    style: subtitleStyle,
                     maxLines: 1,
                     textAlign: TextAlign.center,
                   ),

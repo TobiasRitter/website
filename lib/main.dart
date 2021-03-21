@@ -95,16 +95,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,
-      theme: lightTheme,
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        canvasColor: Colors.white,
+        accentColor: Colors.indigoAccent,
+        primaryColor: Colors.black,
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            primary: Colors.indigoAccent,
+            textStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, this.title}) : super(key: key);
-
-  final String? title;
+  MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();

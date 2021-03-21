@@ -36,9 +36,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                   child: Text(
                     widget.description,
                     softWrap: true,
-                    style: textStyle.copyWith(
-                      color: Theme.of(context).textTheme.bodyText1!.color,
-                    ),
+                    style: textStyle,
                   ),
                 ),
               ],
@@ -49,9 +47,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                 Text(
                   widget.description,
                   softWrap: true,
-                  style: textStyle.copyWith(
-                    color: Theme.of(context).textTheme.bodyText1!.color,
-                  ),
+                  style: textStyle,
                 ),
               ],
             ),
@@ -66,17 +62,13 @@ class _ResumeSectionState extends State<ResumeSection> {
         children: [
           Text(
             widget.date,
-            style: textStyle.copyWith(
-              color: Theme.of(context).textTheme.bodyText1!.color,
-            ),
+            style: textStyle,
           ),
           Padding(
             padding: EdgeInsets.only(top: 8),
             child: Text(
               widget.title,
-              style: h3Style.copyWith(
-                color: Theme.of(context).textTheme.bodyText1!.color,
-              ),
+              style: textStyle,
             ),
           ),
           Padding(
@@ -84,9 +76,7 @@ class _ResumeSectionState extends State<ResumeSection> {
             child: Chip(
               label: Text(
                 widget.location,
-                style: textStyle.copyWith(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
+                style: textStyle,
               ),
               avatar: Icon(
                 Icons.location_pin,
@@ -100,9 +90,7 @@ class _ResumeSectionState extends State<ResumeSection> {
               label: Text(
                 widget.institution,
                 textAlign: TextAlign.end,
-                style: textStyle.copyWith(
-                  color: Theme.of(context).textTheme.bodyText1!.color,
-                ),
+                style: textStyle,
               ),
               avatar: Icon(
                 Icons.house,
