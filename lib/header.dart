@@ -31,7 +31,7 @@ class _HeaderState extends State<Header> {
               child: Text(
                 widget.text,
                 maxLines: 1,
-                style: h1Style,
+                style: Theme.of(context).textTheme.headline1,
               ),
             ),
           ),

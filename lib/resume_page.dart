@@ -37,7 +37,7 @@ class ResumePage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical: marginSize),
                       child: Text(
                         "Education",
-                        style: h2Style,
+                        style: Theme.of(context).textTheme.headline2,
                       ),
                     ),
                     ResumeSection(
@@ -60,7 +60,7 @@ class ResumePage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical: marginSize),
                       child: Text(
                         "Work experience",
-                        style: h2Style,
+                        style: Theme.of(context).textTheme.headline2,
                       ),
                     ),
                     ResumeSection(

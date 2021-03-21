@@ -41,7 +41,6 @@ class _ResumeSectionState extends State<ResumeSection> {
                       child: Text(
                         widget.description,
                         softWrap: true,
-                        style: textStyle,
                       ),
                     ),
                   ),
@@ -59,7 +58,6 @@ class _ResumeSectionState extends State<ResumeSection> {
                     child: Text(
                       widget.description,
                       softWrap: true,
-                      style: textStyle,
                     ),
                   ),
                 ),
@@ -79,14 +77,13 @@ class _ResumeSectionState extends State<ResumeSection> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               widget.date,
-              style: textStyle,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               widget.title,
-              style: h3Style,
+              style: Theme.of(context).textTheme.headline3,
             ),
           ),
           Padding(
@@ -98,11 +95,11 @@ class _ResumeSectionState extends State<ResumeSection> {
                   child: Chip(
                     label: Text(
                       widget.location,
-                      style: textStyle,
                     ),
                     avatar: Icon(
                       Icons.location_pin,
-                      size: textStyle.fontSize,
+                      size: Theme.of(context).chipTheme.labelStyle.fontSize,
+                      color: Theme.of(context).chipTheme.labelStyle.color,
                     ),
                   ),
                 ),
@@ -112,11 +109,11 @@ class _ResumeSectionState extends State<ResumeSection> {
                     label: Text(
                       widget.institution,
                       textAlign: TextAlign.end,
-                      style: textStyle,
                     ),
                     avatar: Icon(
                       Icons.house,
-                      size: textStyle.fontSize,
+                      size: Theme.of(context).chipTheme.labelStyle.fontSize,
+                      color: Theme.of(context).chipTheme.labelStyle.color,
                     ),
                   ),
                 ),

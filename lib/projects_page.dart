@@ -72,15 +72,6 @@ class ProjectsPage extends StatelessWidget {
                                 headerColor: Colors.white,
                                 inversed: true,
                               ),
-                              // ProjectSection(
-                              //   title: 'Data Mining Algorithms',
-                              //   url:
-                              //       'https://github.com/TobiasRitter/Data-Mining-Algorithms',
-                              //   description:
-                              //       'This project contains supervised and unsupervised Data Mining algorithms implemented in Clojure.',
-                              //   image: 'res/ClojureAlgos.png',
-                              //   headerColor: Color.fromARGB(255, 30, 30, 30),
-                              // ),
                             ],
                           ),
                         ),

@@ -11,53 +11,6 @@ import 'package:website/title_page.dart';
 void launchURL(String url) async =>
     await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 
-final ThemeData lightTheme = ThemeData(
-  brightness: Brightness.light,
-  canvasColor: Colors.white,
-  accentColor: Colors.indigoAccent,
-  primaryColor: Colors.black,
-  textButtonTheme: TextButtonThemeData(
-    style: TextButton.styleFrom(
-      primary: Colors.indigoAccent,
-      textStyle: TextStyle(
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  ),
-);
-
-final menuButtonStyle = TextButton.styleFrom(
-  primary: Colors.black,
-);
-
-final TextStyle h1Style = TextStyle(
-  fontSize: 64,
-  fontWeight: FontWeight.bold,
-);
-
-final TextStyle h2Style = TextStyle(
-  fontSize: 32,
-  fontWeight: FontWeight.bold,
-);
-
-final TextStyle h3Style = TextStyle(
-  fontSize: 22,
-  fontWeight: FontWeight.bold,
-);
-
-final TextStyle titleStyle = TextStyle(
-  fontWeight: FontWeight.bold,
-);
-
-final TextStyle subtitleStyle = TextStyle(
-  fontWeight: FontWeight.normal,
-);
-
-final TextStyle textStyle = TextStyle(
-  fontSize: 16,
-  fontWeight: FontWeight.normal,
-);
-
 final Duration animationDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
@@ -94,6 +47,40 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.white,
         accentColor: Colors.black,
         primaryColor: Colors.black,
+        cardColor: Colors.grey.shade100,
+        textTheme: TextTheme(
+          bodyText2: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+          ),
+          headline6: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+          subtitle2: TextStyle(
+            fontWeight: FontWeight.normal,
+          ),
+          headline1: TextStyle(
+            color: Colors.black,
+            fontSize: 64,
+            fontWeight: FontWeight.bold,
+          ),
+          headline2: TextStyle(
+            color: Colors.black87,
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
+          headline3: TextStyle(
+            color: Colors.black87,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        chipTheme: ThemeData.light().chipTheme.copyWith(
+              labelStyle: TextStyle(
+                fontSize: 16,
+              ),
+            ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             primary: Colors.black,

@@ -105,7 +105,7 @@ class _ProjectSectionState extends State<ProjectSection> {
   Widget buildInfo() {
     var marginSize = getMarginSize(context);
     return Container(
-      color: Colors.grey.shade100,
+      color: Theme.of(context).cardColor,
       child: Padding(
         padding: EdgeInsets.all(marginSize),
         child: Column(
@@ -115,13 +115,12 @@ class _ProjectSectionState extends State<ProjectSection> {
               widget.title,
               textAlign: TextAlign.center,
               maxLines: 1,
-              style: h2Style,
+              style: Theme.of(context).textTheme.headline2,
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: marginSize),
               child: Text(
                 widget.description,
-                style: textStyle,
               ),
             ),
             TextButton.icon(

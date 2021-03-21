@@ -19,7 +19,7 @@ class Page extends StatelessWidget {
       constraints: BoxConstraints(
         minHeight: coverScreenHeight ? screenHeight : 0.0,
       ),
-      color: dark ? Colors.grey.shade100 : Colors.white,
+      color: dark ? Theme.of(context).cardColor : Theme.of(context).canvasColor,
       child: child,
     );
   }
