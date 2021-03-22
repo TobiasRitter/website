@@ -19,7 +19,7 @@ class _HeaderState extends State<Header> {
     var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
     return Padding(
-      padding: EdgeInsets.only(bottom: marginSize),
+      padding: EdgeInsets.only(bottom: marginSize * 2),
       child: Row(
         children: [
           Container(

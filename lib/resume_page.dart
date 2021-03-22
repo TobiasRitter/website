@@ -35,7 +35,7 @@ class ResumePage extends StatelessWidget {
                       text: "Resume",
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: marginSize),
+                      padding: EdgeInsets.only(bottom: marginSize),
                       child: Text(
                         "Education",
                         style: Theme.of(context).textTheme.headline2,
