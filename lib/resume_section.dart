@@ -58,13 +58,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                 children: [
                   Container(
                     height: marginSize,
-                    width: marginSize,
-                    child: Center(
-                      child: Container(
-                        width: 1,
-                        color: Theme.of(context).accentColor,
-                      ),
-                    ),
+                    child: Line(),
                   ),
                 ],
               ),
@@ -77,15 +71,7 @@ class _ResumeSectionState extends State<ResumeSection> {
               IntrinsicHeight(
                 child: Row(
                   children: [
-                    Container(
-                      width: marginSize,
-                      child: Center(
-                        child: Container(
-                          width: 1,
-                          color: Theme.of(context).accentColor,
-                        ),
-                      ),
-                    ),
+                    Line(),
                     Expanded(
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(
@@ -114,15 +100,7 @@ class _ResumeSectionState extends State<ResumeSection> {
         IntrinsicHeight(
           child: Row(
             children: [
-              Container(
-                width: marginSize,
-                child: Center(
-                  child: Container(
-                    color: Theme.of(context).accentColor,
-                    width: 1,
-                  ),
-                ),
-              ),
+              Line(),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -139,38 +117,7 @@ class _ResumeSectionState extends State<ResumeSection> {
             children: [
               Container(
                 width: marginSize,
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        color: Theme.of(context).accentColor,
-                        width: 1,
-                      ),
-                    ),
-                    Container(
-                      height: 16,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).accentColor,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(4),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).canvasColor,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        color: Theme.of(context).accentColor,
-                        width: 1,
-                      ),
-                    ),
-                  ],
-                ),
+                child: CircleSection(),
               ),
               Expanded(
                 child: Padding(
@@ -187,15 +134,7 @@ class _ResumeSectionState extends State<ResumeSection> {
         IntrinsicHeight(
           child: Row(
             children: [
-              Container(
-                width: marginSize,
-                child: Center(
-                  child: Container(
-                    color: Theme.of(context).accentColor,
-                    width: 1,
-                  ),
-                ),
-              ),
+              Line(),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -207,27 +146,11 @@ class _ResumeSectionState extends State<ResumeSection> {
             ],
           ),
         ),
-        Container(
-          width: marginSize,
-          child: Center(
-            child: Container(
-              color: Theme.of(context).accentColor,
-              width: 1,
-            ),
-          ),
-        ),
+        Line(),
         IntrinsicHeight(
           child: Row(
             children: [
-              Container(
-                width: marginSize,
-                child: Center(
-                  child: Container(
-                    color: Theme.of(context).accentColor,
-                    width: 1,
-                  ),
-                ),
-              ),
+              Line(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: HoverButton(
@@ -242,6 +165,66 @@ class _ResumeSectionState extends State<ResumeSection> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class CircleSection extends StatelessWidget {
+  const CircleSection({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: Line(),
+        ),
+        Opacity(
+          opacity: LINE_OPACITY,
+          child: Container(
+            height: 16,
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              shape: BoxShape.circle,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(4),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).canvasColor,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Line(),
+        ),
+      ],
+    );
+  }
+}
+
+class Line extends StatelessWidget {
+  const Line({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var marginSize = getMarginSize(context);
+    return Opacity(
+      opacity: LINE_OPACITY,
+      child: Container(
+        width: marginSize,
+        child: Center(
+          child: Container(
+            color: Theme.of(context).primaryColor,
+            width: 1,
+          ),
+        ),
+      ),
     );
   }
 }
