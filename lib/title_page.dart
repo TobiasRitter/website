@@ -72,14 +72,19 @@ class _TitlePageState extends State<TitlePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: EdgeInsets.all(marginSize),
-            child: Logo(),
+          Container(
+            constraints: BoxConstraints(maxWidth: MWIDTH2),
+            child: Padding(
+              padding: EdgeInsets.all(marginSize),
+              child: Logo(),
+            ),
           ),
-          Image.asset(
-            "res/ProfilePictureCompressed.png",
-            fit: BoxFit.scaleDown,
-            alignment: Alignment.bottomCenter,
+          Expanded(
+            child: Image.asset(
+              "res/PBCompressed.png",
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.bottomCenter,
+            ),
           ),
         ],
       ),
@@ -90,28 +95,27 @@ class _TitlePageState extends State<TitlePage> {
     var marginSize = getMarginSize(context);
     return Expanded(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            "res/ProfilePictureCompressed.png",
+            "res/PBCompressed.png",
             fit: BoxFit.scaleDown,
             alignment: Alignment.bottomCenter,
           ),
-          Expanded(
-            child: Center(
-              child: Container(
-                constraints: BoxConstraints(maxWidth: MWIDTH2),
-                child: Padding(
-                  padding: EdgeInsets.all(marginSize),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Logo(),
-                      ),
-                      Arrow(
-                        scrollFunc: widget.scrollFunc,
-                      ),
-                    ],
-                  ),
+          Center(
+            child: Container(
+              constraints: BoxConstraints(maxWidth: MWIDTH2),
+              child: Padding(
+                padding: EdgeInsets.all(marginSize),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Logo(),
+                    ),
+                    Arrow(
+                      scrollFunc: widget.scrollFunc,
+                    ),
+                  ],
                 ),
               ),
             ),

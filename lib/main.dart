@@ -17,7 +17,7 @@ final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 
 const SWIDTH = 1500.0;
 const MWIDTH = 1000.0;
-const MWIDTH2 = 800.0;
+const MWIDTH2 = 700.0;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
   var screenWidth = MediaQuery.of(context).size.width;
