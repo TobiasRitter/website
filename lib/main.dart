@@ -18,7 +18,6 @@ final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 const SWIDTH = 1500.0;
 const MWIDTH = 1000.0;
 const MWIDTH2 = 800.0;
-const RESUME_INFO_WIDTH = 300.0;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
   var screenWidth = MediaQuery.of(context).size.width;
@@ -152,14 +151,14 @@ class _MyHomePageState extends State<MyHomePage> {
           controller: scrollController,
           child: Column(
             children: [
-              TitlePage(
-                key: keys[0],
-                scrollFunc: scroll,
-              ),
-              AboutPage(
-                key: keys[1],
-                scrollFunc: scroll,
-              ),
+              // TitlePage(
+              //   key: keys[0],
+              //   scrollFunc: scroll,
+              // ),
+              // AboutPage(
+              //   key: keys[1],
+              //   scrollFunc: scroll,
+              // ),
               ResumePage(
                 key: keys[2],
               ),

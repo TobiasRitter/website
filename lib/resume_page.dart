@@ -45,7 +45,7 @@ class ResumePage extends StatelessWidget {
                       title: "M. Sc. Informatics",
                       date: "2020 - 2023",
                       location: "Munich",
-                      institution: "Technical University of Munich",
+                      institution: "TU Munich",
                       institutionUrl: "https://www.tum.de/",
                       icon: Icons.school,
                       description: TUM,
