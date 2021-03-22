@@ -54,7 +54,7 @@ class ResumePage extends StatelessWidget {
                       title: "B. Sc. Computer Science",
                       date: "2017 - 2020",
                       location: "Stuttgart",
-                      institution: "DHBW",
+                      institution: "DHBW Stuttgart",
                       institutionUrl: "https://www.dhbw-stuttgart.de/",
                       icon: Icons.school,
                       description: DHBW,
