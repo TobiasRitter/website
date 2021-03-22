@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:website/about_page.dart';
 import 'package:website/contact_page.dart';
-import 'package:website/hover_fab.dart';
 import 'package:website/projects_page.dart';
 import 'package:website/resume_page.dart';
 import 'package:website/title_page.dart';
@@ -40,7 +40,6 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    precacheImage(AssetImage("res/ProfilePicture.png"), context);
     return MaterialApp(
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,
@@ -50,35 +49,35 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.black,
         cardColor: Colors.grey.shade100,
         textTheme: TextTheme(
-          bodyText2: TextStyle(
+          bodyText2: GoogleFonts.roboto(
             fontSize: 16,
-            fontWeight: FontWeight.normal,
+            fontWeight: FontWeight.w300,
           ),
-          headline6: TextStyle(
+          headline6: GoogleFonts.bebasNeue(
             color: Colors.black,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
           ),
-          subtitle2: TextStyle(
-            fontWeight: FontWeight.normal,
+          subtitle2: GoogleFonts.roboto(
+            fontWeight: FontWeight.w100,
           ),
-          headline1: TextStyle(
+          headline1: GoogleFonts.roboto(
             color: Colors.black,
             fontSize: 64,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
           ),
-          headline2: TextStyle(
+          headline2: GoogleFonts.roboto(
             color: Colors.black87,
             fontSize: 32,
             fontWeight: FontWeight.bold,
           ),
-          headline3: TextStyle(
+          headline3: GoogleFonts.roboto(
             color: Colors.black87,
             fontSize: 22,
             fontWeight: FontWeight.bold,
           ),
         ),
         chipTheme: ThemeData.light().chipTheme.copyWith(
-              labelStyle: TextStyle(
+              labelStyle: GoogleFonts.roboto(
                 color: Colors.black87,
                 fontSize: 16,
               ),
@@ -87,7 +86,7 @@ class MyApp extends StatelessWidget {
           style: TextButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
             primary: Colors.black,
-            textStyle: TextStyle(
+            textStyle: GoogleFonts.roboto(
               fontWeight: FontWeight.bold,
             ),
           ),

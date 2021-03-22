@@ -16,7 +16,7 @@ class Logo extends StatelessWidget {
               Expanded(
                 child: FittedBox(
                   child: Text(
-                    "Tobias Ritter",
+                    "TOBIAS RITTER",
                     style: Theme.of(context).textTheme.headline6,
                     maxLines: 1,
                     textAlign: TextAlign.center,
@@ -30,7 +30,7 @@ class Logo extends StatelessWidget {
               Expanded(
                 child: FittedBox(
                   child: Text(
-                    "Computer Science Student & Developer",
+                    "Computer Science Student",
                     style: Theme.of(context).textTheme.subtitle2,
                     maxLines: 1,
                     textAlign: TextAlign.center,
