@@ -19,15 +19,20 @@ class _HoverButtonState extends State<HoverButton> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (details) => setState(() => underCursor = true),
-      onExit: (details) => setState(() => underCursor = false),
-      child: OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          primary: underCursor ? Theme.of(context).canvasColor : null,
-          backgroundColor: underCursor ? Theme.of(context).accentColor : null,
+      onEnter: (_) => setState(() => underCursor = true),
+      onExit: (_) => setState(() => underCursor = false),
+      child: Listener(
+        onPointerDown: (_) => setState(() => underCursor = true),
+        onPointerUp: (_) => setState(() => underCursor = false),
+        onPointerCancel: (_) => setState(() => underCursor = false),
+        child: OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            primary: underCursor ? Theme.of(context).canvasColor : null,
+            backgroundColor: underCursor ? Theme.of(context).accentColor : null,
+          ),
+          onPressed: widget.onPressed,
+          child: widget.child,
         ),
-        onPressed: widget.onPressed,
-        child: widget.child,
       ),
     );
   }
