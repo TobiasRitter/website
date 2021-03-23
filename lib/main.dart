@@ -18,9 +18,9 @@ final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 final Duration drawerCloseDuration = Duration(milliseconds: 300);
 
 const SWIDTH = 1500.0;
-const MWIDTH = 1000.0;
-const MWIDTH2 = 700.0;
-const LINE_OPACITY = 0.25;
+const CONTENT_WIDTH = 1000.0;
+const TITLE_WIDTH = 700.0;
+const OPACITY = 0.15;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
   var screenWidth = MediaQuery.of(context).size.width;

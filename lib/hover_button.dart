@@ -21,18 +21,13 @@ class _HoverButtonState extends State<HoverButton> {
     return MouseRegion(
       onEnter: (_) => setState(() => underCursor = true),
       onExit: (_) => setState(() => underCursor = false),
-      child: Listener(
-        onPointerDown: (_) => setState(() => underCursor = true),
-        onPointerUp: (_) => setState(() => underCursor = false),
-        onPointerCancel: (_) => setState(() => underCursor = false),
-        child: OutlinedButton(
-          style: OutlinedButton.styleFrom(
-            primary: underCursor ? Theme.of(context).canvasColor : null,
-            backgroundColor: underCursor ? Theme.of(context).accentColor : null,
-          ),
-          onPressed: widget.onPressed,
-          child: widget.child,
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          primary: underCursor ? Theme.of(context).canvasColor : null,
+          backgroundColor: underCursor ? Theme.of(context).accentColor : null,
         ),
+        onPressed: widget.onPressed,
+        child: widget.child,
       ),
     );
   }

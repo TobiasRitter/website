@@ -25,7 +25,7 @@ class ResumePage extends StatelessWidget {
           children: [
             Container(
               constraints: BoxConstraints(
-                  maxWidth: screenWidth > MWIDTH ? MWIDTH : screenWidth),
+                  maxWidth: screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
               child: Padding(
                 padding: EdgeInsets.all(marginSize),
                 child: Column(

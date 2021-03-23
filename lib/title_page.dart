@@ -85,7 +85,7 @@ class _TitlePageState extends State<TitlePage> {
             ),
           ),
           Container(
-            constraints: BoxConstraints(maxWidth: MWIDTH2),
+            constraints: BoxConstraints(maxWidth: TITLE_WIDTH),
             child: Padding(
               padding: EdgeInsets.all(marginSize),
               child: Logo(),
@@ -120,7 +120,7 @@ class _TitlePageState extends State<TitlePage> {
             flex: 2,
             child: Center(
               child: Container(
-                constraints: BoxConstraints(maxWidth: MWIDTH2),
+                constraints: BoxConstraints(maxWidth: TITLE_WIDTH),
                 child: Padding(
                   padding: EdgeInsets.all(marginSize),
                   child: Column(

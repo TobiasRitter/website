@@ -28,11 +28,11 @@ class ContactPage extends StatelessWidget {
           onPressed: () => showLicensePage(context: context),
           icon: Opacity(
             child: Icon(Icons.copyright_sharp),
-            opacity: LINE_OPACITY,
+            opacity: OPACITY,
           ),
           label: Opacity(
             child: Text("Tobias Ritter, 2021"),
-            opacity: LINE_OPACITY,
+            opacity: OPACITY,
           ),
         ),
       );

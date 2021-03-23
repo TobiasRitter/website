@@ -189,7 +189,7 @@ class CircleSection extends StatelessWidget {
           child: Line(),
         ),
         Opacity(
-          opacity: LINE_OPACITY,
+          opacity: OPACITY,
           child: Container(
             height: 16,
             decoration: BoxDecoration(
@@ -222,7 +222,7 @@ class Line extends StatelessWidget {
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     return Opacity(
-      opacity: LINE_OPACITY,
+      opacity: OPACITY,
       child: Container(
         width: marginSize,
         child: Center(
