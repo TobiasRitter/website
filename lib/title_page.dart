@@ -84,14 +84,14 @@ class _TitlePageState extends State<TitlePage> {
               ],
             ),
           ),
-          Container(
-            constraints: BoxConstraints(maxWidth: TITLE_WIDTH),
+          Expanded(
             child: Padding(
               padding: EdgeInsets.all(marginSize),
               child: Logo(),
             ),
           ),
           Expanded(
+            flex: 2,
             child: Image.asset(
               "res/PBCompressed.png",
               fit: BoxFit.scaleDown,
@@ -110,6 +110,7 @@ class _TitlePageState extends State<TitlePage> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(
+            flex: 4,
             child: Image.asset(
               "res/PBCompressed.png",
               fit: BoxFit.scaleDown,
@@ -117,26 +118,22 @@ class _TitlePageState extends State<TitlePage> {
             ),
           ),
           Expanded(
-            flex: 2,
-            child: Center(
-              child: Container(
-                constraints: BoxConstraints(maxWidth: TITLE_WIDTH),
-                child: Padding(
-                  padding: EdgeInsets.all(marginSize),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Logo(),
-                      ),
-                      Arrow(
-                        scrollFunc: widget.scrollFunc,
-                      ),
-                    ],
+            flex: 4,
+            child: Padding(
+              padding: EdgeInsets.all(marginSize),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Logo(),
                   ),
-                ),
+                  Arrow(
+                    scrollFunc: widget.scrollFunc,
+                  ),
+                ],
               ),
             ),
           ),
+          Spacer(),
         ],
       ),
     );

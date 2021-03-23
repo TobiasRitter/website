@@ -17,9 +17,8 @@ final Duration animationDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 final Duration drawerCloseDuration = Duration(milliseconds: 300);
 
-const SWIDTH = 1500.0;
+const SWIDTH = 1000.0;
 const CONTENT_WIDTH = 1000.0;
-const TITLE_WIDTH = 700.0;
 const OPACITY = 0.15;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
@@ -32,7 +31,7 @@ double getRelativeSize(BuildContext context, double referenceSize) {
   }
 }
 
-double getArrowSize(BuildContext context) => getRelativeSize(context, 128);
+double getArrowSize(BuildContext context) => getRelativeSize(context, 64);
 
 double getMarginSize(BuildContext context) => getRelativeSize(context, 64);
 

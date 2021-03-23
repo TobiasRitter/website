@@ -47,7 +47,6 @@ class ContactPage extends StatelessWidget {
               child: Column(
                 children: [
                   Wrap(
-                    spacing: marginSize,
                     children: [
                       Container(
                         width: 150,
@@ -80,7 +79,6 @@ class ContactPage extends StatelessWidget {
                     ],
                   ),
                   Wrap(
-                    spacing: marginSize,
                     children: [
                       Container(
                         width: 150,
@@ -139,69 +137,32 @@ class ContactPage extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 150,
-                child: Row(
-                  children: [
-                    TextButton(
-                      onPressed: () => launchURL(
-                          'https://www.linkedin.com/in/tobias-ritter/'),
-                      child: Text(
-                        "LinkedIn",
-                      ),
-                    ),
-                  ],
+              TextButton(
+                onPressed: () =>
+                    launchURL('https://www.linkedin.com/in/tobias-ritter/'),
+                child: Text(
+                  "LinkedIn",
                 ),
               ),
-              Container(
-                width: marginSize,
-              ),
-              Container(
-                width: 150,
-                child: Row(
-                  children: [
-                    TextButton(
-                      onPressed: () => launchURL(
-                          'https://www.xing.com/profile/Tobias_Ritter52/cv'),
-                      child: Text(
-                        "XING",
-                      ),
-                    ),
-                  ],
+              TextButton(
+                onPressed: () => launchURL(
+                    'https://www.xing.com/profile/Tobias_Ritter52/cv'),
+                child: Text(
+                  "XING",
                 ),
               ),
-              Container(
-                width: marginSize,
-              ),
-              Container(
-                width: 150,
-                child: Row(
-                  children: [
-                    TextButton(
-                      onPressed: () => launchURL(
-                          'https://github.com/TobiasRitter?tab=repositories'),
-                      child: Text(
-                        "GitHub",
-                      ),
-                    ),
-                  ],
+              TextButton(
+                onPressed: () => launchURL(
+                    'https://github.com/TobiasRitter?tab=repositories'),
+                child: Text(
+                  "GitHub",
                 ),
               ),
-              Container(
-                width: marginSize,
-              ),
-              Container(
-                width: 150,
-                child: Row(
-                  children: [
-                    TextButton(
-                      onPressed: () =>
-                          launchURL('https://hub.docker.com/u/tobiasritter'),
-                      child: Text(
-                        "Docker Hub",
-                      ),
-                    ),
-                  ],
+              TextButton(
+                onPressed: () =>
+                    launchURL('https://hub.docker.com/u/tobiasritter'),
+                child: Text(
+                  "Docker Hub",
                 ),
               ),
             ],
