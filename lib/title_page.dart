@@ -72,17 +72,26 @@ class _TitlePageState extends State<TitlePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
-            child: Container(
-              constraints: BoxConstraints(maxWidth: MWIDTH2),
-              child: Padding(
-                padding: EdgeInsets.all(marginSize),
-                child: Logo(),
-              ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(marginSize, marginSize, marginSize, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.menu_sharp),
+                  onPressed: Scaffold.of(context).openEndDrawer,
+                )
+              ],
+            ),
+          ),
+          Container(
+            constraints: BoxConstraints(maxWidth: MWIDTH2),
+            child: Padding(
+              padding: EdgeInsets.all(marginSize),
+              child: Logo(),
             ),
           ),
           Expanded(
-            flex: 2,
             child: Image.asset(
               "res/PBCompressed.png",
               fit: BoxFit.scaleDown,

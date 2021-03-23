@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:website/about_page.dart';
 import 'package:website/contact_page.dart';
+import 'package:website/mobile_menu.dart';
 import 'package:website/projects_page.dart';
 import 'package:website/resume_page.dart';
 import 'package:website/title_page.dart';
@@ -14,6 +15,7 @@ void launchURL(String url) async =>
 
 final Duration animationDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
+final Duration drawerCloseDuration = Duration(milliseconds: 300);
 
 const SWIDTH = 1500.0;
 const MWIDTH = 1000.0;
@@ -146,7 +148,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      endDrawerEnableOpenDragGesture: false,
+      endDrawer: screenWidth > SWIDTH
+          ? null
+          : MobileMenu(
+              scrollFunc: scroll,
+            ),
       body: ScrollConfiguration(
         behavior: NoOverscrollBehaviour(),
         child: SingleChildScrollView(
