@@ -55,10 +55,12 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w300,
           ),
           headline6: GoogleFonts.bebasNeue(
+            fontSize: 128,
             color: Colors.black,
             fontWeight: FontWeight.w900,
           ),
           subtitle2: GoogleFonts.roboto(
+            fontSize: 48,
             fontWeight: FontWeight.w100,
           ),
           headline1: GoogleFonts.roboto(

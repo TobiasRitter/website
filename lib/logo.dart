@@ -7,37 +7,20 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return FittedBox(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: FittedBox(
-                  child: Text(
-                    "TOBIAS RITTER",
-                    style: Theme.of(context).textTheme.headline6,
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ],
+          Text(
+            "TOBIAS RITTER",
+            style: Theme.of(context).textTheme.headline6,
+            maxLines: 1,
+            textAlign: TextAlign.center,
           ),
-          Row(
-            children: [
-              Expanded(
-                child: FittedBox(
-                  child: Text(
-                    "Computer Science Student",
-                    style: Theme.of(context).textTheme.subtitle2,
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ],
+          Text(
+            "Computer Science Student",
+            style: Theme.of(context).textTheme.subtitle2,
+            maxLines: 1,
+            textAlign: TextAlign.center,
           ),
         ],
       ),
