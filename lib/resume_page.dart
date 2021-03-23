@@ -43,7 +43,7 @@ class ResumePage extends StatelessWidget {
                     ),
                     ResumeSection(
                       title: "M. Sc. Informatics",
-                      date: "2020 - 2023",
+                      date: "2020 - Present",
                       location: "Munich",
                       institution: "TU Munich",
                       institutionUrl: "https://www.tum.de/",
