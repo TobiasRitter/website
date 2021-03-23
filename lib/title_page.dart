@@ -82,6 +82,7 @@ class _TitlePageState extends State<TitlePage> {
             ),
           ),
           Expanded(
+            flex: 2,
             child: Image.asset(
               "res/PBCompressed.png",
               fit: BoxFit.scaleDown,
