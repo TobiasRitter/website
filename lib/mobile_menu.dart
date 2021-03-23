@@ -64,6 +64,9 @@ class MobileMenu extends StatelessWidget {
                 ],
               ),
             ),
+            Container(
+              height: 48,
+            ),
           ],
         ),
       ),
