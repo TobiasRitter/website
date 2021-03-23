@@ -53,7 +53,8 @@ class MyApp extends StatelessWidget {
         cardColor: Colors.grey.shade100,
         textTheme: TextTheme(
           bodyText2: GoogleFonts.roboto(
-            fontSize: 16,
+            height: 1.5,
+            fontSize: 18,
             fontWeight: FontWeight.w300,
           ),
           headline6: GoogleFonts.bebasNeue(
@@ -81,12 +82,6 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        chipTheme: ThemeData.light().chipTheme.copyWith(
-              labelStyle: GoogleFonts.roboto(
-                color: Colors.black87,
-                fontSize: 16,
-              ),
-            ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),

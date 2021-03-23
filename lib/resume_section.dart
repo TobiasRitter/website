@@ -38,7 +38,9 @@ class _ResumeSectionState extends State<ResumeSection> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(child: buildInfo(context)),
+                    Expanded(
+                      child: buildInfo(context),
+                    ),
                     Expanded(
                       child: Padding(
                         padding: EdgeInsets.only(left: marginSize),
@@ -67,7 +69,9 @@ class _ResumeSectionState extends State<ResumeSection> {
         : Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              buildInfo(context),
+              IntrinsicHeight(
+                child: buildInfo(context),
+              ),
               IntrinsicHeight(
                 child: Row(
                   children: [
@@ -163,6 +167,9 @@ class _ResumeSectionState extends State<ResumeSection> {
               ),
             ],
           ),
+        ),
+        Expanded(
+          child: Line(),
         ),
       ],
     );

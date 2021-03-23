@@ -23,6 +23,20 @@ class ContactPage extends StatelessWidget {
     );
   }
 
+  Widget _buildFittedBox(BuildContext context) => FittedBox(
+        child: TextButton.icon(
+          onPressed: () => showLicensePage(context: context),
+          icon: Opacity(
+            child: Icon(Icons.copyright_sharp),
+            opacity: LINE_OPACITY,
+          ),
+          label: Opacity(
+            child: Text("Tobias Ritter, 2021"),
+            opacity: LINE_OPACITY,
+          ),
+        ),
+      );
+
   Column buildMobileLayout(BuildContext context) {
     var marginSize = getMarginSize(context);
     return Column(
@@ -107,16 +121,7 @@ class ContactPage extends StatelessWidget {
           padding: EdgeInsets.only(top: marginSize),
           child: Container(
             width: 150,
-            child: FittedBox(
-              child: Opacity(
-                opacity: LINE_OPACITY,
-                child: TextButton.icon(
-                  onPressed: () => showLicensePage(context: context),
-                  icon: Icon(Icons.copyright_sharp),
-                  label: Text("Tobias Ritter, 2021"),
-                ),
-              ),
-            ),
+            child: _buildFittedBox(context),
           ),
         ),
       ],
@@ -204,16 +209,7 @@ class ContactPage extends StatelessWidget {
         ),
         Container(
           width: 200,
-          child: FittedBox(
-            child: Opacity(
-              opacity: LINE_OPACITY,
-              child: TextButton.icon(
-                onPressed: () => showLicensePage(context: context),
-                icon: Icon(Icons.copyright_sharp),
-                label: Text("Tobias Ritter, 2021"),
-              ),
-            ),
-          ),
+          child: _buildFittedBox(context),
         ),
       ],
     );
