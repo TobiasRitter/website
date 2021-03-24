@@ -20,6 +20,7 @@ final Duration drawerCloseDuration = Duration(milliseconds: 300);
 const SWIDTH = 1000.0;
 const CONTENT_WIDTH = 1000.0;
 const OPACITY = 0.15;
+const FOOTER_BUTTON_WIDTH = 150.0;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
   var screenWidth = MediaQuery.of(context).size.width;
@@ -42,7 +43,6 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           bodyText2: GoogleFonts.roboto(
             height: 1.5,
-            fontSize: screenWidth > SWIDTH ? 18 : 16,
+            fontSize: 18,
             fontWeight: FontWeight.w300,
           ),
           headline6: GoogleFonts.bebasNeue(
