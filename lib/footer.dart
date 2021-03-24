@@ -29,7 +29,7 @@ class Footer extends StatelessWidget {
     var marginSize = getMarginSize(context);
     return Column(
       children: [
-        screenWidth > 4 * FOOTER_BUTTON_WIDTH + 3 * marginSize
+        screenWidth > 4 * FOOTER_BUTTON_WIDTH + 5 * marginSize
             ? buildFooterRow(context)
             : buildFooterColumn(context),
         Padding(
