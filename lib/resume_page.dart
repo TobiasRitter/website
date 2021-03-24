@@ -25,7 +25,9 @@ class ResumePage extends StatelessWidget {
           children: [
             Container(
               constraints: BoxConstraints(
-                  maxWidth: screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
+                  maxWidth: screenWidth > CONTENT_WIDTH
+                      ? CONTENT_WIDTH
+                      : screenWidth),
               child: Padding(
                 padding: EdgeInsets.all(marginSize),
                 child: Column(
@@ -35,7 +37,7 @@ class ResumePage extends StatelessWidget {
                       text: "Resume",
                     ),
                     Padding(
-                      padding: EdgeInsets.only(bottom: marginSize),
+                      padding: EdgeInsets.only(bottom: marginSize * 2),
                       child: Text(
                         "Education",
                         style: Theme.of(context).textTheme.headline2,
@@ -60,7 +62,7 @@ class ResumePage extends StatelessWidget {
                       description: DHBW,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: marginSize),
+                      padding: EdgeInsets.symmetric(vertical: marginSize * 2),
                       child: Text(
                         "Work experience",
                         style: Theme.of(context).textTheme.headline2,

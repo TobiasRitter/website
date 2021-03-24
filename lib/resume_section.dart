@@ -59,7 +59,7 @@ class _ResumeSectionState extends State<ResumeSection> {
               Row(
                 children: [
                   Container(
-                    height: marginSize,
+                    height: marginSize * 2,
                     child: Line(),
                   ),
                 ],
@@ -79,7 +79,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                     Expanded(
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(
-                            0, marginSize / 2, 0, marginSize),
+                            0, marginSize / 2, 0, marginSize * 2),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
