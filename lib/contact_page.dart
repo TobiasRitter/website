@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/copyright_button.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 
@@ -22,20 +23,6 @@ class ContactPage extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildFittedBox(BuildContext context) => FittedBox(
-        child: TextButton.icon(
-          onPressed: () => showLicensePage(context: context),
-          icon: Opacity(
-            child: Icon(Icons.copyright_sharp),
-            opacity: OPACITY,
-          ),
-          label: Opacity(
-            child: Text("Tobias Ritter, 2021"),
-            opacity: OPACITY,
-          ),
-        ),
-      );
 
   Column buildMobileLayout(BuildContext context) {
     var marginSize = getMarginSize(context);
@@ -119,7 +106,7 @@ class ContactPage extends StatelessWidget {
           padding: EdgeInsets.only(top: marginSize),
           child: Container(
             width: 150,
-            child: _buildFittedBox(context),
+            child: CopyrightButton(),
           ),
         ),
       ],
@@ -144,6 +131,7 @@ class ContactPage extends StatelessWidget {
                   "LinkedIn",
                 ),
               ),
+              Container(width: marginSize / 2),
               TextButton(
                 onPressed: () => launchURL(
                     'https://www.xing.com/profile/Tobias_Ritter52/cv'),
@@ -151,6 +139,7 @@ class ContactPage extends StatelessWidget {
                   "XING",
                 ),
               ),
+              Container(width: marginSize / 2),
               TextButton(
                 onPressed: () => launchURL(
                     'https://github.com/TobiasRitter?tab=repositories'),
@@ -158,6 +147,7 @@ class ContactPage extends StatelessWidget {
                   "GitHub",
                 ),
               ),
+              Container(width: marginSize / 2),
               TextButton(
                 onPressed: () =>
                     launchURL('https://hub.docker.com/u/tobiasritter'),
@@ -170,7 +160,7 @@ class ContactPage extends StatelessWidget {
         ),
         Container(
           width: 200,
-          child: _buildFittedBox(context),
+          child: CopyrightButton(),
         ),
       ],
     );
