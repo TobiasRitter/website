@@ -42,6 +42,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           bodyText2: GoogleFonts.roboto(
             height: 1.5,
-            fontSize: 18,
+            fontSize: screenWidth > SWIDTH ? 18 : 16,
             fontWeight: FontWeight.w300,
           ),
           headline6: GoogleFonts.bebasNeue(
