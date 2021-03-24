@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:website/about_page.dart';
-import 'package:website/contact_page.dart';
+import 'package:website/footer.dart';
 import 'package:website/mobile_menu.dart';
 import 'package:website/projects_page.dart';
 import 'package:website/resume_page.dart';
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           bodyText2: GoogleFonts.roboto(
             height: 1.5,
-            fontSize: 18,
+            fontSize: 16,
             fontWeight: FontWeight.w300,
           ),
           headline6: GoogleFonts.bebasNeue(
@@ -171,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ProjectsPage(
                 key: keys[3],
               ),
-              ContactPage(
+              Footer(
                 key: keys[4],
               ),
             ],

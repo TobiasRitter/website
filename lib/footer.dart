@@ -3,8 +3,8 @@ import 'package:website/copyright_button.dart';
 import 'package:website/main.dart';
 import 'package:website/page.dart' as p;
 
-class ContactPage extends StatelessWidget {
-  const ContactPage({
+class Footer extends StatelessWidget {
+  const Footer({
     Key? key,
   }) : super(key: key);
 
