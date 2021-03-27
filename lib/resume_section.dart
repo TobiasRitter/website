@@ -9,6 +9,7 @@ class ResumeSection extends StatefulWidget {
   final String location;
   final String description;
   final String institutionUrl;
+  final String? image;
   final IconData icon;
 
   const ResumeSection({
@@ -20,6 +21,7 @@ class ResumeSection extends StatefulWidget {
     required this.description,
     required this.institutionUrl,
     required this.icon,
+    this.image,
   }) : super(key: key);
 
   @override
@@ -44,13 +46,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                     Expanded(
                       child: Padding(
                         padding: EdgeInsets.only(left: marginSize),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            widget.description,
-                            softWrap: true,
-                          ),
-                        ),
+                        child: buildTextSection(),
                       ),
                     ),
                   ],
@@ -80,13 +76,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(
                             0, marginSize / 2, 0, marginSize * 2),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            widget.description,
-                            softWrap: true,
-                          ),
-                        ),
+                        child: buildTextSection(),
                       ),
                     ),
                   ],
@@ -94,6 +84,26 @@ class _ResumeSectionState extends State<ResumeSection> {
               ),
             ],
           );
+  }
+
+  Padding buildTextSection() {
+    var marginSize = getMarginSize(context);
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(bottom: marginSize),
+            child:
+                widget.image != null ? Image.asset(widget.image!) : Container(),
+          ),
+          Text(
+            widget.description,
+            softWrap: true,
+          ),
+        ],
+      ),
+    );
   }
 
   Widget buildInfo(BuildContext context) {

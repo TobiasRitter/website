@@ -18,7 +18,7 @@ final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 final Duration drawerCloseDuration = Duration(milliseconds: 300);
 
 const SWIDTH = 1000.0;
-const CONTENT_WIDTH = 1000.0;
+const CONTENT_WIDTH = 1200.0;
 const OPACITY = 0.15;
 const FOOTER_BUTTON_WIDTH = 150.0;
 

@@ -51,6 +51,7 @@ class ResumePage extends StatelessWidget {
                       institutionUrl: "https://www.tum.de/",
                       icon: Icons.school,
                       description: TUM,
+                      image: 'res/TUM.jpg',
                     ),
                     ResumeSection(
                       title: "B. Sc. Computer Science",
@@ -86,6 +87,7 @@ class ResumePage extends StatelessWidget {
                           "https://www.trumpf.com/en_US/local-pages/us/company/about-trumpf-in-the-us/",
                       icon: Icons.work,
                       description: TRUMPF_US,
+                      image: 'res/NYC.jpg',
                     ),
                   ],
                 ),
