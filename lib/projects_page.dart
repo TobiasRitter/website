@@ -44,7 +44,6 @@ class ProjectsPage extends StatelessWidget {
                                 url: 'https://github.com/TobiasRitter/PyNN',
                                 description: PYNN,
                                 image: 'res/PyNN.png',
-                                headerColor: Color.fromARGB(255, 30, 30, 30),
                               ),
                               ProjectSection(
                                 title: 'RGB LED',
@@ -52,7 +51,6 @@ class ProjectsPage extends StatelessWidget {
                                     'https://github.com/TobiasRitter/flutter_rgb_leds',
                                 description: RGB_LED,
                                 image: 'res/RGBLed.png',
-                                headerColor: Color.fromARGB(255, 30, 30, 30),
                                 inversed: true,
                               ),
                               ProjectSection(
@@ -60,7 +58,14 @@ class ProjectsPage extends StatelessWidget {
                                 url: 'https://github.com/TobiasRitter/Cardgame',
                                 description: CARDGAME,
                                 image: 'res/Cardgame.png',
-                                headerColor: ThemeData.dark().canvasColor,
+                              ),
+                              ProjectSection(
+                                title: 'CleverConvert',
+                                url:
+                                    'https://github.com/TobiasRitter/cleverconvert',
+                                description: CLEVER_CONVERT,
+                                image: 'res/CleverConvert.png',
+                                inversed: true,
                               ),
                             ],
                           ),

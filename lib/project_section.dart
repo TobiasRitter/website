@@ -9,7 +9,6 @@ class ProjectSection extends StatefulWidget {
     required this.description,
     required this.url,
     required this.image,
-    required this.headerColor,
     this.inversed = false,
   }) : super(key: key);
 
@@ -17,7 +16,6 @@ class ProjectSection extends StatefulWidget {
   final String description;
   final String url;
   final String image;
-  final Color headerColor;
   final bool inversed;
 
   @override
@@ -30,24 +28,25 @@ class _ProjectSectionState extends State<ProjectSection> {
     var marginSize = getMarginSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
-    return screenWidth > SWIDTH
-        ? Container(
-            height: 500,
-            child: Row(
-              children: [
-                !widget.inversed
-                    ? Container()
-                    : Expanded(
-                        child: buildInfo(),
-                      ),
-                Expanded(
-                  child: Container(
-                    color: widget.headerColor,
+    return Padding(
+      padding: EdgeInsets.only(bottom: marginSize * 2),
+      child: screenWidth > SWIDTH
+          ? Container(
+              height: 500,
+              child: Row(
+                children: [
+                  !widget.inversed
+                      ? Container()
+                      : Expanded(
+                          child: buildInfo(),
+                        ),
+                  Expanded(
                     child: Column(
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(marginSize / 2),
+                            padding:
+                                EdgeInsets.symmetric(horizontal: marginSize),
                             child: Image.asset(
                               widget.image,
                               fit: BoxFit.contain,
@@ -57,50 +56,32 @@ class _ProjectSectionState extends State<ProjectSection> {
                       ],
                     ),
                   ),
+                  widget.inversed
+                      ? Container()
+                      : Expanded(
+                          child: buildInfo(),
+                        ),
+                ],
+              ),
+            )
+          : Column(
+              children: [
+                Container(
+                  height: screenHeight / 3,
+                  child: Image.asset(
+                    widget.image,
+                    fit: BoxFit.contain,
+                  ),
                 ),
-                widget.inversed
-                    ? Container()
-                    : Expanded(
-                        child: buildInfo(),
-                      ),
+                Container(
+                  constraints: BoxConstraints(
+                    minHeight: screenHeight / 3,
+                  ),
+                  child: buildInfo(),
+                ),
               ],
             ),
-          )
-        : Column(
-            children: [
-              Container(
-                height: screenHeight / 3,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        color: widget.headerColor,
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsets.all(marginSize / 2),
-                                child: Image.asset(
-                                  widget.image,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                constraints: BoxConstraints(
-                  minHeight: screenHeight / 3,
-                ),
-                child: buildInfo(),
-              ),
-            ],
-          );
+    );
   }
 
   Widget buildInfo() {
@@ -112,7 +93,6 @@ class _ProjectSectionState extends State<ProjectSection> {
         children: [
           Text(
             widget.title,
-            textAlign: TextAlign.center,
             maxLines: 1,
             style: Theme.of(context).textTheme.headline2,
           ),
