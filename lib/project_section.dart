@@ -105,33 +105,30 @@ class _ProjectSectionState extends State<ProjectSection> {
 
   Widget buildInfo() {
     var marginSize = getMarginSize(context);
-    return Container(
-      color: Theme.of(context).cardColor,
-      child: Padding(
-        padding: EdgeInsets.all(marginSize),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              widget.title,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              style: Theme.of(context).textTheme.headline2,
+    return Padding(
+      padding: EdgeInsets.all(marginSize),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            widget.title,
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            style: Theme.of(context).textTheme.headline2,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: marginSize),
+            child: Text(
+              widget.description,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: marginSize),
-              child: Text(
-                widget.description,
-              ),
+          ),
+          HoverButton(
+            onPressed: () => launchURL(widget.url),
+            child: Text(
+              "Show on GitHub",
             ),
-            HoverButton(
-              onPressed: () => launchURL(widget.url),
-              child: Text(
-                "Show on GitHub",
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

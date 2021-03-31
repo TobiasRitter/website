@@ -24,7 +24,9 @@ class ProjectsPage extends StatelessWidget {
           children: [
             Container(
               constraints: BoxConstraints(
-                  maxWidth: screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
+                  maxWidth: screenWidth > CONTENT_WIDTH
+                      ? CONTENT_WIDTH
+                      : screenWidth),
               child: Padding(
                 padding: EdgeInsets.all(marginSize),
                 child: Column(
@@ -59,15 +61,6 @@ class ProjectsPage extends StatelessWidget {
                                 description: CARDGAME,
                                 image: 'res/Cardgame.png',
                                 headerColor: ThemeData.dark().canvasColor,
-                              ),
-                              ProjectSection(
-                                title: 'CleverConvert',
-                                url:
-                                    'https://github.com/TobiasRitter/cleverconvert',
-                                description: CLEVER_CONVERT,
-                                image: 'res/CleverConvert.png',
-                                headerColor: Colors.white,
-                                inversed: true,
                               ),
                             ],
                           ),
