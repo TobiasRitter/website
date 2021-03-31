@@ -92,11 +92,12 @@ class _ResumeSectionState extends State<ResumeSection> {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: marginSize),
-            child:
-                widget.image != null ? Image.asset(widget.image!) : Container(),
-          ),
+          widget.image == null
+              ? Container()
+              : Padding(
+                  padding: EdgeInsets.only(bottom: marginSize),
+                  child: Image.asset(widget.image!),
+                ),
           Text(
             widget.description,
             softWrap: true,
@@ -152,8 +153,14 @@ class _ResumeSectionState extends State<ResumeSection> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    widget.location,
+                  child: Row(
+                    children: [
+                      Icon(Icons.location_on_sharp),
+                      Container(width: 16),
+                      Text(
+                        widget.location,
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -166,7 +173,8 @@ class _ResumeSectionState extends State<ResumeSection> {
             children: [
               Line(),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 24),
                 child: HoverButton(
                   onPressed: () => launchURL(widget.institutionUrl),
                   child: Text(

@@ -9,6 +9,8 @@ class ProjectSection extends StatefulWidget {
     required this.description,
     required this.url,
     required this.image,
+    required this.platform,
+    required this.technology,
     this.inversed = false,
   }) : super(key: key);
 
@@ -16,6 +18,8 @@ class ProjectSection extends StatefulWidget {
   final String description;
   final String url;
   final String image;
+  final String platform;
+  final String technology;
   final bool inversed;
 
   @override
@@ -32,34 +36,32 @@ class _ProjectSectionState extends State<ProjectSection> {
       padding: EdgeInsets.only(bottom: marginSize * 2),
       child: screenWidth > SWIDTH
           ? Container(
-              height: 500,
               child: Row(
                 children: [
                   !widget.inversed
                       ? Container()
                       : Expanded(
-                          child: buildInfo(),
-                        ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsets.symmetric(horizontal: marginSize),
-                            child: Image.asset(
-                              widget.image,
-                              fit: BoxFit.contain,
-                            ),
+                            padding: EdgeInsets.all(marginSize),
+                            child: buildInfo(),
                           ),
                         ),
-                      ],
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: marginSize),
+                      child: Image.asset(
+                        widget.image,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                   widget.inversed
                       ? Container()
                       : Expanded(
-                          child: buildInfo(),
+                          child: Padding(
+                            padding: EdgeInsets.all(marginSize),
+                            child: buildInfo(),
+                          ),
                         ),
                 ],
               ),
@@ -77,7 +79,10 @@ class _ProjectSectionState extends State<ProjectSection> {
                   constraints: BoxConstraints(
                     minHeight: screenHeight / 3,
                   ),
-                  child: buildInfo(),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: marginSize),
+                    child: buildInfo(),
+                  ),
                 ),
               ],
             ),
@@ -86,30 +91,49 @@ class _ProjectSectionState extends State<ProjectSection> {
 
   Widget buildInfo() {
     var marginSize = getMarginSize(context);
-    return Padding(
-      padding: EdgeInsets.all(marginSize),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            widget.title,
-            maxLines: 1,
-            style: Theme.of(context).textTheme.headline2,
+    return Column(
+      children: [
+        Text(
+          widget.title,
+          maxLines: 1,
+          style: Theme.of(context).textTheme.headline2,
+        ),
+        Container(
+          height: marginSize,
+        ),
+        Row(
+          children: [
+            Icon(Icons.memory_sharp),
+            Container(width: 16),
+            Text(widget.platform),
+          ],
+        ),
+        Container(
+          height: 16,
+        ),
+        Row(
+          children: [
+            Icon(Icons.code_sharp),
+            Container(width: 16),
+            Text(widget.technology),
+          ],
+        ),
+        Container(
+          height: marginSize / 2,
+        ),
+        Text(
+          widget.description,
+        ),
+        Container(
+          height: marginSize,
+        ),
+        HoverButton(
+          onPressed: () => launchURL(widget.url),
+          child: Text(
+            "Show on GitHub",
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: marginSize),
-            child: Text(
-              widget.description,
-            ),
-          ),
-          HoverButton(
-            onPressed: () => launchURL(widget.url),
-            child: Text(
-              "Show on GitHub",
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }
