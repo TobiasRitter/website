@@ -129,9 +129,7 @@ class _ProjectSectionState extends State<ProjectSection> {
         ),
         HoverButton(
           onPressed: () => launchURL(widget.url),
-          child: Text(
-            "Show on GitHub",
-          ),
+          text: "Show on GitHub",
         )
       ],
     );

@@ -176,10 +176,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 24),
                 child: HoverButton(
                   onPressed: () => launchURL(widget.institutionUrl),
-                  child: Text(
-                    widget.institution,
-                    textAlign: TextAlign.end,
-                  ),
+                  text: widget.institution,
                 ),
               ),
             ],

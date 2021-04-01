@@ -51,7 +51,7 @@ class _TitlePageState extends State<TitlePage> {
                         ),
                         HoverButton(
                           onPressed: () => widget.scrollFunc(4),
-                          child: Text("Contact"),
+                          text: "Contact",
                         ),
                       ],
                     ),

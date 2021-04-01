@@ -59,7 +59,7 @@ class MobileMenu extends StatelessWidget {
                       Future.delayed(drawerCloseDuration)
                           .then((_) => scrollFunc(4));
                     },
-                    child: Text("Contact"),
+                    text: "Contact",
                   ),
                 ],
               ),

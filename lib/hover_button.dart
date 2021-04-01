@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class HoverButton extends StatefulWidget {
-  final Function()? onPressed;
-  final Widget child;
+  final void Function()? onPressed;
+  final String text;
 
   const HoverButton({
     Key? key,
-    this.onPressed,
-    required this.child,
+    required this.onPressed,
+    required this.text,
   }) : super(key: key);
   @override
   _HoverButtonState createState() => _HoverButtonState();
@@ -27,7 +27,7 @@ class _HoverButtonState extends State<HoverButton> {
           backgroundColor: underCursor ? Theme.of(context).accentColor : null,
         ),
         onPressed: widget.onPressed,
-        child: widget.child,
+        child: Text(widget.text),
       ),
     );
   }
