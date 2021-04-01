@@ -28,7 +28,7 @@ class _HeaderState extends State<Header> {
             ),
             child: FittedBox(
               fit: BoxFit.scaleDown,
-              child: Text(
+              child: SelectableText(
                 widget.text,
                 maxLines: 1,
                 style: Theme.of(context).textTheme.headline1,

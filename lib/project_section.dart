@@ -93,7 +93,7 @@ class _ProjectSectionState extends State<ProjectSection> {
     var marginSize = getMarginSize(context);
     return Column(
       children: [
-        Text(
+        SelectableText(
           widget.title,
           maxLines: 1,
           style: Theme.of(context).textTheme.headline2,
@@ -105,7 +105,7 @@ class _ProjectSectionState extends State<ProjectSection> {
           children: [
             Icon(Icons.memory_sharp),
             Container(width: 16),
-            Text(widget.platform),
+            SelectableText(widget.platform),
           ],
         ),
         Container(
@@ -115,13 +115,13 @@ class _ProjectSectionState extends State<ProjectSection> {
           children: [
             Icon(Icons.code_sharp),
             Container(width: 16),
-            Text(widget.technology),
+            SelectableText(widget.technology),
           ],
         ),
         Container(
           height: marginSize / 2,
         ),
-        Text(
+        SelectableText(
           widget.description,
         ),
         Container(

@@ -25,7 +25,9 @@ class AboutPage extends StatelessWidget {
           children: [
             Container(
               constraints: BoxConstraints(
-                  maxWidth: screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
+                  maxWidth: screenWidth > CONTENT_WIDTH
+                      ? CONTENT_WIDTH
+                      : screenWidth),
               child: Padding(
                 padding: EdgeInsets.all(marginSize),
                 child: Column(
@@ -37,9 +39,8 @@ class AboutPage extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: Text(
+                          child: SelectableText(
                             ABOUT,
-                            softWrap: true,
                           ),
                         ),
                       ],

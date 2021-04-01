@@ -98,9 +98,8 @@ class _ResumeSectionState extends State<ResumeSection> {
                   padding: EdgeInsets.only(bottom: marginSize),
                   child: Image.asset(widget.image!),
                 ),
-          Text(
+          SelectableText(
             widget.description,
-            softWrap: true,
           ),
         ],
       ),
@@ -119,7 +118,7 @@ class _ResumeSectionState extends State<ResumeSection> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
+                  child: SelectableText(
                     widget.date,
                   ),
                 ),
@@ -137,7 +136,7 @@ class _ResumeSectionState extends State<ResumeSection> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
+                  child: SelectableText(
                     widget.title,
                     style: Theme.of(context).textTheme.headline3,
                   ),
@@ -157,7 +156,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                     children: [
                       Icon(Icons.location_on_sharp),
                       Container(width: 16),
-                      Text(
+                      SelectableText(
                         widget.location,
                       ),
                     ],

@@ -10,13 +10,13 @@ class Logo extends StatelessWidget {
     return FittedBox(
       child: Column(
         children: [
-          Text(
+          SelectableText(
             "TOBIAS RITTER",
             style: Theme.of(context).textTheme.headline6,
             maxLines: 1,
             textAlign: TextAlign.center,
           ),
-          Text(
+          SelectableText(
             "Computer Science Student",
             style: Theme.of(context).textTheme.subtitle2,
             maxLines: 1,
