@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/main.dart';
 
 class Logo extends StatelessWidget {
   const Logo({
@@ -7,23 +8,33 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FittedBox(
-      child: Column(
-        children: [
-          SelectableText(
-            "TOBIAS RITTER",
-            style: Theme.of(context).textTheme.headline6,
-            maxLines: 1,
-            textAlign: TextAlign.center,
+    var marginSize = getMarginSize(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: FittedBox(
+            alignment: Alignment.bottomLeft,
+            child: SelectableText(
+              "Welcome,",
+              style: Theme.of(context).textTheme.headline6,
+              maxLines: 1,
+            ),
           ),
-          SelectableText(
-            "Computer Science Student",
-            style: Theme.of(context).textTheme.subtitle2,
-            maxLines: 1,
-            textAlign: TextAlign.center,
+        ),
+        Container(
+          height: marginSize,
+        ),
+        Expanded(
+          child: FittedBox(
+            alignment: Alignment.topLeft,
+            child: SelectableText(
+              "My name is Tobias Ritter and I am a \nComputer Science student interested in \nData Analytics and Machine Learning",
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

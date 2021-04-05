@@ -29,10 +29,10 @@ class _TitlePageState extends State<TitlePage> {
         coverScreenHeight: true,
         child: Column(
           children: [
-            screenWidth > SWIDTH
-                ? Padding(
-                    padding: EdgeInsets.all(marginSize),
-                    child: Row(
+            Padding(
+              padding: EdgeInsets.all(marginSize),
+              child: screenWidth > SWIDTH
+                  ? Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         TextButton(
@@ -54,9 +54,17 @@ class _TitlePageState extends State<TitlePage> {
                           text: "Contact",
                         ),
                       ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          icon: Icon(Icons.menu_sharp),
+                          onPressed: Scaffold.of(context).openEndDrawer,
+                        ),
+                      ],
                     ),
-                  )
-                : Container(),
+            ),
             screenWidth > SWIDTH
                 ? buildDesktopLayout(context)
                 : buildMobileLayout(context),
@@ -72,21 +80,14 @@ class _TitlePageState extends State<TitlePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: EdgeInsets.fromLTRB(marginSize, marginSize, marginSize, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.menu_sharp),
-                  onPressed: Scaffold.of(context).openEndDrawer,
-                )
-              ],
-            ),
-          ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.all(marginSize),
+              padding: EdgeInsets.fromLTRB(
+                marginSize,
+                0,
+                marginSize,
+                marginSize * 2,
+              ),
               child: Logo(),
             ),
           ),

@@ -57,14 +57,16 @@ class MyApp extends StatelessWidget {
             fontSize: 16,
             fontWeight: FontWeight.w300,
           ),
-          headline6: GoogleFonts.bebasNeue(
-            fontSize: 128,
+          headline5: GoogleFonts.roboto(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+          headline6: GoogleFonts.roboto(
             color: Colors.black,
             fontWeight: FontWeight.w900,
           ),
           subtitle2: GoogleFonts.roboto(
-            fontSize: 48,
-            fontWeight: FontWeight.w100,
+            fontWeight: FontWeight.w300,
           ),
           headline1: GoogleFonts.roboto(
             color: Colors.black,
@@ -151,29 +153,31 @@ class _MyHomePageState extends State<MyHomePage> {
           : MobileMenu(
               scrollFunc: scroll,
             ),
-      body: ScrollConfiguration(
-        behavior: NoOverscrollBehaviour(),
-        child: ListView(
-          controller: scrollController,
-          children: [
-            TitlePage(
-              key: keys[0],
-              scrollFunc: scroll,
-            ),
-            AboutPage(
-              key: keys[1],
-              scrollFunc: scroll,
-            ),
-            ResumePage(
-              key: keys[2],
-            ),
-            ProjectsPage(
-              key: keys[3],
-            ),
-            Footer(
-              key: keys[4],
-            ),
-          ],
+      body: SafeArea(
+        child: ScrollConfiguration(
+          behavior: NoOverscrollBehaviour(),
+          child: ListView(
+            controller: scrollController,
+            children: [
+              TitlePage(
+                key: keys[0],
+                scrollFunc: scroll,
+              ),
+              AboutPage(
+                key: keys[1],
+                scrollFunc: scroll,
+              ),
+              ResumePage(
+                key: keys[2],
+              ),
+              ProjectsPage(
+                key: keys[3],
+              ),
+              Footer(
+                key: keys[4],
+              ),
+            ],
+          ),
         ),
       ),
     );
