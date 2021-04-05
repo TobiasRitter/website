@@ -156,27 +156,29 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: ScrollConfiguration(
           behavior: NoOverscrollBehaviour(),
-          child: ListView(
+          child: SingleChildScrollView(
             controller: scrollController,
-            children: [
-              TitlePage(
-                key: keys[0],
-                scrollFunc: scroll,
-              ),
-              AboutPage(
-                key: keys[1],
-                scrollFunc: scroll,
-              ),
-              ResumePage(
-                key: keys[2],
-              ),
-              ProjectsPage(
-                key: keys[3],
-              ),
-              Footer(
-                key: keys[4],
-              ),
-            ],
+            child: Column(
+              children: [
+                TitlePage(
+                  key: keys[0],
+                  scrollFunc: scroll,
+                ),
+                AboutPage(
+                  key: keys[1],
+                  scrollFunc: scroll,
+                ),
+                ResumePage(
+                  key: keys[2],
+                ),
+                ProjectsPage(
+                  key: keys[3],
+                ),
+                Footer(
+                  key: keys[4],
+                ),
+              ],
+            ),
           ),
         ),
       ),
