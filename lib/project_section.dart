@@ -35,7 +35,7 @@ class _ProjectSectionState extends State<ProjectSection> {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      height: screenWidth > SWIDTH ? screenHeight : null,
+      constraints: BoxConstraints(minHeight: screenHeight),
       color: widget.dark
           ? Theme.of(context).cardColor
           : Theme.of(context).canvasColor,

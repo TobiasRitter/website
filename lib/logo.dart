@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/main.dart';
+import 'package:website/texts.dart';
 
 class Logo extends StatelessWidget {
   const Logo({
@@ -10,15 +11,15 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: FittedBox(
             alignment: Alignment.bottomLeft,
             child: SelectableText(
-              "Hello,",
+              "Tobias Ritter",
               style: Theme.of(context).textTheme.headline6,
               maxLines: 1,
+              textAlign: TextAlign.center,
             ),
           ),
         ),
@@ -29,8 +30,9 @@ class Logo extends StatelessWidget {
           child: FittedBox(
             alignment: Alignment.topLeft,
             child: SelectableText(
-              "My name is Tobias Ritter and I am a \nComputer Science student interested in \nData Analytics and Machine Learning",
+              SUBTITLE,
               style: Theme.of(context).textTheme.subtitle2,
+              textAlign: TextAlign.center,
             ),
           ),
         ),

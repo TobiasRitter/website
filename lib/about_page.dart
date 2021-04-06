@@ -33,7 +33,7 @@ class AboutPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Header(
-                      text: "About",
+                      text: "Hello",
                     ),
                     Row(
                       children: [
