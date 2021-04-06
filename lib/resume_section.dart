@@ -76,7 +76,7 @@ class _ResumeSectionState extends State<ResumeSection> {
                       minHeight: screenHeight,
                     ),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: marginSize),
+                      padding: EdgeInsets.symmetric(vertical: marginSize * 4),
                       child: Center(
                         child: screenWidth > SWIDTH
                             ? buildDesktopLayout(context, marginSize)
