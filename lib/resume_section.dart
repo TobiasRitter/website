@@ -35,107 +35,63 @@ class _ResumeSectionState extends State<ResumeSection> {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      height: screenHeight,
-      child: Stack(
-        children: [
-          widget.image != null
-              ? Column(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        width: screenWidth,
-                        height: screenHeight,
-                        child: Image.asset(
-                          widget.image!,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              : Container(),
-          widget.image != null
-              ? Opacity(
-                  opacity: IMG_OPACITY,
-                  child: Container(
-                    color: Colors.black,
-                  ),
-                )
-              : Container(),
-          Center(
-            child: Container(
-              constraints: BoxConstraints(
-                  maxWidth: screenWidth > CONTENT_WIDTH
-                      ? CONTENT_WIDTH
-                      : screenWidth),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: marginSize),
-                      child: Line(
-                        light: widget.image != null,
-                      ),
-                    ),
-                  ),
-                  screenWidth > SWIDTH
-                      ? IntrinsicHeight(
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: buildInfo(context),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: marginSize),
-                                  child: buildDescription(context),
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      : Column(
-                          children: [
-                            buildInfo(context),
-                            IntrinsicHeight(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: marginSize),
-                                child: Row(
-                                  children: [
-                                    Line(
-                                      light: widget.image != null,
-                                    ),
-                                    Expanded(
-                                      child: buildDescription(context),
-                                    ),
-                                    Container(
-                                      width: marginSize,
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: marginSize),
-                      child: Line(
-                        light: widget.image != null,
-                      ),
-                    ),
-                  ),
-                ],
+      constraints: BoxConstraints(minHeight: screenHeight),
+      decoration: widget.image != null
+          ? BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(widget.image!),
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(IMG_OPACITY), BlendMode.darken),
+                fit: BoxFit.cover,
               ),
-            ),
+            )
+          : null,
+      child: Center(
+        child: Container(
+          constraints: BoxConstraints(
+              minHeight: screenHeight,
+              maxWidth:
+                  screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              screenWidth > SWIDTH
+                  ? buildDesktopLayout(context, marginSize)
+                  : buildMobileLayout(context, marginSize),
+            ],
           ),
-        ],
+        ),
       ),
+    );
+  }
+
+  Column buildMobileLayout(BuildContext context, double marginSize) {
+    return Column(
+      children: [
+        buildInfo(context),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: marginSize),
+          child: buildDescription(context),
+        ),
+      ],
+    );
+  }
+
+  Widget buildDesktopLayout(BuildContext context, double marginSize) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: buildInfo(context),
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: marginSize),
+            child: buildDescription(context),
+          ),
+        ),
+      ],
     );
   }
 
@@ -158,110 +114,67 @@ class _ResumeSectionState extends State<ResumeSection> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          IntrinsicHeight(
+          SelectableText(
+            widget.title,
+            style: widget.image != null
+                ? Theme.of(context)
+                    .textTheme
+                    .headline3!
+                    .copyWith(color: Theme.of(context).canvasColor)
+                : Theme.of(context).textTheme.headline3,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 32),
             child: Row(
               children: [
-                Container(
-                  width: marginSize,
-                  child: CircleSection(
-                    light: widget.image != null,
-                  ),
+                Icon(
+                  Icons.calendar_today_sharp,
+                  color: widget.image != null
+                      ? Theme.of(context).canvasColor
+                      : null,
                 ),
-                Expanded(
-                  child: SelectableText(
-                    widget.title,
-                    style: widget.image != null
-                        ? Theme.of(context)
-                            .textTheme
-                            .headline3!
-                            .copyWith(color: Theme.of(context).canvasColor)
-                        : Theme.of(context).textTheme.headline3,
-                  ),
+                Container(width: 16),
+                SelectableText(
+                  widget.date,
+                  style: widget.image != null
+                      ? Theme.of(context)
+                          .textTheme
+                          .bodyText2!
+                          .copyWith(color: Theme.of(context).canvasColor)
+                      : null,
                 ),
               ],
             ),
           ),
-          IntrinsicHeight(
+          Padding(
+            padding: const EdgeInsets.only(top: 16),
             child: Row(
               children: [
-                Line(
-                  light: widget.image != null,
+                Icon(
+                  Icons.location_on_sharp,
+                  color: widget.image != null
+                      ? Theme.of(context).canvasColor
+                      : null,
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 24),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.calendar_today_sharp,
-                          color: widget.image != null
-                              ? Theme.of(context).canvasColor
-                              : null,
-                        ),
-                        Container(width: 16),
-                        SelectableText(
-                          widget.date,
-                          style: widget.image != null
-                              ? Theme.of(context).textTheme.bodyText2!.copyWith(
-                                  color: Theme.of(context).canvasColor)
-                              : null,
-                        ),
-                      ],
-                    ),
-                  ),
+                Container(width: 16),
+                SelectableText(
+                  widget.location,
+                  style: widget.image != null
+                      ? Theme.of(context)
+                          .textTheme
+                          .bodyText2!
+                          .copyWith(color: Theme.of(context).canvasColor)
+                      : null,
                 ),
               ],
             ),
           ),
-          IntrinsicHeight(
-            child: Row(
-              children: [
-                Line(
-                  light: widget.image != null,
-                ),
-                Expanded(
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.location_on_sharp,
-                        color: widget.image != null
-                            ? Theme.of(context).canvasColor
-                            : null,
-                      ),
-                      Container(width: 16),
-                      SelectableText(
-                        widget.location,
-                        style: widget.image != null
-                            ? Theme.of(context)
-                                .textTheme
-                                .bodyText2!
-                                .copyWith(color: Theme.of(context).canvasColor)
-                            : null,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Line(
-            light: widget.image != null,
-          ),
-          IntrinsicHeight(
-            child: Row(
-              children: [
-                Line(
-                  light: widget.image != null,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 24),
-                  child: HoverButton(
-                    onPressed: () => launchURL(widget.institutionUrl),
-                    text: widget.institution,
-                    light: widget.image != null,
-                  ),
-                ),
-              ],
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 32),
+            child: HoverButton(
+              onPressed: () => launchURL(widget.institutionUrl),
+              text: widget.institution,
+              light: widget.image != null,
             ),
           ),
         ],
@@ -280,61 +193,20 @@ class CircleSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: Line(
-            light: light,
-          ),
-        ),
-        Opacity(
-          opacity: BORDER_OPACITY,
-          child: Container(
-            height: 16,
-            width: 16,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(8),
-              ),
-              border: Border.all(
-                width: 4,
-                color: light
-                    ? Theme.of(context).canvasColor
-                    : Theme.of(context).primaryColor,
-              ),
-            ),
-          ),
-        ),
-        Expanded(
-          child: Line(
-            light: light,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class Line extends StatelessWidget {
-  final bool light;
-  const Line({
-    Key? key,
-    this.light = false,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    var marginSize = getMarginSize(context);
     return Opacity(
       opacity: BORDER_OPACITY,
       child: Container(
-        width: marginSize,
-        child: Center(
-          child: Container(
+        height: 16,
+        width: 16,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          ),
+          border: Border.all(
+            width: 4,
             color: light
                 ? Theme.of(context).canvasColor
                 : Theme.of(context).primaryColor,
-            width: 1,
           ),
         ),
       ),

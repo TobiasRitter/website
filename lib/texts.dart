@@ -7,9 +7,9 @@ const ABOUT =
 During the winter, I love skiing in the Alps. If you want to learn more about my resume or are interested into my side projects, just scroll further down the page.""";
 
 const TRUMPF =
-    """During my dual study programme I went through 18 months of internships in 4 different software development departments.
+    """During my dual study programme I went through 18 months of internships in 4 different software development departments within TRUMPF GmbH + Co. KG.
   
-Bachelor thesis: Developed a regression model for predicting manual labor times in sheet-metal production, evaluated various models from scikit-learn and XGBoost""";
+Bachelor thesis: Developed a regression model for predicting manual labor times in sheet-metal production, evaluated various models from scikit-learn and XGBoost.""";
 
 const TRUMPF_US =
     """As a part of my dual study programme I had the opportunity to undertake a 4 month internship at TRUMPF Inc. within the software development department.""";
