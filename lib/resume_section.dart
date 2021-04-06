@@ -58,7 +58,7 @@ class _ResumeSectionState extends State<ResumeSection> {
               child: Stack(
                 children: [
                   Container(
-                    width: marginSize * 3,
+                    width: marginSize * 2,
                     child: Center(
                       child: Opacity(
                         opacity: BORDER_OPACITY,
@@ -141,96 +141,91 @@ class _ResumeSectionState extends State<ResumeSection> {
 
   Widget buildInfo(BuildContext context) {
     var marginSize = getMarginSize(context);
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: marginSize),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                width: marginSize,
-                child: Center(
-                  child: Container(
-                    height: 16,
-                    decoration: BoxDecoration(
-                      color: widget.image != null
-                          ? Theme.of(context).canvasColor
-                          : Theme.of(context).primaryColor,
-                      shape: BoxShape.circle,
-                    ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Container(
+              width: marginSize * 2,
+              child: Center(
+                child: Container(
+                  height: 16,
+                  decoration: BoxDecoration(
+                    color: widget.image != null
+                        ? Theme.of(context).canvasColor
+                        : Theme.of(context).primaryColor,
+                    shape: BoxShape.circle,
                   ),
                 ),
               ),
-              Expanded(
-                child: SelectableText(
-                  widget.title,
-                  style: widget.image != null
-                      ? Theme.of(context)
-                          .textTheme
-                          .headline3!
-                          .copyWith(color: Theme.of(context).canvasColor)
-                      : Theme.of(context).textTheme.headline3,
-                ),
+            ),
+            Expanded(
+              child: SelectableText(
+                widget.title,
+                style: widget.image != null
+                    ? Theme.of(context)
+                        .textTheme
+                        .headline3!
+                        .copyWith(color: Theme.of(context).canvasColor)
+                    : Theme.of(context).textTheme.headline3,
+              ),
+            ),
+          ],
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(marginSize * 2, 32, marginSize, 0),
+          child: Row(
+            children: [
+              Icon(
+                Icons.calendar_today_sharp,
+                color:
+                    widget.image != null ? Theme.of(context).canvasColor : null,
+              ),
+              Container(width: 16),
+              SelectableText(
+                widget.date,
+                style: widget.image != null
+                    ? Theme.of(context)
+                        .textTheme
+                        .bodyText2!
+                        .copyWith(color: Theme.of(context).canvasColor)
+                    : null,
               ),
             ],
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(marginSize, 32, 0, 0),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.calendar_today_sharp,
-                  color: widget.image != null
-                      ? Theme.of(context).canvasColor
-                      : null,
-                ),
-                Container(width: 16),
-                SelectableText(
-                  widget.date,
-                  style: widget.image != null
-                      ? Theme.of(context)
-                          .textTheme
-                          .bodyText2!
-                          .copyWith(color: Theme.of(context).canvasColor)
-                      : null,
-                ),
-              ],
-            ),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(marginSize * 2, 16, marginSize, 0),
+          child: Row(
+            children: [
+              Icon(
+                Icons.location_on_sharp,
+                color:
+                    widget.image != null ? Theme.of(context).canvasColor : null,
+              ),
+              Container(width: 16),
+              SelectableText(
+                widget.location,
+                style: widget.image != null
+                    ? Theme.of(context)
+                        .textTheme
+                        .bodyText2!
+                        .copyWith(color: Theme.of(context).canvasColor)
+                    : null,
+              ),
+            ],
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(marginSize, 16, 0, 0),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.location_on_sharp,
-                  color: widget.image != null
-                      ? Theme.of(context).canvasColor
-                      : null,
-                ),
-                Container(width: 16),
-                SelectableText(
-                  widget.location,
-                  style: widget.image != null
-                      ? Theme.of(context)
-                          .textTheme
-                          .bodyText2!
-                          .copyWith(color: Theme.of(context).canvasColor)
-                      : null,
-                ),
-              ],
-            ),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(marginSize * 2, 32, marginSize, 32),
+          child: HoverButton(
+            onPressed: () => launchURL(widget.institutionUrl),
+            text: widget.institution,
+            light: widget.image != null,
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(marginSize, 32, 0, 32),
-            child: HoverButton(
-              onPressed: () => launchURL(widget.institutionUrl),
-              text: widget.institution,
-              light: widget.image != null,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
