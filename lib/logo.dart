@@ -16,7 +16,7 @@ class Logo extends StatelessWidget {
           child: FittedBox(
             alignment: Alignment.bottomLeft,
             child: SelectableText(
-              "Welcome,",
+              "Hello,",
               style: Theme.of(context).textTheme.headline6,
               maxLines: 1,
             ),

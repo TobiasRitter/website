@@ -20,7 +20,6 @@ class AboutPage extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: marginSize * 3),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
