@@ -10,7 +10,6 @@ class ResumeSection extends StatefulWidget {
   final String description;
   final String institutionUrl;
   final String? image;
-  final IconData icon;
 
   const ResumeSection({
     Key? key,
@@ -20,7 +19,6 @@ class ResumeSection extends StatefulWidget {
     required this.location,
     required this.description,
     required this.institutionUrl,
-    required this.icon,
     this.image,
   }) : super(key: key);
 
@@ -46,21 +44,50 @@ class _ResumeSectionState extends State<ResumeSection> {
               ),
             )
           : null,
-      child: Center(
-        child: Container(
-          constraints: BoxConstraints(
-              minHeight: screenHeight,
-              maxWidth:
-                  screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              screenWidth > SWIDTH
-                  ? buildDesktopLayout(context, marginSize)
-                  : buildMobileLayout(context, marginSize),
-            ],
-          ),
+      child: IntrinsicHeight(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              constraints: BoxConstraints(
+                  minHeight: screenHeight,
+                  maxWidth: screenWidth > CONTENT_WIDTH
+                      ? CONTENT_WIDTH
+                      : screenWidth),
+              child: Stack(
+                children: [
+                  Container(
+                    width: marginSize * 3,
+                    child: Center(
+                      child: Opacity(
+                        opacity: BORDER_OPACITY,
+                        child: Container(
+                          width: 1,
+                          color: widget.image != null
+                              ? Theme.of(context).canvasColor
+                              : Theme.of(context).primaryColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    constraints: BoxConstraints(
+                      minHeight: screenHeight,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: marginSize),
+                      child: Center(
+                        child: screenWidth > SWIDTH
+                            ? buildDesktopLayout(context, marginSize)
+                            : buildMobileLayout(context, marginSize),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -71,7 +98,7 @@ class _ResumeSectionState extends State<ResumeSection> {
       children: [
         buildInfo(context),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: marginSize),
+          padding: EdgeInsets.fromLTRB(marginSize * 2, 0, marginSize, 0),
           child: buildDescription(context),
         ),
       ],
@@ -79,17 +106,22 @@ class _ResumeSectionState extends State<ResumeSection> {
   }
 
   Widget buildDesktopLayout(BuildContext context, double marginSize) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
-          child: buildInfo(context),
-        ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: marginSize),
-            child: buildDescription(context),
-          ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: buildInfo(context),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: marginSize),
+                child: buildDescription(context),
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -114,17 +146,37 @@ class _ResumeSectionState extends State<ResumeSection> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SelectableText(
-            widget.title,
-            style: widget.image != null
-                ? Theme.of(context)
-                    .textTheme
-                    .headline3!
-                    .copyWith(color: Theme.of(context).canvasColor)
-                : Theme.of(context).textTheme.headline3,
+          Row(
+            children: [
+              Container(
+                width: marginSize,
+                child: Center(
+                  child: Container(
+                    height: 16,
+                    decoration: BoxDecoration(
+                      color: widget.image != null
+                          ? Theme.of(context).canvasColor
+                          : Theme.of(context).primaryColor,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: SelectableText(
+                  widget.title,
+                  style: widget.image != null
+                      ? Theme.of(context)
+                          .textTheme
+                          .headline3!
+                          .copyWith(color: Theme.of(context).canvasColor)
+                      : Theme.of(context).textTheme.headline3,
+                ),
+              ),
+            ],
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 32),
+            padding: EdgeInsets.fromLTRB(marginSize, 32, 0, 0),
             child: Row(
               children: [
                 Icon(
@@ -147,7 +199,7 @@ class _ResumeSectionState extends State<ResumeSection> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 16),
+            padding: EdgeInsets.fromLTRB(marginSize, 16, 0, 0),
             child: Row(
               children: [
                 Icon(
@@ -170,7 +222,7 @@ class _ResumeSectionState extends State<ResumeSection> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 32),
+            padding: EdgeInsets.fromLTRB(marginSize, 32, 0, 32),
             child: HoverButton(
               onPressed: () => launchURL(widget.institutionUrl),
               text: widget.institution,
@@ -178,37 +230,6 @@ class _ResumeSectionState extends State<ResumeSection> {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class CircleSection extends StatelessWidget {
-  final bool light;
-
-  const CircleSection({
-    Key? key,
-    this.light = false,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Opacity(
-      opacity: BORDER_OPACITY,
-      child: Container(
-        height: 16,
-        width: 16,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(8),
-          ),
-          border: Border.all(
-            width: 4,
-            color: light
-                ? Theme.of(context).canvasColor
-                : Theme.of(context).primaryColor,
-          ),
-        ),
       ),
     );
   }
