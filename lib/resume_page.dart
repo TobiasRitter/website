@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/header.dart';
 import 'package:website/main.dart';
-import 'package:website/page.dart' as p;
 import 'package:website/resume_section.dart';
 import 'package:website/texts.dart';
 
