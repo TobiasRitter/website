@@ -52,7 +52,6 @@ class ResumePage extends StatelessWidget {
             location: "Munich",
             institution: "TU Munich",
             institutionUrl: "https://www.tum.de/",
-            icon: Icons.school,
             description: TUM,
             image: 'res/TUM.jpg',
           ),
@@ -62,7 +61,6 @@ class ResumePage extends StatelessWidget {
             location: "Stuttgart",
             institution: "DHBW Stuttgart",
             institutionUrl: "https://www.dhbw-stuttgart.de/",
-            icon: Icons.school,
             description: DHBW,
           ),
           Container(
@@ -88,7 +86,6 @@ class ResumePage extends StatelessWidget {
             location: "Ditzingen",
             institution: "TRUMPF",
             institutionUrl: "https://www.trumpf.com/en_INT/",
-            icon: Icons.work,
             description: TRUMPF,
           ),
           ResumeSection(
@@ -98,7 +95,6 @@ class ResumePage extends StatelessWidget {
             institution: "TRUMPF US",
             institutionUrl:
                 "https://www.trumpf.com/en_US/local-pages/us/company/about-trumpf-in-the-us/",
-            icon: Icons.work,
             description: TRUMPF_US,
             image: 'res/NYC.jpg',
           ),
