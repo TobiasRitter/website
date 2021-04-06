@@ -48,7 +48,7 @@ class _ArrowState extends State<Arrow> with TickerProviderStateMixin {
               margin: EdgeInsets.only(
                   top: arrowController.value * getMarginSize(context)),
               child: Opacity(
-                opacity: OPACITY,
+                opacity: BORDER_OPACITY,
                 child: Icon(
                   Icons.keyboard_arrow_down_sharp,
                   size: getArrowSize(context),

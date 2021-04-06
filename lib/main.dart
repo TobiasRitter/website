@@ -19,7 +19,8 @@ final Duration drawerCloseDuration = Duration(milliseconds: 300);
 
 const SWIDTH = 1000.0;
 const CONTENT_WIDTH = 1200.0;
-const OPACITY = 0.15;
+const BORDER_OPACITY = 0.15;
+const IMG_OPACITY = 0.5;
 const FOOTER_BUTTON_WIDTH = 150.0;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
@@ -96,11 +97,6 @@ class MyApp extends StatelessWidget {
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
-            primary: Colors.black,
-            side: BorderSide(
-              color: Colors.black,
-              width: 3,
-            ),
             textStyle: TextStyle(
               fontWeight: FontWeight.bold,
             ),
@@ -160,14 +156,14 @@ class _MyHomePageState extends State<MyHomePage> {
             controller: scrollController,
             child: Column(
               children: [
-                TitlePage(
-                  key: keys[0],
-                  scrollFunc: scroll,
-                ),
-                AboutPage(
-                  key: keys[1],
-                  scrollFunc: scroll,
-                ),
+                // TitlePage(
+                //   key: keys[0],
+                //   scrollFunc: scroll,
+                // ),
+                // AboutPage(
+                //   key: keys[1],
+                //   scrollFunc: scroll,
+                // ),
                 ResumePage(
                   key: keys[2],
                 ),

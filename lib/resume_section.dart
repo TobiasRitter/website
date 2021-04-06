@@ -33,73 +33,79 @@ class _ResumeSectionState extends State<ResumeSection> {
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
-    return screenWidth > SWIDTH
-        ? Column(
-            children: [
-              IntrinsicHeight(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    var screenHeight = MediaQuery.of(context).size.height;
+    return Container(
+      height: screenHeight,
+      child: Stack(
+        children: [
+          widget.image != null
+              ? Row(
                   children: [
                     Expanded(
-                      child: buildInfo(context),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(left: marginSize),
-                        child: buildTextSection(),
+                      child: Image.asset(
+                        widget.image!,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ],
-                ),
-              ),
-              Row(
+                )
+              : Container(),
+          widget.image != null
+              ? Opacity(
+                  opacity: IMG_OPACITY,
+                  child: Container(
+                    color: Colors.black,
+                  ),
+                )
+              : Container(),
+          Center(
+            child: Container(
+              constraints: BoxConstraints(
+                  maxWidth: screenWidth > CONTENT_WIDTH
+                      ? CONTENT_WIDTH
+                      : screenWidth),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: marginSize * 2,
-                    child: Line(),
+                  Expanded(
+                    child: Line(
+                      light: widget.image != null,
+                    ),
+                  ),
+                  IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: buildInfo(context),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(left: marginSize),
+                            child: SelectableText(
+                              widget.description,
+                              style: widget.image != null
+                                  ? Theme.of(context)
+                                      .textTheme
+                                      .bodyText2!
+                                      .copyWith(
+                                          color: Theme.of(context).canvasColor)
+                                  : null,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Line(
+                      light: widget.image != null,
+                    ),
                   ),
                 ],
               ),
-            ],
-          )
-        : Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              IntrinsicHeight(
-                child: buildInfo(context),
-              ),
-              IntrinsicHeight(
-                child: Row(
-                  children: [
-                    Line(),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(
-                            0, marginSize / 2, 0, marginSize * 2),
-                        child: buildTextSection(),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          );
-  }
-
-  Padding buildTextSection() {
-    var marginSize = getMarginSize(context);
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          widget.image == null
-              ? Container()
-              : Padding(
-                  padding: EdgeInsets.only(bottom: marginSize),
-                  child: Image.asset(widget.image!),
-                ),
-          SelectableText(
-            widget.description,
+            ),
           ),
         ],
       ),
@@ -114,32 +120,21 @@ class _ResumeSectionState extends State<ResumeSection> {
         IntrinsicHeight(
           child: Row(
             children: [
-              Line(),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SelectableText(
-                    widget.date,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        IntrinsicHeight(
-          child: Row(
-            children: [
               Container(
                 width: marginSize,
-                child: CircleSection(),
+                child: CircleSection(
+                  light: widget.image != null,
+                ),
               ),
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SelectableText(
-                    widget.title,
-                    style: Theme.of(context).textTheme.headline3,
-                  ),
+                child: SelectableText(
+                  widget.title,
+                  style: widget.image != null
+                      ? Theme.of(context)
+                          .textTheme
+                          .headline3!
+                          .copyWith(color: Theme.of(context).canvasColor)
+                      : Theme.of(context).textTheme.headline3,
                 ),
               ),
             ],
@@ -148,16 +143,29 @@ class _ResumeSectionState extends State<ResumeSection> {
         IntrinsicHeight(
           child: Row(
             children: [
-              Line(),
+              Line(
+                light: widget.image != null,
+              ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(top: 24),
                   child: Row(
                     children: [
-                      Icon(Icons.location_on_sharp),
+                      Icon(
+                        Icons.calendar_today_sharp,
+                        color: widget.image != null
+                            ? Theme.of(context).canvasColor
+                            : null,
+                      ),
                       Container(width: 16),
                       SelectableText(
-                        widget.location,
+                        widget.date,
+                        style: widget.image != null
+                            ? Theme.of(context)
+                                .textTheme
+                                .bodyText2!
+                                .copyWith(color: Theme.of(context).canvasColor)
+                            : null,
                       ),
                     ],
                   ),
@@ -166,24 +174,61 @@ class _ResumeSectionState extends State<ResumeSection> {
             ],
           ),
         ),
-        Line(),
         IntrinsicHeight(
           child: Row(
             children: [
-              Line(),
+              Line(
+                light: widget.image != null,
+              ),
+              Expanded(
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.location_on_sharp,
+                      color: widget.image != null
+                          ? Theme.of(context).canvasColor
+                          : null,
+                    ),
+                    Container(width: 16),
+                    SelectableText(
+                      widget.location,
+                      style: widget.image != null
+                          ? Theme.of(context)
+                              .textTheme
+                              .bodyText2!
+                              .copyWith(color: Theme.of(context).canvasColor)
+                          : null,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        Line(
+          light: widget.image != null,
+        ),
+        IntrinsicHeight(
+          child: Row(
+            children: [
+              Line(
+                light: widget.image != null,
+              ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 24),
+                padding: const EdgeInsets.symmetric(vertical: 24),
                 child: HoverButton(
                   onPressed: () => launchURL(widget.institutionUrl),
                   text: widget.institution,
+                  light: widget.image != null,
                 ),
               ),
             ],
           ),
         ),
         Expanded(
-          child: Line(),
+          child: Line(
+            light: widget.image != null,
+          ),
         ),
       ],
     );
@@ -191,8 +236,11 @@ class _ResumeSectionState extends State<ResumeSection> {
 }
 
 class CircleSection extends StatelessWidget {
+  final bool light;
+
   const CircleSection({
     Key? key,
+    this.light = false,
   }) : super(key: key);
 
   @override
@@ -200,29 +248,32 @@ class CircleSection extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: Line(),
+          child: Line(
+            light: light,
+          ),
         ),
         Opacity(
-          opacity: OPACITY,
+          opacity: BORDER_OPACITY,
           child: Container(
             height: 16,
+            width: 16,
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              shape: BoxShape.circle,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(4),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).canvasColor,
-                  shape: BoxShape.circle,
-                ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
+              border: Border.all(
+                width: 4,
+                color: light
+                    ? Theme.of(context).canvasColor
+                    : Theme.of(context).primaryColor,
               ),
             ),
           ),
         ),
         Expanded(
-          child: Line(),
+          child: Line(
+            light: light,
+          ),
         ),
       ],
     );
@@ -230,18 +281,24 @@ class CircleSection extends StatelessWidget {
 }
 
 class Line extends StatelessWidget {
-  const Line({Key? key}) : super(key: key);
+  final bool light;
+  const Line({
+    Key? key,
+    this.light = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     return Opacity(
-      opacity: OPACITY,
+      opacity: BORDER_OPACITY,
       child: Container(
         width: marginSize,
         child: Center(
           child: Container(
-            color: Theme.of(context).primaryColor,
+            color: light
+                ? Theme.of(context).canvasColor
+                : Theme.of(context).primaryColor,
             width: 1,
           ),
         ),

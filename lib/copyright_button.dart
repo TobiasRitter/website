@@ -9,11 +9,11 @@ class CopyrightButton extends StatelessWidget {
       onPressed: () => showLicensePage(context: context),
       icon: Opacity(
         child: Icon(Icons.copyright_sharp),
-        opacity: OPACITY,
+        opacity: BORDER_OPACITY,
       ),
       label: Opacity(
         child: Text(year),
-        opacity: OPACITY,
+        opacity: BORDER_OPACITY,
       ),
     );
   }
