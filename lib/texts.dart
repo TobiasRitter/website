@@ -7,7 +7,7 @@ const ABOUT =
 During the winter, I love skiing in the Alps. If you want to learn more about my resume or are interested into my side projects, just scroll further down the page.""";
 
 const TRUMPF =
-    """During my dual study programme I went through 18 months of internships in various software development departments within the TRUMPF GmbH + Co. KG.
+    """During my dual study programme I went through 18 months of internships in 4 different software development departments.
   
 Bachelor thesis: Developed a regression model for predicting manual labor times in sheet-metal production, evaluated various models from scikit-learn and XGBoost""";
 
@@ -15,7 +15,7 @@ const TRUMPF_US =
     """As a part of my dual study programme I had the opportunity to undertake a 4 month internship at TRUMPF Inc. within the software development department.""";
 
 const TUM =
-    """I am currently studying at the Technical University of Munich with the goal of obtaining a master's degree in Informatics. Currently, my main focus is on the area \"Machine Learning and Analytics\". I have started this programme in September 2020 and expect to graduate in 2023.""";
+    """I am currently studying at the Technical University of Munich with the goal of obtaining a master's degree in Informatics with a focus on the area \"Machine Learning and Analytics\". I have started this programme in September 2020 and expect to graduate in 2023.""";
 
 const DHBW =
     """I completed a 3 year bachelor programme in Computer Science in cooperation with TRUMPF GmbH + Co. KG.

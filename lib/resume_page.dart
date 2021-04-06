@@ -22,8 +22,11 @@ class ResumePage extends StatelessWidget {
             constraints: BoxConstraints(
                 maxWidth:
                     screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
-            child: Header(
-              text: "Resume",
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: marginSize),
+              child: Header(
+                text: "Resume",
+              ),
             ),
           ),
           Container(
@@ -31,7 +34,8 @@ class ResumePage extends StatelessWidget {
                 maxWidth:
                     screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
             child: Padding(
-              padding: EdgeInsets.only(bottom: marginSize * 2),
+              padding: EdgeInsets.fromLTRB(
+                  marginSize, 0, marginSize, marginSize * 2),
               child: Row(
                 children: [
                   SelectableText(
@@ -66,7 +70,8 @@ class ResumePage extends StatelessWidget {
                 maxWidth:
                     screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: marginSize * 2),
+              padding: EdgeInsets.symmetric(
+                  vertical: marginSize * 2, horizontal: marginSize),
               child: Row(
                 children: [
                   SelectableText(

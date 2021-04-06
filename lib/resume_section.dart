@@ -39,12 +39,16 @@ class _ResumeSectionState extends State<ResumeSection> {
       child: Stack(
         children: [
           widget.image != null
-              ? Row(
+              ? Column(
                   children: [
                     Expanded(
-                      child: Image.asset(
-                        widget.image!,
-                        fit: BoxFit.cover,
+                      child: Container(
+                        width: screenWidth,
+                        height: screenHeight,
+                        child: Image.asset(
+                          widget.image!,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ],
@@ -69,38 +73,61 @@ class _ResumeSectionState extends State<ResumeSection> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: Line(
-                      light: widget.image != null,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: marginSize),
+                      child: Line(
+                        light: widget.image != null,
+                      ),
                     ),
                   ),
-                  IntrinsicHeight(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: buildInfo(context),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(left: marginSize),
-                            child: SelectableText(
-                              widget.description,
-                              style: widget.image != null
-                                  ? Theme.of(context)
-                                      .textTheme
-                                      .bodyText2!
-                                      .copyWith(
-                                          color: Theme.of(context).canvasColor)
-                                  : null,
-                            ),
+                  screenWidth > SWIDTH
+                      ? IntrinsicHeight(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: buildInfo(context),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: marginSize),
+                                  child: buildDescription(context),
+                                ),
+                              ),
+                            ],
                           ),
+                        )
+                      : Column(
+                          children: [
+                            buildInfo(context),
+                            IntrinsicHeight(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: marginSize),
+                                child: Row(
+                                  children: [
+                                    Line(
+                                      light: widget.image != null,
+                                    ),
+                                    Expanded(
+                                      child: buildDescription(context),
+                                    ),
+                                    Container(
+                                      width: marginSize,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
                   Expanded(
-                    child: Line(
-                      light: widget.image != null,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: marginSize),
+                      child: Line(
+                        light: widget.image != null,
+                      ),
                     ),
                   ),
                 ],
@@ -112,54 +139,98 @@ class _ResumeSectionState extends State<ResumeSection> {
     );
   }
 
+  Widget buildDescription(BuildContext context) {
+    return SelectableText(
+      widget.description,
+      style: widget.image != null
+          ? Theme.of(context)
+              .textTheme
+              .bodyText2!
+              .copyWith(color: Theme.of(context).canvasColor)
+          : null,
+    );
+  }
+
   Widget buildInfo(BuildContext context) {
     var marginSize = getMarginSize(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        IntrinsicHeight(
-          child: Row(
-            children: [
-              Container(
-                width: marginSize,
-                child: CircleSection(
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: marginSize),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          IntrinsicHeight(
+            child: Row(
+              children: [
+                Container(
+                  width: marginSize,
+                  child: CircleSection(
+                    light: widget.image != null,
+                  ),
+                ),
+                Expanded(
+                  child: SelectableText(
+                    widget.title,
+                    style: widget.image != null
+                        ? Theme.of(context)
+                            .textTheme
+                            .headline3!
+                            .copyWith(color: Theme.of(context).canvasColor)
+                        : Theme.of(context).textTheme.headline3,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          IntrinsicHeight(
+            child: Row(
+              children: [
+                Line(
                   light: widget.image != null,
                 ),
-              ),
-              Expanded(
-                child: SelectableText(
-                  widget.title,
-                  style: widget.image != null
-                      ? Theme.of(context)
-                          .textTheme
-                          .headline3!
-                          .copyWith(color: Theme.of(context).canvasColor)
-                      : Theme.of(context).textTheme.headline3,
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 24),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.calendar_today_sharp,
+                          color: widget.image != null
+                              ? Theme.of(context).canvasColor
+                              : null,
+                        ),
+                        Container(width: 16),
+                        SelectableText(
+                          widget.date,
+                          style: widget.image != null
+                              ? Theme.of(context).textTheme.bodyText2!.copyWith(
+                                  color: Theme.of(context).canvasColor)
+                              : null,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        IntrinsicHeight(
-          child: Row(
-            children: [
-              Line(
-                light: widget.image != null,
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 24),
+          IntrinsicHeight(
+            child: Row(
+              children: [
+                Line(
+                  light: widget.image != null,
+                ),
+                Expanded(
                   child: Row(
                     children: [
                       Icon(
-                        Icons.calendar_today_sharp,
+                        Icons.location_on_sharp,
                         color: widget.image != null
                             ? Theme.of(context).canvasColor
                             : null,
                       ),
                       Container(width: 16),
                       SelectableText(
-                        widget.date,
+                        widget.location,
                         style: widget.image != null
                             ? Theme.of(context)
                                 .textTheme
@@ -170,67 +241,31 @@ class _ResumeSectionState extends State<ResumeSection> {
                     ],
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        IntrinsicHeight(
-          child: Row(
-            children: [
-              Line(
-                light: widget.image != null,
-              ),
-              Expanded(
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.location_on_sharp,
-                      color: widget.image != null
-                          ? Theme.of(context).canvasColor
-                          : null,
-                    ),
-                    Container(width: 16),
-                    SelectableText(
-                      widget.location,
-                      style: widget.image != null
-                          ? Theme.of(context)
-                              .textTheme
-                              .bodyText2!
-                              .copyWith(color: Theme.of(context).canvasColor)
-                          : null,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        Line(
-          light: widget.image != null,
-        ),
-        IntrinsicHeight(
-          child: Row(
-            children: [
-              Line(
-                light: widget.image != null,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24),
-                child: HoverButton(
-                  onPressed: () => launchURL(widget.institutionUrl),
-                  text: widget.institution,
-                  light: widget.image != null,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          child: Line(
+          Line(
             light: widget.image != null,
           ),
-        ),
-      ],
+          IntrinsicHeight(
+            child: Row(
+              children: [
+                Line(
+                  light: widget.image != null,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 24),
+                  child: HoverButton(
+                    onPressed: () => launchURL(widget.institutionUrl),
+                    text: widget.institution,
+                    light: widget.image != null,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
