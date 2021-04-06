@@ -12,6 +12,7 @@ class ProjectSection extends StatefulWidget {
     required this.platform,
     required this.technology,
     this.inversed = false,
+    this.dark = false,
   }) : super(key: key);
 
   final String title;
@@ -21,6 +22,7 @@ class ProjectSection extends StatefulWidget {
   final String platform;
   final String technology;
   final bool inversed;
+  final bool dark;
 
   @override
   _ProjectSectionState createState() => _ProjectSectionState();
@@ -32,66 +34,87 @@ class _ProjectSectionState extends State<ProjectSection> {
     var marginSize = getMarginSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
-    return Padding(
-      padding: EdgeInsets.only(bottom: marginSize * 2),
-      child: screenWidth > SWIDTH
-          ? Container(
-              child: Row(
-                children: [
-                  !widget.inversed
-                      ? Container()
-                      : Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.all(marginSize),
-                            child: buildInfo(),
-                          ),
-                        ),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: marginSize),
-                      child: Image.asset(
-                        widget.image,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                  widget.inversed
-                      ? Container()
-                      : Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.all(marginSize),
-                            child: buildInfo(),
-                          ),
-                        ),
-                ],
+    return Container(
+      height: screenWidth > SWIDTH ? screenHeight : null,
+      color: widget.dark
+          ? Theme.of(context).cardColor
+          : Theme.of(context).canvasColor,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: marginSize * 3),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              constraints: BoxConstraints(
+                  maxWidth: screenWidth > CONTENT_WIDTH
+                      ? CONTENT_WIDTH
+                      : screenWidth),
+              child: Padding(
+                padding: EdgeInsets.all(marginSize),
+                child: screenWidth > SWIDTH
+                    ? buildDesktopLayout(marginSize)
+                    : buildMobileLayout(screenHeight, marginSize),
               ),
-            )
-          : Column(
-              children: [
-                Container(
-                  height: screenHeight / 3,
-                  child: Image.asset(
-                    widget.image,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                Container(
-                  constraints: BoxConstraints(
-                    minHeight: screenHeight / 3,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: marginSize),
-                    child: buildInfo(),
-                  ),
-                ),
-              ],
             ),
+          ],
+        ),
+      ),
     );
   }
 
-  Widget buildInfo() {
+  Column buildMobileLayout(double screenHeight, double marginSize) {
+    return Column(
+      children: [
+        Container(
+          constraints: BoxConstraints(maxHeight: screenHeight / 2),
+          child: Image.asset(
+            widget.image,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: marginSize * 3),
+          child: buildInfo(center: true),
+        ),
+      ],
+    );
+  }
+
+  Row buildDesktopLayout(double marginSize) {
+    return Row(
+      children: [
+        widget.inversed
+            ? Expanded(
+                child: buildInfo(),
+              )
+            : Container(),
+        Container(
+          width: widget.inversed ? marginSize * 2 : 0,
+        ),
+        Expanded(
+          child: Image.asset(
+            widget.image,
+            fit: BoxFit.contain,
+            alignment: Alignment.centerLeft,
+          ),
+        ),
+        Container(
+          width: widget.inversed ? 0 : marginSize * 2,
+        ),
+        widget.inversed
+            ? Container()
+            : Expanded(
+                child: buildInfo(),
+              ),
+      ],
+    );
+  }
+
+  Widget buildInfo({bool center = false}) {
     var marginSize = getMarginSize(context);
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment:
+          center ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         SelectableText(
           widget.title,
