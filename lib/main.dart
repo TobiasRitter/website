@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w900,
           ),
           subtitle2: GoogleFonts.roboto(
-            fontWeight: FontWeight.w300,
+            fontWeight: FontWeight.w100,
           ),
           headline1: GoogleFonts.roboto(
             color: Colors.black,
