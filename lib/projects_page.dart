@@ -34,8 +34,6 @@ class ProjectsPage extends StatelessWidget {
             url: 'https://github.com/TobiasRitter/PyNN',
             description: PYNN,
             image: 'res/PyNN.png',
-            technology: 'Python, numpy, pandas',
-            platform: 'Desktop',
           ),
           ProjectSection(
             title: 'RGB LED',
@@ -44,16 +42,12 @@ class ProjectsPage extends StatelessWidget {
             image: 'res/RGBLed.png',
             inversed: true,
             dark: true,
-            technology: 'Flutter',
-            platform: 'Android',
           ),
           ProjectSection(
             title: 'Cardgame',
             url: 'https://github.com/TobiasRitter/Cardgame',
             description: CARDGAME,
             image: 'res/Cardgame.png',
-            technology: 'Flutter, Dart',
-            platform: 'Web',
           ),
           // ProjectSection(
           //   title: 'CleverConvert',

@@ -11,6 +11,7 @@ class ResumeSection extends StatefulWidget {
   final String institutionUrl;
   final String? image;
   final Widget? header;
+  final bool dark;
 
   const ResumeSection({
     Key? key,
@@ -22,6 +23,7 @@ class ResumeSection extends StatefulWidget {
     required this.institutionUrl,
     this.image,
     this.header,
+    this.dark = false,
   }) : super(key: key);
 
   @override
@@ -35,6 +37,11 @@ class _ResumeSectionState extends State<ResumeSection> {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
+      color: widget.image != null
+          ? null
+          : widget.dark
+              ? Theme.of(context).cardColor
+              : Theme.of(context).canvasColor,
       constraints: BoxConstraints(minHeight: screenHeight),
       decoration: widget.image != null
           ? BoxDecoration(
@@ -46,36 +53,29 @@ class _ResumeSectionState extends State<ResumeSection> {
               ),
             )
           : null,
-      child: IntrinsicHeight(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              constraints: BoxConstraints(
-                  minHeight: screenHeight,
-                  maxWidth: screenWidth > CONTENT_WIDTH
-                      ? CONTENT_WIDTH
-                      : screenWidth),
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: marginSize * 3),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    widget.header ?? Container(),
-                    Center(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: marginSize),
-                        child: screenWidth > SWIDTH
-                            ? buildDesktopLayout(context, marginSize)
-                            : buildMobileLayout(context, marginSize),
-                      ),
-                    ),
-                  ],
+      child: Center(
+        child: Container(
+          constraints: BoxConstraints(
+              minHeight: screenHeight,
+              maxWidth:
+                  screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: marginSize * 3),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                widget.header ?? Container(),
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: marginSize),
+                    child: screenWidth > SWIDTH
+                        ? buildDesktopLayout(context, marginSize)
+                        : buildMobileLayout(context, marginSize),
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -89,7 +89,8 @@ class _ResumeSectionState extends State<ResumeSection> {
           child: buildInfo(context),
         ),
         Padding(
-          padding: EdgeInsets.fromLTRB(marginSize, marginSize, marginSize, 0),
+          padding:
+              EdgeInsets.fromLTRB(marginSize, marginSize * 2, marginSize, 0),
           child: buildDescription(context),
         ),
       ],
@@ -192,7 +193,7 @@ class _ResumeSectionState extends State<ResumeSection> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: marginSize),
+          padding: EdgeInsets.only(top: 32),
           child: HoverButton(
             onPressed: () => launchURL(widget.institutionUrl),
             text: widget.institution,

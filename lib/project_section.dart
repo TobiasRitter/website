@@ -9,8 +9,6 @@ class ProjectSection extends StatefulWidget {
     required this.description,
     required this.url,
     required this.image,
-    required this.platform,
-    required this.technology,
     this.inversed = false,
     this.dark = false,
   }) : super(key: key);
@@ -19,8 +17,6 @@ class ProjectSection extends StatefulWidget {
   final String description;
   final String url;
   final String image;
-  final String platform;
-  final String technology;
   final bool inversed;
   final bool dark;
 
@@ -123,26 +119,6 @@ class _ProjectSectionState extends State<ProjectSection> {
         ),
         Container(
           height: marginSize,
-        ),
-        Row(
-          children: [
-            Icon(Icons.memory_sharp),
-            Container(width: 16),
-            SelectableText(widget.platform),
-          ],
-        ),
-        Container(
-          height: 16,
-        ),
-        Row(
-          children: [
-            Icon(Icons.code_sharp),
-            Container(width: 16),
-            SelectableText(widget.technology),
-          ],
-        ),
-        Container(
-          height: marginSize / 2,
         ),
         SelectableText(
           widget.description,
