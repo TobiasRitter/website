@@ -13,11 +13,14 @@ class ProjectsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: EdgeInsets.only(top: marginSize * 3),
-      child: Column(
-        children: [
-          Container(
+    return Column(
+      children: [
+        ProjectSection(
+          title: 'PyNN',
+          url: 'https://github.com/TobiasRitter/PyNN',
+          description: PYNN,
+          image: 'res/PyNN.png',
+          header: Container(
             constraints: BoxConstraints(
                 maxWidth:
                     screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
@@ -25,42 +28,35 @@ class ProjectsPage extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(marginSize, 0, marginSize, 0),
               child: Header(
                 text: 'Projects',
-                padding: false,
               ),
             ),
           ),
-          ProjectSection(
-            title: 'PyNN',
-            url: 'https://github.com/TobiasRitter/PyNN',
-            description: PYNN,
-            image: 'res/PyNN.png',
-          ),
-          ProjectSection(
-            title: 'RGB LED',
-            url: 'https://github.com/TobiasRitter/flutter_rgb_leds',
-            description: RGB_LED,
-            image: 'res/RGBLed.png',
-            inversed: true,
-            dark: true,
-          ),
-          ProjectSection(
-            title: 'Cardgame',
-            url: 'https://github.com/TobiasRitter/Cardgame',
-            description: CARDGAME,
-            image: 'res/Cardgame.png',
-          ),
-          // ProjectSection(
-          //   title: 'CleverConvert',
-          //   url: 'https://github.com/TobiasRitter/cleverconvert',
-          //   description: CLEVER_CONVERT,
-          //   image: 'res/CleverConvert.png',
-          //   inversed: true,
-          //   dark: true,
-          //   technology: 'Flutter',
-          //   platform: 'Android',
-          // ),
-        ],
-      ),
+        ),
+        ProjectSection(
+          title: 'RGB LED',
+          url: 'https://github.com/TobiasRitter/flutter_rgb_leds',
+          description: RGB_LED,
+          image: 'res/RGBLed.png',
+          inversed: true,
+          dark: true,
+        ),
+        ProjectSection(
+          title: 'Cardgame',
+          url: 'https://github.com/TobiasRitter/Cardgame',
+          description: CARDGAME,
+          image: 'res/Cardgame.png',
+        ),
+        // ProjectSection(
+        //   title: 'CleverConvert',
+        //   url: 'https://github.com/TobiasRitter/cleverconvert',
+        //   description: CLEVER_CONVERT,
+        //   image: 'res/CleverConvert.png',
+        //   inversed: true,
+        //   dark: true,
+        //   technology: 'Flutter',
+        //   platform: 'Android',
+        // ),
+      ],
     );
   }
 }

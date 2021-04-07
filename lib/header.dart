@@ -3,13 +3,11 @@ import 'package:website/main.dart';
 
 class Header extends StatefulWidget {
   final String text;
-  final bool padding;
   final bool light;
 
   const Header({
     Key? key,
     required this.text,
-    this.padding = true,
     this.light = false,
   }) : super(key: key);
 
@@ -23,7 +21,7 @@ class _HeaderState extends State<Header> {
     var screenWidth = MediaQuery.of(context).size.width;
     var marginSize = getMarginSize(context);
     return Padding(
-      padding: EdgeInsets.only(bottom: widget.padding ? marginSize * 2 : 0),
+      padding: EdgeInsets.only(bottom: marginSize * 2),
       child: Row(
         children: [
           Container(

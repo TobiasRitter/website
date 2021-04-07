@@ -11,6 +11,7 @@ class ProjectSection extends StatefulWidget {
     required this.image,
     this.inversed = false,
     this.dark = false,
+    this.header,
   }) : super(key: key);
 
   final String title;
@@ -19,6 +20,7 @@ class ProjectSection extends StatefulWidget {
   final String image;
   final bool inversed;
   final bool dark;
+  final Widget? header;
 
   @override
   _ProjectSectionState createState() => _ProjectSectionState();
@@ -37,19 +39,22 @@ class _ProjectSectionState extends State<ProjectSection> {
           : Theme.of(context).canvasColor,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: marginSize * 3),
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              constraints: BoxConstraints(
-                  maxWidth: screenWidth > CONTENT_WIDTH
-                      ? CONTENT_WIDTH
-                      : screenWidth),
-              child: Padding(
-                padding: EdgeInsets.all(marginSize),
-                child: screenWidth > SWIDTH
-                    ? buildDesktopLayout(marginSize)
-                    : buildMobileLayout(screenHeight, marginSize),
+            widget.header ?? Container(),
+            Center(
+              child: Container(
+                constraints: BoxConstraints(
+                    maxWidth: screenWidth > CONTENT_WIDTH
+                        ? CONTENT_WIDTH
+                        : screenWidth),
+                child: Padding(
+                  padding: EdgeInsets.all(marginSize),
+                  child: screenWidth > SWIDTH
+                      ? buildDesktopLayout(marginSize)
+                      : buildMobileLayout(screenHeight, marginSize),
+                ),
               ),
             ),
           ],

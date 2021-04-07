@@ -135,7 +135,6 @@ class _ResumeSectionState extends State<ResumeSection> {
   }
 
   Widget buildInfo(BuildContext context) {
-    var marginSize = getMarginSize(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
