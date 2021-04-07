@@ -98,7 +98,8 @@ class _ResumeSectionState extends State<ResumeSection> {
       children: [
         buildInfo(context),
         Padding(
-          padding: EdgeInsets.fromLTRB(marginSize * 2, 0, marginSize, 0),
+          padding:
+              EdgeInsets.fromLTRB(marginSize * 2, marginSize, marginSize, 0),
           child: buildDescription(context),
         ),
       ],
@@ -218,7 +219,8 @@ class _ResumeSectionState extends State<ResumeSection> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.fromLTRB(marginSize * 2, 32, marginSize, 32),
+          padding: EdgeInsets.fromLTRB(
+              marginSize * 2, marginSize, marginSize, marginSize),
           child: HoverButton(
             onPressed: () => launchURL(widget.institutionUrl),
             text: widget.institution,
