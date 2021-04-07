@@ -4,11 +4,13 @@ import 'package:website/main.dart';
 class Header extends StatefulWidget {
   final String text;
   final bool padding;
+  final bool light;
 
   const Header({
     Key? key,
     required this.text,
     this.padding = true,
+    this.light = false,
   }) : super(key: key);
 
   @override
@@ -33,7 +35,12 @@ class _HeaderState extends State<Header> {
               child: SelectableText(
                 widget.text,
                 maxLines: 1,
-                style: Theme.of(context).textTheme.headline1,
+                style: widget.light
+                    ? Theme.of(context)
+                        .textTheme
+                        .headline1!
+                        .copyWith(color: Theme.of(context).canvasColor)
+                    : Theme.of(context).textTheme.headline1,
               ),
             ),
           ),
