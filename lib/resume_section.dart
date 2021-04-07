@@ -60,18 +60,15 @@ class _ResumeSectionState extends State<ResumeSection> {
               maxWidth:
                   screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: marginSize * 3),
+            padding: EdgeInsets.symmetric(vertical: marginSize * 4),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 widget.header ?? Container(),
                 Center(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: marginSize),
-                    child: screenWidth > SWIDTH
-                        ? buildDesktopLayout(context, marginSize)
-                        : buildMobileLayout(context, marginSize),
-                  ),
+                  child: screenWidth > SWIDTH
+                      ? buildDesktopLayout(context, marginSize)
+                      : buildMobileLayout(context, marginSize),
                 ),
               ],
             ),

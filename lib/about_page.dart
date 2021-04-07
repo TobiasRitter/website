@@ -18,7 +18,7 @@ class AboutPage extends StatelessWidget {
     return p.Page(
       coverScreenHeight: true,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: marginSize * 3),
+        padding: EdgeInsets.symmetric(vertical: marginSize * 4),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -28,7 +28,7 @@ class AboutPage extends StatelessWidget {
                       ? CONTENT_WIDTH
                       : screenWidth),
               child: Padding(
-                padding: EdgeInsets.all(marginSize),
+                padding: EdgeInsets.symmetric(horizontal: marginSize),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

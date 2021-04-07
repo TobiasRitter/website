@@ -38,7 +38,7 @@ class _ProjectSectionState extends State<ProjectSection> {
           ? Theme.of(context).cardColor
           : Theme.of(context).canvasColor,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: marginSize * 3),
+        padding: EdgeInsets.symmetric(vertical: marginSize * 4),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -50,7 +50,7 @@ class _ProjectSectionState extends State<ProjectSection> {
                         ? CONTENT_WIDTH
                         : screenWidth),
                 child: Padding(
-                  padding: EdgeInsets.all(marginSize),
+                  padding: EdgeInsets.symmetric(horizontal: marginSize),
                   child: screenWidth > SWIDTH
                       ? buildDesktopLayout(marginSize)
                       : buildMobileLayout(screenHeight, marginSize),
