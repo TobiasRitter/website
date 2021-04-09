@@ -81,6 +81,7 @@ class _ProjectSectionState extends State<ProjectSection> {
   }
 
   Row buildDesktopLayout(double marginSize) {
+    var screenHeight = MediaQuery.of(context).size.height;
     return Row(
       children: [
         widget.inversed
@@ -92,10 +93,13 @@ class _ProjectSectionState extends State<ProjectSection> {
           width: widget.inversed ? marginSize * 2 : 0,
         ),
         Expanded(
-          child: Image.asset(
-            widget.image,
-            fit: BoxFit.contain,
-            alignment: Alignment.centerLeft,
+          child: Container(
+            constraints: BoxConstraints(maxHeight: screenHeight / 2),
+            child: Image.asset(
+              widget.image,
+              fit: BoxFit.contain,
+              alignment: Alignment.centerLeft,
+            ),
           ),
         ),
         Container(
