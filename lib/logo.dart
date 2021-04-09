@@ -11,6 +11,7 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: FittedBox(
@@ -19,12 +20,11 @@ class Logo extends StatelessWidget {
               "Tobias Ritter",
               style: Theme.of(context).textTheme.headline6,
               maxLines: 1,
-              textAlign: TextAlign.center,
             ),
           ),
         ),
         Container(
-          height: marginSize,
+          height: marginSize / 2,
         ),
         Expanded(
           child: FittedBox(
@@ -32,7 +32,6 @@ class Logo extends StatelessWidget {
             child: SelectableText(
               SUBTITLE,
               style: Theme.of(context).textTheme.subtitle2,
-              textAlign: TextAlign.center,
             ),
           ),
         ),
