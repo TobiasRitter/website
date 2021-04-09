@@ -37,7 +37,7 @@ double getRelativeSize2(BuildContext context, double referenceSize) {
   if (screenHeight > SWIDTH) {
     return referenceSize;
   } else {
-    return screenHeight * referenceSize / 800;
+    return screenHeight * referenceSize / 1200;
   }
 }
 
