@@ -20,7 +20,7 @@ final Duration drawerCloseDuration = Duration(milliseconds: 300);
 const SWIDTH = 1000.0;
 const CONTENT_WIDTH = 1200.0;
 const BORDER_OPACITY = 0.15;
-const IMG_OPACITY = 0.6;
+const IMG_OPACITY = 0.5;
 const FOOTER_BUTTON_WIDTH = 150.0;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
           ),
           headline1: GoogleFonts.roboto(
             color: Colors.black,
-            fontSize: 64,
+            fontSize: 96,
             fontWeight: FontWeight.w900,
           ),
           headline2: GoogleFonts.roboto(
