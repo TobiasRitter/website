@@ -9,7 +9,7 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var marginSize = getMarginSize(context);
+    var verticalMarginSize = getMarginSize2(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -24,7 +24,7 @@ class Logo extends StatelessWidget {
           ),
         ),
         Container(
-          height: marginSize / 2,
+          height: verticalMarginSize / 2,
         ),
         Expanded(
           child: FittedBox(

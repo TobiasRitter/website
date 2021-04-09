@@ -25,17 +25,27 @@ const FOOTER_BUTTON_WIDTH = 150.0;
 
 double getRelativeSize(BuildContext context, double referenceSize) {
   var screenWidth = MediaQuery.of(context).size.width;
-  var screenHeight = MediaQuery.of(context).size.height;
   if (screenWidth > SWIDTH) {
     return referenceSize;
   } else {
-    return min(screenWidth, screenHeight) * referenceSize / 800;
+    return screenWidth * referenceSize / 800;
+  }
+}
+
+double getRelativeSize2(BuildContext context, double referenceSize) {
+  var screenHeight = MediaQuery.of(context).size.height;
+  if (screenHeight > SWIDTH) {
+    return referenceSize;
+  } else {
+    return screenHeight * referenceSize / 800;
   }
 }
 
 double getArrowSize(BuildContext context) => getRelativeSize(context, 64);
 
 double getMarginSize(BuildContext context) => getRelativeSize(context, 64);
+
+double getMarginSize2(BuildContext context) => getRelativeSize2(context, 64);
 
 void main() {
   runApp(MyApp());

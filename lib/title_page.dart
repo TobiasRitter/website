@@ -22,6 +22,7 @@ class _TitlePageState extends State<TitlePage> {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     var marginSize = getMarginSize(context);
+    var verticalMarginSize = getMarginSize2(context);
     return Container(
       height: screenHeight,
       child: p.Page(
@@ -30,7 +31,8 @@ class _TitlePageState extends State<TitlePage> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(marginSize),
+              padding: EdgeInsets.symmetric(
+                  vertical: verticalMarginSize, horizontal: marginSize),
               child: screenWidth > SWIDTH
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -76,6 +78,7 @@ class _TitlePageState extends State<TitlePage> {
 
   Expanded buildMobileLayout(BuildContext context) {
     var marginSize = getMarginSize(context);
+    var verticalMarginSize = getMarginSize2(context);
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,7 +89,7 @@ class _TitlePageState extends State<TitlePage> {
                 marginSize,
                 0,
                 marginSize,
-                marginSize * 2,
+                verticalMarginSize,
               ),
               child: Logo(),
             ),
