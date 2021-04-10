@@ -18,8 +18,8 @@ class _TitlePageState extends State<TitlePage> {
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
-    var horizontalMargin = getHorizontalMargin(context);
-    var verticalMargin = getVerticalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMargin = getRelativeVerticalSize(context);
     return Container(
       height: screenHeight,
       color: Theme.of(context).backgroundColor,
@@ -28,7 +28,7 @@ class _TitlePageState extends State<TitlePage> {
           Padding(
             padding: EdgeInsets.symmetric(
                 vertical: verticalMargin, horizontal: horizontalMargin),
-            child: isPortrait(context)
+            child: isMobile(context)
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -50,21 +50,21 @@ class _TitlePageState extends State<TitlePage> {
                           "Resume",
                         ),
                       ),
-                      Container(
-                        width: horizontalMargin / 2,
-                      ),
-                      TextButton(
-                        onPressed: () => widget.scrollFunc(3),
-                        child: Text(
-                          "Projects",
+                      Padding(
+                        padding: EdgeInsets.only(left: horizontalMargin / 2),
+                        child: TextButton(
+                          onPressed: () => widget.scrollFunc(3),
+                          child: Text(
+                            "Projects",
+                          ),
                         ),
                       ),
-                      Container(
-                        width: horizontalMargin / 2,
-                      ),
-                      FloatingActionButton.extended(
-                        onPressed: () => widget.scrollFunc(4),
-                        label: Text("Contact"),
+                      Padding(
+                        padding: EdgeInsets.only(left: horizontalMargin / 2),
+                        child: FloatingActionButton.extended(
+                          onPressed: () => widget.scrollFunc(4),
+                          label: Text("Contact"),
+                        ),
                       ),
                     ],
                   ),
@@ -78,8 +78,8 @@ class _TitlePageState extends State<TitlePage> {
   }
 
   Expanded buildMobileLayout(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
-    var verticalMarginSize = getVerticalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMarginSize = getRelativeVerticalSize(context);
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -109,8 +109,8 @@ class _TitlePageState extends State<TitlePage> {
   }
 
   Expanded buildDesktopLayout(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
-    var verticalMarginSize = getVerticalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMarginSize = getRelativeVerticalSize(context);
     return Expanded(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,

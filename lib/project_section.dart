@@ -28,8 +28,8 @@ class ProjectSection extends StatefulWidget {
 class _ProjectSectionState extends State<ProjectSection> {
   @override
   Widget build(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
-    var verticalMargin = getVerticalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMargin = getRelativeVerticalSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
@@ -64,7 +64,7 @@ class _ProjectSectionState extends State<ProjectSection> {
   }
 
   Column buildMobileLayout() {
-    var verticalMargin = getVerticalMargin(context);
+    var verticalMargin = getRelativeVerticalSize(context);
     var screenHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
@@ -83,7 +83,7 @@ class _ProjectSectionState extends State<ProjectSection> {
   }
 
   Row buildDesktopLayout() {
-    var horizontalMargin = getHorizontalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
     var screenHeight = MediaQuery.of(context).size.height;
     return Row(
       children: [
@@ -122,7 +122,7 @@ class _ProjectSectionState extends State<ProjectSection> {
   }
 
   Widget buildInfo({bool center = false}) {
-    var verticalMargin = getVerticalMargin(context);
+    var verticalMargin = getRelativeVerticalSize(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment:

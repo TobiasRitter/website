@@ -9,78 +9,81 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
-    var verticalMargin = getVerticalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMargin = getRelativeVerticalSize(context);
     return Container(
       color: Theme.of(context).backgroundColor,
       child: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: horizontalMargin, vertical: verticalMargin),
-        child: isPortrait(context)
+        child: isMobile(context)
             ? buildMobileLayout(context)
             : buildDesktopLayout(context),
       ),
     );
   }
 
-  Column buildMobileLayout(BuildContext context) {
-    var verticalMargin = getVerticalMargin(context);
-    return Column(
-      children: [
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                onPressed: () =>
-                    launchURL('https://www.linkedin.com/in/tobias-ritter/'),
-                child: Text(
-                  "LinkedIn",
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: verticalMargin / 2),
-                child: TextButton(
-                  onPressed: () => launchURL(
-                      'https://www.xing.com/profile/Tobias_Ritter52/cv'),
-                  child: Text(
-                    "XING",
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: verticalMargin / 2),
-                child: TextButton(
-                  onPressed: () => launchURL(
-                      'https://github.com/TobiasRitter?tab=repositories'),
-                  child: Text(
-                    "GitHub",
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: verticalMargin / 2),
-                child: TextButton(
+  Widget buildMobileLayout(BuildContext context) {
+    var verticalMargin = getRelativeVerticalSize(context);
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: verticalMargin * 2),
+      child: Column(
+        children: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
                   onPressed: () =>
-                      launchURL('https://hub.docker.com/u/tobiasritter'),
+                      launchURL('https://www.linkedin.com/in/tobias-ritter/'),
                   child: Text(
-                    "Docker Hub",
+                    "LinkedIn",
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.only(top: verticalMargin / 2),
+                  child: TextButton(
+                    onPressed: () => launchURL(
+                        'https://www.xing.com/profile/Tobias_Ritter52/cv'),
+                    child: Text(
+                      "XING",
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: verticalMargin / 2),
+                  child: TextButton(
+                    onPressed: () => launchURL(
+                        'https://github.com/TobiasRitter?tab=repositories'),
+                    child: Text(
+                      "GitHub",
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: verticalMargin / 2),
+                  child: TextButton(
+                    onPressed: () =>
+                        launchURL('https://hub.docker.com/u/tobiasritter'),
+                    child: Text(
+                      "Docker Hub",
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: verticalMargin),
-          child: CopyrightButton(),
-        ),
-      ],
+          Padding(
+            padding: EdgeInsets.only(top: verticalMargin),
+            child: CopyrightButton(),
+          ),
+        ],
+      ),
     );
   }
 
   Widget buildDesktopLayout(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
     return Stack(
       alignment: AlignmentDirectional.center,
       children: [

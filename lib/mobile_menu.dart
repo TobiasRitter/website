@@ -10,9 +10,9 @@ class MobileMenu extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
     return Container(
-      color: Theme.of(context).backgroundColor,
+      color: Theme.of(context).primaryColor,
       child: Padding(
         padding: EdgeInsets.all(horizontalMargin),
         child: SafeArea(

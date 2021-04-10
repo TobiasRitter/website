@@ -32,7 +32,7 @@ class ResumeSection extends StatefulWidget {
 class _ResumeSectionState extends State<ResumeSection> {
   @override
   Widget build(BuildContext context) {
-    var verticalMargin = getVerticalMargin(context);
+    var verticalMargin = getRelativeVerticalSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
@@ -80,8 +80,8 @@ class _ResumeSectionState extends State<ResumeSection> {
   }
 
   Column buildMobileLayout(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
-    var verticalMargin = getVerticalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMargin = getRelativeVerticalSize(context);
     return Column(
       children: [
         Padding(
@@ -98,7 +98,7 @@ class _ResumeSectionState extends State<ResumeSection> {
   }
 
   Widget buildDesktopLayout(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

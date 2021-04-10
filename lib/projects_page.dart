@@ -11,7 +11,7 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
@@ -22,8 +22,9 @@ class ProjectsPage extends StatelessWidget {
           image: 'res/PyNN.png',
           header: Container(
             constraints: BoxConstraints(
-                maxWidth:
-                    screenWidth > MAX_CONTENT_WIDTH ? MAX_CONTENT_WIDTH : screenWidth),
+                maxWidth: screenWidth > MAX_CONTENT_WIDTH
+                    ? MAX_CONTENT_WIDTH
+                    : screenWidth),
             child: Padding(
               padding:
                   EdgeInsets.fromLTRB(horizontalMargin, 0, horizontalMargin, 0),

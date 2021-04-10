@@ -19,8 +19,8 @@ class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
-    var verticalMargin = getVerticalMargin(context);
-    var horizontalMargin = getHorizontalMargin(context);
+    var verticalMargin = getRelativeVerticalSize(context);
+    var horizontalMargin = getRelativeHorizontalSize(context);
     return Padding(
       padding: EdgeInsets.only(bottom: verticalMargin * 2),
       child: Row(

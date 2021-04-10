@@ -38,18 +38,20 @@ class _ArrowState extends State<Arrow> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    var verticalMargin = getRelativeVerticalSize(context);
+    var arrowSize = getRelativeVerticalSize(context);
     return GestureDetector(
       onTap: () => widget.scrollFunc(1),
       child: Container(
-        height: getArrowSize(context) + getHorizontalMargin(context),
+        height: arrowSize + verticalMargin,
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(
-                  top: arrowController.value * getHorizontalMargin(context)),
+              margin:
+                  EdgeInsets.only(top: arrowController.value * verticalMargin),
               child: Icon(
                 Icons.keyboard_arrow_down_sharp,
-                size: getArrowSize(context),
+                size: arrowSize,
                 color: Theme.of(context).cardColor,
               ),
             ),
