@@ -18,7 +18,10 @@ class Logo extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             child: SelectableText(
               "Tobias Ritter",
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline6!
+                  .copyWith(color: Theme.of(context).canvasColor),
               maxLines: 1,
             ),
           ),
@@ -31,7 +34,10 @@ class Logo extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: SelectableText(
               SUBTITLE,
-              style: Theme.of(context).textTheme.subtitle2,
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2!
+                  .copyWith(color: Theme.of(context).canvasColor),
             ),
           ),
         ),

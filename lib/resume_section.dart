@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/hover_button.dart';
 import 'package:website/main.dart';
 
 class ResumeSection extends StatefulWidget {
@@ -48,7 +47,8 @@ class _ResumeSectionState extends State<ResumeSection> {
               image: DecorationImage(
                 image: AssetImage(widget.image!),
                 colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(IMG_OPACITY), BlendMode.darken),
+                    Theme.of(context).primaryColor.withOpacity(IMG_OPACITY),
+                    BlendMode.darken),
                 fit: BoxFit.cover,
               ),
             )
@@ -190,10 +190,9 @@ class _ResumeSectionState extends State<ResumeSection> {
         ),
         Padding(
           padding: EdgeInsets.only(top: 32),
-          child: HoverButton(
+          child: FloatingActionButton.extended(
             onPressed: () => launchURL(widget.institutionUrl),
-            text: widget.institution,
-            light: widget.image != null,
+            label: Text(widget.institution),
           ),
         ),
       ],

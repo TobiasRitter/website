@@ -19,9 +19,11 @@ final Duration drawerCloseDuration = Duration(milliseconds: 300);
 
 const SWIDTH = 1000.0;
 const CONTENT_WIDTH = 1200.0;
-const BORDER_OPACITY = 0.15;
 const IMG_OPACITY = 0.5;
 const FOOTER_BUTTON_WIDTH = 150.0;
+
+const BGCOLOR = const Color(0xff200050);
+const ACCENT = const Color(0xffff0050);
 
 double getRelativeSize(BuildContext context, double referenceSize) {
   var screenWidth = MediaQuery.of(context).size.width;
@@ -59,7 +61,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         canvasColor: Colors.white,
-        accentColor: Colors.black,
+        accentColor: ACCENT,
         primaryColor: Colors.black,
         cardColor: Colors.grey.shade100,
         textTheme: TextTheme(
@@ -67,6 +69,9 @@ class MyApp extends StatelessWidget {
             height: 1.5,
             fontSize: 16,
             fontWeight: FontWeight.w300,
+          ),
+          button: GoogleFonts.roboto(
+            fontWeight: FontWeight.bold,
           ),
           headline5: GoogleFonts.roboto(
             color: Colors.black,
@@ -98,19 +103,12 @@ class MyApp extends StatelessWidget {
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
-            primary: Colors.black,
-            textStyle: GoogleFonts.roboto(
-              fontWeight: FontWeight.bold,
-            ),
+            primary: ACCENT,
           ),
         ),
-        outlinedButtonTheme: OutlinedButtonThemeData(
-          style: OutlinedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
-            textStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: ACCENT,
+          shape: RoundedRectangleBorder(),
         ),
       ),
       home: MyHomePage(),

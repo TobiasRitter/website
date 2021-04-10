@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/main.dart';
 
 class CopyrightButton extends StatelessWidget {
   @override
@@ -7,13 +6,16 @@ class CopyrightButton extends StatelessWidget {
     var year = DateTime.now().year.toString();
     return TextButton.icon(
       onPressed: () => showLicensePage(context: context),
-      icon: Opacity(
-        child: Icon(Icons.copyright_sharp),
-        opacity: BORDER_OPACITY,
+      icon: Icon(
+        Icons.copyright_sharp,
+        color: Theme.of(context).canvasColor,
       ),
-      label: Opacity(
-        child: Text(year),
-        opacity: BORDER_OPACITY,
+      label: Text(
+        year,
+        style: Theme.of(context)
+            .textTheme
+            .button!
+            .copyWith(color: Theme.of(context).cardColor),
       ),
     );
   }

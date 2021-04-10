@@ -15,7 +15,6 @@ class Arrow extends StatefulWidget {
 
 class _ArrowState extends State<Arrow> with TickerProviderStateMixin {
   late AnimationController arrowController;
-  bool underCursor = false;
 
   void initState() {
     super.initState();
@@ -39,28 +38,22 @@ class _ArrowState extends State<Arrow> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => underCursor = true),
-      onExit: (_) => setState(() => underCursor = false),
-      child: GestureDetector(
-        onTap: () => widget.scrollFunc(1),
-        child: Container(
-          height: getArrowSize(context) + getMarginSize(context),
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(
-                    top: arrowController.value * getMarginSize(context)),
-                child: Opacity(
-                  opacity: underCursor ? 1 : BORDER_OPACITY,
-                  child: Icon(
-                    Icons.keyboard_arrow_down_sharp,
-                    size: getArrowSize(context),
-                  ),
-                ),
+    return GestureDetector(
+      onTap: () => widget.scrollFunc(1),
+      child: Container(
+        height: getArrowSize(context) + getMarginSize(context),
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                  top: arrowController.value * getMarginSize(context)),
+              child: Icon(
+                Icons.keyboard_arrow_down_sharp,
+                size: getArrowSize(context),
+                color: Theme.of(context).cardColor,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

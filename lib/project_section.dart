@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/hover_button.dart';
 import 'package:website/main.dart';
 
 class ProjectSection extends StatefulWidget {
@@ -135,9 +134,9 @@ class _ProjectSectionState extends State<ProjectSection> {
         Container(
           height: marginSize,
         ),
-        HoverButton(
+        FloatingActionButton.extended(
           onPressed: () => launchURL(widget.url),
-          text: "Show on GitHub",
+          label: Text("Show on GitHub"),
         )
       ],
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/copyright_button.dart';
 import 'package:website/main.dart';
-import 'package:website/page.dart' as p;
 
 class Footer extends StatelessWidget {
   const Footer({
@@ -12,9 +11,8 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
-    return p.Page(
-      dark: true,
-      coverScreenHeight: false,
+    return Container(
+      color: BGCOLOR,
       child: Padding(
         padding: EdgeInsets.all(marginSize),
         child: screenWidth > SWIDTH

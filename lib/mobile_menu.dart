@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/hover_button.dart';
 import 'package:website/main.dart';
 
 class MobileMenu extends StatelessWidget {
@@ -13,7 +12,7 @@ class MobileMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     return Container(
-      color: Theme.of(context).canvasColor,
+      color: BGCOLOR,
       child: Padding(
         padding: EdgeInsets.all(marginSize),
         child: SafeArea(
@@ -23,7 +22,10 @@ class MobileMenu extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.close_sharp),
+                    icon: Icon(
+                      Icons.close_sharp,
+                      color: Theme.of(context).canvasColor,
+                    ),
                     onPressed: () => Navigator.pop(context),
                   ),
                 ],
@@ -54,13 +56,13 @@ class MobileMenu extends StatelessWidget {
                     Container(
                       height: marginSize / 2,
                     ),
-                    HoverButton(
+                    FloatingActionButton.extended(
                       onPressed: () {
                         Navigator.pop(context);
                         Future.delayed(drawerCloseDuration)
                             .then((_) => scrollFunc(4));
                       },
-                      text: "Contact",
+                      label: Text("Contact"),
                     ),
                   ],
                 ),

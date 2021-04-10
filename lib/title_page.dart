@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:website/arrow.dart';
-import 'package:website/hover_button.dart';
 import 'package:website/logo.dart';
 import 'package:website/main.dart';
-import 'package:website/page.dart' as p;
 
 class TitlePage extends StatefulWidget {
   final Function(int) scrollFunc;
@@ -25,53 +23,57 @@ class _TitlePageState extends State<TitlePage> {
     var verticalMarginSize = getMarginSize2(context);
     return Container(
       height: screenHeight,
-      child: p.Page(
-        dark: true,
-        coverScreenHeight: true,
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: verticalMarginSize, horizontal: marginSize),
-              child: screenWidth > SWIDTH
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () => widget.scrollFunc(2),
-                          child: Text("Resume"),
+      color: BGCOLOR,
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(
+                vertical: verticalMarginSize, horizontal: marginSize),
+            child: screenWidth > SWIDTH
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () => widget.scrollFunc(2),
+                        child: Text(
+                          "Resume",
                         ),
-                        Container(
-                          width: marginSize / 2,
+                      ),
+                      Container(
+                        width: marginSize / 2,
+                      ),
+                      TextButton(
+                        onPressed: () => widget.scrollFunc(3),
+                        child: Text(
+                          "Projects",
                         ),
-                        TextButton(
-                          onPressed: () => widget.scrollFunc(3),
-                          child: Text("Projects"),
+                      ),
+                      Container(
+                        width: marginSize / 2,
+                      ),
+                      FloatingActionButton.extended(
+                        onPressed: () => widget.scrollFunc(4),
+                        label: Text("Contact"),
+                      ),
+                    ],
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          Icons.menu_sharp,
+                          color: Theme.of(context).accentColor,
                         ),
-                        Container(
-                          width: marginSize / 2,
-                        ),
-                        HoverButton(
-                          onPressed: () => widget.scrollFunc(4),
-                          text: "Contact",
-                        ),
-                      ],
-                    )
-                  : Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                          icon: Icon(Icons.menu_sharp),
-                          onPressed: Scaffold.of(context).openEndDrawer,
-                        ),
-                      ],
-                    ),
-            ),
-            screenWidth > SWIDTH
-                ? buildDesktopLayout(context)
-                : buildMobileLayout(context),
-          ],
-        ),
+                        onPressed: Scaffold.of(context).openEndDrawer,
+                      ),
+                    ],
+                  ),
+          ),
+          screenWidth > SWIDTH
+              ? buildDesktopLayout(context)
+              : buildMobileLayout(context),
+        ],
       ),
     );
   }
