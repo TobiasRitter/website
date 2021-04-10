@@ -26,18 +26,18 @@ class Logo extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          height: verticalMarginSize / 2,
-        ),
         Expanded(
-          child: FittedBox(
-            alignment: Alignment.topLeft,
-            child: SelectableText(
-              SUBTITLE,
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle2!
-                  .copyWith(color: Theme.of(context).canvasColor),
+          child: Padding(
+            padding: EdgeInsets.only(top: verticalMarginSize / 2),
+            child: FittedBox(
+              alignment: Alignment.topLeft,
+              child: SelectableText(
+                SUBTITLE,
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2!
+                    .copyWith(color: Theme.of(context).canvasColor),
+              ),
             ),
           ),
         ),

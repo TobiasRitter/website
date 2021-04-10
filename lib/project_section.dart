@@ -89,29 +89,33 @@ class _ProjectSectionState extends State<ProjectSection> {
       children: [
         widget.inversed
             ? Expanded(
-                child: buildInfo(),
+                child: Padding(
+                  padding: EdgeInsets.only(right: horizontalMargin),
+                  child: buildInfo(),
+                ),
               )
             : Container(),
-        Container(
-          width: widget.inversed ? horizontalMargin * 2 : 0,
-        ),
         Expanded(
-          child: Container(
-            constraints: BoxConstraints(maxHeight: screenHeight / 2),
-            child: Image.asset(
-              widget.image,
-              fit: BoxFit.contain,
-              alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(widget.inversed ? horizontalMargin : 0,
+                0, widget.inversed ? 0 : horizontalMargin, 0),
+            child: Container(
+              constraints: BoxConstraints(maxHeight: screenHeight / 2),
+              child: Image.asset(
+                widget.image,
+                fit: BoxFit.contain,
+                alignment: Alignment.centerLeft,
+              ),
             ),
           ),
-        ),
-        Container(
-          width: widget.inversed ? 0 : horizontalMargin * 2,
         ),
         widget.inversed
             ? Container()
             : Expanded(
-                child: buildInfo(),
+                child: Padding(
+                  padding: EdgeInsets.only(left: horizontalMargin),
+                  child: buildInfo(),
+                ),
               ),
       ],
     );
@@ -129,18 +133,18 @@ class _ProjectSectionState extends State<ProjectSection> {
           maxLines: 1,
           style: Theme.of(context).textTheme.headline2,
         ),
-        Container(
-          height: verticalMargin,
+        Padding(
+          padding: EdgeInsets.only(top: verticalMargin),
+          child: SelectableText(
+            widget.description,
+          ),
         ),
-        SelectableText(
-          widget.description,
-        ),
-        Container(
-          height: verticalMargin,
-        ),
-        FloatingActionButton.extended(
-          onPressed: () => launchURL(widget.url),
-          label: Text("Show on GitHub"),
+        Padding(
+          padding: EdgeInsets.only(top: verticalMargin),
+          child: FloatingActionButton.extended(
+            onPressed: () => launchURL(widget.url),
+            label: Text("Show on GitHub"),
+          ),
         )
       ],
     );
