@@ -16,6 +16,7 @@ final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 final Duration drawerCloseDuration = Duration(milliseconds: 300);
 
 const MIN_DESKTOP_WIDTH = 1000.0;
+const MIN_FOOTER_WIDTH = 560.0;
 const MAX_CONTENT_WIDTH = 1200.0;
 const IMG_OPACITY = 0.5;
 
@@ -23,7 +24,7 @@ const PRIMARY = Colors.black;
 const PRIMARY_LIGHT = Colors.black87;
 const CANVAS = Colors.white;
 const CARD = const Color(0xfff5f5f5);
-const BACKGROUND = const Color(0xff100040);
+const BACKGROUND = const Color(0xff000030);
 const ACCENT = const Color(0xffff0050);
 
 double getRelativeHorizontalSize(BuildContext context) {
@@ -36,8 +37,10 @@ double getRelativeVerticalSize(BuildContext context) {
   return screenHeight / 20;
 }
 
-bool isPortrait(BuildContext context) =>
-    MediaQuery.of(context).size.width < MediaQuery.of(context).size.height;
+bool isPortrait(BuildContext context) {
+  var size = MediaQuery.of(context).size;
+  return size.width < size.height || size.width < MIN_FOOTER_WIDTH;
+}
 
 bool isMobile(BuildContext context) =>
     MediaQuery.of(context).size.width < MIN_DESKTOP_WIDTH;

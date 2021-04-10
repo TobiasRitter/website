@@ -30,48 +30,9 @@ class Footer extends StatelessWidget {
       child: Column(
         children: [
           Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextButton(
-                  onPressed: () =>
-                      launchURL('https://www.linkedin.com/in/tobias-ritter/'),
-                  child: Text(
-                    "LinkedIn",
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: verticalMargin / 2),
-                  child: TextButton(
-                    onPressed: () => launchURL(
-                        'https://www.xing.com/profile/Tobias_Ritter52/cv'),
-                    child: Text(
-                      "XING",
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: verticalMargin / 2),
-                  child: TextButton(
-                    onPressed: () => launchURL(
-                        'https://github.com/TobiasRitter?tab=repositories'),
-                    child: Text(
-                      "GitHub",
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: verticalMargin / 2),
-                  child: TextButton(
-                    onPressed: () =>
-                        launchURL('https://hub.docker.com/u/tobiasritter'),
-                    child: Text(
-                      "Docker Hub",
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            child: isPortrait(context)
+                ? buildFooterCol(context)
+                : buildFooterRow(context),
           ),
           Padding(
             padding: EdgeInsets.only(top: verticalMargin),
@@ -82,58 +43,106 @@ class Footer extends StatelessWidget {
     );
   }
 
+  Column buildFooterCol(BuildContext context) {
+    var verticalMargin = getRelativeVerticalSize(context);
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TextButton(
+          onPressed: () =>
+              launchURL('https://www.linkedin.com/in/tobias-ritter/'),
+          child: Text(
+            "LinkedIn",
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: verticalMargin / 2),
+          child: TextButton(
+            onPressed: () =>
+                launchURL('https://www.xing.com/profile/Tobias_Ritter52/cv'),
+            child: Text(
+              "XING",
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: verticalMargin / 2),
+          child: TextButton(
+            onPressed: () =>
+                launchURL('https://github.com/TobiasRitter?tab=repositories'),
+            child: Text(
+              "GitHub",
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: verticalMargin / 2),
+          child: TextButton(
+            onPressed: () => launchURL('https://hub.docker.com/u/tobiasritter'),
+            child: Text(
+              "Docker Hub",
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget buildDesktopLayout(BuildContext context) {
-    var horizontalMargin = getRelativeHorizontalSize(context);
     return Stack(
       alignment: AlignmentDirectional.center,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextButton(
-              onPressed: () =>
-                  launchURL('https://www.linkedin.com/in/tobias-ritter/'),
-              child: Text(
-                "LinkedIn",
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: horizontalMargin / 2),
-              child: TextButton(
-                onPressed: () => launchURL(
-                    'https://www.xing.com/profile/Tobias_Ritter52/cv'),
-                child: Text(
-                  "XING",
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: horizontalMargin / 2),
-              child: TextButton(
-                onPressed: () => launchURL(
-                    'https://github.com/TobiasRitter?tab=repositories'),
-                child: Text(
-                  "GitHub",
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: horizontalMargin / 2),
-              child: TextButton(
-                onPressed: () =>
-                    launchURL('https://hub.docker.com/u/tobiasritter'),
-                child: Text(
-                  "Docker Hub",
-                ),
-              ),
-            ),
-          ],
-        ),
+        buildFooterRow(context),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             CopyrightButton(),
           ],
+        ),
+      ],
+    );
+  }
+
+  Row buildFooterRow(BuildContext context) {
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TextButton(
+          onPressed: () =>
+              launchURL('https://www.linkedin.com/in/tobias-ritter/'),
+          child: Text(
+            "LinkedIn",
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: horizontalMargin / 2),
+          child: TextButton(
+            onPressed: () =>
+                launchURL('https://www.xing.com/profile/Tobias_Ritter52/cv'),
+            child: Text(
+              "XING",
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: horizontalMargin / 2),
+          child: TextButton(
+            onPressed: () =>
+                launchURL('https://github.com/TobiasRitter?tab=repositories'),
+            child: Text(
+              "GitHub",
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: horizontalMargin / 2),
+          child: TextButton(
+            onPressed: () => launchURL('https://hub.docker.com/u/tobiasritter'),
+            child: Text(
+              "Docker Hub",
+            ),
+          ),
         ),
       ],
     );

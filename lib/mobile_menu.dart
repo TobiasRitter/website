@@ -11,10 +11,14 @@ class MobileMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMargin = getRelativeVerticalSize(context);
     return Container(
-      color: Theme.of(context).primaryColor,
+      color: Theme.of(context).backgroundColor,
       child: Padding(
-        padding: EdgeInsets.all(horizontalMargin),
+        padding: EdgeInsets.symmetric(
+          horizontal: horizontalMargin,
+          vertical: verticalMargin,
+        ),
         child: SafeArea(
           child: Column(
             children: [
@@ -31,41 +35,79 @@ class MobileMenu extends StatelessWidget {
                 ],
               ),
               Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Future.delayed(drawerCloseDuration)
-                            .then((_) => scrollFunc(2));
-                      },
-                      child: Text("Resume"),
-                    ),
-                    Container(
-                      height: horizontalMargin / 2,
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Future.delayed(drawerCloseDuration)
-                            .then((_) => scrollFunc(3));
-                      },
-                      child: Text("Projects"),
-                    ),
-                    Container(
-                      height: horizontalMargin / 2,
-                    ),
-                    FloatingActionButton.extended(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Future.delayed(drawerCloseDuration)
-                            .then((_) => scrollFunc(4));
-                      },
-                      label: Text("Contact"),
-                    ),
-                  ],
-                ),
+                child: isPortrait(context)
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                              Future.delayed(drawerCloseDuration)
+                                  .then((_) => scrollFunc(2));
+                            },
+                            child: Text("Resume"),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: verticalMargin / 2),
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                                Future.delayed(drawerCloseDuration)
+                                    .then((_) => scrollFunc(3));
+                              },
+                              child: Text("Projects"),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: verticalMargin / 2),
+                            child: FloatingActionButton.extended(
+                              onPressed: () {
+                                Navigator.pop(context);
+                                Future.delayed(drawerCloseDuration)
+                                    .then((_) => scrollFunc(4));
+                              },
+                              label: Text("Contact"),
+                            ),
+                          ),
+                        ],
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                              Future.delayed(drawerCloseDuration)
+                                  .then((_) => scrollFunc(2));
+                            },
+                            child: Text("Resume"),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(left: horizontalMargin / 2),
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                                Future.delayed(drawerCloseDuration)
+                                    .then((_) => scrollFunc(3));
+                              },
+                              child: Text("Projects"),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsets.only(left: horizontalMargin / 2),
+                            child: FloatingActionButton.extended(
+                              onPressed: () {
+                                Navigator.pop(context);
+                                Future.delayed(drawerCloseDuration)
+                                    .then((_) => scrollFunc(4));
+                              },
+                              label: Text("Contact"),
+                            ),
+                          ),
+                        ],
+                      ),
               ),
               Container(
                 height: 48,
