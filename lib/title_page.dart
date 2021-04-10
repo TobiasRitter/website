@@ -111,6 +111,7 @@ class _TitlePageState extends State<TitlePage> {
 
   Expanded buildDesktopLayout(BuildContext context) {
     var horizontalMargin = getHorizontalMargin(context);
+    var verticalMarginSize = getVerticalMargin(context);
     return Expanded(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -126,7 +127,10 @@ class _TitlePageState extends State<TitlePage> {
           Expanded(
             flex: 4,
             child: Padding(
-              padding: EdgeInsets.all(horizontalMargin),
+              padding: EdgeInsets.symmetric(
+                horizontal: horizontalMargin,
+                vertical: verticalMarginSize,
+              ),
               child: Column(
                 children: [
                   Expanded(
