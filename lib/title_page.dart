@@ -23,7 +23,7 @@ class _TitlePageState extends State<TitlePage> {
     var verticalMarginSize = getMarginSize2(context);
     return Container(
       height: screenHeight,
-      color: BGCOLOR,
+      color: Theme.of(context).backgroundColor,
       child: Column(
         children: [
           Padding(

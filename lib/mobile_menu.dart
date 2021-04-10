@@ -12,7 +12,7 @@ class MobileMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     var marginSize = getMarginSize(context);
     return Container(
-      color: BGCOLOR,
+      color: Theme.of(context).backgroundColor,
       child: Padding(
         padding: EdgeInsets.all(marginSize),
         child: SafeArea(

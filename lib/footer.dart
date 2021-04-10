@@ -12,7 +12,7 @@ class Footer extends StatelessWidget {
     var marginSize = getMarginSize(context);
     var screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      color: BGCOLOR,
+      color: Theme.of(context).backgroundColor,
       child: Padding(
         padding: EdgeInsets.all(marginSize),
         child: screenWidth > SWIDTH

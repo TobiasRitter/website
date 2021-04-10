@@ -22,7 +22,11 @@ const CONTENT_WIDTH = 1200.0;
 const IMG_OPACITY = 0.5;
 const FOOTER_BUTTON_WIDTH = 150.0;
 
-const BGCOLOR = const Color(0xff200050);
+const PRIMARY = Colors.black;
+const PRIMARY_LIGHT = Colors.black87;
+const CANVAS = Colors.white;
+const CARD = const Color(0xfff5f5f5);
+const BACKGROUND = const Color(0xff200050);
 const ACCENT = const Color(0xffff0050);
 
 double getRelativeSize(BuildContext context, double referenceSize) {
@@ -60,10 +64,11 @@ class MyApp extends StatelessWidget {
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        canvasColor: Colors.white,
+        canvasColor: CANVAS,
         accentColor: ACCENT,
-        primaryColor: Colors.black,
-        cardColor: Colors.grey.shade100,
+        primaryColor: PRIMARY,
+        cardColor: CARD,
+        backgroundColor: BACKGROUND,
         textTheme: TextTheme(
           bodyText2: GoogleFonts.roboto(
             height: 1.5,
@@ -74,28 +79,28 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           headline5: GoogleFonts.roboto(
-            color: Colors.black,
+            color: PRIMARY,
             fontWeight: FontWeight.bold,
           ),
           headline6: GoogleFonts.roboto(
-            color: Colors.black,
+            color: PRIMARY,
             fontWeight: FontWeight.w900,
           ),
           subtitle2: GoogleFonts.roboto(
             fontWeight: FontWeight.w100,
           ),
           headline1: GoogleFonts.roboto(
-            color: Colors.black,
+            color: PRIMARY,
             fontSize: 64,
             fontWeight: FontWeight.w900,
           ),
           headline2: GoogleFonts.roboto(
-            color: Colors.black87,
+            color: PRIMARY_LIGHT,
             fontSize: 32,
             fontWeight: FontWeight.bold,
           ),
           headline3: GoogleFonts.roboto(
-            color: Colors.black87,
+            color: PRIMARY_LIGHT,
             fontSize: 22,
             fontWeight: FontWeight.bold,
           ),
