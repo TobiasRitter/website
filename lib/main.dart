@@ -47,9 +47,11 @@ double getRelativeVerticalSize(BuildContext context) {
 
 double getArrowSize(BuildContext context) => getRelativeHorizontalSize(context);
 
-double getHorizontalMargin(BuildContext context) => getRelativeHorizontalSize(context);
+double getHorizontalMargin(BuildContext context) =>
+    getRelativeHorizontalSize(context);
 
-double getVerticalMargin(BuildContext context) => getRelativeVerticalSize(context);
+double getVerticalMargin(BuildContext context) =>
+    getRelativeVerticalSize(context);
 
 void main() {
   runApp(MyApp());
@@ -167,17 +169,17 @@ class _MyHomePageState extends State<MyHomePage> {
             controller: scrollController,
             child: Column(
               children: [
-                TitlePage(
-                  key: keys[0],
-                  scrollFunc: scroll,
-                ),
-                AboutPage(
-                  key: keys[1],
-                  scrollFunc: scroll,
-                ),
-                ResumePage(
-                  key: keys[2],
-                ),
+                // TitlePage(
+                //   key: keys[0],
+                //   scrollFunc: scroll,
+                // ),
+                // AboutPage(
+                //   key: keys[1],
+                //   scrollFunc: scroll,
+                // ),
+                // ResumePage(
+                //   key: keys[2],
+                // ),
                 ProjectsPage(
                   key: keys[3],
                 ),
