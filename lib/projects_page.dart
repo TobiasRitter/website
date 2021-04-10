@@ -11,7 +11,7 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var marginSize = getMarginSize(context);
+    var horizontalMargin = getHorizontalMargin(context);
     var screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
@@ -25,7 +25,8 @@ class ProjectsPage extends StatelessWidget {
                 maxWidth:
                     screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
             child: Padding(
-              padding: EdgeInsets.fromLTRB(marginSize, 0, marginSize, 0),
+              padding:
+                  EdgeInsets.fromLTRB(horizontalMargin, 0, horizontalMargin, 0),
               child: Header(
                 text: 'Projects',
               ),

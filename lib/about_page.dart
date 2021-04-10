@@ -13,12 +13,12 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var marginSize = getMarginSize(context);
+    var horizontalMargin = getHorizontalMargin(context);
     var screenWidth = MediaQuery.of(context).size.width;
     return p.Page(
       coverScreenHeight: true,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: marginSize * 4),
+        padding: EdgeInsets.symmetric(vertical: horizontalMargin * 4),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -28,7 +28,7 @@ class AboutPage extends StatelessWidget {
                       ? CONTENT_WIDTH
                       : screenWidth),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: marginSize),
+                padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

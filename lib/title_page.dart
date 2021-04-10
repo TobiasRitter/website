@@ -19,8 +19,8 @@ class _TitlePageState extends State<TitlePage> {
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
-    var marginSize = getMarginSize(context);
-    var verticalMarginSize = getMarginSize2(context);
+    var horizontalMargin = getHorizontalMargin(context);
+    var verticalMargin = getVerticalMargin(context);
     return Container(
       height: screenHeight,
       color: Theme.of(context).backgroundColor,
@@ -28,7 +28,7 @@ class _TitlePageState extends State<TitlePage> {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
-                vertical: verticalMarginSize, horizontal: marginSize),
+                vertical: verticalMargin, horizontal: horizontalMargin),
             child: screenWidth > SWIDTH
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -40,7 +40,7 @@ class _TitlePageState extends State<TitlePage> {
                         ),
                       ),
                       Container(
-                        width: marginSize / 2,
+                        width: horizontalMargin / 2,
                       ),
                       TextButton(
                         onPressed: () => widget.scrollFunc(3),
@@ -49,7 +49,7 @@ class _TitlePageState extends State<TitlePage> {
                         ),
                       ),
                       Container(
-                        width: marginSize / 2,
+                        width: horizontalMargin / 2,
                       ),
                       FloatingActionButton.extended(
                         onPressed: () => widget.scrollFunc(4),
@@ -79,8 +79,8 @@ class _TitlePageState extends State<TitlePage> {
   }
 
   Expanded buildMobileLayout(BuildContext context) {
-    var marginSize = getMarginSize(context);
-    var verticalMarginSize = getMarginSize2(context);
+    var horizontalMargin = getHorizontalMargin(context);
+    var verticalMarginSize = getVerticalMargin(context);
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,9 +88,9 @@ class _TitlePageState extends State<TitlePage> {
           Expanded(
             child: Padding(
               padding: EdgeInsets.fromLTRB(
-                marginSize,
+                horizontalMargin,
                 0,
-                marginSize,
+                horizontalMargin,
                 verticalMarginSize,
               ),
               child: Logo(),
@@ -110,7 +110,7 @@ class _TitlePageState extends State<TitlePage> {
   }
 
   Expanded buildDesktopLayout(BuildContext context) {
-    var marginSize = getMarginSize(context);
+    var horizontalMargin = getHorizontalMargin(context);
     return Expanded(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -126,7 +126,7 @@ class _TitlePageState extends State<TitlePage> {
           Expanded(
             flex: 4,
             child: Padding(
-              padding: EdgeInsets.all(marginSize),
+              padding: EdgeInsets.all(horizontalMargin),
               child: Column(
                 children: [
                   Expanded(

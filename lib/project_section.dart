@@ -28,7 +28,7 @@ class ProjectSection extends StatefulWidget {
 class _ProjectSectionState extends State<ProjectSection> {
   @override
   Widget build(BuildContext context) {
-    var marginSize = getMarginSize(context);
+    var horizontalMargin = getHorizontalMargin(context);
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
@@ -37,7 +37,7 @@ class _ProjectSectionState extends State<ProjectSection> {
           ? Theme.of(context).cardColor
           : Theme.of(context).canvasColor,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: marginSize * 4),
+        padding: EdgeInsets.symmetric(vertical: horizontalMargin * 4),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -49,10 +49,10 @@ class _ProjectSectionState extends State<ProjectSection> {
                         ? CONTENT_WIDTH
                         : screenWidth),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: marginSize),
+                  padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
                   child: screenWidth > SWIDTH
-                      ? buildDesktopLayout(marginSize)
-                      : buildMobileLayout(screenHeight, marginSize),
+                      ? buildDesktopLayout(horizontalMargin)
+                      : buildMobileLayout(screenHeight, horizontalMargin),
                 ),
               ),
             ),
@@ -62,7 +62,7 @@ class _ProjectSectionState extends State<ProjectSection> {
     );
   }
 
-  Column buildMobileLayout(double screenHeight, double marginSize) {
+  Column buildMobileLayout(double screenHeight, double horizontalMargin) {
     return Column(
       children: [
         Container(
@@ -72,14 +72,14 @@ class _ProjectSectionState extends State<ProjectSection> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: marginSize * 3),
+          padding: EdgeInsets.only(top: horizontalMargin * 3),
           child: buildInfo(center: true),
         ),
       ],
     );
   }
 
-  Row buildDesktopLayout(double marginSize) {
+  Row buildDesktopLayout(double horizontalMargin) {
     var screenHeight = MediaQuery.of(context).size.height;
     return Row(
       children: [
@@ -89,7 +89,7 @@ class _ProjectSectionState extends State<ProjectSection> {
               )
             : Container(),
         Container(
-          width: widget.inversed ? marginSize * 2 : 0,
+          width: widget.inversed ? horizontalMargin * 2 : 0,
         ),
         Expanded(
           child: Container(
@@ -102,7 +102,7 @@ class _ProjectSectionState extends State<ProjectSection> {
           ),
         ),
         Container(
-          width: widget.inversed ? 0 : marginSize * 2,
+          width: widget.inversed ? 0 : horizontalMargin * 2,
         ),
         widget.inversed
             ? Container()
@@ -114,7 +114,7 @@ class _ProjectSectionState extends State<ProjectSection> {
   }
 
   Widget buildInfo({bool center = false}) {
-    var marginSize = getMarginSize(context);
+    var horizontalMargin = getHorizontalMargin(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment:
@@ -126,13 +126,13 @@ class _ProjectSectionState extends State<ProjectSection> {
           style: Theme.of(context).textTheme.headline2,
         ),
         Container(
-          height: marginSize,
+          height: horizontalMargin,
         ),
         SelectableText(
           widget.description,
         ),
         Container(
-          height: marginSize,
+          height: horizontalMargin,
         ),
         FloatingActionButton.extended(
           onPressed: () => launchURL(widget.url),

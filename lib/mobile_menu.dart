@@ -10,11 +10,11 @@ class MobileMenu extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var marginSize = getMarginSize(context);
+    var horizontalMargin = getHorizontalMargin(context);
     return Container(
       color: Theme.of(context).backgroundColor,
       child: Padding(
-        padding: EdgeInsets.all(marginSize),
+        padding: EdgeInsets.all(horizontalMargin),
         child: SafeArea(
           child: Column(
             children: [
@@ -43,7 +43,7 @@ class MobileMenu extends StatelessWidget {
                       child: Text("Resume"),
                     ),
                     Container(
-                      height: marginSize / 2,
+                      height: horizontalMargin / 2,
                     ),
                     TextButton(
                       onPressed: () {
@@ -54,7 +54,7 @@ class MobileMenu extends StatelessWidget {
                       child: Text("Projects"),
                     ),
                     Container(
-                      height: marginSize / 2,
+                      height: horizontalMargin / 2,
                     ),
                     FloatingActionButton.extended(
                       onPressed: () {

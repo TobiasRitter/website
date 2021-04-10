@@ -9,7 +9,7 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var verticalMarginSize = getMarginSize2(context);
+    var verticalMarginSize = getVerticalMargin(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

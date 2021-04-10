@@ -41,12 +41,12 @@ class _ArrowState extends State<Arrow> with TickerProviderStateMixin {
     return GestureDetector(
       onTap: () => widget.scrollFunc(1),
       child: Container(
-        height: getArrowSize(context) + getMarginSize(context),
+        height: getArrowSize(context) + getHorizontalMargin(context),
         child: Column(
           children: [
             Container(
               margin: EdgeInsets.only(
-                  top: arrowController.value * getMarginSize(context)),
+                  top: arrowController.value * getHorizontalMargin(context)),
               child: Icon(
                 Icons.keyboard_arrow_down_sharp,
                 size: getArrowSize(context),

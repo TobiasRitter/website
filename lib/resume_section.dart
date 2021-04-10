@@ -32,7 +32,7 @@ class ResumeSection extends StatefulWidget {
 class _ResumeSectionState extends State<ResumeSection> {
   @override
   Widget build(BuildContext context) {
-    var marginSize = getMarginSize(context);
+    var horizontalMargin = getHorizontalMargin(context);
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
@@ -60,15 +60,15 @@ class _ResumeSectionState extends State<ResumeSection> {
               maxWidth:
                   screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: marginSize * 4),
+            padding: EdgeInsets.symmetric(vertical: horizontalMargin * 4),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 widget.header ?? Container(),
                 Center(
                   child: screenWidth > SWIDTH
-                      ? buildDesktopLayout(context, marginSize)
-                      : buildMobileLayout(context, marginSize),
+                      ? buildDesktopLayout(context, horizontalMargin)
+                      : buildMobileLayout(context, horizontalMargin),
                 ),
               ],
             ),
@@ -78,23 +78,23 @@ class _ResumeSectionState extends State<ResumeSection> {
     );
   }
 
-  Column buildMobileLayout(BuildContext context, double marginSize) {
+  Column buildMobileLayout(BuildContext context, double horizontalMargin) {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: marginSize),
+          padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
           child: buildInfo(context),
         ),
         Padding(
-          padding:
-              EdgeInsets.fromLTRB(marginSize, marginSize * 2, marginSize, 0),
+          padding: EdgeInsets.fromLTRB(
+              horizontalMargin, horizontalMargin * 2, horizontalMargin, 0),
           child: buildDescription(context),
         ),
       ],
     );
   }
 
-  Widget buildDesktopLayout(BuildContext context, double marginSize) {
+  Widget buildDesktopLayout(BuildContext context, double horizontalMargin) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -103,13 +103,13 @@ class _ResumeSectionState extends State<ResumeSection> {
           children: [
             Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: marginSize),
+                padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
                 child: buildInfo(context),
               ),
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: marginSize),
+                padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
                 child: buildDescription(context),
               ),
             ),

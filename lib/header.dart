@@ -19,14 +19,14 @@ class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
-    var marginSize = getMarginSize(context);
+    var horizontalMargin = getHorizontalMargin(context);
     return Padding(
-      padding: EdgeInsets.only(bottom: marginSize * 2),
+      padding: EdgeInsets.only(bottom: horizontalMargin * 2),
       child: Row(
         children: [
           Container(
             constraints: BoxConstraints(
-              maxWidth: screenWidth - 2 * marginSize,
+              maxWidth: screenWidth - 2 * horizontalMargin,
             ),
             child: FittedBox(
               fit: BoxFit.scaleDown,

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,29 +27,29 @@ const CARD = const Color(0xfff5f5f5);
 const BACKGROUND = const Color(0xff200050);
 const ACCENT = const Color(0xffff0050);
 
-double getRelativeSize(BuildContext context, double referenceSize) {
+double getRelativeHorizontalSize(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
   if (screenWidth > SWIDTH) {
-    return referenceSize;
+    return 64;
   } else {
-    return screenWidth * referenceSize / 800;
+    return screenWidth * 64 / 800;
   }
 }
 
-double getRelativeSize2(BuildContext context, double referenceSize) {
+double getRelativeVerticalSize(BuildContext context) {
   var screenHeight = MediaQuery.of(context).size.height;
   if (screenHeight > SWIDTH) {
-    return referenceSize;
+    return 64;
   } else {
-    return screenHeight * referenceSize / 1200;
+    return screenHeight * 64 / 1200;
   }
 }
 
-double getArrowSize(BuildContext context) => getRelativeSize(context, 64);
+double getArrowSize(BuildContext context) => getRelativeHorizontalSize(context);
 
-double getMarginSize(BuildContext context) => getRelativeSize(context, 64);
+double getHorizontalMargin(BuildContext context) => getRelativeHorizontalSize(context);
 
-double getMarginSize2(BuildContext context) => getRelativeSize2(context, 64);
+double getVerticalMargin(BuildContext context) => getRelativeVerticalSize(context);
 
 void main() {
   runApp(MyApp());
