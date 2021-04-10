@@ -17,7 +17,6 @@ class TitlePage extends StatefulWidget {
 class _TitlePageState extends State<TitlePage> {
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     var horizontalMargin = getHorizontalMargin(context);
     var verticalMargin = getVerticalMargin(context);

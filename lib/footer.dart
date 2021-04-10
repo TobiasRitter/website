@@ -11,7 +11,6 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     var horizontalMargin = getHorizontalMargin(context);
     var verticalMargin = getVerticalMargin(context);
-    var screenWidth = MediaQuery.of(context).size.width;
     return Container(
       color: Theme.of(context).backgroundColor,
       child: Padding(
