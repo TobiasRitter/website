@@ -10,11 +10,13 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var horizontalMargin = getHorizontalMargin(context);
+    var verticalMargin = getVerticalMargin(context);
     var screenWidth = MediaQuery.of(context).size.width;
     return Container(
       color: Theme.of(context).backgroundColor,
       child: Padding(
-        padding: EdgeInsets.all(horizontalMargin),
+        padding: EdgeInsets.symmetric(
+            horizontal: horizontalMargin, vertical: verticalMargin),
         child: screenWidth > SWIDTH
             ? buildDesktopLayout(context)
             : buildMobileLayout(context),
@@ -25,13 +27,14 @@ class Footer extends StatelessWidget {
   Column buildMobileLayout(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var horizontalMargin = getHorizontalMargin(context);
+    var verticalMargin = getVerticalMargin(context);
     return Column(
       children: [
         screenWidth > 4 * FOOTER_BUTTON_WIDTH + 5 * horizontalMargin
             ? buildFooterRow(context)
             : buildFooterColumn(context),
         Padding(
-          padding: EdgeInsets.only(top: horizontalMargin),
+          padding: EdgeInsets.only(top: verticalMargin),
           child: Container(
             width: FOOTER_BUTTON_WIDTH,
             child: CopyrightButton(),
@@ -59,7 +62,7 @@ class Footer extends StatelessWidget {
   }
 
   Column buildFooterColumn(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
+    var verticalMargin = getVerticalMargin(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -70,7 +73,7 @@ class Footer extends StatelessWidget {
             "LinkedIn",
           ),
         ),
-        Container(height: horizontalMargin / 2),
+        Container(height: verticalMargin / 2),
         TextButton(
           onPressed: () =>
               launchURL('https://www.xing.com/profile/Tobias_Ritter52/cv'),
@@ -78,7 +81,7 @@ class Footer extends StatelessWidget {
             "XING",
           ),
         ),
-        Container(height: horizontalMargin / 2),
+        Container(height: verticalMargin / 2),
         TextButton(
           onPressed: () =>
               launchURL('https://github.com/TobiasRitter?tab=repositories'),
@@ -86,7 +89,7 @@ class Footer extends StatelessWidget {
             "GitHub",
           ),
         ),
-        Container(height: horizontalMargin / 2),
+        Container(height: verticalMargin / 2),
         TextButton(
           onPressed: () => launchURL('https://hub.docker.com/u/tobiasritter'),
           child: Text(

@@ -180,9 +180,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 // ResumePage(
                 //   key: keys[2],
                 // ),
-                ProjectsPage(
-                  key: keys[3],
-                ),
+                // ProjectsPage(
+                //   key: keys[3],
+                // ),
                 Footer(
                   key: keys[4],
                 ),
