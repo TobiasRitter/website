@@ -32,7 +32,6 @@ class ResumeSection extends StatefulWidget {
 class _ResumeSectionState extends State<ResumeSection> {
   @override
   Widget build(BuildContext context) {
-    var horizontalMargin = getHorizontalMargin(context);
     var verticalMargin = getVerticalMargin(context);
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
@@ -58,8 +57,9 @@ class _ResumeSectionState extends State<ResumeSection> {
         child: Container(
           constraints: BoxConstraints(
               minHeight: screenHeight,
-              maxWidth:
-                  screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
+              maxWidth: screenWidth > MAX_CONTENT_WIDTH
+                  ? MAX_CONTENT_WIDTH
+                  : screenWidth),
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: verticalMargin * 3),
             child: Column(
@@ -67,9 +67,9 @@ class _ResumeSectionState extends State<ResumeSection> {
               children: [
                 widget.header ?? Container(),
                 Center(
-                  child: screenWidth > SWIDTH
-                      ? buildDesktopLayout(context)
-                      : buildMobileLayout(context),
+                  child: isPortrait(context)
+                      ? buildMobileLayout(context)
+                      : buildDesktopLayout(context),
                 ),
               ],
             ),

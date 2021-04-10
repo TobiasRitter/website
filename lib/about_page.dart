@@ -25,8 +25,8 @@ class AboutPage extends StatelessWidget {
           children: [
             Container(
               constraints: BoxConstraints(
-                  maxWidth: screenWidth > CONTENT_WIDTH
-                      ? CONTENT_WIDTH
+                  maxWidth: screenWidth > MAX_CONTENT_WIDTH
+                      ? MAX_CONTENT_WIDTH
                       : screenWidth),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: horizontalMargin),

@@ -29,8 +29,20 @@ class _TitlePageState extends State<TitlePage> {
           Padding(
             padding: EdgeInsets.symmetric(
                 vertical: verticalMargin, horizontal: horizontalMargin),
-            child: screenWidth > SWIDTH
+            child: isPortrait(context)
                 ? Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          Icons.menu_sharp,
+                          color: Theme.of(context).accentColor,
+                        ),
+                        onPressed: Scaffold.of(context).openEndDrawer,
+                      ),
+                    ],
+                  )
+                : Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
@@ -56,23 +68,11 @@ class _TitlePageState extends State<TitlePage> {
                         label: Text("Contact"),
                       ),
                     ],
-                  )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      IconButton(
-                        icon: Icon(
-                          Icons.menu_sharp,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        onPressed: Scaffold.of(context).openEndDrawer,
-                      ),
-                    ],
                   ),
           ),
-          screenWidth > SWIDTH
-              ? buildDesktopLayout(context)
-              : buildMobileLayout(context),
+          isPortrait(context)
+              ? buildMobileLayout(context)
+              : buildDesktopLayout(context),
         ],
       ),
     );

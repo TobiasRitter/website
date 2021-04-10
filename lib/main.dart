@@ -15,10 +15,8 @@ final Duration animationDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
 final Duration drawerCloseDuration = Duration(milliseconds: 300);
 
-const SWIDTH = 1000.0;
-const CONTENT_WIDTH = 1200.0;
+const MAX_CONTENT_WIDTH = 1200.0;
 const IMG_OPACITY = 0.5;
-const FOOTER_BUTTON_WIDTH = 150.0;
 
 const PRIMARY = Colors.black;
 const PRIMARY_LIGHT = Colors.black87;
@@ -29,20 +27,12 @@ const ACCENT = const Color(0xffff0050);
 
 double getRelativeHorizontalSize(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
-  if (screenWidth > SWIDTH) {
-    return 64;
-  } else {
-    return screenWidth * 64 / 800;
-  }
+  return screenWidth * 64 / 800;
 }
 
 double getRelativeVerticalSize(BuildContext context) {
   var screenHeight = MediaQuery.of(context).size.height;
-  if (screenHeight > SWIDTH) {
-    return 64;
-  } else {
-    return screenHeight * 64 / 1200;
-  }
+  return screenHeight * 64 / 1200;
 }
 
 double getArrowSize(BuildContext context) => getRelativeHorizontalSize(context);
@@ -52,6 +42,9 @@ double getHorizontalMargin(BuildContext context) =>
 
 double getVerticalMargin(BuildContext context) =>
     getRelativeVerticalSize(context);
+
+bool isPortrait(BuildContext context) =>
+    MediaQuery.of(context).size.width < MediaQuery.of(context).size.height;
 
 void main() {
   runApp(MyApp());
@@ -154,14 +147,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       endDrawerEnableOpenDragGesture: false,
-      endDrawer: screenWidth > SWIDTH
-          ? null
-          : MobileMenu(
+      endDrawer: isPortrait(context)
+          ? MobileMenu(
               scrollFunc: scroll,
-            ),
+            )
+          : null,
       body: SafeArea(
         child: ScrollConfiguration(
           behavior: NoOverscrollBehaviour(),

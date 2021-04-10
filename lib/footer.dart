@@ -17,9 +17,9 @@ class Footer extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: horizontalMargin, vertical: verticalMargin),
-        child: screenWidth > SWIDTH
-            ? buildDesktopLayout(context)
-            : buildMobileLayout(context),
+        child: isPortrait(context)
+            ? buildMobileLayout(context)
+            : buildDesktopLayout(context),
       ),
     );
   }

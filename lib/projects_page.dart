@@ -23,7 +23,7 @@ class ProjectsPage extends StatelessWidget {
           header: Container(
             constraints: BoxConstraints(
                 maxWidth:
-                    screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
+                    screenWidth > MAX_CONTENT_WIDTH ? MAX_CONTENT_WIDTH : screenWidth),
             child: Padding(
               padding:
                   EdgeInsets.fromLTRB(horizontalMargin, 0, horizontalMargin, 0),
