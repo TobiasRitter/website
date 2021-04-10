@@ -12,6 +12,7 @@ class ResumePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var horizontalMargin = getHorizontalMargin(context);
+    var verticalMargin = getVerticalMargin(context);
     return Column(
       children: [
         ResumeSection(
@@ -32,8 +33,8 @@ class ResumePage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(horizontalMargin, 0,
-                    horizontalMargin, horizontalMargin * 2),
+                padding: EdgeInsets.fromLTRB(
+                    horizontalMargin, 0, horizontalMargin, verticalMargin * 2),
                 child: Row(
                   children: [
                     SelectableText(
@@ -67,7 +68,7 @@ class ResumePage extends StatelessWidget {
           dark: true,
           header: Padding(
             padding: EdgeInsets.fromLTRB(
-                horizontalMargin, 0, horizontalMargin, horizontalMargin * 2),
+                horizontalMargin, 0, horizontalMargin, verticalMargin * 2),
             child: Row(
               children: [
                 SelectableText(

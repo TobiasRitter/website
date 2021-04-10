@@ -177,12 +177,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 //   key: keys[1],
                 //   scrollFunc: scroll,
                 // ),
-                // ResumePage(
-                //   key: keys[2],
-                // ),
-                // ProjectsPage(
-                //   key: keys[3],
-                // ),
+                ResumePage(
+                  key: keys[2],
+                ),
+                ProjectsPage(
+                  key: keys[3],
+                ),
                 Footer(
                   key: keys[4],
                 ),

@@ -33,6 +33,7 @@ class _ResumeSectionState extends State<ResumeSection> {
   @override
   Widget build(BuildContext context) {
     var horizontalMargin = getHorizontalMargin(context);
+    var verticalMargin = getVerticalMargin(context);
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
@@ -60,15 +61,15 @@ class _ResumeSectionState extends State<ResumeSection> {
               maxWidth:
                   screenWidth > CONTENT_WIDTH ? CONTENT_WIDTH : screenWidth),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: horizontalMargin * 4),
+            padding: EdgeInsets.symmetric(vertical: verticalMargin * 3),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 widget.header ?? Container(),
                 Center(
                   child: screenWidth > SWIDTH
-                      ? buildDesktopLayout(context, horizontalMargin)
-                      : buildMobileLayout(context, horizontalMargin),
+                      ? buildDesktopLayout(context)
+                      : buildMobileLayout(context),
                 ),
               ],
             ),
@@ -78,7 +79,9 @@ class _ResumeSectionState extends State<ResumeSection> {
     );
   }
 
-  Column buildMobileLayout(BuildContext context, double horizontalMargin) {
+  Column buildMobileLayout(BuildContext context) {
+    var horizontalMargin = getHorizontalMargin(context);
+    var verticalMargin = getVerticalMargin(context);
     return Column(
       children: [
         Padding(
@@ -87,14 +90,15 @@ class _ResumeSectionState extends State<ResumeSection> {
         ),
         Padding(
           padding: EdgeInsets.fromLTRB(
-              horizontalMargin, horizontalMargin * 2, horizontalMargin, 0),
+              horizontalMargin, verticalMargin * 2, horizontalMargin, 0),
           child: buildDescription(context),
         ),
       ],
     );
   }
 
-  Widget buildDesktopLayout(BuildContext context, double horizontalMargin) {
+  Widget buildDesktopLayout(BuildContext context) {
+    var horizontalMargin = getHorizontalMargin(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
