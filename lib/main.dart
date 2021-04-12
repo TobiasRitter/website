@@ -19,7 +19,7 @@ const MIN_DESKTOP_WIDTH = 1000.0;
 const MIN_FOOTER_WIDTH = 560.0;
 const MAX_CONTENT_WIDTH = 1200.0;
 const IMG_OPACITY = 0.5;
-const IMG_ELEVATION = 32.0;
+const IMG_ELEVATION = 24.0;
 
 const PRIMARY = Colors.black;
 const CANVAS = Colors.white;
@@ -145,17 +145,17 @@ class _MyHomePageState extends State<MyHomePage> {
             controller: scrollController,
             child: Column(
               children: [
-                TitlePage(
-                  key: keys[0],
-                  scrollFunc: scroll,
-                ),
-                AboutPage(
-                  key: keys[1],
-                  scrollFunc: scroll,
-                ),
-                ResumePage(
-                  key: keys[2],
-                ),
+                // TitlePage(
+                //   key: keys[0],
+                //   scrollFunc: scroll,
+                // ),
+                // AboutPage(
+                //   key: keys[1],
+                //   scrollFunc: scroll,
+                // ),
+                // ResumePage(
+                //   key: keys[2],
+                // ),
                 ProjectsPage(
                   key: keys[3],
                 ),

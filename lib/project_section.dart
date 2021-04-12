@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/header.dart';
+import 'package:website/hover_image.dart';
 import 'package:website/main.dart';
 
 class ProjectSection extends StatefulWidget {
@@ -69,17 +70,15 @@ class _ProjectSectionState extends State<ProjectSection> {
     var screenHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        Material(
-          elevation: IMG_ELEVATION,
-          child: Container(
-            constraints: BoxConstraints(maxHeight: screenHeight / 2),
-            child: Image.asset(
-              widget.image,
-            ),
+        Container(
+          constraints: BoxConstraints(maxHeight: screenHeight / 2),
+          child: HoverImage(
+            image: widget.image,
+            url: widget.url,
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: verticalMargin * 2),
+          padding: EdgeInsets.only(top: verticalMargin * 3),
           child: buildInfo(),
         ),
       ],
@@ -94,28 +93,21 @@ class _ProjectSectionState extends State<ProjectSection> {
         widget.inversed
             ? Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(right: horizontalMargin / 2),
+                  padding: EdgeInsets.only(right: horizontalMargin),
                   child: buildInfo(),
                 ),
               )
             : Container(),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(
-                widget.inversed ? horizontalMargin / 2 : 0,
-                0,
-                widget.inversed ? 0 : horizontalMargin / 2,
-                0),
+            padding: EdgeInsets.fromLTRB(widget.inversed ? horizontalMargin : 0,
+                0, widget.inversed ? 0 : horizontalMargin, 0),
             child: Container(
               alignment: Alignment.centerLeft,
               constraints: BoxConstraints(maxHeight: screenHeight / 2),
-              child: Material(
-                elevation: IMG_ELEVATION,
-                child: Image.asset(
-                  widget.image,
-                  fit: BoxFit.contain,
-                  alignment: Alignment.centerLeft,
-                ),
+              child: HoverImage(
+                image: widget.image,
+                url: widget.url,
               ),
             ),
           ),
@@ -124,7 +116,7 @@ class _ProjectSectionState extends State<ProjectSection> {
             ? Container()
             : Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(left: horizontalMargin / 2),
+                  padding: EdgeInsets.only(left: horizontalMargin),
                   child: buildInfo(),
                 ),
               ),
