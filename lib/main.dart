@@ -11,9 +11,9 @@ import 'package:website/title_page.dart';
 void launchURL(String url) async =>
     await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 
-final Duration animationDuration = Duration(milliseconds: 500);
+final Duration scrollDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
-final Duration drawerDuration = Duration(milliseconds: 300);
+final Duration menuDuration = Duration(milliseconds: 300);
 
 const MIN_DESKTOP_WIDTH = 1000.0;
 const MIN_FOOTER_WIDTH = 560.0;
@@ -105,7 +105,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   late ScrollController scrollController;
   late final TitlePage titlePage;
   late final MobileMenu menu;
@@ -119,10 +119,21 @@ class _MyHomePageState extends State<MyHomePage> {
     GlobalKey(),
     GlobalKey(),
   ];
+  late Animation<double> iconAnimation;
+  late AnimationController animationController;
 
   @override
   void initState() {
     super.initState();
+    animationController = AnimationController(
+      value: 1,
+      vsync: this,
+      duration: menuDuration,
+    );
+    iconAnimation = CurvedAnimation(
+      curve: Curves.linear,
+      parent: animationController,
+    );
     scrollController = ScrollController();
     titlePage = TitlePage(
       key: keys[0],
@@ -153,10 +164,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void dispose() {
     scrollController.dispose();
+    animationController.dispose();
     super.dispose();
   }
 
   void closeDrawer() {
+    animationController.forward();
     setState(() {
       menuOpened = false;
     });
@@ -173,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
         return;
     }
     scrollController.animateTo(offset,
-        duration: animationDuration, curve: Curves.easeInOut);
+        duration: scrollDuration, curve: Curves.easeInOut);
   }
 
   @override
@@ -199,9 +212,16 @@ class _MyHomePageState extends State<MyHomePage> {
                             vertical: verticalMargin,
                           ),
                           child: IconButton(
-                            icon: Icon(menuOpened ? Icons.close : Icons.menu),
-                            onPressed: () =>
-                                setState(() => menuOpened = !menuOpened),
+                            icon: AnimatedIcon(
+                              icon: AnimatedIcons.close_menu,
+                              progress: iconAnimation,
+                            ),
+                            onPressed: () {
+                              menuOpened
+                                  ? animationController.forward()
+                                  : animationController.reverse();
+                              setState(() => menuOpened = !menuOpened);
+                            },
                             color: Theme.of(context).accentColor,
                           ),
                         ),
@@ -209,7 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     : Container(),
                 isMobile(context)
                     ? AnimatedSwitcher(
-                        duration: drawerDuration,
+                        duration: menuDuration,
                         child: menuOpened ? menu : titlePage,
                       )
                     : titlePage,
