@@ -29,7 +29,7 @@ class Header extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  height: h2 ? verticalMargin * 1.5 : verticalMargin * 3,
+                  height: h2 ? verticalMargin * 1.25 : verticalMargin * 3,
                   child: FittedBox(
                     alignment: Alignment.topLeft,
                     child: SelectableText(
