@@ -22,9 +22,9 @@ const IMG_OPACITY = 0.5;
 const IMG_ELEVATION = 24.0;
 
 const PRIMARY = Colors.black;
+const PRIMARY_LIGHT = Colors.black12;
 const CANVAS = Colors.white;
-const CARD = const Color(0xfff5f5f5);
-const BACKGROUND = const Color(0xff000030);
+const BACKGROUND = const Color(0xfff5f5f5);
 const ACCENT = const Color(0xffff0050);
 
 double getRelativeHorizontalSize(BuildContext context) {
@@ -56,10 +56,10 @@ class MyApp extends StatelessWidget {
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        dividerColor: PRIMARY_LIGHT,
         canvasColor: CANVAS,
         accentColor: ACCENT,
         primaryColor: PRIMARY,
-        cardColor: CARD,
         backgroundColor: BACKGROUND,
         textTheme: TextTheme(
           bodyText2: GoogleFonts.roboto(
@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
-            primary: ACCENT,
+            primary: PRIMARY,
           ),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(

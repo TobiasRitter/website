@@ -8,14 +8,14 @@ class CopyrightButton extends StatelessWidget {
       onPressed: () => showLicensePage(context: context),
       icon: Icon(
         Icons.copyright_sharp,
-        color: Theme.of(context).canvasColor,
+        color: Theme.of(context).dividerColor,
       ),
       label: Text(
         year,
         style: Theme.of(context)
             .textTheme
             .button!
-            .copyWith(color: Theme.of(context).cardColor),
+            .copyWith(color: Theme.of(context).dividerColor),
       ),
     );
   }

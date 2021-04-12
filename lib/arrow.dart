@@ -52,7 +52,7 @@ class _ArrowState extends State<Arrow> with TickerProviderStateMixin {
               child: Icon(
                 Icons.keyboard_arrow_down_sharp,
                 size: arrowSize,
-                color: Theme.of(context).cardColor,
+                color: Theme.of(context).dividerColor,
               ),
             ),
           ],

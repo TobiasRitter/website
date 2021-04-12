@@ -28,7 +28,7 @@ class MobileMenu extends StatelessWidget {
                   IconButton(
                     icon: Icon(
                       Icons.close_sharp,
-                      color: Theme.of(context).canvasColor,
+                      color: Theme.of(context).accentColor,
                     ),
                     onPressed: () => Navigator.pop(context),
                   ),

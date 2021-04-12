@@ -34,6 +34,13 @@ class ProjectsPage extends StatelessWidget {
           image: 'res/Cardgame.png',
           dark: true,
         ),
+        ProjectSection(
+          title: 'CleverConvert',
+          url: 'https://github.com/TobiasRitter/cleverconvert',
+          description: CLEVER_CONVERT,
+          image: 'res/CleverConvert.png',
+          inversed: true,
+        ),
       ],
     );
   }
