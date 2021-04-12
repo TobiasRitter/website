@@ -35,7 +35,7 @@ class Footer extends StatelessWidget {
                 : buildFooterRow(context),
           ),
           Padding(
-            padding: EdgeInsets.only(top: verticalMargin),
+            padding: EdgeInsets.only(top: verticalMargin * 2),
             child: CopyrightButton(),
           ),
         ],
