@@ -37,8 +37,8 @@ class _ProjectSectionState extends State<ProjectSection> {
     return Container(
       constraints: BoxConstraints(minHeight: screenHeight),
       color: widget.dark
-          ? Theme.of(context).backgroundColor
-          : Theme.of(context).canvasColor,
+          ? Theme.of(context).canvasColor
+          : Theme.of(context).backgroundColor,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: verticalMargin * 3),
         child: Column(

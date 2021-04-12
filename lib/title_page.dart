@@ -4,7 +4,7 @@ import 'package:website/logo.dart';
 import 'package:website/main.dart';
 
 class TitlePage extends StatefulWidget {
-  final Function(int) scrollFunc;
+  final Function(BuildContext, int) scrollFunc;
   const TitlePage({
     Key? key,
     required this.scrollFunc,
@@ -21,31 +21,21 @@ class _TitlePageState extends State<TitlePage> {
     var horizontalMargin = getRelativeHorizontalSize(context);
     var verticalMargin = getRelativeVerticalSize(context);
     return Container(
-      height: screenHeight,
-      color: Theme.of(context).backgroundColor,
+      height: isMobile(context)
+          ? screenHeight - (verticalMargin * 2 + 48)
+          : screenHeight,
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-                vertical: verticalMargin, horizontal: horizontalMargin),
-            child: isMobile(context)
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      IconButton(
-                        icon: Icon(
-                          Icons.menu_sharp,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        onPressed: Scaffold.of(context).openEndDrawer,
-                      ),
-                    ],
-                  )
-                : Row(
+          isMobile(context)
+              ? Container()
+              : Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: verticalMargin, horizontal: horizontalMargin),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
-                        onPressed: () => widget.scrollFunc(2),
+                        onPressed: () => widget.scrollFunc(context, 2),
                         child: Text(
                           "Resume",
                         ),
@@ -53,7 +43,7 @@ class _TitlePageState extends State<TitlePage> {
                       Padding(
                         padding: EdgeInsets.only(left: horizontalMargin / 2),
                         child: TextButton(
-                          onPressed: () => widget.scrollFunc(3),
+                          onPressed: () => widget.scrollFunc(context, 3),
                           child: Text(
                             "Projects",
                           ),
@@ -62,13 +52,13 @@ class _TitlePageState extends State<TitlePage> {
                       Padding(
                         padding: EdgeInsets.only(left: horizontalMargin / 2),
                         child: FloatingActionButton.extended(
-                          onPressed: () => widget.scrollFunc(4),
+                          onPressed: () => widget.scrollFunc(context, 4),
                           label: Text("Contact"),
                         ),
                       ),
                     ],
                   ),
-          ),
+                ),
           isPortrait(context)
               ? buildMobileLayout(context)
               : buildDesktopLayout(context),

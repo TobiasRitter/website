@@ -40,8 +40,8 @@ class _ResumeSectionState extends State<ResumeSection> {
       color: widget.image != null
           ? null
           : widget.dark
-              ? Theme.of(context).backgroundColor
-              : Theme.of(context).canvasColor,
+              ? Theme.of(context).canvasColor
+              : Theme.of(context).backgroundColor,
       constraints: BoxConstraints(minHeight: screenHeight),
       decoration: widget.image != null
           ? BoxDecoration(

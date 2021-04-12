@@ -12,7 +12,12 @@ class ResumePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Header(text: "Education"),
+        Container(
+          color: Theme.of(context).backgroundColor,
+          child: Center(
+            child: Header(text: "Education"),
+          ),
+        ),
         ResumeSection(
           title: "M. Sc. Informatics",
           date: "2020 - Present",
@@ -30,7 +35,12 @@ class ResumePage extends StatelessWidget {
           institutionUrl: "https://www.dhbw-stuttgart.de/",
           description: DHBW,
         ),
-        Header(text: "Work experience"),
+        Container(
+          color: Theme.of(context).backgroundColor,
+          child: Center(
+            child: Header(text: "Work experience"),
+          ),
+        ),
         ResumeSection(
           title: "Coorporate Student",
           date: "2017 - 2020",

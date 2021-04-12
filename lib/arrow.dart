@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 
 class Arrow extends StatefulWidget {
-  final Function(int) scrollFunc;
+  final Function(BuildContext, int) scrollFunc;
 
   const Arrow({
     Key? key,
@@ -41,7 +41,7 @@ class _ArrowState extends State<Arrow> with TickerProviderStateMixin {
     var verticalMargin = getRelativeVerticalSize(context);
     var arrowSize = getRelativeVerticalSize(context);
     return GestureDetector(
-      onTap: () => widget.scrollFunc(1),
+      onTap: () => widget.scrollFunc(context, 1),
       child: Container(
         height: arrowSize + verticalMargin,
         child: Column(

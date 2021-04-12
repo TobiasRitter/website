@@ -3,10 +3,8 @@ import 'package:website/main.dart';
 import 'package:website/texts.dart';
 
 class AboutPage extends StatelessWidget {
-  final Function(int) scrollFunc;
   const AboutPage({
     Key? key,
-    required this.scrollFunc,
   }) : super(key: key);
 
   @override
@@ -16,23 +14,28 @@ class AboutPage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      constraints: BoxConstraints(
-          minHeight: screenHeight,
-          maxWidth: screenWidth > MAX_CONTENT_WIDTH
-              ? MAX_CONTENT_WIDTH
-              : screenWidth),
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: verticalMargin * 3),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
-          child: Row(
-            children: [
-              Expanded(
-                child: SelectableText(
-                  ABOUT,
-                ),
+      color: Theme.of(context).backgroundColor,
+      child: Center(
+        child: Container(
+          constraints: BoxConstraints(
+              minHeight: screenHeight,
+              maxWidth: screenWidth > MAX_CONTENT_WIDTH
+                  ? MAX_CONTENT_WIDTH
+                  : screenWidth),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: verticalMargin * 3),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: SelectableText(
+                      ABOUT,
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

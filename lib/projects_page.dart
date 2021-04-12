@@ -12,7 +12,12 @@ class ProjectsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Header(text: "Projects"),
+        Container(
+          color: Theme.of(context).backgroundColor,
+          child: Center(
+            child: Header(text: "Projects"),
+          ),
+        ),
         ProjectSection(
           title: 'PyNN',
           url: 'https://github.com/TobiasRitter/PyNN',

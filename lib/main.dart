@@ -13,7 +13,7 @@ void launchURL(String url) async =>
 
 final Duration animationDuration = Duration(milliseconds: 500);
 final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
-final Duration drawerCloseDuration = Duration(milliseconds: 300);
+final Duration drawerDuration = Duration(milliseconds: 300);
 
 const MIN_DESKTOP_WIDTH = 1000.0;
 const MIN_FOOTER_WIDTH = 560.0;
@@ -23,8 +23,8 @@ const IMG_ELEVATION = 24.0;
 
 const PRIMARY = Colors.black;
 const PRIMARY_LIGHT = Colors.black12;
-const CANVAS = Colors.white;
-const BACKGROUND = const Color(0xfff5f5f5);
+const BACKGROUND = Colors.white;
+const CANVAS = const Color(0xfff5f5f5);
 const ACCENT = const Color(0xffff0050);
 
 double getRelativeHorizontalSize(BuildContext context) {
@@ -107,6 +107,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   ScrollController scrollController = ScrollController();
+  bool menuOpened = false;
   List<GlobalKey> keys = [
     GlobalKey(),
     GlobalKey(),
@@ -116,8 +117,9 @@ class _MyHomePageState extends State<MyHomePage> {
     GlobalKey(),
   ];
 
-  void scroll(int index) {
-    double offset = 0.0;
+  void scroll(BuildContext context, int index) {
+    var verticalMargin = getRelativeVerticalSize(context);
+    double offset = 48.0 + verticalMargin * 2;
     for (var key in keys.sublist(0, index)) {
       RenderObject? renderObject = key.currentContext!.findRenderObject();
       if (renderObject is RenderBox) {
@@ -131,42 +133,70 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMargin = getRelativeVerticalSize(context);
     return Scaffold(
-      endDrawerEnableOpenDragGesture: false,
-      endDrawer: isMobile(context)
-          ? MobileMenu(
-              scrollFunc: scroll,
-            )
-          : null,
-      body: SafeArea(
-        child: ScrollConfiguration(
+      body: Builder(
+        builder: (context) => ScrollConfiguration(
           behavior: NoOverscrollBehaviour(),
           child: SingleChildScrollView(
             controller: scrollController,
             child: Column(
               children: [
-                TitlePage(
-                  key: keys[0],
-                  scrollFunc: scroll,
-                ),
-                AboutPage(
-                  key: keys[1],
-                  scrollFunc: scroll,
-                ),
-                ResumePage(
-                  key: keys[2],
-                ),
-                ProjectsPage(
-                  key: keys[3],
-                ),
-                Footer(
-                  key: keys[4],
-                ),
+                isMobile(context)
+                    ? Container(
+                        height: verticalMargin * 2 + 48,
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: horizontalMargin,
+                            vertical: verticalMargin,
+                          ),
+                          child: IconButton(
+                            icon: Icon(menuOpened ? Icons.close : Icons.menu),
+                            onPressed: () =>
+                                setState(() => menuOpened = !menuOpened),
+                            color: Theme.of(context).accentColor,
+                          ),
+                        ),
+                      )
+                    : Container(),
+                isMobile(context)
+                    ? AnimatedSwitcher(
+                        duration: drawerDuration,
+                        child: menuOpened
+                            ? MobileMenu(scrollFunc: scroll)
+                            : buildContent(),
+                      )
+                    : buildContent(),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Column buildContent() {
+    return Column(
+      children: [
+        TitlePage(
+          key: keys[0],
+          scrollFunc: scroll,
+        ),
+        AboutPage(
+          key: keys[1],
+        ),
+        ResumePage(
+          key: keys[2],
+        ),
+        ProjectsPage(
+          key: keys[3],
+        ),
+        Footer(
+          key: keys[4],
+        ),
+      ],
     );
   }
 }

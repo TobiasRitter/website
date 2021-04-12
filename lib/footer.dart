@@ -12,7 +12,6 @@ class Footer extends StatelessWidget {
     var horizontalMargin = getRelativeHorizontalSize(context);
     var verticalMargin = getRelativeVerticalSize(context);
     return Container(
-      color: Theme.of(context).backgroundColor,
       child: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: horizontalMargin, vertical: verticalMargin),
