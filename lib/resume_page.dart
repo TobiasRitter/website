@@ -11,10 +11,9 @@ class ResumePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var horizontalMargin = getRelativeHorizontalSize(context);
-    var verticalMargin = getRelativeVerticalSize(context);
     return Column(
       children: [
+        Header(text: "Education"),
         ResumeSection(
           title: "M. Sc. Informatics",
           date: "2020 - Present",
@@ -23,32 +22,6 @@ class ResumePage extends StatelessWidget {
           institutionUrl: "https://www.tum.de/",
           description: TUM,
           image: 'res/TUM.jpg',
-          header: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
-                child: Header(
-                  text: "Resume",
-                  light: true,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(
-                    horizontalMargin, 0, horizontalMargin, verticalMargin * 2),
-                child: Row(
-                  children: [
-                    SelectableText(
-                      "Education",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline2!
-                          .copyWith(color: Theme.of(context).canvasColor),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
         ),
         ResumeSection(
           title: "B. Sc. Computer Science",
@@ -58,6 +31,7 @@ class ResumePage extends StatelessWidget {
           institutionUrl: "https://www.dhbw-stuttgart.de/",
           description: DHBW,
         ),
+        Header(text: "Work experience"),
         ResumeSection(
           title: "Coorporate Student",
           date: "2017 - 2020",
@@ -66,18 +40,6 @@ class ResumePage extends StatelessWidget {
           institutionUrl: "https://www.trumpf.com/en_INT/",
           description: TRUMPF,
           dark: true,
-          header: Padding(
-            padding: EdgeInsets.fromLTRB(
-                horizontalMargin, 0, horizontalMargin, verticalMargin * 2),
-            child: Row(
-              children: [
-                SelectableText(
-                  "Work experience",
-                  style: Theme.of(context).textTheme.headline2,
-                ),
-              ],
-            ),
-          ),
         ),
         ResumeSection(
           title: "Summer Intern",

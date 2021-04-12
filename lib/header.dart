@@ -1,49 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:website/main.dart';
 
-class Header extends StatefulWidget {
+class Header extends StatelessWidget {
   final String text;
+  final bool h2;
   final bool light;
 
   const Header({
     Key? key,
     required this.text,
+    this.h2 = false,
     this.light = false,
   }) : super(key: key);
 
   @override
-  _HeaderState createState() => _HeaderState();
-}
-
-class _HeaderState extends State<Header> {
-  @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
     var verticalMargin = getRelativeVerticalSize(context);
     var horizontalMargin = getRelativeHorizontalSize(context);
     return Padding(
-      padding: EdgeInsets.only(bottom: verticalMargin * 2),
-      child: Row(
-        children: [
-          Container(
-            constraints: BoxConstraints(
-              maxWidth: screenWidth - 2 * horizontalMargin,
-            ),
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: SelectableText(
-                widget.text,
-                maxLines: 1,
-                style: widget.light
-                    ? Theme.of(context)
-                        .textTheme
-                        .headline1!
-                        .copyWith(color: Theme.of(context).canvasColor)
-                    : Theme.of(context).textTheme.headline1,
+      padding: EdgeInsets.only(top: h2 ? 0 : verticalMargin * 3),
+      child: Container(
+        constraints: BoxConstraints(
+          maxWidth: MAX_CONTENT_WIDTH,
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: h2 ? 0 : horizontalMargin),
+          child: Row(
+            children: [
+              Expanded(
+                child: Container(
+                  height: h2 ? verticalMargin * 1.5 : verticalMargin * 3,
+                  child: FittedBox(
+                    alignment: Alignment.topLeft,
+                    child: SelectableText(
+                      text,
+                      style: h2
+                          ? light
+                              ? Theme.of(context).textTheme.headline2!.copyWith(
+                                  color: Theme.of(context).canvasColor)
+                              : Theme.of(context).textTheme.headline2
+                          : light
+                              ? Theme.of(context).textTheme.headline1!.copyWith(
+                                  color: Theme.of(context).canvasColor)
+                              : Theme.of(context).textTheme.headline1,
+                    ),
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

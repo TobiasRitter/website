@@ -20,7 +20,7 @@ class Logo extends StatelessWidget {
               "Tobias Ritter",
               style: Theme.of(context)
                   .textTheme
-                  .headline6!
+                  .headline1!
                   .copyWith(color: Theme.of(context).canvasColor),
               maxLines: 1,
             ),
@@ -35,7 +35,7 @@ class Logo extends StatelessWidget {
                 SUBTITLE,
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle2!
+                    .subtitle1!
                     .copyWith(color: Theme.of(context).canvasColor),
               ),
             ),

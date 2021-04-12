@@ -21,7 +21,6 @@ const MAX_CONTENT_WIDTH = 1200.0;
 const IMG_OPACITY = 0.5;
 
 const PRIMARY = Colors.black;
-const PRIMARY_LIGHT = Colors.black87;
 const CANVAS = Colors.white;
 const CARD = const Color(0xfff5f5f5);
 const BACKGROUND = const Color(0xff000030);
@@ -70,30 +69,15 @@ class MyApp extends StatelessWidget {
           button: GoogleFonts.roboto(
             fontWeight: FontWeight.bold,
           ),
-          headline5: GoogleFonts.roboto(
-            color: PRIMARY,
-            fontWeight: FontWeight.bold,
-          ),
-          headline6: GoogleFonts.roboto(
-            color: PRIMARY,
-            fontWeight: FontWeight.w900,
-          ),
-          subtitle2: GoogleFonts.roboto(
+          subtitle1: GoogleFonts.roboto(
             fontWeight: FontWeight.w100,
           ),
           headline1: GoogleFonts.roboto(
             color: PRIMARY,
-            fontSize: 64,
             fontWeight: FontWeight.w900,
           ),
           headline2: GoogleFonts.roboto(
-            color: PRIMARY_LIGHT,
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
-          ),
-          headline3: GoogleFonts.roboto(
-            color: PRIMARY_LIGHT,
-            fontSize: 22,
+            color: PRIMARY,
             fontWeight: FontWeight.bold,
           ),
         ),

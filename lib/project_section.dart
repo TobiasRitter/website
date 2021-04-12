@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/header.dart';
 import 'package:website/main.dart';
 
 class ProjectSection extends StatefulWidget {
@@ -76,7 +77,7 @@ class _ProjectSectionState extends State<ProjectSection> {
         ),
         Padding(
           padding: EdgeInsets.only(top: verticalMargin * 2),
-          child: buildInfo(center: true),
+          child: buildInfo(),
         ),
       ],
     );
@@ -90,15 +91,18 @@ class _ProjectSectionState extends State<ProjectSection> {
         widget.inversed
             ? Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(right: horizontalMargin),
+                  padding: EdgeInsets.only(right: horizontalMargin / 2),
                   child: buildInfo(),
                 ),
               )
             : Container(),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(widget.inversed ? horizontalMargin : 0,
-                0, widget.inversed ? 0 : horizontalMargin, 0),
+            padding: EdgeInsets.fromLTRB(
+                widget.inversed ? horizontalMargin / 2 : 0,
+                0,
+                widget.inversed ? 0 : horizontalMargin / 2,
+                0),
             child: Container(
               constraints: BoxConstraints(maxHeight: screenHeight / 2),
               child: Image.asset(
@@ -113,7 +117,7 @@ class _ProjectSectionState extends State<ProjectSection> {
             ? Container()
             : Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(left: horizontalMargin),
+                  padding: EdgeInsets.only(left: horizontalMargin / 2),
                   child: buildInfo(),
                 ),
               ),
@@ -121,17 +125,15 @@ class _ProjectSectionState extends State<ProjectSection> {
     );
   }
 
-  Widget buildInfo({bool center = false}) {
+  Widget buildInfo() {
     var verticalMargin = getRelativeVerticalSize(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment:
-          center ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SelectableText(
-          widget.title,
-          maxLines: 1,
-          style: Theme.of(context).textTheme.headline2,
+        Header(
+          text: widget.title,
+          h2: true,
         ),
         Padding(
           padding: EdgeInsets.only(top: verticalMargin),

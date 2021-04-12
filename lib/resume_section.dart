@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/header.dart';
 import 'package:website/main.dart';
 
 class ResumeSection extends StatefulWidget {
@@ -102,22 +103,25 @@ class _ResumeSectionState extends State<ResumeSection> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
-                child: buildInfo(context),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(right: horizontalMargin / 2),
+                  child: buildInfo(context),
+                ),
               ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
-                child: buildDescription(context),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: horizontalMargin / 2),
+                  child: buildDescription(context),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
@@ -139,14 +143,10 @@ class _ResumeSectionState extends State<ResumeSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SelectableText(
-          widget.title,
-          style: widget.image != null
-              ? Theme.of(context)
-                  .textTheme
-                  .headline3!
-                  .copyWith(color: Theme.of(context).canvasColor)
-              : Theme.of(context).textTheme.headline3,
+        Header(
+          text: widget.title,
+          h2: true,
+          light: widget.image != null,
         ),
         Padding(
           padding: EdgeInsets.only(top: 32),
