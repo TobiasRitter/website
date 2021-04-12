@@ -106,7 +106,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  ScrollController scrollController = ScrollController();
+  late ScrollController scrollController;
+  late final TitlePage titlePage;
+  late final MobileMenu menu;
+  late final Column content;
   bool menuOpened = false;
   List<GlobalKey> keys = [
     GlobalKey(),
@@ -117,9 +120,51 @@ class _MyHomePageState extends State<MyHomePage> {
     GlobalKey(),
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    scrollController = ScrollController();
+    titlePage = TitlePage(
+      key: keys[0],
+      scrollFunc: scroll,
+    );
+    menu = MobileMenu(
+      scrollFunc: scroll,
+      closeFunc: closeDrawer,
+    );
+    content = Column(
+      children: [
+        AboutPage(
+          key: keys[1],
+        ),
+        ResumePage(
+          key: keys[2],
+        ),
+        ProjectsPage(
+          key: keys[3],
+        ),
+        Footer(
+          key: keys[4],
+        ),
+      ],
+    );
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  void closeDrawer() {
+    setState(() {
+      menuOpened = false;
+    });
+  }
+
   void scroll(BuildContext context, int index) {
     var verticalMargin = getRelativeVerticalSize(context);
-    double offset = 48.0 + verticalMargin * 2;
+    double offset = isMobile(context) ? 48.0 + verticalMargin * 2 : 0;
     for (var key in keys.sublist(0, index)) {
       RenderObject? renderObject = key.currentContext!.findRenderObject();
       if (renderObject is RenderBox) {
@@ -140,6 +185,7 @@ class _MyHomePageState extends State<MyHomePage> {
         builder: (context) => ScrollConfiguration(
           behavior: NoOverscrollBehaviour(),
           child: SingleChildScrollView(
+            physics: menuOpened ? NeverScrollableScrollPhysics() : null,
             controller: scrollController,
             child: Column(
               children: [
@@ -164,39 +210,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 isMobile(context)
                     ? AnimatedSwitcher(
                         duration: drawerDuration,
-                        child: menuOpened
-                            ? MobileMenu(scrollFunc: scroll)
-                            : buildContent(),
+                        child: menuOpened ? menu : titlePage,
                       )
-                    : buildContent(),
+                    : titlePage,
+                content,
               ],
             ),
           ),
         ),
       ),
-    );
-  }
-
-  Column buildContent() {
-    return Column(
-      children: [
-        TitlePage(
-          key: keys[0],
-          scrollFunc: scroll,
-        ),
-        AboutPage(
-          key: keys[1],
-        ),
-        ResumePage(
-          key: keys[2],
-        ),
-        ProjectsPage(
-          key: keys[3],
-        ),
-        Footer(
-          key: keys[4],
-        ),
-      ],
     );
   }
 }

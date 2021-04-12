@@ -15,6 +15,18 @@ class TitlePage extends StatefulWidget {
 }
 
 class _TitlePageState extends State<TitlePage> {
+  late final Image img;
+
+  @override
+  void initState() {
+    super.initState();
+    img = Image.asset(
+      "res/PBCompressed.png",
+      fit: BoxFit.scaleDown,
+      alignment: Alignment.bottomCenter,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -87,11 +99,7 @@ class _TitlePageState extends State<TitlePage> {
           ),
           Expanded(
             flex: 2,
-            child: Image.asset(
-              "res/PBCompressed.png",
-              fit: BoxFit.scaleDown,
-              alignment: Alignment.bottomCenter,
-            ),
+            child: img,
           ),
         ],
       ),
@@ -107,11 +115,7 @@ class _TitlePageState extends State<TitlePage> {
         children: [
           Expanded(
             flex: 4,
-            child: Image.asset(
-              "res/PBCompressed.png",
-              fit: BoxFit.scaleDown,
-              alignment: Alignment.bottomCenter,
-            ),
+            child: img,
           ),
           Expanded(
             flex: 4,
