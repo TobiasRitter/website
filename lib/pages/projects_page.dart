@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:website/header.dart';
-import 'package:website/project_section.dart';
+import 'package:website/components/header.dart';
+import 'package:website/components/project_section.dart';
 import 'package:website/texts.dart';
 
 class ProjectsPage extends StatelessWidget {

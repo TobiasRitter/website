@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:website/arrow.dart';
-import 'package:website/logo.dart';
+import 'package:website/components/arrow.dart';
+import 'package:website/components/logo.dart';
 import 'package:website/main.dart';
 
 class TitlePage extends StatefulWidget {

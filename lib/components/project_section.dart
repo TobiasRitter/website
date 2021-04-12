@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:website/header.dart';
-import 'package:website/hover_image.dart';
+import 'package:website/components/header.dart';
+import 'package:website/components/hover_image.dart';
 import 'package:website/main.dart';
 
 class ProjectSection extends StatefulWidget {

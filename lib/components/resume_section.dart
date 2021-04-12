@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:website/header.dart';
+import 'package:website/components/header.dart';
 import 'package:website/main.dart';
 
 class ResumeSection extends StatefulWidget {

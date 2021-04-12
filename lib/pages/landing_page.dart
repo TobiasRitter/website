@@ -1,0 +1,162 @@
+import 'package:flutter/material.dart';
+import 'package:website/pages/about_page.dart';
+import 'package:website/components/footer.dart';
+import 'package:website/components/mobile_menu.dart';
+import 'package:website/pages/projects_page.dart';
+import 'package:website/pages/resume_page.dart';
+import 'package:website/pages/title_page.dart';
+import 'package:website/main.dart';
+
+class LandingPage extends StatefulWidget {
+  LandingPage({Key? key}) : super(key: key);
+
+  @override
+  _LandingPageState createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage>
+    with TickerProviderStateMixin {
+  late ScrollController scrollController;
+  late final TitlePage titlePage;
+  late final MobileMenu menu;
+  late final Column content;
+  bool menuOpened = false;
+  List<GlobalKey> keys = [
+    GlobalKey(),
+    GlobalKey(),
+    GlobalKey(),
+    GlobalKey(),
+    GlobalKey(),
+    GlobalKey(),
+  ];
+  late Animation<double> iconAnimation;
+  late AnimationController animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+      value: 1,
+      vsync: this,
+      duration: menuDuration,
+    );
+    iconAnimation = CurvedAnimation(
+      curve: Curves.linear,
+      parent: animationController,
+    );
+    scrollController = ScrollController();
+    titlePage = TitlePage(
+      key: keys[0],
+      scrollFunc: scroll,
+    );
+    menu = MobileMenu(
+      scrollFunc: scroll,
+      closeFunc: closeDrawer,
+    );
+    content = Column(
+      children: [
+        AboutPage(
+          key: keys[1],
+        ),
+        ResumePage(
+          key: keys[2],
+        ),
+        ProjectsPage(
+          key: keys[3],
+        ),
+        Footer(
+          key: keys[4],
+        ),
+      ],
+    );
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    animationController.dispose();
+    super.dispose();
+  }
+
+  void closeDrawer() {
+    animationController.forward();
+    setState(() {
+      menuOpened = false;
+    });
+  }
+
+  void scroll(BuildContext context, int index) {
+    var verticalMargin = getRelativeVerticalSize(context);
+    double offset = isMobile(context) ? 48.0 + verticalMargin * 2 : 0;
+    for (var key in keys.sublist(0, index)) {
+      RenderObject? renderObject = key.currentContext!.findRenderObject();
+      if (renderObject is RenderBox) {
+        offset += renderObject.size.height;
+      } else
+        return;
+    }
+    scrollController.animateTo(offset,
+        duration: scrollDuration, curve: Curves.easeInOut);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMargin = getRelativeVerticalSize(context);
+    return Scaffold(
+      body: Builder(
+        builder: (context) => ScrollConfiguration(
+          behavior: NoOverscrollBehaviour(),
+          child: SingleChildScrollView(
+            physics: menuOpened ? NeverScrollableScrollPhysics() : null,
+            controller: scrollController,
+            child: Column(
+              children: [
+                isMobile(context)
+                    ? Container(
+                        height: verticalMargin * 2 + 48,
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: horizontalMargin,
+                            vertical: verticalMargin,
+                          ),
+                          child: IconButton(
+                            icon: AnimatedIcon(
+                              icon: AnimatedIcons.close_menu,
+                              progress: iconAnimation,
+                            ),
+                            onPressed: () {
+                              menuOpened
+                                  ? animationController.forward()
+                                  : animationController.reverse();
+                              setState(() => menuOpened = !menuOpened);
+                            },
+                            color: Theme.of(context).accentColor,
+                          ),
+                        ),
+                      )
+                    : Container(),
+                isMobile(context)
+                    ? AnimatedSwitcher(
+                        duration: menuDuration,
+                        child: menuOpened ? menu : titlePage,
+                      )
+                    : titlePage,
+                content,
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class NoOverscrollBehaviour extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
+  }
+}

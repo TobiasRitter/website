@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:website/copyright_button.dart';
+import 'package:website/components/copyright_button.dart';
 import 'package:website/main.dart';
 
 class Footer extends StatelessWidget {
