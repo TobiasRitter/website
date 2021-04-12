@@ -18,6 +18,7 @@ class ProjectsPage extends StatelessWidget {
           url: 'https://github.com/TobiasRitter/PyNN',
           description: PYNN,
           image: 'res/PyNN.png',
+          dark: true,
         ),
         ProjectSection(
           title: 'RGB LED',
@@ -25,13 +26,13 @@ class ProjectsPage extends StatelessWidget {
           description: RGB_LED,
           image: 'res/RGBLed.png',
           inversed: true,
-          dark: true,
         ),
         ProjectSection(
           title: 'Cardgame',
           url: 'https://github.com/TobiasRitter/Cardgame',
           description: CARDGAME,
           image: 'res/Cardgame.png',
+          dark: true,
         ),
       ],
     );

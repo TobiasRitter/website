@@ -69,10 +69,13 @@ class _ProjectSectionState extends State<ProjectSection> {
     var screenHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        Container(
-          constraints: BoxConstraints(maxHeight: screenHeight / 2),
-          child: Image.asset(
-            widget.image,
+        Material(
+          elevation: IMG_ELEVATION,
+          child: Container(
+            constraints: BoxConstraints(maxHeight: screenHeight / 2),
+            child: Image.asset(
+              widget.image,
+            ),
           ),
         ),
         Padding(
@@ -104,11 +107,15 @@ class _ProjectSectionState extends State<ProjectSection> {
                 widget.inversed ? 0 : horizontalMargin / 2,
                 0),
             child: Container(
+              alignment: Alignment.centerLeft,
               constraints: BoxConstraints(maxHeight: screenHeight / 2),
-              child: Image.asset(
-                widget.image,
-                fit: BoxFit.contain,
-                alignment: Alignment.centerLeft,
+              child: Material(
+                elevation: IMG_ELEVATION,
+                child: Image.asset(
+                  widget.image,
+                  fit: BoxFit.contain,
+                  alignment: Alignment.centerLeft,
+                ),
               ),
             ),
           ),

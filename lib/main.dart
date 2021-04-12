@@ -19,6 +19,7 @@ const MIN_DESKTOP_WIDTH = 1000.0;
 const MIN_FOOTER_WIDTH = 560.0;
 const MAX_CONTENT_WIDTH = 1200.0;
 const IMG_OPACITY = 0.5;
+const IMG_ELEVATION = 32.0;
 
 const PRIMARY = Colors.black;
 const CANVAS = Colors.white;
