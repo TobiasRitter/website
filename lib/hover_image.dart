@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:website/main.dart';
 
 class HoverImage extends StatefulWidget {
@@ -20,11 +21,11 @@ class _HoverImageState extends State<HoverImage> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => underCursor = true),
-      onExit: (_) => setState(() => underCursor = false),
-      child: GestureDetector(
-        onTap: () => launchURL(widget.url),
+    return InkWell(
+      onTap: () => launchURL(widget.url),
+      child: MouseRegion(
+        onEnter: (_) => setState(() => underCursor = true),
+        onExit: (_) => setState(() => underCursor = false),
         child: Material(
           elevation: underCursor ? IMG_ELEVATION * 2 : IMG_ELEVATION,
           child: Image.asset(
