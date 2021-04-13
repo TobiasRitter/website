@@ -144,19 +144,22 @@ class _LandingPageState extends State<LandingPage>
               horizontal: horizontalMargin,
               vertical: verticalMargin,
             ),
-            child: IconButton(
-              icon: AnimatedIcon(
-                icon: AnimatedIcons.close_menu,
-                progress: iconAnimation,
+            child: AnimatedSection(
+              key: Key('MenuIcon'),
+              child: IconButton(
+                icon: AnimatedIcon(
+                  icon: AnimatedIcons.close_menu,
+                  progress: iconAnimation,
+                ),
+                onPressed: () {
+                  scrollController.animateTo(0,
+                      duration: animationDuration, curve: Curves.easeInOut);
+                  menuOpened
+                      ? animationController.forward()
+                      : animationController.reverse();
+                  setState(() => menuOpened = !menuOpened);
+                },
               ),
-              onPressed: () {
-                scrollController.animateTo(0,
-                    duration: animationDuration, curve: Curves.easeInOut);
-                menuOpened
-                    ? animationController.forward()
-                    : animationController.reverse();
-                setState(() => menuOpened = !menuOpened);
-              },
             ),
           ),
         ),

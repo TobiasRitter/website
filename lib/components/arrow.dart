@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/components/animated_section.dart';
 import 'package:website/main.dart';
 
 class Arrow extends StatefulWidget {
@@ -40,22 +41,25 @@ class _ArrowState extends State<Arrow> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     var verticalMargin = getRelativeVerticalSize(context);
     var arrowSize = getRelativeVerticalSize(context);
-    return GestureDetector(
-      onTap: () => widget.scrollFunc(context, 1),
-      child: Container(
-        height: arrowSize + verticalMargin,
-        child: Column(
-          children: [
-            Container(
-              margin:
-                  EdgeInsets.only(top: arrowController.value * verticalMargin),
-              child: Icon(
-                Icons.keyboard_arrow_down_sharp,
-                size: arrowSize,
-                color: Theme.of(context).dividerColor,
+    return AnimatedSection(
+      key: Key('Arrow'),
+      child: GestureDetector(
+        onTap: () => widget.scrollFunc(context, 1),
+        child: Container(
+          height: arrowSize + verticalMargin,
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(
+                    top: arrowController.value * verticalMargin),
+                child: Icon(
+                  Icons.keyboard_arrow_down_sharp,
+                  size: arrowSize,
+                  color: Theme.of(context).dividerColor,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

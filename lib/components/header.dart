@@ -1,22 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:website/components/animated_section.dart';
 import 'package:website/main.dart';
 
 class Header extends StatelessWidget {
   final String text;
   final bool h2;
   final bool light;
+  final bool animated;
 
   const Header({
     Key? key,
     required this.text,
     this.h2 = false,
     this.light = false,
+    this.animated = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var verticalMargin = getRelativeVerticalSize(context);
     var horizontalMargin = getRelativeHorizontalSize(context);
+    var selectableText = SelectableText(
+      text,
+      style: h2
+          ? light
+              ? Theme.of(context).primaryTextTheme.headline2
+              : Theme.of(context).textTheme.headline2
+          : light
+              ? Theme.of(context).primaryTextTheme.headline1
+              : Theme.of(context).textTheme.headline1,
+    );
     return Padding(
       padding: EdgeInsets.only(top: h2 ? 0 : verticalMargin * 3),
       child: Container(
@@ -34,16 +47,12 @@ class Header extends StatelessWidget {
                   ),
                   child: FittedBox(
                     alignment: Alignment.bottomLeft,
-                    child: SelectableText(
-                      text,
-                      style: h2
-                          ? light
-                              ? Theme.of(context).primaryTextTheme.headline2
-                              : Theme.of(context).textTheme.headline2
-                          : light
-                              ? Theme.of(context).primaryTextTheme.headline1
-                              : Theme.of(context).textTheme.headline1,
-                    ),
+                    child: animated
+                        ? AnimatedSection(
+                            key: Key(text),
+                            child: selectableText,
+                          )
+                        : selectableText,
                   ),
                 ),
               ),
