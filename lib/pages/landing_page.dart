@@ -38,7 +38,7 @@ class _LandingPageState extends State<LandingPage>
     animationController = AnimationController(
       value: 1,
       vsync: this,
-      duration: menuDuration,
+      duration: animationDuration,
     );
     iconAnimation = CurvedAnimation(
       curve: Curves.linear,
@@ -96,13 +96,11 @@ class _LandingPageState extends State<LandingPage>
         return;
     }
     scrollController.animateTo(offset,
-        duration: scrollDuration, curve: Curves.easeInOut);
+        duration: animationDuration, curve: Curves.easeInOut);
   }
 
   @override
   Widget build(BuildContext context) {
-    var horizontalMargin = getRelativeHorizontalSize(context);
-    var verticalMargin = getRelativeVerticalSize(context);
     return Scaffold(
       body: Builder(
         builder: (context) => ScrollConfiguration(
@@ -110,45 +108,59 @@ class _LandingPageState extends State<LandingPage>
           child: SingleChildScrollView(
             physics: menuOpened ? NeverScrollableScrollPhysics() : null,
             controller: scrollController,
-            child: Column(
-              children: [
-                isMobile(context)
-                    ? Container(
-                        height: verticalMargin * 2 + 48,
-                        alignment: Alignment.centerRight,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: horizontalMargin,
-                            vertical: verticalMargin,
-                          ),
-                          child: IconButton(
-                            icon: AnimatedIcon(
-                              icon: AnimatedIcons.close_menu,
-                              progress: iconAnimation,
-                            ),
-                            onPressed: () {
-                              menuOpened
-                                  ? animationController.forward()
-                                  : animationController.reverse();
-                              setState(() => menuOpened = !menuOpened);
-                            },
-                            color: Theme.of(context).accentColor,
-                          ),
-                        ),
-                      )
-                    : Container(),
-                isMobile(context)
-                    ? AnimatedSwitcher(
-                        duration: menuDuration,
-                        child: menuOpened ? menu : titlePage,
-                      )
-                    : titlePage,
-                content,
-              ],
-            ),
+            child: isMobile(context)
+                ? buildMobile(context)
+                : buildDesktop(),
           ),
         ),
       ),
+    );
+  }
+
+  Column buildDesktop() {
+    return Column(
+                  children: [
+                    titlePage,
+                    content,
+                  ],
+                );
+  }
+
+  Column buildMobile(BuildContext context) {
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMargin = getRelativeVerticalSize(context);
+    return Column(
+      children: [
+        Container(
+          height: verticalMargin * 2 + 48,
+          alignment: Alignment.centerRight,
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: horizontalMargin,
+              vertical: verticalMargin,
+            ),
+            child: IconButton(
+              icon: AnimatedIcon(
+                icon: AnimatedIcons.close_menu,
+                progress: iconAnimation,
+              ),
+              onPressed: () {
+                scrollController.animateTo(0,
+                    duration: animationDuration, curve: Curves.easeInOut);
+                menuOpened
+                    ? animationController.forward()
+                    : animationController.reverse();
+                setState(() => menuOpened = !menuOpened);
+              },
+            ),
+          ),
+        ),
+        AnimatedSwitcher(
+          duration: animationDuration,
+          child: menuOpened ? menu : titlePage,
+        ),
+        content,
+      ],
     );
   }
 }

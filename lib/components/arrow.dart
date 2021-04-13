@@ -20,7 +20,7 @@ class _ArrowState extends State<Arrow> with TickerProviderStateMixin {
     super.initState();
     arrowController = AnimationController(
       vsync: this,
-      duration: arrowAnimationDuration,
+      duration: animationDuration * 2,
       lowerBound: 0,
       upperBound: 1,
     );

@@ -6,9 +6,7 @@ import 'package:website/pages/landing_page.dart';
 void launchURL(String url) async =>
     await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 
-final Duration scrollDuration = Duration(milliseconds: 500);
-final Duration arrowAnimationDuration = Duration(milliseconds: 1000);
-final Duration menuDuration = Duration(milliseconds: 300);
+final Duration animationDuration = Duration(milliseconds: 500);
 
 const MIN_DESKTOP_WIDTH = 1000.0;
 const MIN_FOOTER_WIDTH = 560.0;
@@ -16,11 +14,17 @@ const MAX_CONTENT_WIDTH = 1200.0;
 const IMG_OPACITY = 0.5;
 const IMG_ELEVATION = 24.0;
 
+const TEXT = Colors.black;
+const TEXT_LIGHT = const Color(0xff707070);
+const PRIMARY_TEXT = Colors.white;
+const PRIMARY_TEXT_LIGHT = const Color(0xfff0f0f0);
+
 const PRIMARY = Colors.black;
-const PRIMARY_LIGHT = Colors.black12;
+const DIVIDER = Colors.black12;
 const BACKGROUND = Colors.white;
 const CANVAS = const Color(0xfff5f5f5);
-const ACCENT = const Color(0xffff0050);
+const ACCENT = const Color(0xffff0060);
+const SELECTION = const Color(0x44ff0060);
 
 double getRelativeHorizontalSize(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
@@ -51,7 +55,12 @@ class MyApp extends StatelessWidget {
       title: 'Tobias Ritter',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        dividerColor: PRIMARY_LIGHT,
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: ACCENT,
+          selectionColor: SELECTION,
+          selectionHandleColor: ACCENT,
+        ),
+        dividerColor: DIVIDER,
         canvasColor: CANVAS,
         accentColor: ACCENT,
         primaryColor: PRIMARY,
@@ -59,21 +68,48 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           bodyText2: GoogleFonts.roboto(
             height: 1.5,
-            fontSize: 16,
-            fontWeight: FontWeight.w300,
+            fontSize: 18,
+            color: TEXT_LIGHT,
+            fontWeight: FontWeight.normal,
           ),
           button: GoogleFonts.roboto(
+            color: TEXT,
             fontWeight: FontWeight.bold,
           ),
           subtitle1: GoogleFonts.roboto(
-            fontWeight: FontWeight.w100,
+            color: TEXT_LIGHT,
+            fontWeight: FontWeight.normal,
           ),
           headline1: GoogleFonts.roboto(
-            color: PRIMARY,
+            color: TEXT,
             fontWeight: FontWeight.w900,
           ),
           headline2: GoogleFonts.roboto(
-            color: PRIMARY,
+            color: TEXT,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        primaryTextTheme: TextTheme(
+          bodyText2: GoogleFonts.roboto(
+            height: 1.5,
+            fontSize: 18,
+            color: PRIMARY_TEXT_LIGHT,
+            fontWeight: FontWeight.normal,
+          ),
+          button: GoogleFonts.roboto(
+            color: PRIMARY_TEXT,
+            fontWeight: FontWeight.bold,
+          ),
+          subtitle1: GoogleFonts.roboto(
+            color: PRIMARY_TEXT_LIGHT,
+            fontWeight: FontWeight.normal,
+          ),
+          headline1: GoogleFonts.roboto(
+            color: PRIMARY_TEXT,
+            fontWeight: FontWeight.w900,
+          ),
+          headline2: GoogleFonts.roboto(
+            color: PRIMARY_TEXT,
             fontWeight: FontWeight.bold,
           ),
         ),

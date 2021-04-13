@@ -131,11 +131,8 @@ class _ResumeSectionState extends State<ResumeSection> {
     return SelectableText(
       widget.description,
       style: widget.image != null
-          ? Theme.of(context)
-              .textTheme
-              .bodyText2!
-              .copyWith(color: Theme.of(context).canvasColor)
-          : null,
+          ? Theme.of(context).primaryTextTheme.bodyText2
+          : Theme.of(context).textTheme.bodyText2,
     );
   }
 
@@ -154,18 +151,16 @@ class _ResumeSectionState extends State<ResumeSection> {
             children: [
               Icon(
                 Icons.calendar_today_sharp,
-                color:
-                    widget.image != null ? Theme.of(context).canvasColor : null,
+                color: widget.image != null
+                    ? Theme.of(context).primaryTextTheme.bodyText2!.color
+                    : Theme.of(context).textTheme.bodyText2!.color,
               ),
               Container(width: 16),
               SelectableText(
                 widget.date,
                 style: widget.image != null
-                    ? Theme.of(context)
-                        .textTheme
-                        .bodyText2!
-                        .copyWith(color: Theme.of(context).canvasColor)
-                    : null,
+                    ? Theme.of(context).primaryTextTheme.bodyText2
+                    : Theme.of(context).textTheme.bodyText2,
               ),
             ],
           ),
@@ -176,18 +171,16 @@ class _ResumeSectionState extends State<ResumeSection> {
             children: [
               Icon(
                 Icons.location_on_sharp,
-                color:
-                    widget.image != null ? Theme.of(context).canvasColor : null,
+                color: widget.image != null
+                    ? Theme.of(context).primaryTextTheme.bodyText2!.color
+                    : Theme.of(context).textTheme.bodyText2!.color,
               ),
               Container(width: 16),
               SelectableText(
                 widget.location,
                 style: widget.image != null
-                    ? Theme.of(context)
-                        .textTheme
-                        .bodyText2!
-                        .copyWith(color: Theme.of(context).canvasColor)
-                    : null,
+                    ? Theme.of(context).primaryTextTheme.bodyText2
+                    : Theme.of(context).textTheme.bodyText2,
               ),
             ],
           ),

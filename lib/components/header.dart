@@ -29,19 +29,19 @@ class Header extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  height: h2 ? verticalMargin * 1.25 : verticalMargin * 3,
+                  constraints: BoxConstraints(
+                    maxHeight: h2 ? verticalMargin * 1.25 : verticalMargin * 3,
+                  ),
                   child: FittedBox(
-                    alignment: Alignment.topLeft,
+                    alignment: Alignment.bottomLeft,
                     child: SelectableText(
                       text,
                       style: h2
                           ? light
-                              ? Theme.of(context).textTheme.headline2!.copyWith(
-                                  color: Theme.of(context).canvasColor)
+                              ? Theme.of(context).primaryTextTheme.headline2
                               : Theme.of(context).textTheme.headline2
                           : light
-                              ? Theme.of(context).textTheme.headline1!.copyWith(
-                                  color: Theme.of(context).canvasColor)
+                              ? Theme.of(context).primaryTextTheme.headline1
                               : Theme.of(context).textTheme.headline1,
                     ),
                   ),

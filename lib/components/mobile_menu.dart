@@ -13,7 +13,7 @@ class MobileMenu extends StatelessWidget {
 
   void closeAndScroll(BuildContext context, int index) {
     closeFunc();
-    Future.delayed(menuDuration).then((_) => scrollFunc(context, index));
+    Future.delayed(animationDuration).then((_) => scrollFunc(context, index));
   }
 
   @override
