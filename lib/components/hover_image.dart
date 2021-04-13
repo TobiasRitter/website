@@ -27,7 +27,9 @@ class _HoverImageState extends State<HoverImage> {
         onEnter: (_) => setState(() => underCursor = true),
         onExit: (_) => setState(() => underCursor = false),
         child: Material(
-          elevation: underCursor ? IMG_ELEVATION * 2 : IMG_ELEVATION,
+          borderRadius: BorderRadius.circular(IMG_RADIUS),
+          clipBehavior: Clip.hardEdge,
+          elevation: underCursor ? ELEVATION * 2 : ELEVATION,
           child: Image.asset(
             widget.image,
             fit: BoxFit.contain,

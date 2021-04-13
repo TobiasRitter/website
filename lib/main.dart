@@ -12,7 +12,8 @@ const MIN_DESKTOP_WIDTH = 1000.0;
 const MIN_FOOTER_WIDTH = 560.0;
 const MAX_CONTENT_WIDTH = 1200.0;
 const IMG_OPACITY = 0.5;
-const IMG_ELEVATION = 24.0;
+const ELEVATION = 24.0;
+const IMG_RADIUS = 24.0;
 
 const TEXT = Colors.black;
 const TEXT_LIGHT = const Color(0xff707070);
@@ -25,6 +26,7 @@ const BACKGROUND = Colors.white;
 const CANVAS = const Color(0xfff5f5f5);
 const ACCENT = const Color(0xffff0060);
 const SELECTION = const Color(0x44ff0060);
+const SHADOW = const Color(0x55000000);
 
 double getRelativeHorizontalSize(BuildContext context) {
   var screenWidth = MediaQuery.of(context).size.width;
@@ -65,6 +67,7 @@ class MyApp extends StatelessWidget {
         accentColor: ACCENT,
         primaryColor: PRIMARY,
         backgroundColor: BACKGROUND,
+        shadowColor: SHADOW,
         textTheme: TextTheme(
           bodyText2: GoogleFonts.roboto(
             height: 1.5,
@@ -120,6 +123,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
+          elevation: ELEVATION,
+          hoverElevation: ELEVATION * 2,
           backgroundColor: ACCENT,
           shape: RoundedRectangleBorder(),
         ),
