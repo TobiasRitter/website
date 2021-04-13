@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/components/animated_section.dart';
 import 'package:website/components/header.dart';
 import 'package:website/components/resume_section.dart';
 import 'package:website/texts.dart';
@@ -15,7 +16,10 @@ class ResumePage extends StatelessWidget {
         Container(
           color: Theme.of(context).backgroundColor,
           child: Center(
-            child: Header(text: "Education"),
+            child: AnimatedSection(
+              key: Key('Education'),
+              child: Header(text: "Education"),
+            ),
           ),
         ),
         ResumeSection(
@@ -38,7 +42,10 @@ class ResumePage extends StatelessWidget {
         Container(
           color: Theme.of(context).backgroundColor,
           child: Center(
-            child: Header(text: "Work experience"),
+            child: AnimatedSection(
+              key: Key('Work experience'),
+              child: Header(text: "Work experience"),
+            ),
           ),
         ),
         ResumeSection(

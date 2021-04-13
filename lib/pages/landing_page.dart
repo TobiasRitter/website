@@ -1,4 +1,6 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
+import 'package:website/components/animated_section.dart';
 import 'package:website/pages/about_page.dart';
 import 'package:website/components/footer.dart';
 import 'package:website/components/mobile_menu.dart';
@@ -64,8 +66,11 @@ class _LandingPageState extends State<LandingPage>
         ProjectsPage(
           key: keys[3],
         ),
-        Footer(
-          key: keys[4],
+        AnimatedSection(
+          key: Key('Footer'),
+          child: Footer(
+            key: keys[4],
+          ),
         ),
       ],
     );
@@ -105,10 +110,12 @@ class _LandingPageState extends State<LandingPage>
       body: Builder(
         builder: (context) => ScrollConfiguration(
           behavior: NoOverscrollBehaviour(),
-          child: SingleChildScrollView(
-            physics: menuOpened ? NeverScrollableScrollPhysics() : null,
-            controller: scrollController,
-            child: isMobile(context) ? buildMobile(context) : buildDesktop(),
+          child: AnimateIfVisibleWrapper(
+            child: SingleChildScrollView(
+              physics: menuOpened ? NeverScrollableScrollPhysics() : null,
+              controller: scrollController,
+              child: isMobile(context) ? buildMobile(context) : buildDesktop(),
+            ),
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/components/animated_section.dart';
 import 'package:website/components/header.dart';
 import 'package:website/main.dart';
 
@@ -68,9 +69,12 @@ class _ResumeSectionState extends State<ResumeSection> {
               children: [
                 widget.header ?? Container(),
                 Center(
-                  child: isPortrait(context)
-                      ? buildMobileLayout(context)
-                      : buildDesktopLayout(context),
+                  child: AnimatedSection(
+                    key: Key(widget.title),
+                    child: isPortrait(context)
+                        ? buildMobileLayout(context)
+                        : buildDesktopLayout(context),
+                  ),
                 ),
               ],
             ),

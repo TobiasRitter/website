@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/components/animated_section.dart';
 import 'package:website/main.dart';
 import 'package:website/texts.dart';
 
@@ -29,8 +30,11 @@ class AboutPage extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: SelectableText(
-                      ABOUT,
+                    child: AnimatedSection(
+                      key: Key('About'),
+                      child: SelectableText(
+                        ABOUT,
+                      ),
                     ),
                   ),
                 ],

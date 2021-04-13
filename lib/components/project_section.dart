@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/components/animated_section.dart';
 import 'package:website/components/header.dart';
 import 'package:website/components/hover_image.dart';
 import 'package:website/main.dart';
@@ -53,9 +54,12 @@ class _ProjectSectionState extends State<ProjectSection> {
                         : screenWidth),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: horizontalMargin),
-                  child: isPortrait(context)
-                      ? buildMobileLayout()
-                      : buildDesktopLayout(),
+                  child: AnimatedSection(
+                    key: Key(widget.title),
+                    child: isPortrait(context)
+                        ? buildMobileLayout()
+                        : buildDesktopLayout(),
+                  ),
                 ),
               ),
             ),

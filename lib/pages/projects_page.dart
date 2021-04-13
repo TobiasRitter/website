@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/components/animated_section.dart';
 import 'package:website/components/header.dart';
 import 'package:website/components/project_section.dart';
 import 'package:website/texts.dart';
@@ -15,7 +16,10 @@ class ProjectsPage extends StatelessWidget {
         Container(
           color: Theme.of(context).backgroundColor,
           child: Center(
-            child: Header(text: "Projects"),
+            child: AnimatedSection(
+              key: Key('Projects'),
+              child: Header(text: "Projects"),
+            ),
           ),
         ),
         ProjectSection(
