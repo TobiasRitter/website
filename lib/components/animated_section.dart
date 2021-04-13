@@ -19,12 +19,18 @@ class AnimatedSection extends StatelessWidget {
         BuildContext context,
         Animation<double> animation,
       ) =>
-          FadeTransition(
-        opacity: Tween<double>(
-          begin: 0,
-          end: 1,
+          SlideTransition(
+        position: Tween<Offset>(
+          begin: Offset(0, 0.1),
+          end: Offset.zero,
         ).animate(animation),
-        child: child,
+        child: FadeTransition(
+          opacity: Tween<double>(
+            begin: 0,
+            end: 1,
+          ).animate(animation),
+          child: child,
+        ),
       ),
     );
   }
