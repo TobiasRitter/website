@@ -149,13 +149,15 @@ class _ResumeSectionState extends State<ResumeSection> {
           padding: EdgeInsets.only(top: 32),
           child: Row(
             children: [
-              Icon(
-                Icons.calendar_today_sharp,
-                color: widget.image != null
-                    ? Theme.of(context).primaryTextTheme.bodyText2!.color
-                    : Theme.of(context).textTheme.bodyText2!.color,
+              Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: Icon(
+                  Icons.calendar_today_sharp,
+                  color: widget.image != null
+                      ? Theme.of(context).primaryTextTheme.bodyText2!.color
+                      : Theme.of(context).textTheme.bodyText2!.color,
+                ),
               ),
-              Container(width: 16),
               SelectableText(
                 widget.date,
                 style: widget.image != null
@@ -169,13 +171,15 @@ class _ResumeSectionState extends State<ResumeSection> {
           padding: EdgeInsets.only(top: 16),
           child: Row(
             children: [
-              Icon(
-                Icons.location_on_sharp,
-                color: widget.image != null
-                    ? Theme.of(context).primaryTextTheme.bodyText2!.color
-                    : Theme.of(context).textTheme.bodyText2!.color,
+              Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: Icon(
+                  Icons.location_on_sharp,
+                  color: widget.image != null
+                      ? Theme.of(context).primaryTextTheme.bodyText2!.color
+                      : Theme.of(context).textTheme.bodyText2!.color,
+                ),
               ),
-              Container(width: 16),
               SelectableText(
                 widget.location,
                 style: widget.image != null

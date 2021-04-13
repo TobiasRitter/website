@@ -53,7 +53,7 @@ class _TitlePageState extends State<TitlePage> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: horizontalMargin / 2),
+                        padding: const EdgeInsets.only(left: 32),
                         child: TextButton(
                           onPressed: () => widget.scrollFunc(context, 3),
                           child: Text(
@@ -62,7 +62,7 @@ class _TitlePageState extends State<TitlePage> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: horizontalMargin / 2),
+                        padding: const EdgeInsets.only(left: 32),
                         child: FloatingActionButton.extended(
                           onPressed: () => widget.scrollFunc(context, 4),
                           label: Text("Contact"),

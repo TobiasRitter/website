@@ -34,7 +34,7 @@ class Footer extends StatelessWidget {
                 : buildFooterRow(context),
           ),
           Padding(
-            padding: EdgeInsets.only(top: verticalMargin * 2),
+            padding: const EdgeInsets.only(top: 32),
             child: CopyrightButton(),
           ),
         ],
@@ -43,7 +43,6 @@ class Footer extends StatelessWidget {
   }
 
   Column buildFooterCol(BuildContext context) {
-    var verticalMargin = getRelativeVerticalSize(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -55,7 +54,7 @@ class Footer extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: verticalMargin / 2),
+          padding: const EdgeInsets.only(top: 16),
           child: TextButton(
             onPressed: () =>
                 launchURL('https://www.xing.com/profile/Tobias_Ritter52/cv'),
@@ -65,7 +64,7 @@ class Footer extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: verticalMargin / 2),
+          padding: const EdgeInsets.only(top: 16),
           child: TextButton(
             onPressed: () =>
                 launchURL('https://github.com/TobiasRitter?tab=repositories'),
@@ -75,7 +74,7 @@ class Footer extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: verticalMargin / 2),
+          padding: const EdgeInsets.only(top: 16),
           child: TextButton(
             onPressed: () => launchURL('https://hub.docker.com/u/tobiasritter'),
             child: Text(
@@ -103,7 +102,6 @@ class Footer extends StatelessWidget {
   }
 
   Row buildFooterRow(BuildContext context) {
-    var horizontalMargin = getRelativeHorizontalSize(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -115,7 +113,7 @@ class Footer extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: horizontalMargin / 2),
+          padding: const EdgeInsets.only(left: 32),
           child: TextButton(
             onPressed: () =>
                 launchURL('https://www.xing.com/profile/Tobias_Ritter52/cv'),
@@ -125,7 +123,7 @@ class Footer extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: horizontalMargin / 2),
+          padding: const EdgeInsets.only(left: 32),
           child: TextButton(
             onPressed: () =>
                 launchURL('https://github.com/TobiasRitter?tab=repositories'),
@@ -135,7 +133,7 @@ class Footer extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: horizontalMargin / 2),
+          padding: const EdgeInsets.only(left: 32),
           child: TextButton(
             onPressed: () => launchURL('https://hub.docker.com/u/tobiasritter'),
             child: Text(

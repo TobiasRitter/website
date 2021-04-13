@@ -44,14 +44,14 @@ class MobileMenu extends StatelessWidget {
                             child: Text("Resume"),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: verticalMargin / 2),
+                            padding: const EdgeInsets.only(top: 32),
                             child: TextButton(
                               onPressed: () => closeAndScroll(context, 3),
                               child: Text("Projects"),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: verticalMargin / 2),
+                            padding: const EdgeInsets.only(top: 32),
                             child: FloatingActionButton.extended(
                               onPressed: () => closeAndScroll(context, 4),
                               label: Text("Contact"),
@@ -67,16 +67,14 @@ class MobileMenu extends StatelessWidget {
                             child: Text("Resume"),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsets.only(left: horizontalMargin / 2),
+                            padding: const EdgeInsets.only(left: 32),
                             child: TextButton(
                               onPressed: () => closeAndScroll(context, 3),
                               child: Text("Projects"),
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsets.only(left: horizontalMargin / 2),
+                            padding: const EdgeInsets.only(left: 32),
                             child: FloatingActionButton.extended(
                               onPressed: () => closeAndScroll(context, 4),
                               label: Text("Contact"),

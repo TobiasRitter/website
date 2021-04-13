@@ -125,7 +125,6 @@ class _ProjectSectionState extends State<ProjectSection> {
   }
 
   Widget buildInfo() {
-    var verticalMargin = getRelativeVerticalSize(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,13 +134,13 @@ class _ProjectSectionState extends State<ProjectSection> {
           h2: true,
         ),
         Padding(
-          padding: EdgeInsets.only(top: verticalMargin),
+          padding: const EdgeInsets.only(top: 32),
           child: SelectableText(
             widget.description,
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: verticalMargin),
+          padding: const EdgeInsets.only(top: 32),
           child: FloatingActionButton.extended(
             onPressed: () => launchURL(widget.url),
             label: Text("Show on GitHub"),

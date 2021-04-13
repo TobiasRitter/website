@@ -108,9 +108,7 @@ class _LandingPageState extends State<LandingPage>
           child: SingleChildScrollView(
             physics: menuOpened ? NeverScrollableScrollPhysics() : null,
             controller: scrollController,
-            child: isMobile(context)
-                ? buildMobile(context)
-                : buildDesktop(),
+            child: isMobile(context) ? buildMobile(context) : buildDesktop(),
           ),
         ),
       ),
@@ -119,11 +117,11 @@ class _LandingPageState extends State<LandingPage>
 
   Column buildDesktop() {
     return Column(
-                  children: [
-                    titlePage,
-                    content,
-                  ],
-                );
+      children: [
+        titlePage,
+        content,
+      ],
+    );
   }
 
   Column buildMobile(BuildContext context) {
