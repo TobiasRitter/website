@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/components/animated_section.dart';
 import 'package:website/main.dart';
 import 'package:website/texts.dart';
 
@@ -10,32 +11,35 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var verticalMarginSize = getRelativeVerticalSize(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: FittedBox(
-            alignment: Alignment.bottomLeft,
-            child: SelectableText(
-              "Tobias Ritter",
-              style: Theme.of(context).textTheme.headline1,
-              maxLines: 1,
-            ),
-          ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.only(top: verticalMarginSize / 2),
+    return AnimatedSection(
+      key: Key('Logo'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
             child: FittedBox(
-              alignment: Alignment.topLeft,
+              alignment: Alignment.bottomLeft,
               child: SelectableText(
-                SUBTITLE,
-                style: Theme.of(context).textTheme.subtitle1,
+                "Tobias Ritter",
+                style: Theme.of(context).textTheme.headline1,
+                maxLines: 1,
               ),
             ),
           ),
-        ),
-      ],
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(top: verticalMarginSize / 2),
+              child: FittedBox(
+                alignment: Alignment.topLeft,
+                child: SelectableText(
+                  SUBTITLE,
+                  style: Theme.of(context).textTheme.subtitle1,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
