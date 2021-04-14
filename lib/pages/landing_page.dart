@@ -83,10 +83,10 @@ class _LandingPageState extends State<LandingPage>
   }
 
   void closeDrawer() {
-    animationController.forward();
     setState(() {
       menuOpened = false;
     });
+    animationController.forward();
   }
 
   void closeAndScroll(BuildContext context, int index) {
