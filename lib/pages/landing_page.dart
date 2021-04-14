@@ -82,16 +82,16 @@ class _LandingPageState extends State<LandingPage>
     super.dispose();
   }
 
-  void closeDrawer() {
+  Future<void> closeDrawer() async {
     setState(() {
       menuOpened = false;
     });
-    animationController.forward();
+    await animationController.forward();
   }
 
-  void closeAndScroll(BuildContext context, int index) {
-    closeDrawer();
-    Future.delayed(animationDuration).then((_) => scroll(context, index));
+  Future<void> closeAndScroll(int index) async {
+    await closeDrawer();
+    scroll(this.context, index);
   }
 
   void scroll(BuildContext context, int index) {

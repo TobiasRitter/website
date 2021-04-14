@@ -3,7 +3,7 @@ import 'package:website/components/animated_section.dart';
 import 'package:website/main.dart';
 
 class MobileMenu extends StatelessWidget {
-  final Function(BuildContext, int) scrollFunc;
+  final Function(int) scrollFunc;
 
   const MobileMenu({
     Key? key,
@@ -36,20 +36,20 @@ class MobileMenu extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             TextButton(
-                              onPressed: () => scrollFunc(context, 2),
+                              onPressed: () => scrollFunc(2),
                               child: Text("Resume"),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 32),
                               child: TextButton(
-                                onPressed: () => scrollFunc(context, 3),
+                                onPressed: () => scrollFunc(3),
                                 child: Text("Projects"),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 32),
                               child: FloatingActionButton.extended(
-                                onPressed: () => scrollFunc(context, 4),
+                                onPressed: () => scrollFunc(4),
                                 label: Text("Contact"),
                               ),
                             ),
@@ -59,20 +59,20 @@ class MobileMenu extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             TextButton(
-                              onPressed: () => scrollFunc(context, 2),
+                              onPressed: () => scrollFunc(2),
                               child: Text("Resume"),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 32),
                               child: TextButton(
-                                onPressed: () => scrollFunc(context, 3),
+                                onPressed: () => scrollFunc(3),
                                 child: Text("Projects"),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 32),
                               child: FloatingActionButton.extended(
-                                onPressed: () => scrollFunc(context, 4),
+                                onPressed: () => scrollFunc(4),
                                 label: Text("Contact"),
                               ),
                             ),
