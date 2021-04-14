@@ -1,5 +1,6 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
+import 'package:website/main.dart';
 
 class AnimatedSection extends StatelessWidget {
   final Widget child;
@@ -14,7 +15,8 @@ class AnimatedSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimateIfVisible(
       key: key,
-      duration: Duration(milliseconds: 500),
+      duration: animationDuration,
+      visibleFraction: 0.05,
       builder: (
         BuildContext context,
         Animation<double> animation,

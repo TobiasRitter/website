@@ -4,18 +4,11 @@ import 'package:website/main.dart';
 
 class MobileMenu extends StatelessWidget {
   final Function(BuildContext, int) scrollFunc;
-  final Function() closeFunc;
 
   const MobileMenu({
     Key? key,
     required this.scrollFunc,
-    required this.closeFunc,
   }) : super(key: key);
-
-  void closeAndScroll(BuildContext context, int index) {
-    closeFunc();
-    Future.delayed(animationDuration).then((_) => scrollFunc(context, index));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,20 +36,20 @@ class MobileMenu extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             TextButton(
-                              onPressed: () => closeAndScroll(context, 2),
+                              onPressed: () => scrollFunc(context, 2),
                               child: Text("Resume"),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 32),
                               child: TextButton(
-                                onPressed: () => closeAndScroll(context, 3),
+                                onPressed: () => scrollFunc(context, 3),
                                 child: Text("Projects"),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 32),
                               child: FloatingActionButton.extended(
-                                onPressed: () => closeAndScroll(context, 4),
+                                onPressed: () => scrollFunc(context, 4),
                                 label: Text("Contact"),
                               ),
                             ),
@@ -66,20 +59,20 @@ class MobileMenu extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             TextButton(
-                              onPressed: () => closeAndScroll(context, 2),
+                              onPressed: () => scrollFunc(context, 2),
                               child: Text("Resume"),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 32),
                               child: TextButton(
-                                onPressed: () => closeAndScroll(context, 3),
+                                onPressed: () => scrollFunc(context, 3),
                                 child: Text("Projects"),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 32),
                               child: FloatingActionButton.extended(
-                                onPressed: () => closeAndScroll(context, 4),
+                                onPressed: () => scrollFunc(context, 4),
                                 label: Text("Contact"),
                               ),
                             ),

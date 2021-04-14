@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/components/animated_section.dart';
 import 'package:website/components/arrow.dart';
 import 'package:website/components/desktop_menu.dart';
 import 'package:website/components/logo.dart';
@@ -17,18 +16,15 @@ class TitlePage extends StatefulWidget {
 }
 
 class _TitlePageState extends State<TitlePage> {
-  late final Widget img;
+  late final Image img;
 
   @override
   void initState() {
     super.initState();
-    img = AnimatedSection(
-      key: Key('Hero'),
-      child: Image.asset(
-        "res/PBCompressed.png",
-        fit: BoxFit.scaleDown,
-        alignment: Alignment.bottomCenter,
-      ),
+    img = Image.asset(
+      "res/PBCompressed.png",
+      fit: BoxFit.scaleDown,
+      alignment: Alignment.bottomCenter,
     );
   }
 

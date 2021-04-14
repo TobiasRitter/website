@@ -52,8 +52,7 @@ class _LandingPageState extends State<LandingPage>
       scrollFunc: scroll,
     );
     menu = MobileMenu(
-      scrollFunc: scroll,
-      closeFunc: closeDrawer,
+      scrollFunc: closeAndScroll,
     );
     content = Column(
       children: [
@@ -88,6 +87,11 @@ class _LandingPageState extends State<LandingPage>
     setState(() {
       menuOpened = false;
     });
+  }
+
+  void closeAndScroll(BuildContext context, int index) {
+    closeDrawer();
+    Future.delayed(animationDuration).then((_) => scroll(context, index));
   }
 
   void scroll(BuildContext context, int index) {

@@ -16,9 +16,7 @@ const ELEVATION = 24.0;
 const IMG_RADIUS = 24.0;
 
 const TEXT = Colors.black;
-const TEXT_LIGHT = const Color(0xff707070);
 const PRIMARY_TEXT = Colors.white;
-const PRIMARY_TEXT_LIGHT = const Color(0xfff0f0f0);
 
 const PRIMARY = Colors.black;
 const DIVIDER = Colors.black12;
@@ -72,16 +70,16 @@ class MyApp extends StatelessWidget {
           bodyText2: GoogleFonts.roboto(
             height: 1.5,
             fontSize: 18,
-            color: TEXT_LIGHT,
-            fontWeight: FontWeight.normal,
+            color: TEXT,
+            fontWeight: FontWeight.w300,
           ),
           button: GoogleFonts.roboto(
             color: TEXT,
             fontWeight: FontWeight.bold,
           ),
           subtitle1: GoogleFonts.roboto(
-            color: TEXT_LIGHT,
-            fontWeight: FontWeight.normal,
+            color: TEXT,
+            fontWeight: FontWeight.w300,
           ),
           headline1: GoogleFonts.roboto(
             color: TEXT,
@@ -96,16 +94,8 @@ class MyApp extends StatelessWidget {
           bodyText2: GoogleFonts.roboto(
             height: 1.5,
             fontSize: 18,
-            color: PRIMARY_TEXT_LIGHT,
-            fontWeight: FontWeight.normal,
-          ),
-          button: GoogleFonts.roboto(
             color: PRIMARY_TEXT,
-            fontWeight: FontWeight.bold,
-          ),
-          subtitle1: GoogleFonts.roboto(
-            color: PRIMARY_TEXT_LIGHT,
-            fontWeight: FontWeight.normal,
+            fontWeight: FontWeight.w300,
           ),
           headline1: GoogleFonts.roboto(
             color: PRIMARY_TEXT,
