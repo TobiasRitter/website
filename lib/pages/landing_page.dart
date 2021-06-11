@@ -1,6 +1,5 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
-import 'package:website/components/animated_section.dart';
 import 'package:website/pages/about_page.dart';
 import 'package:website/components/footer.dart';
 import 'package:website/components/mobile_menu.dart';
@@ -47,29 +46,26 @@ class _LandingPageState extends State<LandingPage>
       parent: animationController,
     );
     scrollController = ScrollController();
-    titlePage = TitlePage(
-      key: keys[0],
-      scrollFunc: scroll,
-    );
     menu = MobileMenu(
       scrollFunc: closeAndScroll,
     );
     content = Column(
       children: [
-        AboutPage(
-          key: keys[1],
+        TitlePage(
+          key: keys[0],
+          scrollFunc: scroll,
         ),
+        // AboutPage(
+        //   key: keys[1],
+        // ),
         ResumePage(
           key: keys[2],
         ),
         ProjectsPage(
           key: keys[3],
         ),
-        AnimatedSection(
-          key: Key('Footer'),
-          child: Footer(
-            key: keys[4],
-          ),
+        Footer(
+          key: keys[4],
         ),
       ],
     );
@@ -118,61 +114,11 @@ class _LandingPageState extends State<LandingPage>
             child: SingleChildScrollView(
               physics: menuOpened ? NeverScrollableScrollPhysics() : null,
               controller: scrollController,
-              child: isMobile(context) ? buildMobile(context) : buildDesktop(),
+              child: content,
             ),
           ),
         ),
       ),
-    );
-  }
-
-  Column buildDesktop() {
-    return Column(
-      children: [
-        titlePage,
-        content,
-      ],
-    );
-  }
-
-  Column buildMobile(BuildContext context) {
-    var horizontalMargin = getRelativeHorizontalSize(context);
-    var verticalMargin = getRelativeVerticalSize(context);
-    return Column(
-      children: [
-        Container(
-          height: verticalMargin * 2 + 48,
-          alignment: Alignment.centerRight,
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: horizontalMargin,
-              vertical: verticalMargin,
-            ),
-            child: AnimatedSection(
-              key: Key('MenuIcon'),
-              child: IconButton(
-                icon: AnimatedIcon(
-                  icon: AnimatedIcons.close_menu,
-                  progress: iconAnimation,
-                ),
-                onPressed: () {
-                  scrollController.animateTo(0,
-                      duration: animationDuration, curve: Curves.easeInOut);
-                  menuOpened
-                      ? animationController.forward()
-                      : animationController.reverse();
-                  setState(() => menuOpened = !menuOpened);
-                },
-              ),
-            ),
-          ),
-        ),
-        AnimatedSwitcher(
-          duration: animationDuration,
-          child: menuOpened ? menu : titlePage,
-        ),
-        content,
-      ],
     );
   }
 }

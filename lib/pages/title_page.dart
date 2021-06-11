@@ -34,9 +34,7 @@ class _TitlePageState extends State<TitlePage> {
     var horizontalMargin = getRelativeHorizontalSize(context);
     var verticalMargin = getRelativeVerticalSize(context);
     return Container(
-      height: isMobile(context)
-          ? screenHeight - (verticalMargin * 2 + 48)
-          : screenHeight,
+      height: screenHeight,
       child: Column(
         children: [
           isMobile(context)
@@ -65,7 +63,7 @@ class _TitlePageState extends State<TitlePage> {
             child: Padding(
               padding: EdgeInsets.fromLTRB(
                 horizontalMargin,
-                0,
+                verticalMarginSize * 3,
                 horizontalMargin,
                 verticalMarginSize,
               ),
@@ -73,7 +71,6 @@ class _TitlePageState extends State<TitlePage> {
             ),
           ),
           Expanded(
-            flex: 2,
             child: img,
           ),
         ],

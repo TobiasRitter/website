@@ -15,10 +15,7 @@ class ProjectsPage extends StatelessWidget {
         Container(
           color: Theme.of(context).backgroundColor,
           child: Center(
-            child: Header(
-              text: "Projects",
-              animated: true,
-            ),
+            child: Header(text: "Projects"),
           ),
         ),
         ProjectSection(

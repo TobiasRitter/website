@@ -78,6 +78,8 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           subtitle1: GoogleFonts.roboto(
+            height: 1.5,
+            fontSize: 24,
             color: TEXT,
             fontWeight: FontWeight.w300,
           ),

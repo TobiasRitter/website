@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:website/components/animated_section.dart';
 import 'package:website/main.dart';
 
 class Header extends StatelessWidget {
   final String text;
   final bool h2;
   final bool light;
-  final bool animated;
 
   const Header({
     Key? key,
     required this.text,
     this.h2 = false,
     this.light = false,
-    this.animated = false,
   }) : super(key: key);
 
   @override
@@ -47,12 +44,7 @@ class Header extends StatelessWidget {
                   ),
                   child: FittedBox(
                     alignment: Alignment.bottomLeft,
-                    child: animated
-                        ? AnimatedSection(
-                            key: Key(text),
-                            child: selectableText,
-                          )
-                        : selectableText,
+                    child: selectableText,
                   ),
                 ),
               ),

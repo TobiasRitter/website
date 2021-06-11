@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/components/animated_section.dart';
 import 'package:website/main.dart';
 
 class MobileMenu extends StatelessWidget {
@@ -29,56 +28,53 @@ class MobileMenu extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                child: AnimatedSection(
-                  key: Key('Menu'),
-                  child: isPortrait(context)
-                      ? Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextButton(
-                              onPressed: () => scrollFunc(2),
-                              child: Text("Resume"),
+                child: isPortrait(context)
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TextButton(
+                            onPressed: () => scrollFunc(2),
+                            child: Text("Resume"),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 32),
+                            child: TextButton(
+                              onPressed: () => scrollFunc(3),
+                              child: Text("Projects"),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 32),
-                              child: TextButton(
-                                onPressed: () => scrollFunc(3),
-                                child: Text("Projects"),
-                              ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 32),
+                            child: FloatingActionButton.extended(
+                              onPressed: () => scrollFunc(4),
+                              label: Text("Contact"),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 32),
-                              child: FloatingActionButton.extended(
-                                onPressed: () => scrollFunc(4),
-                                label: Text("Contact"),
-                              ),
+                          ),
+                        ],
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TextButton(
+                            onPressed: () => scrollFunc(2),
+                            child: Text("Resume"),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 32),
+                            child: TextButton(
+                              onPressed: () => scrollFunc(3),
+                              child: Text("Projects"),
                             ),
-                          ],
-                        )
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextButton(
-                              onPressed: () => scrollFunc(2),
-                              child: Text("Resume"),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 32),
+                            child: FloatingActionButton.extended(
+                              onPressed: () => scrollFunc(4),
+                              label: Text("Contact"),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 32),
-                              child: TextButton(
-                                onPressed: () => scrollFunc(3),
-                                child: Text("Projects"),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 32),
-                              child: FloatingActionButton.extended(
-                                onPressed: () => scrollFunc(4),
-                                label: Text("Contact"),
-                              ),
-                            ),
-                          ],
-                        ),
-                ),
+                          ),
+                        ],
+                      ),
               ),
             ],
           ),

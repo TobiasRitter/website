@@ -15,10 +15,7 @@ class ResumePage extends StatelessWidget {
         Container(
           color: Theme.of(context).backgroundColor,
           child: Center(
-            child: Header(
-              text: "Education",
-              animated: true,
-            ),
+            child: Header(text: "Education"),
           ),
         ),
         ResumeSection(
@@ -41,10 +38,7 @@ class ResumePage extends StatelessWidget {
         Container(
           color: Theme.of(context).backgroundColor,
           child: Center(
-            child: Header(
-              text: "Work experience",
-              animated: true,
-            ),
+            child: Header(text: "Work experience"),
           ),
         ),
         ResumeSection(
