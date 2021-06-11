@@ -1,5 +1,7 @@
-const SUBTITLE = """Computer Science student interested in 
-Data Analytics and Machine Learning""";
+const SUBTITLE = """Computer Science student""";
+
+const SHORT_DESC =
+    """Interested in Data Analytics and Machine Learning. Experience with Python, Pytorch, Java and C.""";
 
 const ABOUT =
     """My name is Tobias Ritter and I am Computer Science student currently working on my master's degree at the Technical University of Munich. I am highly interested in Data Analytics and Machine learning and love to develop Flutter applications like this website in my free time. During my bachelor studies in cooperation with TRUMPF GmbH + Co. KG I had the chance to gather insights into multiple areas of software development. I gained experience with programming languages like Python, Java, C, and C\# and worked with common Data Analytics frameworks like numpy, pandas and scikit-learn.
