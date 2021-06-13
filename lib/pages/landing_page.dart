@@ -1,6 +1,5 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
-import 'package:website/pages/about_page.dart';
 import 'package:website/components/footer.dart';
 import 'package:website/components/mobile_menu.dart';
 import 'package:website/pages/projects_page.dart';
@@ -23,8 +22,6 @@ class _LandingPageState extends State<LandingPage>
   late final Column content;
   bool menuOpened = false;
   List<GlobalKey> keys = [
-    GlobalKey(),
-    GlobalKey(),
     GlobalKey(),
     GlobalKey(),
     GlobalKey(),
@@ -55,17 +52,14 @@ class _LandingPageState extends State<LandingPage>
           key: keys[0],
           scrollFunc: scroll,
         ),
-        // AboutPage(
-        //   key: keys[1],
-        // ),
         ResumePage(
-          key: keys[2],
+          key: keys[1],
         ),
         ProjectsPage(
-          key: keys[3],
+          key: keys[2],
         ),
         Footer(
-          key: keys[4],
+          key: keys[3],
         ),
       ],
     );

@@ -67,6 +67,12 @@ class MyApp extends StatelessWidget {
         backgroundColor: BACKGROUND,
         shadowColor: SHADOW,
         textTheme: TextTheme(
+          bodyText1: GoogleFonts.roboto(
+            height: 1.5,
+            fontSize: 24,
+            color: TEXT,
+            fontWeight: FontWeight.bold,
+          ),
           bodyText2: GoogleFonts.roboto(
             height: 1.5,
             fontSize: 18,
@@ -79,7 +85,7 @@ class MyApp extends StatelessWidget {
           ),
           subtitle1: GoogleFonts.roboto(
             height: 1.5,
-            fontSize: 24,
+            fontSize: 28,
             color: TEXT,
             fontWeight: FontWeight.w300,
           ),
