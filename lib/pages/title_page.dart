@@ -59,57 +59,29 @@ class _TitlePageState extends State<TitlePage> {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: verticalMarginSize,
-              horizontal: horizontalMarginSize,
+            padding: EdgeInsets.fromLTRB(
+              horizontalMarginSize,
+              verticalMarginSize * 3,
+              horizontalMarginSize,
+              verticalMarginSize,
             ),
-            child: Column(
+            child: HeroContent(scrollFunc: widget.scrollFunc),
+          ),
+          Expanded(
+            child: Stack(
+              fit: StackFit.expand,
               children: [
-                FittedBox(
-                  child: SelectableText(
-                    TITLE,
-                    style: Theme.of(context).textTheme.headline1,
-                    maxLines: 1,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: verticalMarginSize / 2),
-                  child: FittedBox(
-                    child: SelectableText(
-                      SUBTITLE,
-                      style: Theme.of(context).textTheme.subtitle1,
+                img,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Arrow(
+                      scrollFunc: widget.scrollFunc,
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: verticalMarginSize),
-                  child: FittedBox(
-                    child: Column(
-                      children: [
-                        SelectableText(
-                          SHORT_DESC,
-                          textAlign: TextAlign.center,
-                        ),
-                        SelectableText(
-                          SHORT_DESC2,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: verticalMarginSize),
-                  child: FloatingActionButton.extended(
-                    onPressed: () => widget.scrollFunc(context, 3),
-                    label: Text("Get in contact"),
-                  ),
+                  ],
                 ),
               ],
             ),
-          ),
-          Expanded(
-            child: img,
           ),
         ],
       ),
@@ -139,52 +111,7 @@ class _TitlePageState extends State<TitlePage> {
                 child: Column(
                   children: [
                     Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          FittedBox(
-                            child: SelectableText(
-                              TITLE,
-                              style: Theme.of(context).textTheme.headline1,
-                              maxLines: 1,
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(top: verticalMarginSize / 2),
-                            child: FittedBox(
-                              child: SelectableText(
-                                SUBTITLE,
-                                style: Theme.of(context).textTheme.subtitle1,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: verticalMarginSize),
-                            child: FittedBox(
-                              child: Column(
-                                children: [
-                                  SelectableText(
-                                    SHORT_DESC,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  SelectableText(
-                                    SHORT_DESC2,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: verticalMarginSize),
-                            child: FloatingActionButton.extended(
-                              onPressed: () => widget.scrollFunc(context, 3),
-                              label: Text("Get in contact"),
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: HeroContent(scrollFunc: widget.scrollFunc),
                     ),
                     Arrow(
                       scrollFunc: widget.scrollFunc,
@@ -196,6 +123,65 @@ class _TitlePageState extends State<TitlePage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class HeroContent extends StatelessWidget {
+  final Function(BuildContext, int) scrollFunc;
+
+  const HeroContent({
+    Key? key,
+    required this.scrollFunc,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var verticalMarginSize = getRelativeVerticalSize(context);
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        FittedBox(
+          child: SelectableText(
+            TITLE,
+            style: Theme.of(context).textTheme.headline1,
+            maxLines: 1,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: verticalMarginSize / 2),
+          child: FittedBox(
+            child: SelectableText(
+              SUBTITLE,
+              style: Theme.of(context).textTheme.subtitle1,
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: verticalMarginSize / 2),
+          child: FittedBox(
+            child: Column(
+              children: [
+                SelectableText(
+                  SHORT_DESC,
+                  textAlign: TextAlign.center,
+                ),
+                SelectableText(
+                  SHORT_DESC2,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: verticalMarginSize),
+          child: FloatingActionButton.extended(
+            onPressed: () => scrollFunc(context, 3),
+            label: Text("Get in contact"),
+          ),
+        ),
+      ],
     );
   }
 }

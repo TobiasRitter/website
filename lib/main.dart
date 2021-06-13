@@ -69,9 +69,9 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           bodyText1: GoogleFonts.roboto(
             height: 1.5,
-            fontSize: 24,
+            fontSize: 28,
             color: TEXT,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
           ),
           bodyText2: GoogleFonts.roboto(
             height: 1.5,

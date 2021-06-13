@@ -12,7 +12,14 @@ class DesktopMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
+        Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: Image.asset(
+            "res/Logo.png",
+            height: 32,
+          ),
+        ),
+        SelectableText(
           "Tobias Ritter",
           style: Theme.of(context).textTheme.bodyText1,
         ),
