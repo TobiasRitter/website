@@ -19,7 +19,7 @@ const TEXT = Colors.black;
 const PRIMARY_TEXT = Colors.white;
 
 const PRIMARY = Colors.black;
-const DIVIDER = Colors.black12;
+const DIVIDER = Colors.black26;
 const BACKGROUND = Colors.white;
 const CANVAS = const Color(0xfff5f5f5);
 const ACCENT = const Color(0xffff0060);

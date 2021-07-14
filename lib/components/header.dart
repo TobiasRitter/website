@@ -28,7 +28,7 @@ class Header extends StatelessWidget {
               : Theme.of(context).textTheme.headline1,
     );
     return Padding(
-      padding: EdgeInsets.only(top: h2 ? 0 : verticalMargin * 3),
+      padding: EdgeInsets.only(top: h2 ? 0 : verticalMargin * 4),
       child: Container(
         constraints: BoxConstraints(
           maxWidth: MAX_CONTENT_WIDTH,
@@ -40,7 +40,7 @@ class Header extends StatelessWidget {
               Expanded(
                 child: Container(
                   constraints: BoxConstraints(
-                    maxHeight: h2 ? verticalMargin * 1.25 : verticalMargin * 3,
+                    maxHeight: h2 ? verticalMargin * 1.25 : verticalMargin * 4,
                   ),
                   child: FittedBox(
                     alignment: Alignment.bottomLeft,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:website/components/header.dart';
 import 'package:website/components/resume_section.dart';
+import 'package:website/main.dart';
 import 'package:website/texts.dart';
 
 class ResumePage extends StatelessWidget {
@@ -13,19 +14,35 @@ class ResumePage extends StatelessWidget {
     return Column(
       children: [
         Container(
-          color: Theme.of(context).backgroundColor,
-          child: Center(
-            child: Header(text: "Education"),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("res/TUM.jpg"),
+              colorFilter: ColorFilter.mode(
+                  Theme.of(context).primaryColor.withOpacity(IMG_OPACITY),
+                  BlendMode.darken),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        ResumeSection(
-          title: "M. Sc. Informatics",
-          date: "2020 - Present",
-          location: "Munich",
-          institution: "TU Munich",
-          institutionUrl: "https://www.tum.de/",
-          description: TUM,
-          image: 'res/TUM.jpg',
+          child: Column(
+            children: [
+              Center(
+                child: Header(
+                  text: "Education",
+                  light: true,
+                ),
+              ),
+              ResumeSection(
+                title: "M. Sc. Informatics",
+                date: "2020 - Present",
+                location: "Munich",
+                institution: "TU Munich",
+                institutionUrl: "https://www.tum.de/",
+                description: TUM,
+                whiteText: true,
+                // image: 'res/TUM.jpg',
+              ),
+            ],
+          ),
         ),
         ResumeSection(
           title: "B. Sc. Computer Science",

@@ -34,7 +34,7 @@ class Footer extends StatelessWidget {
                 : buildFooterRow(context),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 32),
+            padding: const EdgeInsets.only(top: 64),
             child: CopyrightButton(),
           ),
         ],
@@ -53,33 +53,24 @@ class Footer extends StatelessWidget {
             "LinkedIn",
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 16),
-          child: TextButton(
-            onPressed: () =>
-                launchURL('https://www.xing.com/profile/Tobias_Ritter52/cv'),
-            child: Text(
-              "XING",
-            ),
+        TextButton(
+          onPressed: () =>
+              launchURL('https://www.xing.com/profile/Tobias_Ritter52/cv'),
+          child: Text(
+            "XING",
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 16),
-          child: TextButton(
-            onPressed: () =>
-                launchURL('https://github.com/TobiasRitter?tab=repositories'),
-            child: Text(
-              "GitHub",
-            ),
+        TextButton(
+          onPressed: () =>
+              launchURL('https://github.com/TobiasRitter?tab=repositories'),
+          child: Text(
+            "GitHub",
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 16),
-          child: TextButton(
-            onPressed: () => launchURL('https://hub.docker.com/u/tobiasritter'),
-            child: Text(
-              "Docker Hub",
-            ),
+        TextButton(
+          onPressed: () => launchURL('https://hub.docker.com/u/tobiasritter'),
+          child: Text(
+            "Docker Hub",
           ),
         ),
       ],

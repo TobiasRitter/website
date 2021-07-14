@@ -13,6 +13,7 @@ class ResumeSection extends StatefulWidget {
   final String? image;
   final Widget? header;
   final bool dark;
+  final bool whiteText;
 
   const ResumeSection({
     Key? key,
@@ -25,6 +26,7 @@ class ResumeSection extends StatefulWidget {
     this.image,
     this.header,
     this.dark = false,
+    this.whiteText = false,
   }) : super(key: key);
 
   @override
@@ -38,7 +40,7 @@ class _ResumeSectionState extends State<ResumeSection> {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      color: widget.image != null
+      color: widget.image != null || widget.whiteText
           ? null
           : widget.dark
               ? Theme.of(context).canvasColor
@@ -134,7 +136,7 @@ class _ResumeSectionState extends State<ResumeSection> {
   Widget buildDescription(BuildContext context) {
     return SelectableText(
       widget.description,
-      style: widget.image != null
+      style: widget.image != null || widget.whiteText
           ? Theme.of(context).primaryTextTheme.bodyText2
           : Theme.of(context).textTheme.bodyText2,
     );
@@ -147,7 +149,7 @@ class _ResumeSectionState extends State<ResumeSection> {
         Header(
           text: widget.title,
           h2: true,
-          light: widget.image != null,
+          light: widget.image != null || widget.whiteText,
         ),
         Padding(
           padding: EdgeInsets.only(top: 32),
@@ -157,14 +159,14 @@ class _ResumeSectionState extends State<ResumeSection> {
                 padding: const EdgeInsets.only(right: 16),
                 child: Icon(
                   Icons.calendar_today_sharp,
-                  color: widget.image != null
+                  color: widget.image != null || widget.whiteText
                       ? Theme.of(context).primaryTextTheme.bodyText2!.color
                       : Theme.of(context).textTheme.bodyText2!.color,
                 ),
               ),
               SelectableText(
                 widget.date,
-                style: widget.image != null
+                style: widget.image != null || widget.whiteText
                     ? Theme.of(context).primaryTextTheme.bodyText2
                     : Theme.of(context).textTheme.bodyText2,
               ),
@@ -179,14 +181,14 @@ class _ResumeSectionState extends State<ResumeSection> {
                 padding: const EdgeInsets.only(right: 16),
                 child: Icon(
                   Icons.location_on_sharp,
-                  color: widget.image != null
+                  color: widget.image != null || widget.whiteText
                       ? Theme.of(context).primaryTextTheme.bodyText2!.color
                       : Theme.of(context).textTheme.bodyText2!.color,
                 ),
               ),
               SelectableText(
                 widget.location,
-                style: widget.image != null
+                style: widget.image != null || widget.whiteText
                     ? Theme.of(context).primaryTextTheme.bodyText2
                     : Theme.of(context).textTheme.bodyText2,
               ),

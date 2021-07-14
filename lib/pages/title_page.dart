@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:website/components/arrow.dart';
-import 'package:website/components/desktop_menu.dart';
 import 'package:website/main.dart';
 import 'package:website/texts.dart';
 
@@ -31,24 +30,11 @@ class _TitlePageState extends State<TitlePage> {
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
-    var horizontalMargin = getRelativeHorizontalSize(context);
-    var verticalMargin = getRelativeVerticalSize(context);
     return Container(
       height: screenHeight,
-      child: Column(
-        children: [
-          isMobile(context)
-              ? Container()
-              : Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: verticalMargin, horizontal: horizontalMargin),
-                  child: DesktopMenu(scrollFunc: widget.scrollFunc),
-                ),
-          isPortrait(context)
-              ? buildMobileLayout(context)
-              : buildDesktopLayout(context),
-        ],
-      ),
+      child: isPortrait(context)
+          ? buildMobileLayout(context)
+          : buildDesktopLayout(context),
     );
   }
 
@@ -140,6 +126,9 @@ class HeroContent extends StatelessWidget {
     var verticalMarginSize = getRelativeVerticalSize(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: isPortrait(context)
+          ? CrossAxisAlignment.center
+          : CrossAxisAlignment.start,
       children: [
         FittedBox(
           child: SelectableText(
@@ -164,11 +153,6 @@ class HeroContent extends StatelessWidget {
               children: [
                 SelectableText(
                   SHORT_DESC,
-                  textAlign: TextAlign.center,
-                ),
-                SelectableText(
-                  SHORT_DESC2,
-                  textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -179,6 +163,7 @@ class HeroContent extends StatelessWidget {
           child: FloatingActionButton.extended(
             onPressed: () => scrollFunc(context, 3),
             label: Text("Get in contact"),
+            icon: Icon(Icons.send),
           ),
         ),
       ],
