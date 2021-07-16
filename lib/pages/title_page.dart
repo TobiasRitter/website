@@ -80,31 +80,42 @@ class _TitlePageState extends State<TitlePage> {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: horizontalMarginSize),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
+        child: Stack(
           children: [
-            Expanded(
-              flex: 2,
-              child: img,
-            ),
-            Expanded(
-              flex: 3,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: horizontalMarginSize,
-                  vertical: verticalMarginSize,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: img,
                 ),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: HeroContent(scrollFunc: widget.scrollFunc),
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: horizontalMarginSize,
+                      vertical: verticalMarginSize,
                     ),
-                    Arrow(
-                      scrollFunc: widget.scrollFunc,
+                    child: HeroContent(scrollFunc: widget.scrollFunc),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(bottom: verticalMarginSize),
+                      child: Arrow(
+                        scrollFunc: widget.scrollFunc,
+                      ),
                     ),
                   ],
                 ),
-              ),
+              ],
             ),
           ],
         ),
@@ -139,32 +150,38 @@ class HeroContent extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(top: verticalMarginSize / 2),
-          child: FittedBox(
-            child: SelectableText(
-              SUBTITLE,
-              style: Theme.of(context).textTheme.subtitle1,
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: verticalMarginSize / 2),
-          child: FittedBox(
-            child: Column(
-              children: [
-                SelectableText(
-                  SHORT_DESC,
-                ),
-              ],
-            ),
+          child: SelectableText(
+            isPortrait(context) ? SHORT_DESC_MOBILE : SHORT_DESC,
+            textAlign: isPortrait(context) ? TextAlign.center : TextAlign.start,
           ),
         ),
         Padding(
           padding: EdgeInsets.only(top: verticalMarginSize),
-          child: FloatingActionButton.extended(
-            onPressed: () => scrollFunc(context, 3),
-            label: Text("Get in contact"),
-            icon: Icon(Icons.send),
-          ),
+          child: isPortrait(context)
+              ? FloatingActionButton.extended(
+                  onPressed: () {},
+                  icon: Icon(Icons.download),
+                  label: Text("Resume"),
+                )
+              : Row(
+                  children: [
+                    FloatingActionButton.extended(
+                      onPressed: () {},
+                      icon: Icon(Icons.download),
+                      label: Text("Resume"),
+                    ),
+                    Container(width: 32),
+                    IconButton(
+                      onPressed: () => scrollFunc(context, 2),
+                      icon: Icon(Icons.code),
+                    ),
+                    Container(width: 32),
+                    IconButton(
+                      onPressed: () => scrollFunc(context, 3),
+                      icon: Icon(Icons.send),
+                    ),
+                  ],
+                ),
         ),
       ],
     );
