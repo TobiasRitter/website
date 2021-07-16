@@ -9,32 +9,79 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var horizontalMargin = getRelativeHorizontalSize(context);
-    var verticalMargin = getRelativeVerticalSize(context);
     return Container(
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: horizontalMargin, vertical: verticalMargin),
-        child: isMobile(context)
-            ? buildMobileLayout(context)
-            : buildDesktopLayout(context),
-      ),
+      child: isMobile(context)
+          ? isPortrait(context)
+              ? buildMobileLayout(context)
+              : buildMobileLayout2(context)
+          : buildDesktopLayout(context),
     );
   }
 
   Widget buildMobileLayout(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.height;
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMargin = getRelativeVerticalSize(context);
+    return Container(
+      height: screenHeight,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: verticalMargin * 3,
+          horizontal: horizontalMargin,
+        ),
+        child: Column(
+          children: [
+            TextButton(
+              onPressed: () =>
+                  launchURL('https://www.linkedin.com/in/tobias-ritter/'),
+              child: Text(
+                "LinkedIn",
+              ),
+            ),
+            TextButton(
+              onPressed: () =>
+                  launchURL('https://www.xing.com/profile/Tobias_Ritter52/cv'),
+              child: Text(
+                "XING",
+              ),
+            ),
+            TextButton(
+              onPressed: () =>
+                  launchURL('https://github.com/TobiasRitter?tab=repositories'),
+              child: Text(
+                "GitHub",
+              ),
+            ),
+            TextButton(
+              onPressed: () =>
+                  launchURL('https://hub.docker.com/u/tobiasritter'),
+              child: Text(
+                "Docker Hub",
+              ),
+            ),
+            Spacer(),
+            CopyrightButton(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildMobileLayout2(BuildContext context) {
+    var horizontalMargin = getRelativeHorizontalSize(context);
     var verticalMargin = getRelativeVerticalSize(context);
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: verticalMargin * 2),
+      padding: EdgeInsets.symmetric(
+        vertical: verticalMargin,
+        horizontal: horizontalMargin,
+      ),
       child: Column(
         children: [
           Center(
-            child: isPortrait(context)
-                ? buildFooterCol(context)
-                : buildFooterRow(context),
+            child: buildFooterRow(context),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 64),
+            padding: EdgeInsets.only(top: verticalMargin / 2),
             child: CopyrightButton(),
           ),
         ],
@@ -42,53 +89,26 @@ class Footer extends StatelessWidget {
     );
   }
 
-  Column buildFooterCol(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        TextButton(
-          onPressed: () =>
-              launchURL('https://www.linkedin.com/in/tobias-ritter/'),
-          child: Text(
-            "LinkedIn",
-          ),
-        ),
-        TextButton(
-          onPressed: () =>
-              launchURL('https://www.xing.com/profile/Tobias_Ritter52/cv'),
-          child: Text(
-            "XING",
-          ),
-        ),
-        TextButton(
-          onPressed: () =>
-              launchURL('https://github.com/TobiasRitter?tab=repositories'),
-          child: Text(
-            "GitHub",
-          ),
-        ),
-        TextButton(
-          onPressed: () => launchURL('https://hub.docker.com/u/tobiasritter'),
-          child: Text(
-            "Docker Hub",
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget buildDesktopLayout(BuildContext context) {
-    return Stack(
-      alignment: AlignmentDirectional.center,
-      children: [
-        buildFooterRow(context),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            CopyrightButton(),
-          ],
-        ),
-      ],
+    var horizontalMargin = getRelativeHorizontalSize(context);
+    var verticalMargin = getRelativeVerticalSize(context);
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: verticalMargin,
+        horizontal: horizontalMargin,
+      ),
+      child: Stack(
+        alignment: AlignmentDirectional.center,
+        children: [
+          buildFooterRow(context),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              CopyrightButton(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
