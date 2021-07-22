@@ -38,87 +38,83 @@ class _TitlePageState extends State<TitlePage> {
     );
   }
 
-  Expanded buildMobileLayout(BuildContext context) {
+  Widget buildMobileLayout(BuildContext context) {
     var horizontalMarginSize = getRelativeHorizontalSize(context);
     var verticalMarginSize = getRelativeVerticalSize(context);
-    return Expanded(
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-              horizontalMarginSize,
-              verticalMarginSize * 3,
-              horizontalMarginSize,
-              verticalMarginSize,
-            ),
-            child: HeroContent(scrollFunc: widget.scrollFunc),
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.fromLTRB(
+            horizontalMarginSize,
+            verticalMarginSize * 3,
+            horizontalMarginSize,
+            verticalMarginSize,
           ),
-          Expanded(
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                img,
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Arrow(
-                      scrollFunc: widget.scrollFunc,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+          child: HeroContent(scrollFunc: widget.scrollFunc),
+        ),
+        Expanded(
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              img,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Arrow(
+                    scrollFunc: widget.scrollFunc,
+                  ),
+                ],
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
-  Expanded buildDesktopLayout(BuildContext context) {
+  Widget buildDesktopLayout(BuildContext context) {
     var horizontalMarginSize = getRelativeHorizontalSize(context);
     var verticalMarginSize = getRelativeVerticalSize(context);
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: horizontalMarginSize),
-        child: Stack(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: img,
-                ),
-                Expanded(
-                  flex: 3,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: horizontalMarginSize,
-                      vertical: verticalMarginSize,
-                    ),
-                    child: HeroContent(scrollFunc: widget.scrollFunc),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: horizontalMarginSize),
+      child: Stack(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Expanded(
+                flex: 2,
+                child: img,
+              ),
+              Expanded(
+                flex: 3,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: horizontalMarginSize,
+                    vertical: verticalMarginSize,
                   ),
+                  child: HeroContent(scrollFunc: widget.scrollFunc),
                 ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(bottom: verticalMarginSize),
-                      child: Arrow(
-                        scrollFunc: widget.scrollFunc,
-                      ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: verticalMarginSize),
+                    child: Arrow(
+                      scrollFunc: widget.scrollFunc,
                     ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -141,12 +137,18 @@ class HeroContent extends StatelessWidget {
           ? CrossAxisAlignment.center
           : CrossAxisAlignment.start,
       children: [
-        FittedBox(
-          child: SelectableText(
-            TITLE,
-            style: Theme.of(context).textTheme.headline1,
-            maxLines: 1,
-          ),
+        Row(
+          children: [
+            Expanded(
+              child: FittedBox(
+                child: SelectableText(
+                  TITLE,
+                  style: Theme.of(context).textTheme.headline1,
+                  maxLines: 1,
+                ),
+              ),
+            ),
+          ],
         ),
         Padding(
           padding: EdgeInsets.only(top: verticalMarginSize / 2),
