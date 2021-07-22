@@ -161,7 +161,7 @@ class HeroContent extends StatelessWidget {
           padding: EdgeInsets.only(top: verticalMarginSize),
           child: isPortrait(context)
               ? FloatingActionButton.extended(
-                  onPressed: () {},
+                  onPressed: () => launchURL("/CV.pdf"),
                   icon: Icon(Icons.download),
                   label: Text("Resume"),
                 )

@@ -49,5 +49,5 @@ app.*.map.json
 
 /android
 /ios
-/web
+# /web
 /.idea
