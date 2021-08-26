@@ -11,7 +11,7 @@ final Duration animationDuration = Duration(milliseconds: 500);
 const MIN_DESKTOP_WIDTH = 1000.0;
 const MIN_FOOTER_WIDTH = 560.0;
 const MAX_CONTENT_WIDTH = 1200.0;
-const IMG_OPACITY = 0.5;
+const IMG_OPACITY = 0.9;
 const ELEVATION = 24.0;
 const IMG_RADIUS = 24.0;
 
@@ -21,9 +21,9 @@ const PRIMARY_TEXT = Colors.white;
 const PRIMARY = Colors.black;
 const DIVIDER = Colors.black26;
 const BACKGROUND = Colors.white;
-const CANVAS = const Color(0xfff5f5f5);
-const ACCENT = const Color(0xffff0060);
-const SELECTION = const Color(0x44ff0060);
+const CANVAS = Colors.white;
+const ACCENT = const Color(0xff5050ff);
+const SELECTION = const Color(0x445050ff);
 const SHADOW = const Color(0x55000000);
 
 double getRelativeHorizontalSize(BuildContext context) {

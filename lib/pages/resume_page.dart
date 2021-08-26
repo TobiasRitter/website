@@ -18,8 +18,8 @@ class ResumePage extends StatelessWidget {
             image: DecorationImage(
               image: AssetImage("res/TUM.jpg"),
               colorFilter: ColorFilter.mode(
-                  Theme.of(context).primaryColor.withOpacity(IMG_OPACITY),
-                  BlendMode.darken),
+                  Theme.of(context).backgroundColor.withOpacity(IMG_OPACITY),
+                  BlendMode.lighten),
               fit: BoxFit.cover,
             ),
           ),
@@ -28,7 +28,6 @@ class ResumePage extends StatelessWidget {
               Center(
                 child: Header(
                   text: "Education",
-                  light: true,
                 ),
               ),
               ResumeSection(
@@ -38,7 +37,7 @@ class ResumePage extends StatelessWidget {
                 institution: "TU Munich",
                 institutionUrl: "https://www.tum.de/",
                 description: TUM,
-                whiteText: true,
+                transparent: true,
                 // image: 'res/TUM.jpg',
               ),
             ],
