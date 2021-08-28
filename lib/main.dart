@@ -11,7 +11,7 @@ final Duration animationDuration = Duration(milliseconds: 500);
 const MIN_DESKTOP_WIDTH = 1000.0;
 const MIN_FOOTER_WIDTH = 560.0;
 const MAX_CONTENT_WIDTH = 1200.0;
-const IMG_OPACITY = 0.9;
+const IMG_OPACITY = 0.8;
 const ELEVATION = 24.0;
 const IMG_RADIUS = 24.0;
 

@@ -15,7 +15,7 @@ class TitlePage extends StatefulWidget {
 }
 
 class _TitlePageState extends State<TitlePage> {
-  late final Image img;
+  late final Widget img;
 
   @override
   void initState() {
@@ -161,7 +161,7 @@ class HeroContent extends StatelessWidget {
           padding: EdgeInsets.only(top: verticalMarginSize),
           child: isPortrait(context)
               ? FloatingActionButton.extended(
-                  onPressed: () => launchURL("/CV.pdf"),
+                  onPressed: () {},
                   icon: Icon(Icons.download),
                   label: Text("Resume"),
                 )

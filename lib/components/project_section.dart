@@ -12,7 +12,6 @@ class ProjectSection extends StatefulWidget {
     required this.url,
     required this.image,
     this.inversed = false,
-    this.dark = false,
     this.header,
   }) : super(key: key);
 
@@ -21,7 +20,6 @@ class ProjectSection extends StatefulWidget {
   final String url;
   final String image;
   final bool inversed;
-  final bool dark;
   final Widget? header;
 
   @override
@@ -37,9 +35,7 @@ class _ProjectSectionState extends State<ProjectSection> {
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
       constraints: BoxConstraints(minHeight: screenHeight),
-      color: widget.dark
-          ? Theme.of(context).canvasColor
-          : Theme.of(context).backgroundColor,
+      color: Theme.of(context).backgroundColor,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: verticalMargin * 3),
         child: Column(

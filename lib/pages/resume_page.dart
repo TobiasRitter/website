@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/components/header.dart';
 import 'package:website/components/resume_section.dart';
-import 'package:website/main.dart';
 import 'package:website/texts.dart';
 
 class ResumePage extends StatelessWidget {
@@ -13,35 +12,19 @@ class ResumePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("res/TUM.jpg"),
-              colorFilter: ColorFilter.mode(
-                  Theme.of(context).backgroundColor.withOpacity(IMG_OPACITY),
-                  BlendMode.lighten),
-              fit: BoxFit.cover,
-            ),
+        Center(
+          child: Header(
+            text: "Education",
           ),
-          child: Column(
-            children: [
-              Center(
-                child: Header(
-                  text: "Education",
-                ),
-              ),
-              ResumeSection(
-                title: "M. Sc. Informatics",
-                date: "2020 - Present",
-                location: "Munich",
-                institution: "TU Munich",
-                institutionUrl: "https://www.tum.de/",
-                description: TUM,
-                transparent: true,
-                // image: 'res/TUM.jpg',
-              ),
-            ],
-          ),
+        ),
+        ResumeSection(
+          title: "M. Sc. Informatics",
+          date: "2020 - Present",
+          location: "Munich",
+          institution: "TU Munich",
+          institutionUrl: "https://www.tum.de/",
+          description: TUM,
+          image: 'res/TUM.jpg',
         ),
         ResumeSection(
           title: "B. Sc. Computer Science",
@@ -64,7 +47,6 @@ class ResumePage extends StatelessWidget {
           institution: "TRUMPF",
           institutionUrl: "https://www.trumpf.com/en_INT/",
           description: TRUMPF,
-          dark: true,
         ),
         ResumeSection(
           title: "Summer Intern",

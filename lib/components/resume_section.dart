@@ -12,8 +12,6 @@ class ResumeSection extends StatefulWidget {
   final String institutionUrl;
   final String? image;
   final Widget? header;
-  final bool dark;
-  final bool transparent;
 
   const ResumeSection({
     Key? key,
@@ -25,8 +23,6 @@ class ResumeSection extends StatefulWidget {
     required this.institutionUrl,
     this.image,
     this.header,
-    this.dark = false,
-    this.transparent = false,
   }) : super(key: key);
 
   @override
@@ -40,11 +36,9 @@ class _ResumeSectionState extends State<ResumeSection> {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      color: widget.image != null || widget.transparent
+      color: widget.image != null
           ? null
-          : widget.dark
-              ? Theme.of(context).canvasColor
-              : Theme.of(context).backgroundColor,
+          : Theme.of(context).backgroundColor,
       constraints: BoxConstraints(minHeight: screenHeight),
       decoration: widget.image != null
           ? BoxDecoration(
