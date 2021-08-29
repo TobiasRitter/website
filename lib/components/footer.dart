@@ -19,11 +19,9 @@ class Footer extends StatelessWidget {
   }
 
   Widget buildMobileLayout(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height;
     var horizontalMargin = getRelativeHorizontalSize(context);
     var verticalMargin = getRelativeVerticalSize(context);
     return Container(
-      height: screenHeight,
       child: Padding(
         padding: EdgeInsets.symmetric(
           vertical: verticalMargin * 3,
@@ -59,7 +57,6 @@ class Footer extends StatelessWidget {
                 "Docker Hub",
               ),
             ),
-            Spacer(),
             CopyrightButton(),
           ],
         ),
