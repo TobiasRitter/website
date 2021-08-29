@@ -21,7 +21,7 @@ class _TitlePageState extends State<TitlePage> {
   void initState() {
     super.initState();
     img = Image.asset(
-      "res/PBCompressed.png",
+      "res/PBFaded.png",
       fit: BoxFit.scaleDown,
       alignment: Alignment.bottomCenter,
     );
